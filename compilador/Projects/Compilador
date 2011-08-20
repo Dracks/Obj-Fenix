@@ -1,0 +1,46 @@
+
+[indentation]
+indent_width=4
+indent_type=1
+indent_hard_tab_width=8
+detect_indent=false
+indent_mode=2
+
+[project]
+name=[ofx]Compilador
+base_path=/home/jsingla/Dropbox/Programació/Obj-Fenix/Obj-Fenix/compilador
+description=
+
+[long line marker]
+long_line_behaviour=1
+long_line_column=72
+
+[files]
+current_page=5
+FILE_NAME_0=154;C++;0;16;1;1;0;/home/jsingla/Dropbox/Programació/Obj-Fenix/Obj-Fenix/compilador/src/treeCode/Base.cpp;0
+FILE_NAME_1=0;C++;0;16;1;1;0;/home/jsingla/Dropbox/Programació/Obj-Fenix/Obj-Fenix/compilador/src/treeCode/Base.h;0
+FILE_NAME_2=0;C++;0;16;1;1;0;/home/jsingla/Dropbox/Programació/Obj-Fenix/Obj-Fenix/compilador/src/treeCode/Loop.cpp;0
+FILE_NAME_3=329;C;0;16;1;1;0;/home/jsingla/Dropbox/Programació/Obj-Fenix/Obj-Fenix/compilador/src/treeCode/Loop.h;0
+FILE_NAME_4=9785;C++;0;16;1;1;0;/home/jsingla/Dropbox/Programació/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y;0
+FILE_NAME_5=522;C++;0;16;1;1;0;/home/jsingla/Dropbox/Programació/Obj-Fenix/Obj-Fenix/compilador/src/treeCode/Expresion.h;0
+
+[build-menu]
+NF_00_LB=_Munta
+NF_00_CM=make
+NF_00_WD=%p
+NF_01_LB=M_ake...
+NF_01_CM=make 
+NF_01_WD=%p
+NF_02_LB=Make _Object
+NF_02_CM=make %e.o
+NF_02_WD=%p
+NF_03_LB=
+NF_03_CM=
+NF_03_WD=%p
+C++FT_00_LB=_Compila
+C++FT_00_CM=make
+C++FT_00_WD=/home/jsingla/Dropbox/Programació/Obj-Fenix/Obj-Fenix/compilador
+C++FT_01_LB=_Munta
+C++FT_01_CM=make
+C++FT_01_WD=/home/jsingla/Dropbox/Programació/Obj-Fenix/Obj-Fenix/compilador
+filetypes=C++;

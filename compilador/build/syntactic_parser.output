@@ -1,0 +1,1845 @@
+Terminals which are not used
+
+   '|'
+   '&'
+   '+'
+   '-'
+   '*'
+   '/'
+   MOD_TOKEN
+   UMENYS
+   ID_SUBTYPE
+   ID_FUNCTION
+   INTERFACE_TOKEN
+   THIS_TOKEN
+   FOR_TOKEN
+   IN_TOKEN
+   LEXICAL_ERROR
+   AND_TOKEN
+   LE_OP
+   GE_OP
+   DIF_OP
+   POT_OP
+   DOS_PUNTOS
+   NUMERIC_LITERAL
+   CHARACTER_LITERAL
+   STRING_LITERAL
+
+
+Grammar
+
+    0 $accept: program $end
+
+    1 @1: /* empty */
+
+    2 program: option_defining_program list_modules_import option_package_definition @1 list_class_definition
+
+    3 option_defining_program: PROGRAM_TOKEN IDENTIFIER ':'
+    4                        | /* empty */
+
+    5 list_modules_import: list_modules_import module_import
+    6                    | /* empty */
+
+    7 option_package_definition: PACKAGE_TOKEN IDENTIFIER ';'
+    8                          | /* empty */
+
+    9 module_import: IMPORT_TOKEN CONSTANT_VALUE ';'
+
+   10 list_class_definition: list_class_definition class_interface_definition
+   11                      | class_interface_definition
+
+   12 class_interface_definition: class_definition
+
+   13 @2: /* empty */
+
+   14 class_definition: CLASS_TOKEN option_native IDENTIFIER option_inherit @2 ':' list_acces_level_block END_TOKEN
+
+   15 option_native: NATIVE_TOKEN
+   16              | /* empty */
+
+   17 option_inherit: INHERIT_TOKEN IDENTIFIER
+   18               | /* empty */
+
+   19 list_acces_level_block: level_definition_token ':' list_definitions END_TOKEN list_acces_level_block
+   20                       | /* empty */
+
+   21 level_definition_token: PUBLIC_TOKEN
+   22                       | PRIVATE_TOKEN
+   23                       | PROTECTED_TOKEN
+
+   24 list_definitions: definition list_definitions
+   25                 | definition
+
+   26 definition: propiety_definition
+   27           | method_definition
+
+   28 @3: /* empty */
+
+   29 @4: /* empty */
+
+   30 propiety_definition: list_propiety ':' @3 IDENTIFIER @4 ';'
+   31                    | error ';'
+
+   32 list_propiety: IDENTIFIER list_propiety_concat
+
+   33 list_propiety_concat: ',' IDENTIFIER list_propiety_concat
+   34                     | /* empty */
+
+   35 @5: /* empty */
+
+   36 method_definition: DEF_TOKEN IDENTIFIER @5 option_definition_parameters option_return implementation_option
+
+   37 option_definition_parameters: '(' definition_parameter list_definition_parameters ')'
+   38                             | /* empty */
+
+   39 list_definition_parameters: ',' definition_parameter list_definition_parameters
+   40                           | /* empty */
+
+   41 @6: /* empty */
+
+   42 definition_parameter: IDENTIFIER ':' @6 IDENTIFIER
+
+   43 @7: /* empty */
+
+   44 option_return: RETURN_TOKEN @7 IDENTIFIER
+   45              | /* empty */
+
+   46 implementation_option: ':' var_declaration_list BEGIN_TOKEN list_sentences END_TOKEN
+   47                      | ';'
+
+   48 var_declaration_list: var_declaration ';' var_declaration_list
+   49                     | /* empty */
+
+   50 @8: /* empty */
+
+   51 var_declaration: list_propiety ':' @8 IDENTIFIER
+
+   52 list_sentences: list_sentences sentence
+   53               | /* empty */
+
+   54 sentence: condition_sentence
+   55         | loop_options_sentence
+   56         | call_sentence
+   57         | return_sentence
+
+   58 call_sentence: expression option_assign_sentence ';'
+
+   59 option_assign_sentence: ASSIG expression
+   60                       | /* empty */
+
+   61 return_sentence: RETURN_TOKEN option_expression ';'
+
+   62 option_expression: expression
+   63                  | /* empty */
+
+   64 condition_sentence: IF_TOKEN conditional_sentence ':' list_sentences option_elsif_sentences_list END_TOKEN
+
+   65 option_elsif_sentences_list: ELIF_TOKEN conditional_sentence ':' list_sentences option_elsif_sentences_list
+   66                            | ELSE_TOKEN ':' list_sentences
+   67                            | /* empty */
+
+   68 conditional_sentence: expression
+
+   69 loop_options_sentence: while_sentence
+   70                      | do_sentence
+   71                      | loop_sentence
+
+   72 while_sentence: WHILE_TOKEN conditional_sentence ':' list_sentences END_TOKEN
+
+   73 do_sentence: DO_TOKEN ':' list_sentences END_TOKEN
+
+   74 loop_sentence: LOOP_TOKEN ':' list_sentences END_TOKEN
+
+   75 value: IDENTIFIER
+   76      | CONSTANT_VALUE
+   77      | '(' expression ')'
+
+   78 @9: /* empty */
+
+   79 expression: value @9 option_extension_expression
+
+   80 @10: /* empty */
+
+   81 option_extension_expression: '.' IDENTIFIER @10 option_call_parameters_parent option_extension_expression
+   82                            | IDENTIFIER push_espai_claseActual option_call_parameters
+   83                            | /* empty */
+
+   84 option_call_parameters_parent: '(' push_espai_claseActual expression list_call_parameters ')'
+   85                              | /* empty */
+
+   86 push_espai_claseActual: /* empty */
+
+   87 option_call_parameters: expression
+   88                       | /* empty */
+
+   89 list_call_parameters: ',' expression list_call_parameters
+   90                     | /* empty */
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'&' (38)
+'(' (40) 37 77 84
+')' (41) 37 77 84
+'*' (42)
+'+' (43)
+',' (44) 33 39 89
+'-' (45)
+'.' (46) 81
+'/' (47)
+':' (58) 3 14 19 30 42 46 51 64 65 66 72 73 74
+';' (59) 7 9 30 31 47 48 58 61
+'|' (124)
+error (256) 31
+MOD_TOKEN (258)
+UMENYS (259)
+ID_SUBTYPE (260)
+ID_FUNCTION (261)
+CLASS_TOKEN (262) 14
+DEF_TOKEN (263) 36
+PROGRAM_TOKEN (264) 3
+END_TOKEN (265) 14 19 46 64 72 73 74
+IMPORT_TOKEN (266) 9
+INTERFACE_TOKEN (267)
+PACKAGE_TOKEN (268) 7
+NATIVE_TOKEN (269) 15
+THIS_TOKEN (270)
+INHERIT_TOKEN (271) 17
+BEGIN_TOKEN (272) 46
+ELIF_TOKEN (273) 65
+IF_TOKEN (274) 64
+ELSE_TOKEN (275) 66
+RETURN_TOKEN (276) 44 61
+PROTECTED_TOKEN (277) 23
+PUBLIC_TOKEN (278) 21
+PRIVATE_TOKEN (279) 22
+WHILE_TOKEN (280) 72
+DO_TOKEN (281) 73
+LOOP_TOKEN (282) 74
+FOR_TOKEN (283)
+IN_TOKEN (284)
+LEXICAL_ERROR (285)
+AND_TOKEN (286)
+LE_OP (287)
+GE_OP (288)
+DIF_OP (289)
+POT_OP (290)
+ASSIG (291) 59
+DOS_PUNTOS (292)
+IDENTIFIER (293) 3 7 14 17 30 32 33 36 42 44 51 75 81 82
+NUMERIC_LITERAL (294)
+CHARACTER_LITERAL (295)
+STRING_LITERAL (296)
+CONSTANT_VALUE (297) 9 76
+
+
+Nonterminals, with rules where they appear
+
+$accept (55)
+    on left: 0
+program (56)
+    on left: 2, on right: 0
+@1 (57)
+    on left: 1, on right: 2
+option_defining_program (58)
+    on left: 3 4, on right: 2
+list_modules_import (59)
+    on left: 5 6, on right: 2 5
+option_package_definition (60)
+    on left: 7 8, on right: 2
+module_import (61)
+    on left: 9, on right: 5
+list_class_definition (62)
+    on left: 10 11, on right: 2 10
+class_interface_definition (63)
+    on left: 12, on right: 10 11
+class_definition (64)
+    on left: 14, on right: 12
+@2 (65)
+    on left: 13, on right: 14
+option_native (66)
+    on left: 15 16, on right: 14
+option_inherit (67)
+    on left: 17 18, on right: 14
+list_acces_level_block (68)
+    on left: 19 20, on right: 14 19
+level_definition_token (69)
+    on left: 21 22 23, on right: 19
+list_definitions (70)
+    on left: 24 25, on right: 19 24
+definition (71)
+    on left: 26 27, on right: 24 25
+propiety_definition (72)
+    on left: 30 31, on right: 26
+@3 (73)
+    on left: 28, on right: 30
+@4 (74)
+    on left: 29, on right: 30
+list_propiety (75)
+    on left: 32, on right: 30 51
+list_propiety_concat (76)
+    on left: 33 34, on right: 32 33
+method_definition (77)
+    on left: 36, on right: 27
+@5 (78)
+    on left: 35, on right: 36
+option_definition_parameters (79)
+    on left: 37 38, on right: 36
+list_definition_parameters (80)
+    on left: 39 40, on right: 37 39
+definition_parameter (81)
+    on left: 42, on right: 37 39
+@6 (82)
+    on left: 41, on right: 42
+option_return (83)
+    on left: 44 45, on right: 36
+@7 (84)
+    on left: 43, on right: 44
+implementation_option (85)
+    on left: 46 47, on right: 36
+var_declaration_list (86)
+    on left: 48 49, on right: 46 48
+var_declaration (87)
+    on left: 51, on right: 48
+@8 (88)
+    on left: 50, on right: 51
+list_sentences (89)
+    on left: 52 53, on right: 46 52 64 65 66 72 73 74
+sentence (90)
+    on left: 54 55 56 57, on right: 52
+call_sentence (91)
+    on left: 58, on right: 56
+option_assign_sentence (92)
+    on left: 59 60, on right: 58
+return_sentence (93)
+    on left: 61, on right: 57
+option_expression (94)
+    on left: 62 63, on right: 61
+condition_sentence (95)
+    on left: 64, on right: 54
+option_elsif_sentences_list (96)
+    on left: 65 66 67, on right: 64 65
+conditional_sentence (97)
+    on left: 68, on right: 64 65 72
+loop_options_sentence (98)
+    on left: 69 70 71, on right: 55
+while_sentence (99)
+    on left: 72, on right: 69
+do_sentence (100)
+    on left: 73, on right: 70
+loop_sentence (101)
+    on left: 74, on right: 71
+value (102)
+    on left: 75 76 77, on right: 79
+expression (103)
+    on left: 79, on right: 58 59 62 68 77 84 87 89
+@9 (104)
+    on left: 78, on right: 79
+option_extension_expression (105)
+    on left: 81 82 83, on right: 79 81
+@10 (106)
+    on left: 80, on right: 81
+option_call_parameters_parent (107)
+    on left: 84 85, on right: 81
+push_espai_claseActual (108)
+    on left: 86, on right: 82 84
+option_call_parameters (109)
+    on left: 87 88, on right: 82
+list_call_parameters (110)
+    on left: 89 90, on right: 84 89
+
+
+state 0
+
+    0 $accept: . program $end
+
+    PROGRAM_TOKEN  shift, and go to state 1
+
+    $default  reduce using rule 4 (option_defining_program)
+
+    program                  go to state 2
+    option_defining_program  go to state 3
+
+
+state 1
+
+    3 option_defining_program: PROGRAM_TOKEN . IDENTIFIER ':'
+
+    IDENTIFIER  shift, and go to state 4
+
+
+state 2
+
+    0 $accept: program . $end
+
+    $end  shift, and go to state 5
+
+
+state 3
+
+    2 program: option_defining_program . list_modules_import option_package_definition @1 list_class_definition
+
+    $default  reduce using rule 6 (list_modules_import)
+
+    list_modules_import  go to state 6
+
+
+state 4
+
+    3 option_defining_program: PROGRAM_TOKEN IDENTIFIER . ':'
+
+    ':'  shift, and go to state 7
+
+
+state 5
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+state 6
+
+    2 program: option_defining_program list_modules_import . option_package_definition @1 list_class_definition
+    5 list_modules_import: list_modules_import . module_import
+
+    IMPORT_TOKEN   shift, and go to state 8
+    PACKAGE_TOKEN  shift, and go to state 9
+
+    $default  reduce using rule 8 (option_package_definition)
+
+    option_package_definition  go to state 10
+    module_import              go to state 11
+
+
+state 7
+
+    3 option_defining_program: PROGRAM_TOKEN IDENTIFIER ':' .
+
+    $default  reduce using rule 3 (option_defining_program)
+
+
+state 8
+
+    9 module_import: IMPORT_TOKEN . CONSTANT_VALUE ';'
+
+    CONSTANT_VALUE  shift, and go to state 12
+
+
+state 9
+
+    7 option_package_definition: PACKAGE_TOKEN . IDENTIFIER ';'
+
+    IDENTIFIER  shift, and go to state 13
+
+
+state 10
+
+    2 program: option_defining_program list_modules_import option_package_definition . @1 list_class_definition
+
+    $default  reduce using rule 1 (@1)
+
+    @1  go to state 14
+
+
+state 11
+
+    5 list_modules_import: list_modules_import module_import .
+
+    $default  reduce using rule 5 (list_modules_import)
+
+
+state 12
+
+    9 module_import: IMPORT_TOKEN CONSTANT_VALUE . ';'
+
+    ';'  shift, and go to state 15
+
+
+state 13
+
+    7 option_package_definition: PACKAGE_TOKEN IDENTIFIER . ';'
+
+    ';'  shift, and go to state 16
+
+
+state 14
+
+    2 program: option_defining_program list_modules_import option_package_definition @1 . list_class_definition
+
+    CLASS_TOKEN  shift, and go to state 17
+
+    list_class_definition       go to state 18
+    class_interface_definition  go to state 19
+    class_definition            go to state 20
+
+
+state 15
+
+    9 module_import: IMPORT_TOKEN CONSTANT_VALUE ';' .
+
+    $default  reduce using rule 9 (module_import)
+
+
+state 16
+
+    7 option_package_definition: PACKAGE_TOKEN IDENTIFIER ';' .
+
+    $default  reduce using rule 7 (option_package_definition)
+
+
+state 17
+
+   14 class_definition: CLASS_TOKEN . option_native IDENTIFIER option_inherit @2 ':' list_acces_level_block END_TOKEN
+
+    NATIVE_TOKEN  shift, and go to state 21
+
+    $default  reduce using rule 16 (option_native)
+
+    option_native  go to state 22
+
+
+state 18
+
+    2 program: option_defining_program list_modules_import option_package_definition @1 list_class_definition .
+   10 list_class_definition: list_class_definition . class_interface_definition
+
+    CLASS_TOKEN  shift, and go to state 17
+
+    $default  reduce using rule 2 (program)
+
+    class_interface_definition  go to state 23
+    class_definition            go to state 20
+
+
+state 19
+
+   11 list_class_definition: class_interface_definition .
+
+    $default  reduce using rule 11 (list_class_definition)
+
+
+state 20
+
+   12 class_interface_definition: class_definition .
+
+    $default  reduce using rule 12 (class_interface_definition)
+
+
+state 21
+
+   15 option_native: NATIVE_TOKEN .
+
+    $default  reduce using rule 15 (option_native)
+
+
+state 22
+
+   14 class_definition: CLASS_TOKEN option_native . IDENTIFIER option_inherit @2 ':' list_acces_level_block END_TOKEN
+
+    IDENTIFIER  shift, and go to state 24
+
+
+state 23
+
+   10 list_class_definition: list_class_definition class_interface_definition .
+
+    $default  reduce using rule 10 (list_class_definition)
+
+
+state 24
+
+   14 class_definition: CLASS_TOKEN option_native IDENTIFIER . option_inherit @2 ':' list_acces_level_block END_TOKEN
+
+    INHERIT_TOKEN  shift, and go to state 25
+
+    $default  reduce using rule 18 (option_inherit)
+
+    option_inherit  go to state 26
+
+
+state 25
+
+   17 option_inherit: INHERIT_TOKEN . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 27
+
+
+state 26
+
+   14 class_definition: CLASS_TOKEN option_native IDENTIFIER option_inherit . @2 ':' list_acces_level_block END_TOKEN
+
+    $default  reduce using rule 13 (@2)
+
+    @2  go to state 28
+
+
+state 27
+
+   17 option_inherit: INHERIT_TOKEN IDENTIFIER .
+
+    $default  reduce using rule 17 (option_inherit)
+
+
+state 28
+
+   14 class_definition: CLASS_TOKEN option_native IDENTIFIER option_inherit @2 . ':' list_acces_level_block END_TOKEN
+
+    ':'  shift, and go to state 29
+
+
+state 29
+
+   14 class_definition: CLASS_TOKEN option_native IDENTIFIER option_inherit @2 ':' . list_acces_level_block END_TOKEN
+
+    PROTECTED_TOKEN  shift, and go to state 30
+    PUBLIC_TOKEN     shift, and go to state 31
+    PRIVATE_TOKEN    shift, and go to state 32
+
+    $default  reduce using rule 20 (list_acces_level_block)
+
+    list_acces_level_block  go to state 33
+    level_definition_token  go to state 34
+
+
+state 30
+
+   23 level_definition_token: PROTECTED_TOKEN .
+
+    $default  reduce using rule 23 (level_definition_token)
+
+
+state 31
+
+   21 level_definition_token: PUBLIC_TOKEN .
+
+    $default  reduce using rule 21 (level_definition_token)
+
+
+state 32
+
+   22 level_definition_token: PRIVATE_TOKEN .
+
+    $default  reduce using rule 22 (level_definition_token)
+
+
+state 33
+
+   14 class_definition: CLASS_TOKEN option_native IDENTIFIER option_inherit @2 ':' list_acces_level_block . END_TOKEN
+
+    END_TOKEN  shift, and go to state 35
+
+
+state 34
+
+   19 list_acces_level_block: level_definition_token . ':' list_definitions END_TOKEN list_acces_level_block
+
+    ':'  shift, and go to state 36
+
+
+state 35
+
+   14 class_definition: CLASS_TOKEN option_native IDENTIFIER option_inherit @2 ':' list_acces_level_block END_TOKEN .
+
+    $default  reduce using rule 14 (class_definition)
+
+
+state 36
+
+   19 list_acces_level_block: level_definition_token ':' . list_definitions END_TOKEN list_acces_level_block
+
+    error       shift, and go to state 37
+    DEF_TOKEN   shift, and go to state 38
+    IDENTIFIER  shift, and go to state 39
+
+    list_definitions     go to state 40
+    definition           go to state 41
+    propiety_definition  go to state 42
+    list_propiety        go to state 43
+    method_definition    go to state 44
+
+
+state 37
+
+   31 propiety_definition: error . ';'
+
+    ';'  shift, and go to state 45
+
+
+state 38
+
+   36 method_definition: DEF_TOKEN . IDENTIFIER @5 option_definition_parameters option_return implementation_option
+
+    IDENTIFIER  shift, and go to state 46
+
+
+state 39
+
+   32 list_propiety: IDENTIFIER . list_propiety_concat
+
+    ','  shift, and go to state 47
+
+    $default  reduce using rule 34 (list_propiety_concat)
+
+    list_propiety_concat  go to state 48
+
+
+state 40
+
+   19 list_acces_level_block: level_definition_token ':' list_definitions . END_TOKEN list_acces_level_block
+
+    END_TOKEN  shift, and go to state 49
+
+
+state 41
+
+   24 list_definitions: definition . list_definitions
+   25                 | definition .
+
+    error       shift, and go to state 37
+    DEF_TOKEN   shift, and go to state 38
+    IDENTIFIER  shift, and go to state 39
+
+    END_TOKEN  reduce using rule 25 (list_definitions)
+
+    list_definitions     go to state 50
+    definition           go to state 41
+    propiety_definition  go to state 42
+    list_propiety        go to state 43
+    method_definition    go to state 44
+
+
+state 42
+
+   26 definition: propiety_definition .
+
+    $default  reduce using rule 26 (definition)
+
+
+state 43
+
+   30 propiety_definition: list_propiety . ':' @3 IDENTIFIER @4 ';'
+
+    ':'  shift, and go to state 51
+
+
+state 44
+
+   27 definition: method_definition .
+
+    $default  reduce using rule 27 (definition)
+
+
+state 45
+
+   31 propiety_definition: error ';' .
+
+    $default  reduce using rule 31 (propiety_definition)
+
+
+state 46
+
+   36 method_definition: DEF_TOKEN IDENTIFIER . @5 option_definition_parameters option_return implementation_option
+
+    $default  reduce using rule 35 (@5)
+
+    @5  go to state 52
+
+
+state 47
+
+   33 list_propiety_concat: ',' . IDENTIFIER list_propiety_concat
+
+    IDENTIFIER  shift, and go to state 53
+
+
+state 48
+
+   32 list_propiety: IDENTIFIER list_propiety_concat .
+
+    $default  reduce using rule 32 (list_propiety)
+
+
+state 49
+
+   19 list_acces_level_block: level_definition_token ':' list_definitions END_TOKEN . list_acces_level_block
+
+    PROTECTED_TOKEN  shift, and go to state 30
+    PUBLIC_TOKEN     shift, and go to state 31
+    PRIVATE_TOKEN    shift, and go to state 32
+
+    $default  reduce using rule 20 (list_acces_level_block)
+
+    list_acces_level_block  go to state 54
+    level_definition_token  go to state 34
+
+
+state 50
+
+   24 list_definitions: definition list_definitions .
+
+    $default  reduce using rule 24 (list_definitions)
+
+
+state 51
+
+   30 propiety_definition: list_propiety ':' . @3 IDENTIFIER @4 ';'
+
+    $default  reduce using rule 28 (@3)
+
+    @3  go to state 55
+
+
+state 52
+
+   36 method_definition: DEF_TOKEN IDENTIFIER @5 . option_definition_parameters option_return implementation_option
+
+    '('  shift, and go to state 56
+
+    $default  reduce using rule 38 (option_definition_parameters)
+
+    option_definition_parameters  go to state 57
+
+
+state 53
+
+   33 list_propiety_concat: ',' IDENTIFIER . list_propiety_concat
+
+    ','  shift, and go to state 47
+
+    $default  reduce using rule 34 (list_propiety_concat)
+
+    list_propiety_concat  go to state 58
+
+
+state 54
+
+   19 list_acces_level_block: level_definition_token ':' list_definitions END_TOKEN list_acces_level_block .
+
+    $default  reduce using rule 19 (list_acces_level_block)
+
+
+state 55
+
+   30 propiety_definition: list_propiety ':' @3 . IDENTIFIER @4 ';'
+
+    IDENTIFIER  shift, and go to state 59
+
+
+state 56
+
+   37 option_definition_parameters: '(' . definition_parameter list_definition_parameters ')'
+
+    IDENTIFIER  shift, and go to state 60
+
+    definition_parameter  go to state 61
+
+
+state 57
+
+   36 method_definition: DEF_TOKEN IDENTIFIER @5 option_definition_parameters . option_return implementation_option
+
+    RETURN_TOKEN  shift, and go to state 62
+
+    $default  reduce using rule 45 (option_return)
+
+    option_return  go to state 63
+
+
+state 58
+
+   33 list_propiety_concat: ',' IDENTIFIER list_propiety_concat .
+
+    $default  reduce using rule 33 (list_propiety_concat)
+
+
+state 59
+
+   30 propiety_definition: list_propiety ':' @3 IDENTIFIER . @4 ';'
+
+    $default  reduce using rule 29 (@4)
+
+    @4  go to state 64
+
+
+state 60
+
+   42 definition_parameter: IDENTIFIER . ':' @6 IDENTIFIER
+
+    ':'  shift, and go to state 65
+
+
+state 61
+
+   37 option_definition_parameters: '(' definition_parameter . list_definition_parameters ')'
+
+    ','  shift, and go to state 66
+
+    $default  reduce using rule 40 (list_definition_parameters)
+
+    list_definition_parameters  go to state 67
+
+
+state 62
+
+   44 option_return: RETURN_TOKEN . @7 IDENTIFIER
+
+    $default  reduce using rule 43 (@7)
+
+    @7  go to state 68
+
+
+state 63
+
+   36 method_definition: DEF_TOKEN IDENTIFIER @5 option_definition_parameters option_return . implementation_option
+
+    ':'  shift, and go to state 69
+    ';'  shift, and go to state 70
+
+    implementation_option  go to state 71
+
+
+state 64
+
+   30 propiety_definition: list_propiety ':' @3 IDENTIFIER @4 . ';'
+
+    ';'  shift, and go to state 72
+
+
+state 65
+
+   42 definition_parameter: IDENTIFIER ':' . @6 IDENTIFIER
+
+    $default  reduce using rule 41 (@6)
+
+    @6  go to state 73
+
+
+state 66
+
+   39 list_definition_parameters: ',' . definition_parameter list_definition_parameters
+
+    IDENTIFIER  shift, and go to state 60
+
+    definition_parameter  go to state 74
+
+
+state 67
+
+   37 option_definition_parameters: '(' definition_parameter list_definition_parameters . ')'
+
+    ')'  shift, and go to state 75
+
+
+state 68
+
+   44 option_return: RETURN_TOKEN @7 . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 76
+
+
+state 69
+
+   46 implementation_option: ':' . var_declaration_list BEGIN_TOKEN list_sentences END_TOKEN
+
+    IDENTIFIER  shift, and go to state 39
+
+    $default  reduce using rule 49 (var_declaration_list)
+
+    list_propiety         go to state 77
+    var_declaration_list  go to state 78
+    var_declaration       go to state 79
+
+
+state 70
+
+   47 implementation_option: ';' .
+
+    $default  reduce using rule 47 (implementation_option)
+
+
+state 71
+
+   36 method_definition: DEF_TOKEN IDENTIFIER @5 option_definition_parameters option_return implementation_option .
+
+    $default  reduce using rule 36 (method_definition)
+
+
+state 72
+
+   30 propiety_definition: list_propiety ':' @3 IDENTIFIER @4 ';' .
+
+    $default  reduce using rule 30 (propiety_definition)
+
+
+state 73
+
+   42 definition_parameter: IDENTIFIER ':' @6 . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 80
+
+
+state 74
+
+   39 list_definition_parameters: ',' definition_parameter . list_definition_parameters
+
+    ','  shift, and go to state 66
+
+    $default  reduce using rule 40 (list_definition_parameters)
+
+    list_definition_parameters  go to state 81
+
+
+state 75
+
+   37 option_definition_parameters: '(' definition_parameter list_definition_parameters ')' .
+
+    $default  reduce using rule 37 (option_definition_parameters)
+
+
+state 76
+
+   44 option_return: RETURN_TOKEN @7 IDENTIFIER .
+
+    $default  reduce using rule 44 (option_return)
+
+
+state 77
+
+   51 var_declaration: list_propiety . ':' @8 IDENTIFIER
+
+    ':'  shift, and go to state 82
+
+
+state 78
+
+   46 implementation_option: ':' var_declaration_list . BEGIN_TOKEN list_sentences END_TOKEN
+
+    BEGIN_TOKEN  shift, and go to state 83
+
+
+state 79
+
+   48 var_declaration_list: var_declaration . ';' var_declaration_list
+
+    ';'  shift, and go to state 84
+
+
+state 80
+
+   42 definition_parameter: IDENTIFIER ':' @6 IDENTIFIER .
+
+    $default  reduce using rule 42 (definition_parameter)
+
+
+state 81
+
+   39 list_definition_parameters: ',' definition_parameter list_definition_parameters .
+
+    $default  reduce using rule 39 (list_definition_parameters)
+
+
+state 82
+
+   51 var_declaration: list_propiety ':' . @8 IDENTIFIER
+
+    $default  reduce using rule 50 (@8)
+
+    @8  go to state 85
+
+
+state 83
+
+   46 implementation_option: ':' var_declaration_list BEGIN_TOKEN . list_sentences END_TOKEN
+
+    $default  reduce using rule 53 (list_sentences)
+
+    list_sentences  go to state 86
+
+
+state 84
+
+   48 var_declaration_list: var_declaration ';' . var_declaration_list
+
+    IDENTIFIER  shift, and go to state 39
+
+    $default  reduce using rule 49 (var_declaration_list)
+
+    list_propiety         go to state 77
+    var_declaration_list  go to state 87
+    var_declaration       go to state 79
+
+
+state 85
+
+   51 var_declaration: list_propiety ':' @8 . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 88
+
+
+state 86
+
+   46 implementation_option: ':' var_declaration_list BEGIN_TOKEN list_sentences . END_TOKEN
+   52 list_sentences: list_sentences . sentence
+
+    END_TOKEN       shift, and go to state 89
+    IF_TOKEN        shift, and go to state 90
+    RETURN_TOKEN    shift, and go to state 91
+    WHILE_TOKEN     shift, and go to state 92
+    DO_TOKEN        shift, and go to state 93
+    LOOP_TOKEN      shift, and go to state 94
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    sentence               go to state 98
+    call_sentence          go to state 99
+    return_sentence        go to state 100
+    condition_sentence     go to state 101
+    loop_options_sentence  go to state 102
+    while_sentence         go to state 103
+    do_sentence            go to state 104
+    loop_sentence          go to state 105
+    value                  go to state 106
+    expression             go to state 107
+
+
+state 87
+
+   48 var_declaration_list: var_declaration ';' var_declaration_list .
+
+    $default  reduce using rule 48 (var_declaration_list)
+
+
+state 88
+
+   51 var_declaration: list_propiety ':' @8 IDENTIFIER .
+
+    $default  reduce using rule 51 (var_declaration)
+
+
+state 89
+
+   46 implementation_option: ':' var_declaration_list BEGIN_TOKEN list_sentences END_TOKEN .
+
+    $default  reduce using rule 46 (implementation_option)
+
+
+state 90
+
+   64 condition_sentence: IF_TOKEN . conditional_sentence ':' list_sentences option_elsif_sentences_list END_TOKEN
+
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    conditional_sentence  go to state 108
+    value                 go to state 106
+    expression            go to state 109
+
+
+state 91
+
+   61 return_sentence: RETURN_TOKEN . option_expression ';'
+
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    $default  reduce using rule 63 (option_expression)
+
+    option_expression  go to state 110
+    value              go to state 106
+    expression         go to state 111
+
+
+state 92
+
+   72 while_sentence: WHILE_TOKEN . conditional_sentence ':' list_sentences END_TOKEN
+
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    conditional_sentence  go to state 112
+    value                 go to state 106
+    expression            go to state 109
+
+
+state 93
+
+   73 do_sentence: DO_TOKEN . ':' list_sentences END_TOKEN
+
+    ':'  shift, and go to state 113
+
+
+state 94
+
+   74 loop_sentence: LOOP_TOKEN . ':' list_sentences END_TOKEN
+
+    ':'  shift, and go to state 114
+
+
+state 95
+
+   75 value: IDENTIFIER .
+
+    $default  reduce using rule 75 (value)
+
+
+state 96
+
+   76 value: CONSTANT_VALUE .
+
+    $default  reduce using rule 76 (value)
+
+
+state 97
+
+   77 value: '(' . expression ')'
+
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    value       go to state 106
+    expression  go to state 115
+
+
+state 98
+
+   52 list_sentences: list_sentences sentence .
+
+    $default  reduce using rule 52 (list_sentences)
+
+
+state 99
+
+   56 sentence: call_sentence .
+
+    $default  reduce using rule 56 (sentence)
+
+
+state 100
+
+   57 sentence: return_sentence .
+
+    $default  reduce using rule 57 (sentence)
+
+
+state 101
+
+   54 sentence: condition_sentence .
+
+    $default  reduce using rule 54 (sentence)
+
+
+state 102
+
+   55 sentence: loop_options_sentence .
+
+    $default  reduce using rule 55 (sentence)
+
+
+state 103
+
+   69 loop_options_sentence: while_sentence .
+
+    $default  reduce using rule 69 (loop_options_sentence)
+
+
+state 104
+
+   70 loop_options_sentence: do_sentence .
+
+    $default  reduce using rule 70 (loop_options_sentence)
+
+
+state 105
+
+   71 loop_options_sentence: loop_sentence .
+
+    $default  reduce using rule 71 (loop_options_sentence)
+
+
+state 106
+
+   79 expression: value . @9 option_extension_expression
+
+    $default  reduce using rule 78 (@9)
+
+    @9  go to state 116
+
+
+state 107
+
+   58 call_sentence: expression . option_assign_sentence ';'
+
+    ASSIG  shift, and go to state 117
+
+    $default  reduce using rule 60 (option_assign_sentence)
+
+    option_assign_sentence  go to state 118
+
+
+state 108
+
+   64 condition_sentence: IF_TOKEN conditional_sentence . ':' list_sentences option_elsif_sentences_list END_TOKEN
+
+    ':'  shift, and go to state 119
+
+
+state 109
+
+   68 conditional_sentence: expression .
+
+    $default  reduce using rule 68 (conditional_sentence)
+
+
+state 110
+
+   61 return_sentence: RETURN_TOKEN option_expression . ';'
+
+    ';'  shift, and go to state 120
+
+
+state 111
+
+   62 option_expression: expression .
+
+    $default  reduce using rule 62 (option_expression)
+
+
+state 112
+
+   72 while_sentence: WHILE_TOKEN conditional_sentence . ':' list_sentences END_TOKEN
+
+    ':'  shift, and go to state 121
+
+
+state 113
+
+   73 do_sentence: DO_TOKEN ':' . list_sentences END_TOKEN
+
+    $default  reduce using rule 53 (list_sentences)
+
+    list_sentences  go to state 122
+
+
+state 114
+
+   74 loop_sentence: LOOP_TOKEN ':' . list_sentences END_TOKEN
+
+    $default  reduce using rule 53 (list_sentences)
+
+    list_sentences  go to state 123
+
+
+state 115
+
+   77 value: '(' expression . ')'
+
+    ')'  shift, and go to state 124
+
+
+state 116
+
+   79 expression: value @9 . option_extension_expression
+
+    IDENTIFIER  shift, and go to state 125
+    '.'         shift, and go to state 126
+
+    $default  reduce using rule 83 (option_extension_expression)
+
+    option_extension_expression  go to state 127
+
+
+state 117
+
+   59 option_assign_sentence: ASSIG . expression
+
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    value       go to state 106
+    expression  go to state 128
+
+
+state 118
+
+   58 call_sentence: expression option_assign_sentence . ';'
+
+    ';'  shift, and go to state 129
+
+
+state 119
+
+   64 condition_sentence: IF_TOKEN conditional_sentence ':' . list_sentences option_elsif_sentences_list END_TOKEN
+
+    $default  reduce using rule 53 (list_sentences)
+
+    list_sentences  go to state 130
+
+
+state 120
+
+   61 return_sentence: RETURN_TOKEN option_expression ';' .
+
+    $default  reduce using rule 61 (return_sentence)
+
+
+state 121
+
+   72 while_sentence: WHILE_TOKEN conditional_sentence ':' . list_sentences END_TOKEN
+
+    $default  reduce using rule 53 (list_sentences)
+
+    list_sentences  go to state 131
+
+
+state 122
+
+   52 list_sentences: list_sentences . sentence
+   73 do_sentence: DO_TOKEN ':' list_sentences . END_TOKEN
+
+    END_TOKEN       shift, and go to state 132
+    IF_TOKEN        shift, and go to state 90
+    RETURN_TOKEN    shift, and go to state 91
+    WHILE_TOKEN     shift, and go to state 92
+    DO_TOKEN        shift, and go to state 93
+    LOOP_TOKEN      shift, and go to state 94
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    sentence               go to state 98
+    call_sentence          go to state 99
+    return_sentence        go to state 100
+    condition_sentence     go to state 101
+    loop_options_sentence  go to state 102
+    while_sentence         go to state 103
+    do_sentence            go to state 104
+    loop_sentence          go to state 105
+    value                  go to state 106
+    expression             go to state 107
+
+
+state 123
+
+   52 list_sentences: list_sentences . sentence
+   74 loop_sentence: LOOP_TOKEN ':' list_sentences . END_TOKEN
+
+    END_TOKEN       shift, and go to state 133
+    IF_TOKEN        shift, and go to state 90
+    RETURN_TOKEN    shift, and go to state 91
+    WHILE_TOKEN     shift, and go to state 92
+    DO_TOKEN        shift, and go to state 93
+    LOOP_TOKEN      shift, and go to state 94
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    sentence               go to state 98
+    call_sentence          go to state 99
+    return_sentence        go to state 100
+    condition_sentence     go to state 101
+    loop_options_sentence  go to state 102
+    while_sentence         go to state 103
+    do_sentence            go to state 104
+    loop_sentence          go to state 105
+    value                  go to state 106
+    expression             go to state 107
+
+
+state 124
+
+   77 value: '(' expression ')' .
+
+    $default  reduce using rule 77 (value)
+
+
+state 125
+
+   82 option_extension_expression: IDENTIFIER . push_espai_claseActual option_call_parameters
+
+    $default  reduce using rule 86 (push_espai_claseActual)
+
+    push_espai_claseActual  go to state 134
+
+
+state 126
+
+   81 option_extension_expression: '.' . IDENTIFIER @10 option_call_parameters_parent option_extension_expression
+
+    IDENTIFIER  shift, and go to state 135
+
+
+state 127
+
+   79 expression: value @9 option_extension_expression .
+
+    $default  reduce using rule 79 (expression)
+
+
+state 128
+
+   59 option_assign_sentence: ASSIG expression .
+
+    $default  reduce using rule 59 (option_assign_sentence)
+
+
+state 129
+
+   58 call_sentence: expression option_assign_sentence ';' .
+
+    $default  reduce using rule 58 (call_sentence)
+
+
+state 130
+
+   52 list_sentences: list_sentences . sentence
+   64 condition_sentence: IF_TOKEN conditional_sentence ':' list_sentences . option_elsif_sentences_list END_TOKEN
+
+    ELIF_TOKEN      shift, and go to state 136
+    IF_TOKEN        shift, and go to state 90
+    ELSE_TOKEN      shift, and go to state 137
+    RETURN_TOKEN    shift, and go to state 91
+    WHILE_TOKEN     shift, and go to state 92
+    DO_TOKEN        shift, and go to state 93
+    LOOP_TOKEN      shift, and go to state 94
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    $default  reduce using rule 67 (option_elsif_sentences_list)
+
+    sentence                     go to state 98
+    call_sentence                go to state 99
+    return_sentence              go to state 100
+    condition_sentence           go to state 101
+    option_elsif_sentences_list  go to state 138
+    loop_options_sentence        go to state 102
+    while_sentence               go to state 103
+    do_sentence                  go to state 104
+    loop_sentence                go to state 105
+    value                        go to state 106
+    expression                   go to state 107
+
+
+state 131
+
+   52 list_sentences: list_sentences . sentence
+   72 while_sentence: WHILE_TOKEN conditional_sentence ':' list_sentences . END_TOKEN
+
+    END_TOKEN       shift, and go to state 139
+    IF_TOKEN        shift, and go to state 90
+    RETURN_TOKEN    shift, and go to state 91
+    WHILE_TOKEN     shift, and go to state 92
+    DO_TOKEN        shift, and go to state 93
+    LOOP_TOKEN      shift, and go to state 94
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    sentence               go to state 98
+    call_sentence          go to state 99
+    return_sentence        go to state 100
+    condition_sentence     go to state 101
+    loop_options_sentence  go to state 102
+    while_sentence         go to state 103
+    do_sentence            go to state 104
+    loop_sentence          go to state 105
+    value                  go to state 106
+    expression             go to state 107
+
+
+state 132
+
+   73 do_sentence: DO_TOKEN ':' list_sentences END_TOKEN .
+
+    $default  reduce using rule 73 (do_sentence)
+
+
+state 133
+
+   74 loop_sentence: LOOP_TOKEN ':' list_sentences END_TOKEN .
+
+    $default  reduce using rule 74 (loop_sentence)
+
+
+state 134
+
+   82 option_extension_expression: IDENTIFIER push_espai_claseActual . option_call_parameters
+
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    $default  reduce using rule 88 (option_call_parameters)
+
+    value                   go to state 106
+    expression              go to state 140
+    option_call_parameters  go to state 141
+
+
+state 135
+
+   81 option_extension_expression: '.' IDENTIFIER . @10 option_call_parameters_parent option_extension_expression
+
+    $default  reduce using rule 80 (@10)
+
+    @10  go to state 142
+
+
+state 136
+
+   65 option_elsif_sentences_list: ELIF_TOKEN . conditional_sentence ':' list_sentences option_elsif_sentences_list
+
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    conditional_sentence  go to state 143
+    value                 go to state 106
+    expression            go to state 109
+
+
+state 137
+
+   66 option_elsif_sentences_list: ELSE_TOKEN . ':' list_sentences
+
+    ':'  shift, and go to state 144
+
+
+state 138
+
+   64 condition_sentence: IF_TOKEN conditional_sentence ':' list_sentences option_elsif_sentences_list . END_TOKEN
+
+    END_TOKEN  shift, and go to state 145
+
+
+state 139
+
+   72 while_sentence: WHILE_TOKEN conditional_sentence ':' list_sentences END_TOKEN .
+
+    $default  reduce using rule 72 (while_sentence)
+
+
+state 140
+
+   87 option_call_parameters: expression .
+
+    $default  reduce using rule 87 (option_call_parameters)
+
+
+state 141
+
+   82 option_extension_expression: IDENTIFIER push_espai_claseActual option_call_parameters .
+
+    $default  reduce using rule 82 (option_extension_expression)
+
+
+state 142
+
+   81 option_extension_expression: '.' IDENTIFIER @10 . option_call_parameters_parent option_extension_expression
+
+    '('  shift, and go to state 146
+
+    $default  reduce using rule 85 (option_call_parameters_parent)
+
+    option_call_parameters_parent  go to state 147
+
+
+state 143
+
+   65 option_elsif_sentences_list: ELIF_TOKEN conditional_sentence . ':' list_sentences option_elsif_sentences_list
+
+    ':'  shift, and go to state 148
+
+
+state 144
+
+   66 option_elsif_sentences_list: ELSE_TOKEN ':' . list_sentences
+
+    $default  reduce using rule 53 (list_sentences)
+
+    list_sentences  go to state 149
+
+
+state 145
+
+   64 condition_sentence: IF_TOKEN conditional_sentence ':' list_sentences option_elsif_sentences_list END_TOKEN .
+
+    $default  reduce using rule 64 (condition_sentence)
+
+
+state 146
+
+   84 option_call_parameters_parent: '(' . push_espai_claseActual expression list_call_parameters ')'
+
+    $default  reduce using rule 86 (push_espai_claseActual)
+
+    push_espai_claseActual  go to state 150
+
+
+state 147
+
+   81 option_extension_expression: '.' IDENTIFIER @10 option_call_parameters_parent . option_extension_expression
+
+    IDENTIFIER  shift, and go to state 125
+    '.'         shift, and go to state 126
+
+    $default  reduce using rule 83 (option_extension_expression)
+
+    option_extension_expression  go to state 151
+
+
+state 148
+
+   65 option_elsif_sentences_list: ELIF_TOKEN conditional_sentence ':' . list_sentences option_elsif_sentences_list
+
+    $default  reduce using rule 53 (list_sentences)
+
+    list_sentences  go to state 152
+
+
+state 149
+
+   52 list_sentences: list_sentences . sentence
+   66 option_elsif_sentences_list: ELSE_TOKEN ':' list_sentences .
+
+    IF_TOKEN        shift, and go to state 90
+    RETURN_TOKEN    shift, and go to state 91
+    WHILE_TOKEN     shift, and go to state 92
+    DO_TOKEN        shift, and go to state 93
+    LOOP_TOKEN      shift, and go to state 94
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    $default  reduce using rule 66 (option_elsif_sentences_list)
+
+    sentence               go to state 98
+    call_sentence          go to state 99
+    return_sentence        go to state 100
+    condition_sentence     go to state 101
+    loop_options_sentence  go to state 102
+    while_sentence         go to state 103
+    do_sentence            go to state 104
+    loop_sentence          go to state 105
+    value                  go to state 106
+    expression             go to state 107
+
+
+state 150
+
+   84 option_call_parameters_parent: '(' push_espai_claseActual . expression list_call_parameters ')'
+
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    value       go to state 106
+    expression  go to state 153
+
+
+state 151
+
+   81 option_extension_expression: '.' IDENTIFIER @10 option_call_parameters_parent option_extension_expression .
+
+    $default  reduce using rule 81 (option_extension_expression)
+
+
+state 152
+
+   52 list_sentences: list_sentences . sentence
+   65 option_elsif_sentences_list: ELIF_TOKEN conditional_sentence ':' list_sentences . option_elsif_sentences_list
+
+    ELIF_TOKEN      shift, and go to state 136
+    IF_TOKEN        shift, and go to state 90
+    ELSE_TOKEN      shift, and go to state 137
+    RETURN_TOKEN    shift, and go to state 91
+    WHILE_TOKEN     shift, and go to state 92
+    DO_TOKEN        shift, and go to state 93
+    LOOP_TOKEN      shift, and go to state 94
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    $default  reduce using rule 67 (option_elsif_sentences_list)
+
+    sentence                     go to state 98
+    call_sentence                go to state 99
+    return_sentence              go to state 100
+    condition_sentence           go to state 101
+    option_elsif_sentences_list  go to state 154
+    loop_options_sentence        go to state 102
+    while_sentence               go to state 103
+    do_sentence                  go to state 104
+    loop_sentence                go to state 105
+    value                        go to state 106
+    expression                   go to state 107
+
+
+state 153
+
+   84 option_call_parameters_parent: '(' push_espai_claseActual expression . list_call_parameters ')'
+
+    ','  shift, and go to state 155
+
+    $default  reduce using rule 90 (list_call_parameters)
+
+    list_call_parameters  go to state 156
+
+
+state 154
+
+   65 option_elsif_sentences_list: ELIF_TOKEN conditional_sentence ':' list_sentences option_elsif_sentences_list .
+
+    $default  reduce using rule 65 (option_elsif_sentences_list)
+
+
+state 155
+
+   89 list_call_parameters: ',' . expression list_call_parameters
+
+    IDENTIFIER      shift, and go to state 95
+    CONSTANT_VALUE  shift, and go to state 96
+    '('             shift, and go to state 97
+
+    value       go to state 106
+    expression  go to state 157
+
+
+state 156
+
+   84 option_call_parameters_parent: '(' push_espai_claseActual expression list_call_parameters . ')'
+
+    ')'  shift, and go to state 158
+
+
+state 157
+
+   89 list_call_parameters: ',' expression . list_call_parameters
+
+    ','  shift, and go to state 155
+
+    $default  reduce using rule 90 (list_call_parameters)
+
+    list_call_parameters  go to state 159
+
+
+state 158
+
+   84 option_call_parameters_parent: '(' push_espai_claseActual expression list_call_parameters ')' .
+
+    $default  reduce using rule 84 (option_call_parameters_parent)
+
+
+state 159
+
+   89 list_call_parameters: ',' expression list_call_parameters .
+
+    $default  reduce using rule 89 (list_call_parameters)

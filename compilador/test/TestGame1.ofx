@@ -1,0 +1,55 @@
+Program TestGame1:
+
+
+class TestGame1:
+
+	def TestGame1(args: List):
+	begin
+		//nothing
+	end
+	
+	def run():
+		var nave1: Nave;
+	begin
+		setWindowMode(640,480);
+		nave1=new Nave("naveImage.png");
+		nave1.run();
+		loop
+			Frame();
+		end
+	end
+
+	def KeyDown(key: int)
+	begin
+		if key==KEY_ESC:
+			shell.out("Thanks for play with this test");
+			exit();
+		end
+	end
+end
+
+class Nave implements Runable:
+
+	def Nave(file: String):
+		this.image=file;
+		this.angle=0;
+		this.position=new Point(320,240);
+	end;
+	
+	def run():
+		loop
+			if KEY_PRESSED:
+				if key_up:
+					advance(3); // This is a method implementet for the herence.
+				end
+				if key_left:
+					this.angle+=3;
+				end	
+				if key_right:
+					this.angle-=3;
+				end
+			end 
+			Frame();
+		end;
+	end;
+end;

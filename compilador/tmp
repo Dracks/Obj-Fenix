@@ -1,0 +1,16 @@
+171.39-54: symbol simple_expresion is used, but is not defined as a token and has no rules
+235.24-36: symbol variable_name is used, but is not defined as a token and has no rules
+135.26-42: symbol basic_declaration is used, but is not defined as a token and has no rules
+83.19-26: symbol constant is used, but is not defined as a token and has no rules
+101.30-46: symbol character_literal is used, but is not defined as a token and has no rules
+111.31-57: symbol discrete_subtype_indication is used, but is not defined as a token and has no rules
+288.27-62: symbol function_prefixactual_parameter_part is used, but is not defined as a token and has no rules
+287.17-29: symbol function_name is used, but is not defined as a token and has no rules
+235.38-43: symbol ASSIGN is used, but is not defined as a token and has no rules
+284.28-41: symbol procedure_name is used, but is not defined as a token and has no rules
+154.29: symbol . is used, but is not defined as a token and has no rules
+242.13-30: symbol boolean_expression is used, but is not defined as a token and has no rules
+105.40-63: symbol static_simple_expression is used, but is not defined as a token and has no rules
+285.27-63: symbol procedure_prefixactual_parameter_part is used, but is not defined as a token and has no rules
+73.16-27: symbol subtype_name is used, but is not defined as a token and has no rules
+148.15-24: symbol identifier is used, but is not defined as a token and has no rules

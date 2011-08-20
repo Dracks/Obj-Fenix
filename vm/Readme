@@ -1,0 +1,26 @@
+Files:
+...
+
+
+Classes How it works:
+	Stackable: All Elements that can saved in the cpuStack
+	  => Class: All Clases, it  know that we have methods and propieties, that can be visible in OFXClass and BuiltInClass. 
+	    => BuiltInClass:
+	      => CBoolean: Is a factory that can create a new boolean instance in a easy method
+		    => Boolean: Is a copy of CBoolean, but it has value. 
+		=> OFXClass: This contains all the information about a OFXClass, and generate the OFXInstance of this class when is needed.
+		  => OFXInstance: This class, in a copy of OFXClass, but it contains the information of the instance in the code. 
+      => Method: Its a capsule for know what method will be called in the CPU
+	    => BuiltInMethod: It only contains the basic information about the Method, who call. In this case, it calls a BuiltInClass Method. It needs to save the original class, for the herence.
+		=> OFXMethod: Contains the information for call a Obj-Fenix Method, the line of the code, and if the method is a constructor. 
+
+
+StartWork:
+--> Load File .ofx
+	=> Charge Header. Verify header, and prepare options
+	=> Charge Classes. Class By Class:
+		=> charge Name and UID, define it in the library.
+		=> load Methods. Method By Method:
+			=> Assign and save the method to the class. 
+				* If is a native Method, use the BuiltInMethod class.
+				* else use OFXMethod. 

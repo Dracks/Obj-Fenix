@@ -1,0 +1,63 @@
+package Base;
+/*
+
+	As you can view, this objects hasn't constructor, this is because, Integers, booleans, Strings and others, cannot builded in obj-Fenix, 
+	Everytime, this are natives, and are builded in the Virtual Machine, or in code.
+	Sample:
+	var:Integer; // Define the type var
+	var:=5; // Language build an object Integer with value 5 and assign it to var. 
+*/
+
+class native Boolean:
+	/* no tengo ni idea de que deberia implementar este objeto */
+end
+
+class native Integer:
+	public:
+		def Integer(other:Float);
+		def Integer(other:String); 
+		
+		def add (other:Integer) return Integer inline native MATH_SUM 1; 
+		def sub (other:Integer) return Integer inline native MATH_SUBS 1;
+		def mul (other:Integer) return Integer;
+		def div (other:Integer) return Integer; 
+		def add (other:Float) return Float; /* A que mola, he???????? */
+		def sub (other:Float) return Float;
+		def mul (other:Float) return Float;
+		def div (other:Float) return Float;
+		def equal (other:Integer) return Boolean;
+	/*...*/
+	end
+end
+//*/
+
+class native String:
+end
+
+class native list:
+	public:
+	def list; /* Anda esto es un constructor*/
+	def add (elem:Object);
+	def addLast (elem:Object);
+	def first  return Object;
+	def removeFirst return Object;
+	def last  return Object;
+	def pop  return Object;
+	end
+end
+
+class native File:
+	public:
+	def File(name: String, mode: String);
+	def write(data: String);
+	def read return String;
+	end
+end
+
+class native Shell:
+	public:
+	def stdout(data: String);
+	def stdin return String;
+	def stderr(data:String);
+	end
+end

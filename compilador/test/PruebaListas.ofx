@@ -1,0 +1,21 @@
+Program PruebaListas:
+
+class PruebaListas:
+	private:
+		test1:list;
+		test2:[]
+	end
+	public:
+		def main(args: list){
+			test1 add 1;
+			test2.add(test1[0]);
+			
+			test1.add('elemento');
+			test2 add test1[1];
+			
+			test2 del 1;
+			test1.del(0);
+		}
+	end
+end
+

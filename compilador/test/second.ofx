@@ -1,0 +1,77 @@
+Program second:
+// Primer programa de ejemplo y prueba. 
+//import "test/PruebaListas.ofx";
+
+//package First;
+
+task
+...
+
+main{
+	boolean localitzat:false;
+	while (localitzat){
+		select
+			try entry node(random) 
+				localitzat:=true;
+				metode (hem entrat a random);
+			or delay 0.5;
+		end select
+	}
+}
+
+class second:
+	private:
+		test:Integer;
+		test2:Boolean;
+		//test3:thIrd;
+		//llista: list;
+		z:four;
+	end
+	public:
+		def main(args: list):
+			a:integer;
+			b:boolean;
+		begin
+			a:=test;
+			test:=3;
+			while b:
+				this.test:=test2;
+			end
+			this.main:=3;
+			while a= 3:
+				this.test:=test add 1;
+			end
+		end
+		
+		def other(p:Integer):
+			c:integer;
+		begin
+			p:=3;
+			//c:=5;
+		end
+		
+		def sep(int: Integer, test3: third):
+		begin
+			if test :
+				test:=test add 5;
+			end
+			int:=3;
+			test:=test add 4;
+			//test:=test.add(4,3);
+			//test3:=test3 some 3;
+			3 add 5;
+		end
+	end
+end
+
+class third:
+	public:
+		def some (i:Integer, t:second):
+		begin
+			4;
+		end
+	end
+end
+
+class four:
+end

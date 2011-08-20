@@ -1,0 +1,72 @@
+semantic_debug:	 0 with: Object Boolean is not validated
+semantic_debug:	 -1 with: Validating object: Boolean with native flag: 1
+semantic_debug:	 0 with: Object Object is not validated and is my father
+semantic_debug:	 -1 with: Validating object: Object with native flag: 1
+semantic_debug:	 -1 with: List of methods with Name: Boolean
+semantic_debug:	 -1 with: List of methods with Name: and
+semantic_debug:	 -1 with: List of methods with Name: or
+semantic_debug:	 0 with: Object Integer is not validated
+semantic_debug:	 -1 with: Validating object: Integer with native flag: 1
+semantic_debug:	 -1 with: List of methods with Name: Integer
+semantic_debug:	 -1 with: List of methods with Name: add
+semantic_debug:	 -1 with: List of methods with Name: sub
+semantic_debug:	 -1 with: List of methods with Name: mul
+semantic_debug:	 -1 with: List of methods with Name: div
+semantic_debug:	 -1 with: List of methods with Name: dif
+semantic_debug:	 -1 with: List of methods with Name: equal
+semantic_debug:	 -1 with: List of methods with Name: lower
+semantic_debug:	 -1 with: List of methods with Name: greater
+semantic_debug:	 -1 with: List of methods with Name: toString
+semantic_debug:	 0 with: Object String is not validated
+semantic_debug:	 -1 with: Validating object: String with native flag: 1
+semantic_debug:	 -1 with: List of methods with Name: String
+semantic_debug:	 -1 with: List of methods with Name: add
+semantic_debug:	 -1 with: List of methods with Name: toInteger
+semantic_debug:	 0 with: Object list is not validated
+semantic_debug:	 -1 with: Validating object: list with native flag: 1
+semantic_debug:	 -1 with: List of methods with Name: list
+semantic_debug:	 -1 with: List of methods with Name: get
+semantic_debug:	 -1 with: List of methods with Name: length
+semantic_debug:	 -1 with: List of methods with Name: add
+semantic_debug:	 -1 with: List of methods with Name: addFirst
+semantic_debug:	 -1 with: List of methods with Name: first
+semantic_debug:	 -1 with: List of methods with Name: removeFirst
+semantic_debug:	 -1 with: List of methods with Name: last
+semantic_debug:	 -1 with: List of methods with Name: pop
+semantic_debug:	 0 with: Object File is not validated
+semantic_debug:	 -1 with: Validating object: File with native flag: 1
+semantic_debug:	 -1 with: List of methods with Name: File
+semantic_debug:	 -1 with: List of methods with Name: write
+semantic_debug:	 -1 with: List of methods with Name: read
+semantic_debug:	 0 with: Object Shell is not validated
+semantic_debug:	 -1 with: Validating object: Shell with native flag: 1
+semantic_debug:	 -1 with: List of methods with Name: Shell
+semantic_debug:	 -1 with: List of methods with Name: stdout
+semantic_debug:	 -1 with: List of methods with Name: stdin
+semantic_debug:	 -1 with: List of methods with Name: stderr
+semantic_debug:	 0 with: Object Figura is not validated
+semantic_debug:	 -1 with: Validating object: Figura with native flag: 0
+semantic_debug:	 -1 with: List of methods with Name: Figura
+semantic_debug:	 -1 with: List of methods with Name: calcularArea
+semantic_debug:	 -1 with: List of methods with Name: calcularPerimetre
+semantic_debug:	 0 with: Object Cercle is not validated
+semantic_debug:	 -1 with: Validating object: Cercle with native flag: 0
+semantic_debug:	 -1 with: List of methods with Name: Cercle
+semantic_debug:	 -1 with: List of methods with Name: getRadi
+semantic_debug:	 -1 with: List of methods with Name: calcularArea
+semantic_debug:	 29 with: Finding the propiety or method mul in class Integer UID: 3
+semantic_debug:	 29 with: Finding the propiety or method mul in class Integer UID: 3
+semantic_debug:	 29 with: Finding the propiety or method toString in class Integer UID: 3
+semantic_debug:	 -1 with: List of methods with Name: calcularPerimetre
+semantic_debug:	 33 with: Finding the propiety or method mul in class Integer UID: 3
+semantic_debug:	 33 with: Finding the propiety or method mul in class Integer UID: 3
+semantic_debug:	 33 with: Finding the propiety or method toString in class Integer UID: 3
+semantic_debug:	 0 with: Object prova is not validated
+semantic_debug:	 -1 with: Validating object: prova with native flag: 0
+semantic_debug:	 -1 with: List of methods with Name: prova
+semantic_debug:	 -1 with: List of methods with Name: main
+semantic_debug:	 58 with: Finding the propiety or method getRadi in class Cercle UID: 9
+semantic_debug:	 58 with: Finding the propiety or method toString in class Integer UID: 3
+semantic_debug:	 58 with: Finding the propiety or method add in class String UID: 4
+semantic_debug:	 59 with: Finding the propiety or method toInteger in class String UID: 4
+semantic_debug:	 59 with: Finding the propiety or method toInteger in class String UID: 4

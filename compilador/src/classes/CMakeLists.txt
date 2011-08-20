@@ -1,0 +1,1 @@
+add_library(classes clist.cpp clist.h syntacticElement.cpp syntacticElement.h)

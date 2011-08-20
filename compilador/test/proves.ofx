@@ -1,0 +1,75 @@
+program prova:
+
+class Figura:
+	public:
+		def calcularArea;
+		def calcularPerimetre;
+	end
+end
+
+class Cercle inherit Figura:
+	private:
+		r:Integer;
+	end
+	public:
+		def Cercle(rad:Integer):
+			p:Integer;
+		begin
+			//Test.Test;
+			this.r:=rad;
+			p:=this.r;
+			this.r:=p;
+		end
+		def getRadi return Integer:
+		begin
+			return r;
+		end
+		def calcularArea:
+		begin
+			shell.stdout("L'area del cercle es:"+(this.r*this.r*3).toString+"\n");
+		end
+		def calcularPerimetre:
+		begin
+			shell.stdout("El perimetre del cercle es:"+(this.r*this.r*3).toString+"\n");
+		end
+	end
+end
+//*/
+
+class prova:
+	private:
+		fig:Figura;
+	end
+	public:
+		def prova:
+		begin
+			
+			fig:=Cercle.Cercle(3);
+		end
+		def main(args:list):
+			i: Integer;
+		begin
+			i:=1;
+			while i!=0:
+				shell.stdout("Escriu una de les següents opcións:\n");
+				shell.stdout("\t0=> sortir\n");
+				shell stdout "\t1=> Calcular area cercle\n" +
+							"\t2=> Calcular perimetre cercle\n"+
+							"\t3=> Canviar cercle (Actualment té radi)"+Cercle.cercle(fig).getRadi.toString+"\n";
+				i:=(shell stdin) toInteger;
+				if i=1:
+					fig.calcularArea;
+				elif i=2:
+					fig.calcularPerimetre;
+				elif i=3:
+					shell.stdout("Escriu el radi de la nova circonverencia:");
+					fig:=Cercle.Cercle((shell stdin).toInteger);
+				else:
+					shell.stdout("Revisa el que escrius\n");
+				end
+			end
+		end//*/
+	end
+end
+			
+			

@@ -1,0 +1,84 @@
+package Base;
+/*
+
+	As you can view, this objects hasn't constructor, this is because, Integers, booleans, Strings and others, cannot builded in obj-Fenix, 
+	Everytime, this are natives, and are builded in the Virtual Machine, or in code.
+	Sample:
+	var:Integer; // Define the type var
+	var:=5; // Language build an object Integer with value 5 and assign it to var. 
+*/
+
+/*class native Object:
+end*/
+
+class native Boolean:
+	public:
+		def and return Boolean;
+		def or return Boolean;
+		/* no tengo ni idea de que deberia implementar este objeto */
+	end
+end
+
+class native Integer:
+	public:
+		//def Integer(other:Float);
+		def Integer(other:String); 
+		
+		def add (other:Integer) return Integer; 
+		def sub (other:Integer) return Integer;
+		def mul (other:Integer) return Integer;
+		def div (other:Integer) return Integer; 
+		def dif (other:Integer) return Boolean; 
+		def equal (other:Integer) return Boolean;
+		def lower (other:Integer) return Boolean;
+		def greater (other:Integer) return Boolean;
+		
+		/*def add (other:Float) return Float; /* A que mola, he???????? *
+		def sub (other:Float) return Float;
+		def mul (other:Float) return Float;
+		def div (other:Float) return Float;*/
+		
+		def toString return String;
+		
+	/*...*/
+	end
+end
+//*/
+
+class native String:
+	public:
+		//def String(e:Object) return String;
+		def add (e:String) return String;
+		def toInteger return Integer;
+	end
+end
+
+class native list:
+	public:
+		def list; /* Anda esto es un constructor*/
+		def get (index:Integer) return Object;
+		def length return Integer;
+		def add (elem:Object);
+		def addFirst (elem:Object);
+		def first  return Object;
+		def removeFirst return Object;
+		def last  return Object;
+		def pop  return Object;
+	end
+end
+
+class native File:
+	public:
+		def File(name: String, mode: String);
+		def write(data: String);
+		def read return String;
+	end
+end
+
+class native Shell:
+	public:
+		def stdout(data: String);
+		def stdin return String;
+		def stderr(data:String);
+	end
+end

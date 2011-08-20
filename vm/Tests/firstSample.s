@@ -1,0 +1,14 @@
+LOAD_INTEGER 5
+LOAD_INTEGER 3
+LOCATE_FUNC add
+call 2
+POP_TOP
+
+
+LOAD_CLASS alguna
+call 0;
+LOAD_ATTR valor
+STORE
+
+
+

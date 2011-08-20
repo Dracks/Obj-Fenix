@@ -1,0 +1,69 @@
+program hello_world:
+
+class hello_world:
+	private:
+		var: Integer;
+	end
+	public:
+		def hello_world(i: Integer):
+		begin
+			var:=0;
+		end
+		/*def mostraVar return Boolean:
+			b:boolean;
+		begin
+			b:=True;
+			if var < 3:
+				b:=True;
+				shell.stdout("inferior a 3");
+			elif var > 6 :
+				shell stdout "superior a 6";
+			else:
+				b:=False;
+				shell stdout "Altres!";
+			end
+			shell stdout "\n";
+			if var <0:
+				shell.stdout("inferior a 0");
+			end
+			shell stdout "\n";
+			shell.stdout("Variable:" +var.toString +"\n");
+			return 1=2;
+		end*/
+		
+		def main(arguments: list):
+			i: Integer;
+			s: String;
+		begin
+			hello_world.hello_world(5);
+			//hello_world(5);
+			/*i:=0;
+			mostraVar;
+			//i + i;
+			//shell stdout "arg"+String.String(arguments get 0);
+			//shell stdout i.toString;
+			//shell.stdout("Hola mon!\n");
+			showHola;
+			shell.stdout("arguments:" + arguments.length.toString + "\n");
+			//arguments;
+			shell stdout i.toString;
+			var:=arguments.length;
+			while  (i +1) < arguments.length :
+				//s:=String.String(arguments get i);
+				shell.stdout("arg "+i.toString+" :"+String.String(arguments get i) +"\n");
+				i:=i+1;
+			end
+			this showHola "Hola2";
+		end
+		
+		def showHola:
+		begin
+			shell stdout "Hola Mon!\n";
+		end
+		
+		def showHola(v:string):
+		begin
+			shell stdout v;*/
+		end
+	end
+end

@@ -1,0 +1,29 @@
+Program primero:
+// Primer programa de ejemplo y prueba. 
+import "test/PruebaListas.ofx";
+
+package First;
+/*
+interface mierda:
+	def algo;
+end
+*/
+class primero:
+	private:
+		test:Integer;
+	end
+	public:
+		def main(args: list):
+			test:=3;
+		end
+	end
+end
+/*
+class primero:
+	private:
+		def algo:
+			hola:=5;
+		end
+	end
+end
+*/
