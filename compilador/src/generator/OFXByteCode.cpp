@@ -89,9 +89,9 @@ namespace OFXByteCode{
 			if ((parent=elem->getSemantic()->getOFXClass())==NULL)
 				parent=this->addClass(elem->getSemantic());
 			//We start especification with the same methods, and virtual UID.
-			obj=parent->clone(elem->getUID(), elem->getName(), elem->getNative());			
+			obj=parent->child(elem->getUID(), elem->getName(), elem->getNative());			
 		} else {
-			obj=new OFX_Class(elem->getUID(), elem->getName(), elem->getNative());
+			obj=new OFX_Class(elem->getUID(), 0, elem->getName(), elem->getNative());
 		}
 		bytecode_debug(s);
 

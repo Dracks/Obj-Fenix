@@ -60,18 +60,21 @@ namespace OFXByteCode {
 	}
 	
 	//class OFX_Class{
-	OFX_Class::OFX_Class(int uid, string name, bool native){
+	OFX_Class::OFX_Class(int uid, int father, string name, bool native){
 		this->UID=uid;
+		this->fatherUID=father;
 		this->name=name;
 		this->native=native;
 	}
 	void OFX_Class::write(FILE* obj){
 		string str="\tUID:\t";str+=convert<int>(this->UID);str+="\n";
+		str+="\tFatherUID:\t";str+=convert<int>(this->fatherUID);str+="\n";
 		str+="\tnative?:\t";str+=convert<bool>(this->native);str+="\n";
 		str+="\tname:\t(";str+=convert<int>(this->name.length()+1);str+=")";str+=this->name;
 		asm_bytecode_debug(str);
 		
 		fwrite(&this->UID, sizeof(int), 1, obj);
+		fwrite(&this->fatherUID, sizeof(int), 1, obj);
 		fwrite(&this->native, sizeof(bool),1,obj);
 		int size=this->name.length()+1;
 		fwrite(&size, sizeof(int), 1, obj);
@@ -154,17 +157,10 @@ namespace OFXByteCode {
 		}
 	}
 	
-	OFX_Class* OFX_Class::clone(int uid, string name, bool native){
+	OFX_Class* OFX_Class::child(int uid, string name, bool native){
 		//printf("Cloning class: %s to %s\n", this->name.c_str(), name.c_str());
-		OFX_Class* ret=new OFX_Class(uid, name, native);
-		//printf("Cloning class: %s to %s\n", this->name, name);
-		for (int i=0; i<this->lMethods.size(); i++){
-			ret->lMethods.push_back(lMethods[i]);
-		}
+		OFX_Class* ret=new OFX_Class(uid, this->UID, name, native);
 		
-		for (int i=0; i<lPropieties.size(); i++){
-			ret->lPropieties.push_back(lPropieties[i]);
-		}
 		return ret;
 	}	
 }

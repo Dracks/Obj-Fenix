@@ -46,18 +46,19 @@ namespace OFXByteCode {
 	private:
 		bool native;
 		int UID;
+		int fatherUID;
 		string name;
 		
 		vector<OFX_ClassMethod*> lMethods; //virtual(UID), Method implementation.
 		vector<OFX_ClassPropiety*> lPropieties; //virtual(UID), Propiety specification.
 	protected:
 	public:
-		OFX_Class(int, string, bool);
+		OFX_Class(int, int,string, bool);
 		void write(FILE*);
 		int getUID();
 		void addPropiety(SyntacticElement*);
 		void addMethod(MethodDefinition*, OFXByteCode* );
-		OFX_Class* clone(int, string, bool);
+		OFX_Class* child(int, string, bool);
 	};
 
 }

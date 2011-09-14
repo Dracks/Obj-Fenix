@@ -20,8 +20,10 @@
  *	 - Value => char|char|int|float|{size(value)+string}
  ****
  * ListClasses:
- *	 - Native: Boolean; 
- *   - NameClass=> UID
+ *	 - UID: int
+ *	 - fatherUID: int
+ *	 - Native: Boolean 
+ *   - (length:int) NameClass: string(length) 
  *	 - propiety
  *			- UID
  *			- name
