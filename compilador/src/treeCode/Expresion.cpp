@@ -235,6 +235,7 @@ SyntacticElement* Subpropiety::getSemantic(){
 		return this->subElement->semanticNext(this->elem->getSemantic());
 	} else if (stricmp(aux,"super")==0){
 		// It needs a special options...
+		return this->subElement->semanticNext(this->elem->getSemantic());
 	} else if (this->elem->getSyntactic()==5 || this->elem->getParser()==CONSTANT_VALUE){
 		//printf("It's a private or a constant value\n");
 		//printf("semantic: %s\n", this->elem->getSemantic()->getName());

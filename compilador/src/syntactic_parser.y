@@ -128,6 +128,8 @@ class_definition: CLASS_TOKEN option_native IDENTIFIER option_inherit{
 		if (tmpSyntactic==NULL){
 			exit(-1);
 		}
+		
+		// Afegim Cast Tal que sigui $class.$class(Object).
 		tmpSyntactic=insertToken(strCopy(actualClass->getName().c_str()), IDENTIFIER, actualClass->getSpaceName());
 		//tmpSyntactic=new SyntacticElement(actualClass->getName(), IDENTIFIER, num_line, parsing_file);
 		tmpSyntactic->setSyntactic(2);

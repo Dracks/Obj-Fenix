@@ -7,11 +7,9 @@
  *
  */
 
-
 namespace objfenix {
 	class Stackable;
 }
-
 
 #include "../ASM_instructions.h"
 #include "../classes/Thread.h"
@@ -25,25 +23,31 @@ namespace objfenix {
 #define STACKABLE_H
 
 
-void run(ofxbytecode::Stack<objfenix::Stackable*> pila, ASM_line* code, int params, int line);
-using namespace std;
+template <class T>
+inline T* checkAndCast(Stackable* obj) {
+	//T* obj=dynamic_cast<T*>(obj);
+	return dynamic_cast<T*>(obj);
+}
+
+
 namespace objfenix{
 	
 	class Stackable{
-	protected:
-		string name;
+	private:
+		std::string name;
 		int type;
+	protected:
+		Stackable(std::string p_name, int type);
+		virtual ~Stackable();
 	public:
 		//virtual bool getNative()=0;
-		Stackable(){}
-		int getType(){return type;};
-		virtual ~Stackable(){};
-		string getName(){return name;};
-		virtual Class* getAtr(int i)=0;
+		inline int getType();
+		inline std::string getName();
+/*		virtual Class* getAtr(int i)=0;
 		virtual void setAtr(int i, Class* atr)=0;
 		virtual Method* getMethod(int i)=0;
 		//virtual void call(Pila* p, ASM_line* code, int params)=0;
-		virtual int call(ofxbytecode::Stack<Stackable*>*, ASM_line*, int)=0;
+		virtual int call(ofxbytecode::Stack<Stackable*>*, ASM_line*, int)=0;*/
 	};
 }
 

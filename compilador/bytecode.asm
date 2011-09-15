@@ -74,11 +74,13 @@ Constants:
 
 Class:
 	UID:	1
+	FatherUID:	-1
 	native?:	1
 	name:	(7)Object
 	Propieties (0):
 	Methods (0):
 	UID:	2
+	FatherUID:	1
 	native?:	1
 	name:	(8)Boolean
 	Propieties (0):
@@ -96,6 +98,7 @@ Class:
 		Constructor:	0
 		Name:	(2)or
 	UID:	3
+	FatherUID:	1
 	native?:	1
 	name:	(8)Integer
 	Propieties (0):
@@ -145,6 +148,7 @@ Class:
 		Constructor:	0
 		Name:	(8)toString
 	UID:	4
+	FatherUID:	1
 	native?:	1
 	name:	(7)String
 	Propieties (0):
@@ -162,6 +166,7 @@ Class:
 		Constructor:	0
 		Name:	(9)toInteger
 	UID:	5
+	FatherUID:	1
 	native?:	1
 	name:	(5)list
 	Propieties (0):
@@ -207,6 +212,7 @@ Class:
 		Constructor:	0
 		Name:	(3)pop
 	UID:	6
+	FatherUID:	1
 	native?:	1
 	name:	(5)File
 	Propieties (0):
@@ -228,6 +234,7 @@ Class:
 		Constructor:	0
 		Name:	(4)read
 	UID:	7
+	FatherUID:	1
 	native?:	1
 	name:	(6)Shell
 	Propieties (0):
@@ -249,6 +256,7 @@ Class:
 		Constructor:	0
 		Name:	(14)stderr(String)
 	UID:	8
+	FatherUID:	1
 	native?:	0
 	name:	(7)Figura
 	Propieties (0):
@@ -266,24 +274,13 @@ Class:
 		Constructor:	0
 		Name:	(17)calcularPerimetre
 	UID:	9
+	FatherUID:	8
 	native?:	0
 	name:	(7)Cercle
 	Propieties (1):
 		UID:	6
 		Name:	 (1)r
-	Methods (6):
-		UID:	7
-		ByteCodeLine:	0
-		Constructor:	0
-		Name:	(14)Figura(Object)
-		UID:	8
-		ByteCodeLine:	25
-		Constructor:	0
-		Name:	(12)calcularArea
-		UID:	9
-		ByteCodeLine:	48
-		Constructor:	0
-		Name:	(17)calcularPerimetre
+	Methods (5):
 		UID:	10
 		ByteCodeLine:	6
 		Constructor:	0
@@ -296,7 +293,16 @@ Class:
 		ByteCodeLine:	20
 		Constructor:	0
 		Name:	(7)getRadi
+		UID:	8
+		ByteCodeLine:	25
+		Constructor:	0
+		Name:	(12)calcularArea
+		UID:	9
+		ByteCodeLine:	48
+		Constructor:	0
+		Name:	(17)calcularPerimetre
 	UID:	10
+	FatherUID:	1
 	native?:	0
 	name:	(6)prova
 	Propieties (1):

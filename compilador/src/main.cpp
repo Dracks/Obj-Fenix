@@ -165,7 +165,6 @@ void cleanContext(){
 	yylval.data->setSyntactic(4);
 }
 
-
 int main(int argc, char *argv[])
 {	
 	out_syntactic_debug=fopen("syntactic_debug.out","w");
