@@ -17,7 +17,7 @@ class OfxMethod: public Method{
 private:
 	int lineToCall;
 public:
-	OfxMethod(int line){
+	OfxMethod(string name, int line): public Method(name){
 		lineToCall=line;
 	}
 	virtual ~OfxMethod(){}

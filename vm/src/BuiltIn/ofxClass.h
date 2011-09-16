@@ -15,12 +15,16 @@ class ofxObject;
 #include "SuperObject.h"
 
 class ofxClass: public SuperClass{
+private:
+	SuperClass* parent;
 public:
-	ofxClass(string);
+	ofxClass(string, SuperClass*);
 	ofxObject* getNewInstance();
 }
 
 class ofxObject: public SuperObject{
+private:
+	SuperObject* parent;
 public:
 	ofxObject(Super*);
 }

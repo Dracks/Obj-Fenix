@@ -15,7 +15,7 @@ class SuperObject;
 
 class SuperObject: public Super{
 public:
-	SuperObject(Super*);
+	SuperObject(string name, Super*):Super(name){};
 }
 
 #endif

@@ -18,16 +18,16 @@ template<class Template>
 class BIMethod: public Method{
 private:
 	void (Template::*method)(BICall*);
-	string name;
+	//string name;
 	int nArguments;
 public:
-	BIMethod(string name, int arguments, void (Template::*method)(BICall*)){
-		this->name=name;
+	BIMethod(string name, int arguments, void (Template::*method)(BICall*)): Method(name){
+		//this->name=name;
 		this->nArguments=arguments;
 		this->method=method;
 	}
 	virtual int call(Stack<Stackable>* stack){
-		(checkAndCast<Template>(stack->get(stack->getTop()-nArguments))->*method)(new BICall(name, stack, nArguments));
+		(checkAndCast<Template>(stack->get(stack->getTop()-nArguments))->*method)(new BICall(this->getName, stack, nArguments));
 		return 0;
 	}
 }
@@ -37,7 +37,7 @@ class BICall{
 	int nArguments;
 	int baseStack;
 	Stack<Stackable>* stack;
-	string name=name;
+	string name;
 public:
 	BICall(string name, Stack<Stackable>* stack, int arguments){
 		this->name=name;

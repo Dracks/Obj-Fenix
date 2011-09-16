@@ -10,9 +10,17 @@
 #define vm_Super_h
 
 class Super;
+class Method;
 
-class Method: public Method{
+
+
+class Method: public Stackable{
+private:
+	string name;
 public:
+	Method(string name): Stackable(name){};
+	~Method();
+	string getName();
 	virtual int call(Stack<Stackable>*)=0;
 }
 
@@ -26,6 +34,8 @@ private:
 	map<string, int> methodTranslation;
 	map<string, int> propertyTranslation;
 protected:
+	Super(string name): Stackable(name){};
+	~Super();
 	inline void addMethod(string, int, Method*);
 	inline void addProperty(string, int);
 	inline Method* getMethod(int);
