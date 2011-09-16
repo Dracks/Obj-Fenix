@@ -13,10 +13,17 @@ class BIMethod;
 
 #include "Super.h"
 
-class BIMethod: public Method{
-	
+class OfxMethod: public Method{
+private:
+	int lineToCall;
 public:
-	virtual int call(Stack<Stackable>*);
+	OfxMethod(int line){
+		lineToCall=line;
+	}
+	virtual ~OfxMethod(){}
+	virtual int call(Stack<Stackable>*){
+		return lineToCall;
+	}
 }
 
 #endif
