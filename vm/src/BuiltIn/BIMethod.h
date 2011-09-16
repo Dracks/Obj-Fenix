@@ -28,7 +28,6 @@ public:
 	}
 	virtual int call(Stack<Stackable>* stack){
 		(checkAndCast<Template>(stack->get(stack->getTop()-nArguments))->*method)(new BICall(name, stack, nArguments));
-		
 		return 0;
 	}
 }
@@ -57,12 +56,12 @@ public:
 	}
 	
 	void clear(){
-		
+		this->stack->reseTop(baseStack-1);
 	}
 	
 	void clearAndSetReturn(Super* retValue){
 		this->clear();
-		this->stack->
+		this->stack->set(stack->getTop(), retValue);
 	}
 }
 
