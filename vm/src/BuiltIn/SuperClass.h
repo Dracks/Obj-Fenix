@@ -13,14 +13,12 @@ class SuperClass;
 #include "SuperObject.h"
 
 
-class SuperClass: public Stackable{
+class SuperClass: public Super{
 private:
 	SuperObject* DataCache;
-	map<> methodList; // Donat un UID hem de retornar un methodList
-	map<> propietyList;
 protected:
-	void addMethod();
-	void addPropiety();
+	SuperClass();
+	SuperObject* buildCache();
 }
 
 

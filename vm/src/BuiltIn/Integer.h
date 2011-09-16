@@ -21,6 +21,7 @@ public:
 	IntegerClass();
 	~IntegerClass();
 	IntegerObject* ofxInteger(BuiltInCall* call);
+	IntegerObject* getNewInstance(int v);
 }
 
 class IntegerObject: public SuperObject {
@@ -31,8 +32,8 @@ protected:
 	IntegerObject(int v, SuperObject* base);
 public:
 	~IntegerObject();
-	IntegerObject* ofxAdd(BuiltInCall* call);
-	IntegerObject* ofxSub(BuiltInCall* call);
+	IntegerObject* ofxAdd(BICall* call);
+	IntegerObject* ofxSub(BICall* call);
 }
 
 

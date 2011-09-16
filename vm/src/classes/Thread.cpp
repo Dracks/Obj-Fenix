@@ -94,7 +94,7 @@ namespace ofxbytecode{
 	i_call:
 		//elem_aux=0;
 		//printf("debug: i_call%s\n", elem_aux->getName());
-		int newLine=dataStack->get(dataStack->getTop()-line->param-1)->call(dataStack, code, line->param);
+		int newLine=dataStack->get(dataStack->getTop()-line->param-1)->call(dataStack);
 		line++;
 		// If the implementation of call is native or is with C call, it was 0, another case, we need to change context
 		if (newLine!=0){
