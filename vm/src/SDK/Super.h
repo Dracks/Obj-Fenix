@@ -47,6 +47,16 @@ namespace SDK{
 		inline SuperObject* getProperty(int);
 		inline SuperObject* getProperty(string);
 		inline void storePropiety(int, SuperObject*);
+		
+		template <class T>
+		inline T* get(string pName){
+			return checkAndCast<T>(propertyList[propertyTranslation[pName]]);
+		};
+		
+		template <class T>
+		inline void set(string pName, T* obj){
+			propertyList[propertyTranslation[pName]]=obj;
+		}
 	}
 	
 }

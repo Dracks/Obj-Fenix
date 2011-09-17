@@ -7,3 +7,8 @@
 //
 
 #include <iostream>
+#include "Integer.h"
+
+namespace ofxBI{
+	
+}
