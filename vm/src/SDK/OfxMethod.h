@@ -9,20 +9,24 @@
 #ifndef vm_ofxMethod_h
 #define vm_ofxMethod_h
 
-class BIMethod;
+namespace SDK{
+	class BIMethod;
+}
 
 #include "Super.h"
 
-class OfxMethod: public Method{
-private:
-	int lineToCall;
-public:
-	OfxMethod(string name, int line): public Method(name){
-		lineToCall=line;
-	}
-	virtual ~OfxMethod(){}
-	virtual int call(Stack<Stackable>*){
-		return lineToCall;
+namespace SDK{
+	class OfxMethod: public Method{
+	private:
+		int lineToCall;
+	public:
+		OfxMethod(string name, int line): public Method(name){
+			lineToCall=line;
+		}
+		virtual ~OfxMethod(){}
+		virtual int call(Stack<Stackable>*){
+			return lineToCall;
+		}
 	}
 }
 

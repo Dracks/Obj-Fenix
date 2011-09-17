@@ -9,13 +9,18 @@
 #ifndef vm_SuperObject_h
 #define vm_SuperObject_h
 
-class SuperObject;
+namespace SDK{
+	class SuperObject;
+}
 
+#include "Super.h"
 
-
-class SuperObject: public Super{
-public:
-	SuperObject(string name, Super*):Super(name){};
+namespace SDK{
+	class SuperObject: public Super{
+	public:
+		SuperObject(string name, Super*):Super(name){};
+		~SuperObject(){};
+	}
 }
 
 #endif

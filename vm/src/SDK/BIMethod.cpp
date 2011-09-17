@@ -7,3 +7,8 @@
 //
 
 #include <iostream>
+#include "BIMethod.h"
+
+namespace SDK{
+	
+}

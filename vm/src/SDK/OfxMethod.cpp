@@ -7,3 +7,9 @@
 //
 
 #include <iostream>
+
+#include "OfxMethod.h"
+
+namespace SDK{
+	
+}

@@ -8,25 +8,32 @@
 
 #ifndef vm_ofxClass_h
 #define vm_ofxClass_h
-class ofxClass;
-class ofxObject;
+
+namespace SDK{
+	class ofxClass;
+	class ofxObject;
+}
 
 #include "SuperClass.h"
 #include "SuperObject.h"
 
-class ofxClass: public SuperClass{
-private:
-	SuperClass* parent;
-public:
-	ofxClass(string, SuperClass*);
-	ofxObject* getNewInstance();
-}
-
-class ofxObject: public SuperObject{
-private:
-	SuperObject* parent;
-public:
-	ofxObject(Super*);
+namespace SDK{
+	class OfxClass: public SuperClass{
+	private:
+		SuperClass* parent;
+	public:
+		OfxClass(string, SuperClass*);
+		~OfxClass();
+		ofxObject* getNewInstance();
+	}
+	
+	class OfxObject: public SuperObject{
+	private:
+		SuperObject* parent;
+	public:
+		OfxObject(Super*);
+		~OfxObject();
+	}
 }
 
 

@@ -7,3 +7,7 @@
 //
 
 #include <iostream>
+#include "OfxClass.h"
+namespace SDK{
+	
+}

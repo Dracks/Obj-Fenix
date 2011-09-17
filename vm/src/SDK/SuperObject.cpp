@@ -7,3 +7,9 @@
 //
 
 #include <iostream>
+
+#include "SuperObject.h"
+
+namespace SDK{
+	
+}

@@ -7,7 +7,7 @@
  *
  */
 
-namespace objfenix {
+namespace SDK {
 	class Stackable;
 }
 
@@ -23,14 +23,13 @@ namespace objfenix {
 #define STACKABLE_H
 
 
-template <class T>
-inline T* checkAndCast(Stackable* obj) {
-	//T* obj=dynamic_cast<T*>(obj);
-	return dynamic_cast<T*>(obj);
-}
-
-
-namespace objfenix{
+namespace SDK{
+	
+	template <class T>
+	inline T* checkAndCast(Stackable* obj) {
+		//T* obj=dynamic_cast<T*>(obj);
+		return dynamic_cast<T*>(obj);
+	}
 	
 	class Stackable{
 	private:

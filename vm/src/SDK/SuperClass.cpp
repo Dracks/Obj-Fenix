@@ -7,3 +7,8 @@
 //
 
 #include <iostream>
+#include "SuperClass.h"
+
+namespace SDK{
+	
+}

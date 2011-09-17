@@ -8,17 +8,23 @@
 
 #ifndef vm_SuperClass_h
 #define vm_SuperClass_h
-class SuperClass;
+
+namespace SDK{
+	class SuperClass;
+}
 
 #include "SuperObject.h"
 
 
-class SuperClass: public Super{
-private:
-	SuperObject* DataCache;
-protected:
-	SuperClass();
-	SuperObject* buildCache();
+namespace SDK {
+	class SuperClass: public Super{
+	private:
+		SuperObject* DataCache;
+	protected:
+		SuperClass();
+		~SuperClass();
+		SuperObject* buildCache();
+	}
 }
 
 
