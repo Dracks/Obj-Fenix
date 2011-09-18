@@ -17,6 +17,7 @@ namespace ofxBI{
 #include "../tools/Register.h"
 #include "../SDK/SuperClass.h"
 #include "../SDK/SuperObject.h"
+#include "Boolean.h"
 
 namespace ofxBI {
 	
@@ -30,18 +31,16 @@ namespace ofxBI {
 		IntegerObject* getNewInstance(int v);
 	}
 	
-	class IntegerObject: public SDK::SuperObject {
+	class IntegerObject: public SDK::Primitive<int> {
 		friend class IntegerClass;
-	private:
-		int v;
 	protected:
 		IntegerObject(int v, SuperObject* base);
 	public:
 		~IntegerObject();
 		IntegerObject* ofxAdd(BICall* call);
 		IntegerObject* ofxSub(BICall* call);
+		BooleanObject* ofxEqual(BICall* call);
 	}
-	
 }
 
 

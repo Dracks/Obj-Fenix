@@ -9,28 +9,49 @@
 #ifndef vm_Register_h
 #define vm_Register_h
 
+
 #define registerClass(C) namespace RegistradorDe##C { R::RegisterClass<C> startup; } 
+namespace ofxtools{
+	class OnStartUp;
+	class RegisterClass;
+	class RegisterMethodCollection;
+}
 
-class Register{
-private:
-	static vector<Register*> registerList;
-public:
-	Register();
-	virtual	void* execute()=0;
-	static void registerAll();
-};
+#include "../SDK/BIMethod.h"
 
-vector<Register*> Register::registerList;
-
-template<class T>
-class RegisterClass: public Register{
-private:
-	T* obj;
-public:
-	virtual void* execute(){
-		obj=new T();
-		return obj;
+namespace ofxtools{
+	class OnStartUp{
+	private:
+		static vector<OnStartUp*> registerList;
+	public:
+		OnStartUp();
+		virtual	void* execute()=0;
+		static void registerAll();
+	};
+	
+	vector<Register*> Register::registerList;
+	
+	template<class T>
+	class RegisterClass: public OnStartUp{
+	private:
+		T* obj;
+	public:
+		virtual void* execute(){
+			obj=new T();
+			return obj;
+		}
+	};
+	
+	template<class Template>
+	class RegisterMethodCollection {
+	private:
+		vector<pair<string, void (Template::*)(SDK::BICall*)> > llista;
+	public:
+		add(string name, void (Template::*method)(SDK::BICall*)){
+			llista.push_back(new pair<string, void (Template::*)(SDK::BICall*)>(name, method));
+		}
 	}
-};
+}
+
 
 #endif

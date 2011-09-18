@@ -8,14 +8,12 @@
  */
 
 #include "Thread.h"
-#include "../Builtin/Integer.h"
+//#include "../Builtin/Integer.h"
+#include "../SDK/Super.h"
 #include "stdio.h"
 //#include "../Builtin/Stackable.h"
 
-using namespace objfenix;
-
-Stackable* search_constant(int num);
-Stackable* search_class(int num);
+using namespace SDK;
 
 namespace ofxbytecode{
 	
@@ -71,7 +69,7 @@ namespace ofxbytecode{
 		line++;
 		kjmp(line);
 	l_attr:
-		dataStack->push(dataStack->pop()->getAtr(line->param));
+		dataStack->push(checkAndCast<Super*>(dataStack->pop())->getProperty(line->param));
 		line++;
 		kjmp(line);
 	l_class:
@@ -145,7 +143,7 @@ namespace ofxbytecode{
 		kjmp(line);
 	i_s_attr:
 		elem_aux=dataStack->get(ini_params);
-		elem_aux->setAtr(line->param, (Class*) dataStack->pop());
+		checkAndCast<Super*>(elem_aux)->storePropiety(line->param, checkAndCast<Super*>(dataStack->pop()));
 		line++;
 		kjmp(line);
 	i_s_private:
@@ -153,7 +151,7 @@ namespace ofxbytecode{
 		//printf("%s\n",elem_aux->getName());
 		//elem_aux=dataStack->pop();
 		//printf("debug: i_s_private (%s)\n", elem_aux->getName());
-		dataStack->set(line->param, dataStack->pop());
+		dataStack->set(ini_params+line->param, dataStack->pop());
 		line++;
 		kjmp(line);
 	}
