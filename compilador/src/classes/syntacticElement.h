@@ -69,6 +69,10 @@ public:
 	
 	void* getPackage();
 	
+	void setStatic(bool);
+	
+	bool getStatic();
+	
 private:
 	int lineDefinition;
 	char* file;
@@ -82,7 +86,7 @@ private:
 	bool native; // 
 	bool semanticValidated; // boolean for test if the semantic validator is passed for this or not.
 	int parserType;
-	bool stat; //in propiety define it as static.
+	bool isStatic; //in propiety(or method) define it as static .
 	
 	SyntacticElement* semantic_type;
 //	clist* possibilities;	// a method add, the list of Method_definitions that it has.
@@ -113,6 +117,8 @@ private:
 	int lineImplementation;
 	string name;
 	
+	bool isStatic;
+	
 	//int nReturnStatments;
 	
 	bool constructor;
@@ -141,6 +147,10 @@ public:
 	//void setnReturnStatments(int n){nReturnStatments=n;};
 	
 	string getName();
+	
+	void setStatic(bool);
+	
+	bool getStatic();
 	//void addParam();
 };
 

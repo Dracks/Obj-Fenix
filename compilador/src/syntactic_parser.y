@@ -139,8 +139,10 @@ class_definition: CLASS_TOKEN option_native IDENTIFIER option_inherit{
 		//assert(aux2!=NULL);
 		aux->add(aux2);
 		//MethodDefinition* cast=new MethodDefinition(actualClass->getName(), aux, new clist(), actualClass, 3, num_line);
-		tmpSyntactic->addMethodImplementation(aux, new clist(), new clist(), actualClass, 3, num_line);
+		//tmpSyntactic->setStatic(true);
+		MethodDefinition* tmpCast= tmpSyntactic->addMethodImplementation(aux, new clist(), new clist(), actualClass, 3, num_line);
 		actualClass->addMethod(tmpSyntactic);
+		tmpCast->setStatic(true);
 //		insertToken(<#char *lexema#>, <#int type#>, <#int espai#>)
 		//tmpSyntactic->setSyntactic(5);
 		//tmpSyntactic->setSemantic(actualClass);

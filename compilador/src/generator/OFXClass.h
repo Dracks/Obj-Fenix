@@ -26,9 +26,10 @@ namespace OFXByteCode {
 		string name;
 		int line; //bytecode line to run this method.
 		char constructor;
+		char isStatic;
 	public:
 		int getUID();
-		OFX_ClassMethod(int, string,char, int);
+		OFX_ClassMethod(int, string,char, char, int);
 		void write(FILE*);
 	};
 	

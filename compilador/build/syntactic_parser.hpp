@@ -128,7 +128,7 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 44 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 44 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
 {
 
 	struct SyntacticElement* data;
@@ -138,7 +138,7 @@ typedef union YYSTYPE
 	bool boolean;
 }
 /* Line 1529 of yacc.c.  */
-#line 142 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/build/syntactic_parser.hpp"
+#line 142 "/Users/dracks/Documents/Programacio/ofx/compilador/build/syntactic_parser.hpp"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

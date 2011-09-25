@@ -154,7 +154,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 1 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
 
 	
 #include <stdio.h>
@@ -217,7 +217,7 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 44 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 44 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
 {
 
 	struct SyntacticElement* data;
@@ -227,7 +227,7 @@ typedef union YYSTYPE
 	bool boolean;
 }
 /* Line 193 of yacc.c.  */
-#line 231 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/build/syntactic_parser.cpp"
+#line 231 "/Users/dracks/Documents/Programacio/ofx/compilador/build/syntactic_parser.cpp"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -240,7 +240,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 244 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/build/syntactic_parser.cpp"
+#line 244 "/Users/dracks/Documents/Programacio/ofx/compilador/build/syntactic_parser.cpp"
 
 #ifdef short
 # undef short
@@ -560,15 +560,15 @@ static const yytype_int8 yyrhs[] =
 static const yytype_uint16 yyrline[] =
 {
        0,    82,    82,    80,    86,    97,   100,   101,   103,   104,
-     106,   108,   109,   111,   114,   114,   171,   172,   174,   175,
-     178,   182,   184,   185,   186,   188,   189,   197,   198,   200,
-     200,   200,   217,   219,   221,   222,   224,   224,   271,   275,
-     277,   281,   283,   283,   299,   299,   300,   302,   310,   312,
-     322,   324,   324,   347,   348,   350,   351,   352,   353,   356,
-     367,   372,   374,   381,   382,   385,   400,   413,   426,   432,
-     436,   437,   438,   449,   464,   479,   493,   494,   502,   504,
-     504,   589,   589,   611,   624,   629,   636,   638,   645,   652,
-     654,   658
+     106,   108,   109,   111,   114,   114,   175,   176,   178,   179,
+     182,   186,   188,   189,   190,   192,   193,   201,   202,   204,
+     204,   204,   221,   223,   225,   226,   228,   228,   275,   279,
+     281,   285,   287,   287,   303,   303,   304,   306,   314,   316,
+     326,   328,   328,   351,   352,   354,   355,   356,   357,   360,
+     371,   376,   378,   385,   386,   389,   404,   417,   430,   436,
+     440,   441,   442,   453,   468,   483,   497,   498,   506,   508,
+     508,   593,   593,   615,   628,   633,   640,   642,   649,   656,
+     658,   662
 };
 #endif
 
@@ -1599,17 +1599,17 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 82 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 82 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("program <-- option_package_definition");}
     break;
 
   case 3:
-#line 83 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 83 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("program <-- Option_defining_program list_modules_import option_package_Definition list_class_definition");;}
     break;
 
   case 4:
-#line 86 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 86 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     { syntactic_debug("option_defining_program <-- Program Identifier :"); 
 	if (main_object!=NULL){
 		str=(char*)malloc(1024*sizeof(char));
@@ -1624,52 +1624,52 @@ yyreduce:
     break;
 
   case 5:
-#line 97 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 97 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("option_defining_program <-- nothing");;}
     break;
 
   case 6:
-#line 100 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 100 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("list_modules_import <-- list_modules_import module_import");;}
     break;
 
   case 7:
-#line 101 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 101 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("list_modules_import <-- nothing");}
     break;
 
   case 8:
-#line 103 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 103 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("option_package_definition <-- PACKAGE_TOKEN IDENTIFIER ;");}
     break;
 
   case 9:
-#line 104 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 104 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("option_package_definition <-- nothing");}
     break;
 
   case 10:
-#line 106 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 106 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("module_import <-- import STRING"); list_files_compile.add(strCopy((yyvsp[(2) - (3)].data)->getName().c_str()));}
     break;
 
   case 11:
-#line 108 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 108 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("list_class_definition <-- list_class_definition class_interface_definition");}
     break;
 
   case 12:
-#line 109 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 109 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("list_class_definition <-- class_interface_definition");}
     break;
 
   case 13:
-#line 111 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 111 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("class_interface_definition <-- class_definition");}
     break;
 
   case 14:
-#line 114 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 114 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	tmpSyntactic=(yyvsp[(3) - (4)].data); 
 	//printf("algo xirria - %s - %d\n", tmpSyntactic->getName(), tmpSyntactic->getSyntactic());
@@ -1687,6 +1687,8 @@ yyreduce:
 		if (tmpSyntactic==NULL){
 			exit(-1);
 		}
+		
+		// Afegim Cast Tal que sigui $class.$class(Object).
 		tmpSyntactic=insertToken(strCopy(actualClass->getName().c_str()), IDENTIFIER, actualClass->getSpaceName());
 		//tmpSyntactic=new SyntacticElement(actualClass->getName(), IDENTIFIER, num_line, parsing_file);
 		tmpSyntactic->setSyntactic(2);
@@ -1696,8 +1698,10 @@ yyreduce:
 		//assert(aux2!=NULL);
 		aux->add(aux2);
 		//MethodDefinition* cast=new MethodDefinition(actualClass->getName(), aux, new clist(), actualClass, 3, num_line);
-		tmpSyntactic->addMethodImplementation(aux, new clist(), new clist(), actualClass, 3, num_line);
+		//tmpSyntactic->setStatic(true);
+		MethodDefinition* tmpCast= tmpSyntactic->addMethodImplementation(aux, new clist(), new clist(), actualClass, 3, num_line);
 		actualClass->addMethod(tmpSyntactic);
+		tmpCast->setStatic(true);
 //		insertToken(<#char *lexema#>, <#int type#>, <#int espai#>)
 		//tmpSyntactic->setSyntactic(5);
 		//tmpSyntactic->setSemantic(actualClass);
@@ -1716,7 +1720,7 @@ yyreduce:
     break;
 
   case 15:
-#line 158 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 162 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	char* str=(char*)malloc(sizeof(char)*1024);
 	sprintf(str, "class_definition <-- class option_native identifier(%s): list_acces_level_block end", actualClass->getName().c_str());
@@ -1732,82 +1736,82 @@ yyreduce:
     break;
 
   case 16:
-#line 171 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 175 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("option_native <-- native"); (yyval.boolean)=YES;;}
     break;
 
   case 17:
-#line 172 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 176 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("option_native <-- nothing"); (yyval.boolean)=NO;;}
     break;
 
   case 18:
-#line 174 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 178 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.data)=(yyvsp[(2) - (2)].data);;}
     break;
 
   case 19:
-#line 175 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 179 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.data)=searchElem("Object");;}
     break;
 
   case 20:
-#line 180 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 184 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block");}
     break;
 
   case 21:
-#line 182 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 186 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("list_acces_level_block <-- nothing");}
     break;
 
   case 22:
-#line 184 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 188 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("level_definition_token <-- public");ambitoActual=0;;}
     break;
 
   case 23:
-#line 185 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 189 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("level_definition_token <-- private");ambitoActual=2;;}
     break;
 
   case 24:
-#line 186 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 190 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("level_definition_token <-- protected");ambitoActual=1;}
     break;
 
   case 25:
-#line 188 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 192 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("list_definitions <-- definition list_definitions");}
     break;
 
   case 26:
-#line 189 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 193 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("list_definitions <-- definition");}
     break;
 
   case 27:
-#line 197 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 201 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("definition <-- propiety_definition");}
     break;
 
   case 28:
-#line 198 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 202 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("definition <-- method_definition");}
     break;
 
   case 29:
-#line 200 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 204 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {name_space_push(0);}
     break;
 
   case 30:
-#line 200 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 204 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {name_space_pop();;}
     break;
 
   case 31:
-#line 200 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 204 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("propiety_definition <-- list_propiety : IDENTIFIER ;");
 	cnode* nodeAux= (yyvsp[(1) - (6)].list)->getFirst();
 	while (nodeAux!=NULL){
@@ -1828,32 +1832,32 @@ yyreduce:
     break;
 
   case 32:
-#line 217 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 221 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("propiety_definition <-- error ;");}
     break;
 
   case 33:
-#line 219 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 223 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("list_propiety <-- IDENTIFIER list_propiety_concat "); (yyval.list)=(yyvsp[(2) - (2)].list);(yyval.list)->addFirst((yyvsp[(1) - (2)].data));;}
     break;
 
   case 34:
-#line 221 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 225 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("list_propiety_concat <-- , IDENTIFIER list_propiety_concat"); (yyval.list)=(yyvsp[(3) - (3)].list);(yyval.list)->addFirst((yyvsp[(2) - (3)].data));;}
     break;
 
   case 35:
-#line 222 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 226 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("list_propiety_concat <-- nothing "); (yyval.list)=new clist();}
     break;
 
   case 36:
-#line 224 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 228 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {sym_push_scope(); tmp_num_line=num_line;;}
     break;
 
   case 37:
-#line 225 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 229 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 			syntactic_debug("method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option");
 			//printf("debug_espai_actual: %d\n", espai_actual);
@@ -1902,7 +1906,7 @@ yyreduce:
     break;
 
   case 38:
-#line 271 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 275 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 		(yyval.list)=(yyvsp[(3) - (4)].list);
 		(yyval.list)->addFirst((yyvsp[(2) - (4)].data));
@@ -1910,12 +1914,12 @@ yyreduce:
     break;
 
   case 39:
-#line 275 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 279 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.list)=new clist();;}
     break;
 
   case 40:
-#line 277 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 281 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 		(yyval.list)=(yyvsp[(3) - (3)].list); 
 		(yyval.list)->addFirst((yyvsp[(2) - (3)].data));
@@ -1923,17 +1927,17 @@ yyreduce:
     break;
 
   case 41:
-#line 281 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 285 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.list)=new clist();;}
     break;
 
   case 42:
-#line 283 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 287 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {name_space_push(0);}
     break;
 
   case 43:
-#line 283 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 287 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 		SyntacticElement* tmpSyntactic=(yyvsp[(1) - (4)].data);
 		//printf("Definition_parameter: espai_actual: %d %s %p\n", espai_actual, $<data>4->getName(), $<data>4);
@@ -1952,22 +1956,22 @@ yyreduce:
     break;
 
   case 44:
-#line 299 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 303 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {name_space_push(0);}
     break;
 
   case 45:
-#line 299 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 303 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     { name_space_pop();(yyval.data)=(yyvsp[(3) - (3)].data);;}
     break;
 
   case 46:
-#line 300 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 304 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.data)=NULL;;}
     break;
 
   case 47:
-#line 303 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 307 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 			//printf("Data: espai_actual: %d\n", espai_actual);
 			syntactic_debug("implementation_option <-- : var_declaration_list BEGIN list_sentences END");
@@ -1978,12 +1982,12 @@ yyreduce:
     break;
 
   case 48:
-#line 310 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 314 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {syntactic_debug("implementation_option <-- ;"); (yyval.list)=NULL;}
     break;
 
   case 49:
-#line 312 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 316 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	cnode* aux=(yyvsp[(1) - (3)].list)->getFirst();
 	while (aux!=NULL){
@@ -1997,17 +2001,17 @@ yyreduce:
     break;
 
   case 50:
-#line 322 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 326 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.list)=new clist();;}
     break;
 
   case 51:
-#line 324 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 328 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {name_space_push(0);}
     break;
 
   case 52:
-#line 324 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 328 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	cnode* nodeAux= (yyvsp[(1) - (4)].list)->getFirst();
 	name_space_pop();
@@ -2030,17 +2034,17 @@ yyreduce:
     break;
 
   case 53:
-#line 347 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 351 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.list)=(yyvsp[(1) - (2)].list); (yyval.list)->add((yyvsp[(2) - (2)].sentence));;}
     break;
 
   case 54:
-#line 348 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 352 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.list)=new clist();;}
     break;
 
   case 59:
-#line 356 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 360 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 		//$<expresion>1->setParent(actualClass);
 		if ((yyvsp[(2) - (3)].expresion)!=NULL){
@@ -2053,7 +2057,7 @@ yyreduce:
     break;
 
   case 60:
-#line 367 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 371 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	syntactic_debug("assign_sentence <-- expression := expression ;");
 	//$<sentence>$=new Assignation($<expresion>1,$<expresion>3, num_line);
@@ -2062,12 +2066,12 @@ yyreduce:
     break;
 
   case 61:
-#line 372 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 376 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.expresion)=NULL;}
     break;
 
   case 62:
-#line 374 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 378 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 			//AbstractExpresion* debug=$<expresion>1;
 			(yyval.sentence)=new Return((yyvsp[(2) - (3)].expresion), num_line);
@@ -2076,17 +2080,17 @@ yyreduce:
     break;
 
   case 63:
-#line 381 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 385 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.expresion)=(yyvsp[(1) - (1)].expresion);;}
     break;
 
   case 64:
-#line 382 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 386 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.expresion)=NULL;;}
     break;
 
   case 65:
-#line 389 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 393 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	Condition* tmp=new Condition((yyvsp[(2) - (6)].expresion),(yyvsp[(5) - (6)].sentence), num_line);
 	cnode* aux=(yyvsp[(4) - (6)].list)->getFirst();
@@ -2100,7 +2104,7 @@ yyreduce:
     break;
 
   case 66:
-#line 403 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 407 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	Condition* tmp=new Condition((yyvsp[(2) - (5)].expresion),(yyvsp[(5) - (5)].sentence), num_line);
 	cnode* aux=(yyvsp[(4) - (5)].list)->getFirst();
@@ -2114,7 +2118,7 @@ yyreduce:
     break;
 
   case 67:
-#line 415 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 419 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	Else* tmp=new Else(num_line);
 	cnode* aux=(yyvsp[(3) - (3)].list)->getFirst();
@@ -2129,12 +2133,12 @@ yyreduce:
     break;
 
   case 68:
-#line 426 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 430 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.sentence)=NULL;}
     break;
 
   case 73:
-#line 452 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 456 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	//printf("While token\n");
 	While* tmp=new While((yyvsp[(2) - (5)].expresion), num_line);
@@ -2148,7 +2152,7 @@ yyreduce:
     break;
 
   case 74:
-#line 467 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 471 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	/*DoWhile* tmp=new DoWhile(conditional_sentence, num_line);
 	cnode* aux=$<list>4->getFirst();
@@ -2161,7 +2165,7 @@ yyreduce:
     break;
 
   case 75:
-#line 482 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 486 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	Loop* tmp=new Loop(num_line);
 	cnode* aux=(yyvsp[(4) - (4)].list)->getFirst();
@@ -2174,12 +2178,12 @@ yyreduce:
     break;
 
   case 76:
-#line 493 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 497 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.data)=(yyvsp[(1) - (1)].data);;}
     break;
 
   case 77:
-#line 494 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 498 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	(yyval.data)=(yyvsp[(1) - (1)].data); 
 				(yyval.data)->setSyntactic(6);
@@ -2191,12 +2195,12 @@ yyreduce:
     break;
 
   case 78:
-#line 502 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 506 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.data)=new SyntacticElement((void*)(yyvsp[(2) - (3)].expresion), num_line, parsing_file);;}
     break;
 
   case 79:
-#line 504 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 508 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	//printf("Test\n");
 	//if ($<data>1==NULL)
@@ -2223,7 +2227,7 @@ yyreduce:
     break;
 
   case 80:
-#line 527 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 531 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	//printf("%s\n", $<data>1->getSemantic()->getName().c_str());
 	Subpropiety* aux=new Subpropiety((yyvsp[(1) - (3)].data),num_line);
@@ -2246,7 +2250,7 @@ yyreduce:
     break;
 
   case 81:
-#line 589 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 593 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	SyntacticElement* aux=(yyvsp[(1) - (2)].data)->getSemantic();
 	if (aux!=NULL){ //we know what class is defined the identifier
@@ -2261,7 +2265,7 @@ yyreduce:
     break;
 
   case 82:
-#line 599 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 603 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 		name_space_pop();
 		Subpropiety* aux=new Subpropiety((yyvsp[(2) - (5)].data),num_line);
@@ -2277,7 +2281,7 @@ yyreduce:
     break;
 
   case 83:
-#line 611 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 615 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 		name_space_pop();
 		//printf("%d.%d no se que cony passa '%s'\n", num_line, num_column, $<data>1->getName());
@@ -2294,14 +2298,14 @@ yyreduce:
     break;
 
   case 84:
-#line 624 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 628 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.expresion)=NULL;
 		syntactic_debug("option_extension_expression <-- nothing");
 ;}
     break;
 
   case 85:
-#line 630 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 634 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 				name_space_pop();
 				//sym_pop_scope();
@@ -2311,12 +2315,12 @@ yyreduce:
     break;
 
   case 86:
-#line 636 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 640 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.list)=new clist();;}
     break;
 
   case 87:
-#line 638 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 642 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 			name_space_push(actualClass->getSpaceName());
 			//printf("%d debug namespace (%s)-> %d\n", num_line, actualClass->getName(), actualClass->getUID());
@@ -2326,7 +2330,7 @@ yyreduce:
     break;
 
   case 88:
-#line 645 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 649 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	//name_space_pop();
 	syntactic_debug("option_call_parameters <-- 2/2");
@@ -2337,12 +2341,12 @@ yyreduce:
     break;
 
   case 89:
-#line 652 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 656 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.list)=new clist();}
     break;
 
   case 90:
-#line 654 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 658 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {
 	(yyval.list)=(yyvsp[(3) - (3)].list);
 	(yyval.list)->addFirst((yyvsp[(2) - (3)].expresion));
@@ -2350,13 +2354,13 @@ yyreduce:
     break;
 
   case 91:
-#line 658 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 662 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
     {(yyval.list)=new clist();;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 2360 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/build/syntactic_parser.cpp"
+#line 2364 "/Users/dracks/Documents/Programacio/ofx/compilador/build/syntactic_parser.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2570,7 +2574,7 @@ yyreturn:
 }
 
 
-#line 673 "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/compilador/src/syntactic_parser.y"
+#line 677 "/Users/dracks/Documents/Programacio/ofx/compilador/src/syntactic_parser.y"
 
 
 

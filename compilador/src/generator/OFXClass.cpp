@@ -16,11 +16,12 @@
 namespace OFXByteCode {
 	using namespace std;	
 	//class OFX_ClassMethod{
-	OFX_ClassMethod::OFX_ClassMethod(int uid, string name,char constructor, int line){
+	OFX_ClassMethod::OFX_ClassMethod(int uid, string name,char constructor, char isStatic, int line){
 		this->UID=uid;
 		this->name=name;
 		this->line=line;
 		this->constructor=constructor;
+		this->isStatic=isStatic;
 	}
 	int OFX_ClassMethod::getUID(){
 		return UID;
@@ -29,11 +30,13 @@ namespace OFXByteCode {
 		string str="\t\tUID:\t"; str+=convert<int>(this->UID);str+="\n";
 		str+="\t\tByteCodeLine:\t";str+=convert<int>(this->line);str+="\n";
 		str+="\t\tConstructor:\t";str+=convert<int>(this->constructor);str+="\n";
+		str+="\t\tstatic?:\t";str+=convert<bool>(this->isStatic);str+="\n";
 		str+="\t\tName:\t(";str+=convert<int>(this->name.size());str+=")";str+=this->name;;
 		asm_bytecode_debug(str);
 		fwrite(&this->UID,sizeof(int),1,obj);
 		fwrite(&this->line, sizeof(int),1,obj);
-		fwrite(&this->constructor, sizeof(int),1,obj);
+		fwrite(&this->constructor, sizeof(char),1,obj);
+		fwrite(&this->isStatic, sizeof(char),1,obj);
 		int size=this->name.length()+1;
 		fwrite(&size,sizeof(int),1,obj);
 		fwrite(&this->name,sizeof(char),size,obj);
@@ -112,7 +115,7 @@ namespace OFXByteCode {
 		s+=elem->getName();
 		bytecode_debug(s);
 		//printf("%s\n",s.c_str());
-		OFX_ClassMethod* tmp=new OFX_ClassMethod(elem->getUID(), elem->getName(), elem->isConstructor(),bytecode->getLine());
+		OFX_ClassMethod* tmp=new OFX_ClassMethod(elem->getUID(), elem->getName(), elem->isConstructor(), elem->getStatic(), bytecode->getLine());
 		// Put this in the virtual Table
 		int tst=elem->getUID();
 		for (int i=0; i<lMethods.size(); i++){

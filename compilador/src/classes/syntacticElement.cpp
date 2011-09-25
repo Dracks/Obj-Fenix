@@ -39,6 +39,7 @@ SyntacticElement::SyntacticElement(string _name, int _type, int line, char* file
 	this->methodList=new clist();
 	headerClass=NULL;
 	packageContents=NULL;
+	isStatic=false;
 }
 SyntacticElement::SyntacticElement(void* cont, int line, char* file_){
 	name="Package";
@@ -54,6 +55,7 @@ SyntacticElement::SyntacticElement(void* cont, int line, char* file_){
 	headerClass=NULL;
 	packageContents=cont;
 	syntactic_type=7;
+	isStatic=false;
 }
 
 void* SyntacticElement::getPackage(){
@@ -281,6 +283,8 @@ MethodDefinition::MethodDefinition(string name, clist* params, clist* vars, clis
 	
 	constructor=false;
 	
+	isStatic=false;
+	
 }
 
 void MethodDefinition::setSemanticArgs(clist* list){
@@ -326,4 +330,12 @@ SyntacticElement* MethodDefinition::getReturn(){
 
 void	MethodDefinition::setReturn(SyntacticElement* ret){
 	returnType=ret;
+}
+
+void  MethodDefinition::setStatic(bool v ){
+	this->isStatic=v;
+}
+
+bool  MethodDefinition::getStatic(){
+	return isStatic;
 }
