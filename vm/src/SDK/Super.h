@@ -26,7 +26,7 @@ namespace SDK{
 		~Method();
 		string getName();
 		virtual int call(Stack<Stackable>*)=0;
-	}
+	};
 	
 	
 	
@@ -57,7 +57,7 @@ namespace SDK{
 		inline void set(string pName, T* obj){
 			propertyList[propertyTranslation[pName]]=obj;
 		}
-	}
+	};
 	
 }
 #endif

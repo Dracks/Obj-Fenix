@@ -36,7 +36,7 @@ namespace SDK{
 			(checkAndCast<Template>(stack->get(stack->getTop()-nArguments))->*method)(new BICall(this->getName, stack, nArguments));
 			return 0;
 		}
-	}
+	};
 	
 	
 	class BICall{
@@ -55,7 +55,7 @@ namespace SDK{
 		~BICall(){};
 		
 		template<T>
-		T* getParam(int arg ){
+		T* get(int arg ){
 			if (nArguments>=arg && arg>0){
 				return checkAndCast(stack->get(baseStack+arg))
 			} else {
@@ -71,7 +71,7 @@ namespace SDK{
 			this->clear();
 			this->stack->set(stack->getTop(), retValue);
 		}
-	}
+	};
 }
 
 

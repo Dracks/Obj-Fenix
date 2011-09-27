@@ -21,7 +21,7 @@ namespace SDK{
 	public:
 		SuperObject(string name, Super*):Super(name){};
 		~SuperObject(){};
-	}
+	};
 	
 	template<class Template>
 	class Primitive: public SuperObject{
@@ -34,7 +34,7 @@ namespace SDK{
 		Template getValue(){
 			return value;
 		}
-	}
+	};
 }
 
 #endif

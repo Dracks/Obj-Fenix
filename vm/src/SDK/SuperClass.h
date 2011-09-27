@@ -23,8 +23,11 @@ namespace SDK {
 	protected:
 		SuperClass();
 		~SuperClass();
-		SuperObject* buildCache();
-	}
+		SuperObject* getCache();
+		
+		inline void addInstanceMethod(string, int, Method*);
+		inline void addInstanceProperty(string, int);
+	};
 }
 
 

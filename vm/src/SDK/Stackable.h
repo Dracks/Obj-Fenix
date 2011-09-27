@@ -25,12 +25,23 @@ namespace SDK {
 
 namespace SDK{
 	
+	/**
+	 * @function checkAndCast
+	 * @param Stackable* obj
+	 * @return Template <class T>
+	 * @brief Check If an object can be casted and casted if true, if it is false, (future) throws exception
+	 */
 	template <class T>
 	inline T* checkAndCast(Stackable* obj) {
 		//T* obj=dynamic_cast<T*>(obj);
 		return dynamic_cast<T*>(obj);
-	}
+	};
 	
+	
+	/**
+	 * @class Stackable
+	 * @brief Is the class package for the Virtual Machine Stack
+	 */
 	class Stackable{
 	private:
 		std::string name;
@@ -40,7 +51,16 @@ namespace SDK{
 		virtual ~Stackable();
 	public:
 		//virtual bool getNative()=0;
+		/**
+		 * @function getType
+		 * @return integer
+		 */
 		inline int getType();
+		
+		/**
+		 * @function getName
+		 * @return string
+		 */
 		inline std::string getName();
 /*		virtual Class* getAtr(int i)=0;
 		virtual void setAtr(int i, Class* atr)=0;

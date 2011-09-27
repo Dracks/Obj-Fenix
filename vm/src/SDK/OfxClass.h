@@ -25,7 +25,7 @@ namespace SDK{
 		OfxClass(string, SuperClass*);
 		~OfxClass();
 		ofxObject* getNewInstance();
-	}
+	};
 	
 	class OfxObject: public SuperObject{
 	private:
@@ -33,7 +33,7 @@ namespace SDK{
 	public:
 		OfxObject(Super*);
 		~OfxObject();
-	}
+	};
 }
 
 
