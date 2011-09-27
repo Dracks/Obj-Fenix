@@ -43,6 +43,6 @@ namespace ofxBI{
 	void ShellClass::ofxStdIn(BuiltInCall* call){
 		string input;
 		cin >> input;
-		call->clearAndReturn(checkAndCast<StringClass>(tools::Adapter::getData()->getClass("String"))->getNewInstance(input));
+		call->clearAndReturn(checkAndCast<StringClass>(ofxbytecode::Library::getData()->getClass("String"))->getNewInstance(input));
 	}
 }

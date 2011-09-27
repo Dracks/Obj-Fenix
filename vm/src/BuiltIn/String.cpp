@@ -27,7 +27,7 @@ namespace ofxBI {
 	void StringClass::ofxAdd(BICall* call){
 		string tmp=this->value;
 		tmp+=call->get<StringClass>(1)->value;
-		call->clearAndSetReturn( checkAndCast<StringClass>(tools::Adapter::getData()->getClass("String"))->getNewInstance(tmp));
+		call->clearAndSetReturn( checkAndCast<StringClass>(ofxbytecode::Library::getData()->getClass("String"))->getNewInstance(tmp));
 	}
 	
 	/*void StringClass::ofxSub(BICall* call){

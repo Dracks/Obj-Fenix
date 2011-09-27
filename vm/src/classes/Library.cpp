@@ -13,6 +13,16 @@ namespace ofxbytecode{
 	//class Library{
 	using namespace SDK;
 	
+	
+	Library* Library::data;
+	
+	Library* Library::getLibrary(){
+		if (data==NULL){
+			data=new Library();
+		}
+		return data;
+	}
+	
 	void Library::addClass(int cid, string name, SuperClass* c){
 		classList[cid]=c;
 		classID[name]=cid;

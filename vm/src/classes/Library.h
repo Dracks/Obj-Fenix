@@ -19,20 +19,34 @@ namespace ofxbytecode{
 using namespace objfenix;
 
 namespace ofxbytecode{
-
+	/**
+	 * @class Library
+	 * @brief This class contains all definitions of classes and constants organitzed with name and UID
+     */
 	class Library{
 	private:
 		vector<SDK::SuperClass*> classList;
 		vector<SDK::SuperObject*> constantList;
 		map<string,int> classID;
 		map<string,int> constantID;
+		Library();
+		~Library(){data=NULL};
+		
+		static Library* data;
+		
 	public:
+		/**
+		 * @brief obtain Library as a singleton
+		 * @return the only instance of Library in all the execution.
+    	 */
+		static Library* getLibrary();
+		
 		void addClass(int cid, string name, SDK::SuperClass* c);
-		SDK::SuperClass* getClass(int cid);
-		SDK::SuperClass* getClass(string name);
+		inline SDK::SuperClass* getClass(int cid);
+		inline SDK::SuperClass* getClass(string name);
 		
 		void addConstant(int cid, SDK::SuperObject* c); // Class => BuiltInClass
-		SDK::SuperObject* getConstant(int cid);
+		inline SDK::SuperObject* getConstant(int cid);
 	};
 }
 

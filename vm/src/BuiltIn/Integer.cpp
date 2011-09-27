@@ -29,15 +29,15 @@ namespace ofxBI{
 	
 	void IntegerObject::ofxAdd(BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;
-		call->clearAndSetReturn(checkAndCast<IntegerClass>(tools::Adapter::getData()->getClass("Integer"))->getNewInstance(this->value+tmp));
+		call->clearAndSetReturn(checkAndCast<IntegerClass>(ofxbytecode::Library::getData()->getClass("Integer"))->getNewInstance(this->value+tmp));
 	}
 	void IntegerObject::ofxSub(BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;
-		call->clearAndSetReturn(checkAndCast<IntegerClass>(tools::Adapter::getData()->getClass("Integer"))->getNewInstance(this->value+tmp));
+		call->clearAndSetReturn(checkAndCast<IntegerClass>(ofxbytecode::Library::getData()->getClass("Integer"))->getNewInstance(this->value+tmp));
 		
 	}
 	void IntegerObject::ofxEqual(BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;
-		call->clearAndSetReturn(checkAndCast<BooleanClass>(tools::Adapter::getData()->getClass("Boolean"))->getNewInstance(this->value==tmp));
+		call->clearAndSetReturn(checkAndCast<BooleanClass>(ofxbytecode::Library::getData()->getClass("Boolean"))->getNewInstance(this->value==tmp));
 	}
 }

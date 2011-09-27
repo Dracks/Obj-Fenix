@@ -271,11 +271,7 @@ ASM_line* loadByteCode(string file, Library* data){
 		name=(char*) malloc(aux*sizeof(char));
 		fread(name,		sizeof(char)*(aux-1),	1,	bytecodeFile);
 		if (native){
-			if (stricmp(name, "Object")) {
-				clase=new BuiltInClass(cid, data);
-			} else if (stricmp(name, "Integer")) {
-				
-			}
+			
 		} else {
 			clase=new OFXClass(cid);
 		}
