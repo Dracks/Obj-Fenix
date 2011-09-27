@@ -21,15 +21,15 @@ namespace ofxBI{
 
 namespace ofxBI {
 	
-	registerClass(IntegerClass)
+	registerClass(IntegerClass);
 	
 	class IntegerClass: public SDK::SuperClass {
 	public:
 		IntegerClass();
 		~IntegerClass();
-		IntegerObject* ofxInteger(BuiltInCall* call);
+		void ofxInteger(BuiltInCall* call);
 		IntegerObject* getNewInstance(int v);
-	}
+	};
 	
 	class IntegerObject: public SDK::Primitive<int> {
 		friend class IntegerClass;
@@ -37,10 +37,10 @@ namespace ofxBI {
 		IntegerObject(int v, SuperObject* base);
 	public:
 		~IntegerObject();
-		IntegerObject* ofxAdd(BICall* call);
-		IntegerObject* ofxSub(BICall* call);
-		BooleanObject* ofxEqual(BICall* call);
-	}
+		void ofxAdd(BICall* call);
+		void ofxSub(BICall* call);
+		void ofxEqual(BICall* call);
+	};
 }
 
 

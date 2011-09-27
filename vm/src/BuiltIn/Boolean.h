@@ -21,15 +21,15 @@ namespace ofxBI{
 
 namespace ofxBI {
 	
-	registerClass(BooleanClass)
+	registerClass(BooleanClass);
 	
 	class BooleanClass: public SDK::SuperClass {
 	public:
 		BooleanClass();
 		~BooleanClass();
-		BooleanClass* ofxBoolean(BuiltInCall* call);
+		void ofxBoolean(BuiltInCall* call);
 		BooleanClass* getNewInstance(int v);
-	}
+	};
 	
 	class BooleanObject: public SDK::Primitive<bool> {
 		friend class BooleanClass;
@@ -37,9 +37,9 @@ namespace ofxBI {
 		BooleanObject(bool v, SuperObject* base);
 	public:
 		~BooleanObject();
-		IntegerObject* ofxAnd(BICall* call);
-		IntegerObject* ofxOr(BICall* call);
-	}
+		void ofxAnd(BICall* call);
+		void ofxOr(BICall* call);
+	};
 }
 
 
