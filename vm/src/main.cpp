@@ -7,6 +7,13 @@
  *
  */
 
+
+/**
+ * @mainpage Objective Fenix - Virtual Machine
+ * @author Jaume Singla Valls
+ * @date 2010
+ */
+
 #include "stdlib.h"
 #include "stdio.h"
 
