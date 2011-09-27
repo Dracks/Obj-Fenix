@@ -26,8 +26,8 @@ namespace SDK {
 namespace SDK{
 	
 	/**
-	 * @function checkAndCast
-	 * @param Stackable* obj
+	 * @fn template <class T> inline T* checkAndCast(Stackable* obj)
+	 * @param obj the object to cast
 	 * @return Template <class T>
 	 * @brief Check If an object can be casted and casted if true, if it is false, (future) throws exception
 	 */
@@ -47,19 +47,27 @@ namespace SDK{
 		std::string name;
 		int type;
 	protected:
+		/**
+		 * @fn Stackable(std::string p_name, int type)
+		 * @param p_name the name of the object (Integer, Boolean, String...)
+		 * @param type the type of the object (The UID, identified in the bytecode)
+		 */
 		Stackable(std::string p_name, int type);
+		
 		virtual ~Stackable();
 	public:
 		//virtual bool getNative()=0;
 		/**
-		 * @function getType
+		 * @fn inline int getType();
 		 * @return integer
+		 * @brief get the integuer type of the stackable object
 		 */
 		inline int getType();
 		
 		/**
-		 * @function getName
+		 * @fn getName
 		 * @return string
+		 * @brief get the name of the stackable object
 		 */
 		inline std::string getName();
 /*		virtual Class* getAtr(int i)=0;

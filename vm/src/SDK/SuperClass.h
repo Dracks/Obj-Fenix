@@ -17,16 +17,42 @@ namespace SDK{
 
 
 namespace SDK {
+	/**
+	 * @class SuperClass
+	 * @brief It defines the basic methods for all the static classes (OFX and BI)
+     */
 	class SuperClass: public Super{
 	private:
+		/**
+		 * @brief The object that use as a cache for the methods of an instance. 
+		 */
 		SuperObject* DataCache;
 	protected:
+		/**
+		 * @brief Constructor
+    	 */
 		SuperClass();
 		~SuperClass();
+		/**
+		 * @brief get the Cache instance
+		 * @return return the instance of the cache.
+    	 */
 		SuperObject* getCache();
 		
-		inline void addInstanceMethod(string, int, Method*);
-		inline void addInstanceProperty(string, int);
+		/**
+		 * @brief add a Method to the datacache property
+		 * @param name the name of the method
+		 * @param uid the Identifier of the method
+		 * @param method the instance of the method you need to call.
+    	 */
+		inline void addInstanceMethod(string name, int uid, Method* method);
+		
+		/**
+		 * @brief add a property to the datacache
+		 * @param name the name for identify the property
+		 * @param uid the UID for identify the property
+    	 */
+		inline void addInstanceProperty(string name, int uid);
 	};
 }
 

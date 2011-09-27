@@ -19,6 +19,10 @@ namespace SDK{
 
 
 namespace SDK{
+	/**
+	 * @class BIMethod
+	 * @brief Class that represents a BuildIn Call in the ofx VM
+     */
 	template<class Template>
 	class BIMethod: public Method{
 	private:
@@ -26,25 +30,46 @@ namespace SDK{
 		//string name;
 		int nArguments;
 	public:
+		/**
+		 * @brief Constructor
+		 * @param name the Name of the method
+		 * @param arguments number of arguments in this method call
+		 * @param method function to call in the buildIn
+    	 */
 		BIMethod(string name, int arguments, void (Template::*method)(BICall*)): Method(name){
 			//this->name=name;
 			this->nArguments=arguments;
 			this->method=method;
 		}
 		~BIMethod(){};
+		
+		/**
+		 * @brief call the Build in method and return 0
+		 * @param stack Stack of call, to obtain the parameters
+		 * @return 0, as it is a BICall
+    	 */
 		virtual int call(Stack<Stackable>* stack){
 			(checkAndCast<Template>(stack->get(stack->getTop()-nArguments))->*method)(new BICall(this->getName, stack, nArguments));
 			return 0;
 		}
 	};
 	
-	
+	/**
+	 * @class BICall
+	 * @brief Class that represents the call from VM to BI methods, it contains stack, and you can extract parameters and set return value. 
+     */
 	class BICall{
 		int nArguments;
 		int baseStack;
 		Stack<Stackable>* stack;
 		string name;
 	public:
+		/**
+		 * @brief Constructor
+		 * @param name the Name of method you call. (for debug)
+		 * @param stack The stack from the Virtual Machine
+		 * @param arguments Number of arguments of the methods,.
+    	 */
 		BICall(string name, Stack<Stackable>* stack, int arguments){
 			this->name=name;
 			this->stack=stack;
@@ -54,6 +79,11 @@ namespace SDK{
 		
 		~BICall(){};
 		
+		/**
+		 * @brief get an argument from the call, it checkAndCast argument as the type you specify
+		 * @param arg Argument number.
+		 * @return argument or null.
+    	 */
 		template<T>
 		T* get(int arg ){
 			if (nArguments>=arg && arg>0){
@@ -63,10 +93,17 @@ namespace SDK{
 			}
 		}
 		
+		/**
+		 * @brief clear the stack from arguments.
+    	 */
 		void clear(){
 			this->stack->reseTop(baseStack-1);
 		}
 		
+		/**
+		 * @brief clear the arguments from stack, and set the return value of the method
+		 * @param retValue the value that you wish return to Virtual Machine
+    	 */
 		void clearAndSetReturn(Super* retValue){
 			this->clear();
 			this->stack->set(stack->getTop(), retValue);

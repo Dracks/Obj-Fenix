@@ -18,15 +18,29 @@ namespace SDK{
 #include "SuperObject.h"
 
 namespace SDK{
+	
+	/**
+	 * @class OfxClass
+	 * @brief Class that contains an objective Fenix class
+     */
 	class OfxClass: public SuperClass{
 	private:
 		SuperClass* parent;
 	public:
 		OfxClass(string, SuperClass*);
 		~OfxClass();
+		/**
+		 * @brief get a New instance of this objective Fenix class
+		 * @return an instance of OfxObject that represents an instance of the Obj-Fenix class
+    	 */
 		ofxObject* getNewInstance();
 	};
 	
+	/**
+	 * @class OfxObject
+	 * @brief Representation of an Ofx Instance. It has the link to parent object
+	 *
+     */
 	class OfxObject: public SuperObject{
 	private:
 		SuperObject* parent;

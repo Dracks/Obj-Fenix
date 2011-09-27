@@ -17,20 +17,42 @@ namespace SDK{
 #include "Super.h"
 
 namespace SDK{
+	/**
+	 * @class SuperObject
+	 * @brief The class base of all Instances in the objective Fenix.
+     */
 	class SuperObject: public Super{
 	public:
-		SuperObject(string name, Super*):Super(name){};
+		/**
+		 * @brief Constructor
+		 * @param name the Name of the object
+		 * @param obj the base for build the new instance
+    	 */
+		SuperObject(string name, Super* obj):Super(name){};
 		~SuperObject(){};
 	};
 	
+	/**
+	 * @class Primitive
+	 * @brief Is a template class for the base of all primitive BuiltIn Instances in the OFX
+     */
 	template<class Template>
 	class Primitive: public SuperObject{
 	protected: 
 		Template value;
+		/**
+		 * @brief Primitive
+		 * @param v the value primitive of the object
+		 * @param base the Base for call and construct SuperObject
+    	 */
 		Primitive(Template v, SuperObject* base): SuperObject(base->getName()){
 			value=v;
 		}
 	public:
+		/**
+		 * @brief get the primitive value that it save
+		 * @return the value
+    	 */
 		Template getValue(){
 			return value;
 		}
