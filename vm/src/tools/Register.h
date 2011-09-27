@@ -25,8 +25,8 @@ namespace ofxtools{
 		static vector<OnStartUp*> registerList;
 	public:
 		OnStartUp();
-		virtual	void* execute()=0;
-		static void registerAll();
+		virtual	void execute(Adapter*)=0;
+		static void registerAll(Adapter*);
 	};
 	
 	vector<Register*> Register::registerList;
@@ -36,9 +36,8 @@ namespace ofxtools{
 	private:
 		T* obj;
 	public:
-		virtual void* execute(){
-			obj=new T();
-			return obj;
+		virtual void execute(Adapter* adaptador){
+			adaptador->registerClass(new T());
 		}
 	};
 	

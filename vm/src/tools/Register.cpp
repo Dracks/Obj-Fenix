@@ -10,18 +10,17 @@
 #include "Register.h"
 
 //class Register{
-Register::Register(){
+OnStartUp::OnStartUp(){
 	registerList.push_back(this);
 }
 
-void Register::registerAll() {
+void OnStartUp::registerAll(Adapter* adaptador) {
 	int size=registerList.size();
 	printf("Registrant-ho tot (%d) \n", size);
 	for(unsigned int i=0; i<registerList.size(); i++){
-		printf("%d\n", i);
-		registerList[i]->execute();
+		registerList[i]->execute(adaptador);
 	}
 }
 
 
-vector<Register*> Register::registerList;
+vector<Register*> OnStartUp::registerList;
