@@ -22,6 +22,7 @@ namespace ofxBI{
 		return new IntegerObject(v, DataCache);
 	}
 	
+	
 	//class BooleanObject: public SDK::Primitive<bool> {
 	BooleanObject::BooleanObject(bool v, SuperObject* base): Primitive(v, base){
 		
