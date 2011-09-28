@@ -19,7 +19,7 @@ namespace tools{
 
 namespace tools {
 	class CacheClass {
-		friend class Adapter;
+		//friend class Adapter;
 	private:
 		int ID;
 		string name;
@@ -27,7 +27,9 @@ namespace tools {
 		CacheClass(int, string);
 		virtual ~CacheClass();
 		virtual void apply(Adapter*)=0;
-	}
+		string getName();
+		int getUid();
+	};
 	
 	class NativeCacheClass: public CacheClass {
 	private:
@@ -37,7 +39,7 @@ namespace tools {
 		void addMethod(int, string);
 		
 		void apply(Adapter*);
-	}
+	};
 	
 	class OfxCacheMethod {
 		friend class Adapter;
@@ -49,7 +51,7 @@ namespace tools {
 		
 		OfxCacheMethod(int, string, int);
 		virtual ~OfxCacheMethod();
-	}
+	};
 	
 	class OfxCacheClass: public CacheClass {
 	private:
@@ -59,6 +61,8 @@ namespace tools {
 		OfxCacheClass(int, string, int);
 		void apply(Adapter*);
 		void addMethod(OfxCacheMethod*);
-	}
+		int getParent();
+		vector<OfxCacheMethod*> getMethods();
+	};
 }
 #endif

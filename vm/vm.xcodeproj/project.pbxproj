@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXFileReference section */
+		A406615213B1E0F80064CD81 /* Library.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Library.h; path = src/classes/Library.h; sourceTree = "<group>"; };
+		A406615313B1E0F80064CD81 /* Library.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Library.cpp; path = src/classes/Library.cpp; sourceTree = "<group>"; };
+		A408247C142F711E005245AD /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = String.h; sourceTree = "<group>"; };
+		A408247D142F712D005245AD /* Shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shell.h; sourceTree = "<group>"; };
+		A408247E142F713A005245AD /* Shell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shell.cpp; sourceTree = "<group>"; };
+		A408247F142F7145005245AD /* String.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = String.cpp; sourceTree = "<group>"; };
+		A40B2D0B143209B3004DC5AE /* Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cache.h; sourceTree = "<group>"; };
+		A40B2D0C14320C0A004DC5AE /* Cache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cache.cpp; sourceTree = "<group>"; };
+		A40D70EA137570A7002D8DE4 /* Base.ofx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Base.ofx; path = ../compilador/BaseLibs/Base.ofx; sourceTree = SOURCE_ROOT; };
+		A412C6AD13ABB7880059B8FE /* tools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tools.cpp; path = src/tools.cpp; sourceTree = "<group>"; };
+		A412C6AE13ABB7880059B8FE /* tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tools.h; path = src/tools.h; sourceTree = "<group>"; };
+		A41986E3142268A800C0C961 /* Integer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Integer.h; sourceTree = "<group>"; };
+		A41986E714226FCE00C0C961 /* Integer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Integer.cpp; sourceTree = "<group>"; };
+		A4292323142734A600AA2514 /* Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Adapter.h; sourceTree = "<group>"; };
+		A429232414279C5D00AA2514 /* Adapter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Adapter.cpp; sourceTree = "<group>"; };
+		A43E6AF8133F68970028E993 /* ByteCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByteCode.h; path = src/classes/ByteCode.h; sourceTree = "<group>"; };
+		A43E6AF9133F68970028E993 /* ByteCode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ByteCode.cpp; path = src/classes/ByteCode.cpp; sourceTree = "<group>"; };
+		A44063CA132025C7007A19E2 /* ObjectTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectTest.cpp; sourceTree = "<group>"; };
+		A44063CB132025C7007A19E2 /* ObjectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectTest.h; sourceTree = "<group>"; };
+		A44063CC132025C7007A19E2 /* VMapp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VMapp.cpp; sourceTree = "<group>"; };
+		A44063CD132025F2007A19E2 /* firstSample.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = firstSample.s; sourceTree = "<group>"; };
+		A46A52811323AFB50020A4A9 /* ASM_instructions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASM_instructions.h; path = src/ASM_instructions.h; sourceTree = "<group>"; };
+		A46A52831323DF4A0020A4A9 /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Thread.h; path = src/classes/Thread.h; sourceTree = "<group>"; };
+		A46A52841323DF4A0020A4A9 /* Thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Thread.cpp; path = src/classes/Thread.cpp; sourceTree = "<group>"; };
+		A48BCB25131D5CD00030E32A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
+		A49467671396709C004D7341 /* bytecode.asm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm.asm; name = bytecode.asm; path = ../compilador/bytecode.asm; sourceTree = SOURCE_ROOT; };
+		A494676913967261004D7341 /* Readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme; sourceTree = "<group>"; };
+		A4A8989C1421FC5B001C1E5E /* Register.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Register.cpp; sourceTree = "<group>"; };
+		A4A8989D1421FC6F001C1E5E /* Register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Register.h; sourceTree = "<group>"; };
+		A4CC59191351C41A00F6FB7D /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stack.h; path = src/classes/Stack.h; sourceTree = "<group>"; };
+		A4CC591A1351C41A00F6FB7D /* Stack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stack.cpp; path = src/classes/Stack.cpp; sourceTree = "<group>"; };
+		A4CC59301352193200F6FB7D /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/classes/CMakeLists.txt; sourceTree = "<group>"; };
+		A4D6DCDB1350410C002E4890 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = "<group>"; };
+		A4D6DCDC13504119002E4890 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		A4D6DCDD13504126002E4890 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/Builtin.old/CMakeLists.txt; sourceTree = "<group>"; };
+		A4E9409914240498007D702F /* BIMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BIMethod.cpp; sourceTree = "<group>"; };
+		A4E9409A14240498007D702F /* BIMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIMethod.h; sourceTree = "<group>"; };
+		A4E9409B14240498007D702F /* OfxClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OfxClass.cpp; sourceTree = "<group>"; };
+		A4E9409C14240498007D702F /* OfxClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfxClass.h; sourceTree = "<group>"; };
+		A4E9409D14240498007D702F /* OfxMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OfxMethod.cpp; sourceTree = "<group>"; };
+		A4E9409E14240498007D702F /* OfxMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfxMethod.h; sourceTree = "<group>"; };
+		A4E9409F14240498007D702F /* Stackable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stackable.cpp; sourceTree = "<group>"; };
+		A4E940A014240498007D702F /* Stackable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stackable.h; sourceTree = "<group>"; };
+		A4E940A114240498007D702F /* Super.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Super.cpp; sourceTree = "<group>"; };
+		A4E940A214240498007D702F /* Super.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Super.h; sourceTree = "<group>"; };
+		A4E940A314240498007D702F /* SuperClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SuperClass.cpp; sourceTree = "<group>"; };
+		A4E940A414240498007D702F /* SuperClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperClass.h; sourceTree = "<group>"; };
+		A4E940A514240498007D702F /* SuperObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SuperObject.cpp; sourceTree = "<group>"; };
+		A4E940A614240498007D702F /* SuperObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperObject.h; sourceTree = "<group>"; };
+		A4E940B014266756007D702F /* Boolean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boolean.h; sourceTree = "<group>"; };
+		A4E940B114266766007D702F /* Boolean.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boolean.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* vm */ = {
+			isa = PBXGroup;
+			children = (
+				A4D6DCDA135040FB002E4890 /* CMake */,
+				A44063C9132025C7007A19E2 /* Tests */,
+				A40D70E91375707B002D8DE4 /* OFX */,
+				A48BCB24131D5CB90030E32A /* src */,
+				A494676913967261004D7341 /* Readme */,
+			);
+			name = vm;
+			sourceTree = "<group>";
+		};
+		A40D70E91375707B002D8DE4 /* OFX */ = {
+			isa = PBXGroup;
+			children = (
+				A49467671396709C004D7341 /* bytecode.asm */,
+				A40D70EA137570A7002D8DE4 /* Base.ofx */,
+			);
+			name = OFX;
+			sourceTree = "<group>";
+		};
+		A44063C9132025C7007A19E2 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A44063CA132025C7007A19E2 /* ObjectTest.cpp */,
+				A44063CB132025C7007A19E2 /* ObjectTest.h */,
+				A44063CC132025C7007A19E2 /* VMapp.cpp */,
+				A44063CD132025F2007A19E2 /* firstSample.s */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		A46A52851323DF510020A4A9 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				A46A52831323DF4A0020A4A9 /* Thread.h */,
+				A46A52841323DF4A0020A4A9 /* Thread.cpp */,
+				A43E6AF8133F68970028E993 /* ByteCode.h */,
+				A43E6AF9133F68970028E993 /* ByteCode.cpp */,
+				A4CC59191351C41A00F6FB7D /* Stack.h */,
+				A4CC591A1351C41A00F6FB7D /* Stack.cpp */,
+				A406615213B1E0F80064CD81 /* Library.h */,
+				A406615313B1E0F80064CD81 /* Library.cpp */,
+			);
+			name = classes;
+			sourceTree = "<group>";
+		};
+		A48BCB24131D5CB90030E32A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A4A8989B1421FC1D001C1E5E /* tools */,
+				A412C6AD13ABB7880059B8FE /* tools.cpp */,
+				A412C6AE13ABB7880059B8FE /* tools.h */,
+				A46A52851323DF510020A4A9 /* classes */,
+				A4E9409814240407007D702F /* SDK */,
+				A4C907551420C050006E7C13 /* BuiltIn */,
+				A48BCB25131D5CD00030E32A /* main.cpp */,
+				A46A52811323AFB50020A4A9 /* ASM_instructions.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		A4A8989B1421FC1D001C1E5E /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				A4A8989D1421FC6F001C1E5E /* Register.h */,
+				A4A8989C1421FC5B001C1E5E /* Register.cpp */,
+				A4292323142734A600AA2514 /* Adapter.h */,
+				A429232414279C5D00AA2514 /* Adapter.cpp */,
+				A40B2D0B143209B3004DC5AE /* Cache.h */,
+				A40B2D0C14320C0A004DC5AE /* Cache.cpp */,
+			);
+			name = tools;
+			path = src/tools;
+			sourceTree = "<group>";
+		};
+		A4C907551420C050006E7C13 /* BuiltIn */ = {
+			isa = PBXGroup;
+			children = (
+				A4E940B014266756007D702F /* Boolean.h */,
+				A4E940B114266766007D702F /* Boolean.cpp */,
+				A41986E3142268A800C0C961 /* Integer.h */,
+				A41986E714226FCE00C0C961 /* Integer.cpp */,
+				A408247C142F711E005245AD /* String.h */,
+				A408247F142F7145005245AD /* String.cpp */,
+				A408247D142F712D005245AD /* Shell.h */,
+				A408247E142F713A005245AD /* Shell.cpp */,
+			);
+			name = BuiltIn;
+			path = src/BuiltIn;
+			sourceTree = "<group>";
+		};
+		A4D6DCDA135040FB002E4890 /* CMake */ = {
+			isa = PBXGroup;
+			children = (
+				A4D6DCDC13504119002E4890 /* CMakeLists.txt */,
+				A4D6DCDB1350410C002E4890 /* CMakeLists.txt */,
+				A4D6DCDD13504126002E4890 /* CMakeLists.txt */,
+				A4CC59301352193200F6FB7D /* CMakeLists.txt */,
+			);
+			name = CMake;
+			sourceTree = "<group>";
+		};
+		A4E9409814240407007D702F /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				A4E940A014240498007D702F /* Stackable.h */,
+				A4E9409F14240498007D702F /* Stackable.cpp */,
+				A4E940A214240498007D702F /* Super.h */,
+				A4E940A114240498007D702F /* Super.cpp */,
+				A4E940A414240498007D702F /* SuperClass.h */,
+				A4E940A314240498007D702F /* SuperClass.cpp */,
+				A4E940A614240498007D702F /* SuperObject.h */,
+				A4E940A514240498007D702F /* SuperObject.cpp */,
+				A4E9409E14240498007D702F /* OfxMethod.h */,
+				A4E9409D14240498007D702F /* OfxMethod.cpp */,
+				A4E9409A14240498007D702F /* BIMethod.h */,
+				A4E9409914240498007D702F /* BIMethod.cpp */,
+				A4E9409C14240498007D702F /* OfxClass.h */,
+				A4E9409B14240498007D702F /* OfxClass.cpp */,
+			);
+			name = SDK;
+			path = src/SDK;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		D28A88AD04BDD90700651E21 /* vm */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 1DEB918F08733D9F0010E9CD /* Build configuration list for PBXLegacyTarget "vm" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/vm/build";
+			dependencies = (
+			);
+			name = vm;
+			passBuildSettingsInEnvironment = 1;
+			productName = vm;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB919308733D9F0010E9CD /* Build configuration list for PBXProject "vm" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* vm */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D28A88AD04BDD90700651E21 /* vm */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB919008733D9F0010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = vm;
+			};
+			name = Debug;
+		};
+		1DEB919108733D9F0010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = vm;
+			};
+			name = Release;
+		};
+		1DEB919408733D9F0010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					"$(ARCHS_STANDARD_64_BIT)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB919508733D9F0010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					"$(ARCHS_STANDARD_64_BIT)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB918F08733D9F0010E9CD /* Build configuration list for PBXLegacyTarget "vm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB919008733D9F0010E9CD /* Debug */,
+				1DEB919108733D9F0010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB919308733D9F0010E9CD /* Build configuration list for PBXProject "vm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB919408733D9F0010E9CD /* Debug */,
+				1DEB919508733D9F0010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

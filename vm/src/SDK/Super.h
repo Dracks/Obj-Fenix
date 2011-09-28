@@ -53,7 +53,7 @@ namespace SDK{
 	 */
 	class Super: public Stackable{
 	private:
-		map<int, Method*> methodList; // Donat un UID hem de retornar un methodList
+		map<int, Method*> methodList; // Donat un UID hem de retornar un metode
 		map<int, SuperObject*> propertyList;
 		
 		map<string, int> methodTranslation;
@@ -65,6 +65,8 @@ namespace SDK{
 		 */
 		Super(string name): Stackable(name){};
 		~Super();
+		
+		virtual vector<Method*> getMethodList(){};
 		
 		/**
 		 * @fn inline void addMethod(string, int, Method*)

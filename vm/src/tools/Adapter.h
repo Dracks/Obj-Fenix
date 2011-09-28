@@ -16,23 +16,24 @@ namespace tools{
 #include "../classes/Library.h"
 
 namespace tools {
+	/**
+	 * @class Adapter
+	 * @brief This class joins the bytecode with the builtIn Classes and objects and charge Library with All the data.
+     */
 	class Adapter {
 	private:
-		//static Library* data;
 		
 		map<string, SuperClass*> ofxDataCache;
 		vector<CacheClass*> biDataCache;
 		
 		
-		
 	public:
 		//static Library* getData();
+		Adapter();
+		~Adapter();
 		
 		void applyNative(NativeCacheClass*);
 		void applyOfx(OfxCacheClass*);
-		
-		Adapter();
-		~Adapter();
 		
 		void registerClass(SuperClass*);
 		void assignClass(CacheClass*);
