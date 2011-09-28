@@ -28,7 +28,7 @@ namespace tools{
 		
 		map<string, SuperClass*>::iterator found=ofxDataCache.find(cache->getName());
 		if (found==biDataCache.end()){
-			/// @TODO: L'em ben liat-> Fer algun tipus d'excepció amb warnings i aquestes historietes
+			/// @TODO L'em ben liat-> Fer algun tipus d'excepció amb warnings i aquestes historietes
 		}
 		SuperClass* obj=found->second;
 		map<string, Method*> biMethodList=obj->getRegisteredMethods();
@@ -36,9 +36,9 @@ namespace tools{
 		for (unsigned int i=0; i<ofxMethodList.size(); i++){
 			map<string, SuperClass*>::iterator found=biMethodList.find(ofxMethodList[i].second);
 			if (found==biDataCache.end()){
-				/// @TODO: L'em ben liat2-> Fer algun tipus d'excepció amb warnings i aquestes historietes
+				/// @TODO L'em ben liat2-> Fer algun tipus d'excepció amb warnings i aquestes historietes
 			}
-			/// @TODO: Make a new class for know when is static and isn't static, and others things. 
+			/// @TODO Make a new class for know when is static and isn't static, and others things. 
 			obj->addInstanceMethod(ofxMethodList[i].second, ofxMethodList[i].first, *found);
 		}
 		

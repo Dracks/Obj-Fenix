@@ -40,7 +40,7 @@ namespace ofxtools{
 			adaptador->registerClass(new T());
 		}
 	};
-	
+	/*
 	template<class Template>
 	class RegisterMethodCollection {
 	private:
@@ -49,7 +49,7 @@ namespace ofxtools{
 		add(string name, void (Template::*method)(SDK::BICall*)){
 			llista.push_back(new pair<string, void (Template::*)(SDK::BICall*)>(name, method));
 		}
-	}
+	}*/
 }
 
 
