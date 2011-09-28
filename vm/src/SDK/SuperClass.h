@@ -39,6 +39,16 @@ namespace SDK {
     	 */
 		SuperObject* getCache();
 		
+		
+		/**
+		 * @brief get a list of methods with this name, is used in the BIClass, for register their methods
+		 * @return return the instance of the cache.
+    	 */
+		virtual map<string, Method*> getRegisteredMethods(){
+			map<string, Method*> ret;
+			return ret;
+		}
+		
 		/**
 		 * @brief add a Method to the datacache property
 		 * @param name the name of the method

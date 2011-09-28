@@ -29,6 +29,7 @@ namespace SDK{
 	public:
 		OfxClass(string, SuperClass*);
 		~OfxClass();
+		
 		/**
 		 * @brief get a New instance of this objective Fenix class
 		 * @return an instance of OfxObject that represents an instance of the Obj-Fenix class

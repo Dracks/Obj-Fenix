@@ -23,12 +23,16 @@ namespace tools {
 	private:
 		int ID;
 		string name;
+		vector<pair<int, string> > properties;
 	public:
 		CacheClass(int, string);
 		virtual ~CacheClass();
 		virtual void apply(Adapter*)=0;
 		string getName();
-		int getUid();
+		int getUID();
+		
+		void addProperty(int uid, string name);
+		vector<pair<int, string> > getProperties();
 	};
 	
 	class NativeCacheClass: public CacheClass {
@@ -47,9 +51,13 @@ namespace tools {
 		int ID;
 		string name;
 		int line;
+		bool constructor;
+		bool isStatic;
 	public:
 		
 		OfxCacheMethod(int, string, int);
+		setConstructor(bool v);
+		setIsStatic(bool v);
 		virtual ~OfxCacheMethod();
 	};
 	

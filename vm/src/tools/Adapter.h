@@ -32,6 +32,8 @@ namespace tools {
 		Adapter();
 		~Adapter();
 		
+		void applyProperties(SuperClass* c, CacheClass* cache);
+		
 		void applyNative(NativeCacheClass*);
 		void applyOfx(OfxCacheClass*);
 		
