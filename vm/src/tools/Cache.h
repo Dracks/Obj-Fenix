@@ -8,7 +8,7 @@
 
 #ifndef vm_Cache_h
 #define vm_Cache_h
-namespace tools{
+namespace ofxtools{
 	class CacheClass;
 	class NativeCacheClass;
 	class OfxCacheMethod;
@@ -17,7 +17,7 @@ namespace tools{
 
 #include "Adapter.h"
 
-namespace tools {
+namespace ofxtools {
 	class CacheClass {
 		//friend class Adapter;
 	private:

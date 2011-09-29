@@ -10,16 +10,19 @@
 #define vm_Register_h
 
 
-#define registerClass(C) namespace RegistradorDe##C { R::RegisterClass<C> startup; } 
+#define registerClass(C) namespace RegistradorDe##C { R::RegisterClass<C> startup; }
+
 namespace ofxtools{
 	class OnStartUp;
 	class RegisterClass;
 	class RegisterMethodCollection;
 }
 
-#include "../SDK/BIMethod.h"
+// #include "../SDK/BIMethod.h"
+#include "Adapter.h"
 
 namespace ofxtools{
+	
 	class OnStartUp{
 	private:
 		static vector<OnStartUp*> registerList;
@@ -29,7 +32,6 @@ namespace ofxtools{
 		static void registerAll(Adapter*);
 	};
 	
-	vector<Register*> Register::registerList;
 	
 	template<class T>
 	class RegisterClass: public OnStartUp{

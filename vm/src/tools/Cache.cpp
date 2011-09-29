@@ -11,10 +11,11 @@
 #include "Cache.h"
 
 
-namespace tools {
+namespace ofxtools {
 //	class CacheClass {
-	CacheClass::CacheClass(int, string){
-
+	CacheClass::CacheClass(int id, string name){
+            this->ID=id;
+            this->name=name;
         }
 
 	CacheClass::~CacheClass(){}
@@ -49,22 +50,41 @@ namespace tools {
 	
 //	class OfxCacheMethod {
 		
-	OfxCacheMethod::OfxCacheMethod(int, string, int){}
-	
-	void OfxCacheMethod::setConstructor(bool v){}
-	
-	void OfxCacheMethod::setIsStatic(bool v){}
-	
+	OfxCacheMethod::OfxCacheMethod(int id, string name, int line) {
+		this->ID=id;
+		this->name=name;
+		this->line=line;
+		this->constructor=false;
+        }
+
 	OfxCacheMethod::~OfxCacheMethod(){}
 	
+	void OfxCacheMethod::setConstructor(bool v){
+		this->constructor=v;
+	}
+	
+	void OfxCacheMethod::setIsStatic(bool v){
+		this->isStatic=v;
+	}
+	
 //	class OfxCacheClass: public CacheClass {
-	OfxCacheClass::OfxCacheClass(int, string, int){}
+	OfxCacheClass::OfxCacheClass(int id, string name, int parent): CacheClass(id, name){
+		this->parent=parent;
+	}
 	
-	void OfxCacheClass::apply(Adapter*){}
+	void OfxCacheClass::apply(Adapter* obj){
+		obj->applyOfx();
+	}
 	
-	void OfxCacheClass::addMethod(OfxCacheMethod*){}
+	void OfxCacheClass::addMethod(OfxCacheMethod* method){
+		this->methods.push_back(method);
+	}
 	
-	int OfxCacheClass::getParent(){}
+	int OfxCacheClass::getParent(){
+		return this->parent;
+	}
 	
-	vector<OfxCacheMethod*> OfxCacheClass::getMethods(){}
+	vector<OfxCacheMethod*> OfxCacheClass::getMethods(){
+		return this->methods;
+	}
 }

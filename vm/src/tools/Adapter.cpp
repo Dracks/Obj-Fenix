@@ -7,14 +7,15 @@
 //
 
 #include <iostream>
+#include "Adapter.h"
 
-
-namespace tools{
+namespace ofxtools{
 	using namespace SDK;
 	using namespace ofxbytecode;
+	
 	//class Adapter {
-	Adapter::Adapter();
-	Adapter::~Adapter();
+	Adapter::Adapter(){};
+	Adapter::~Adapter(){};
 		
 	void Adapter::applyProperties(SuperClass* obj, CacheClass* cache){
 		vector<pair<int, string> > listProperties=cache->getProperties();

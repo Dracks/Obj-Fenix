@@ -9,18 +9,20 @@
 #include <iostream>
 #include "Register.h"
 
-//class Register{
-OnStartUp::OnStartUp(){
-	registerList.push_back(this);
-}
+namespace ofxtools{
 
-void OnStartUp::registerAll(Adapter* adaptador) {
-	int size=registerList.size();
-	printf("Registrant-ho tot (%d) \n", size);
-	for(unsigned int i=0; i<registerList.size(); i++){
-		registerList[i]->execute(adaptador);
+	vector<OnStartUp*> OnStartUp::registerList;
+
+	//class Register{
+	OnStartUp::OnStartUp(){
+		registerList.push_back(this);
+	}
+
+	void OnStartUp::registerAll(Adapter* adaptador) {
+		int size=registerList.size();
+		printf("Registrant-ho tot (%d) \n", size);
+		for(unsigned int i=0; i<registerList.size(); i++){
+			registerList[i]->execute(adaptador);
+		}
 	}
 }
-
-
-vector<Register*> OnStartUp::registerList;

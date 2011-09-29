@@ -14,8 +14,8 @@ namespace SDK {
 #include "../ASM_instructions.h"
 #include "../classes/Thread.h"
 #include "../classes/Stack.h"
-#include "Method.h"
-#include "Class.h"
+//#include "Method.h"
+//#include "Class.h"
 
 #include <string>
 

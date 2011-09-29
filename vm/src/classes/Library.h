@@ -16,13 +16,13 @@ namespace ofxbytecode{
 
 #ifndef LIBRARY_H
 #define LIBRARY_H
-using namespace objfenix;
+//using namespace objfenix;
 
 namespace ofxbytecode{
 	/**
 	 * @class Library
 	 * @brief This class contains all definitions of classes and constants organitzed with name and UID
-     */
+	 */
 	class Library{
 	private:
 		vector<SDK::SuperClass*> classList;
@@ -30,7 +30,7 @@ namespace ofxbytecode{
 		map<string,int> classID;
 		map<string,int> constantID;
 		Library();
-		~Library(){data=NULL};
+		~Library(){data=NULL;};
 		
 		static Library* data;
 		
@@ -38,7 +38,7 @@ namespace ofxbytecode{
 		/**
 		 * @brief obtain Library as a singleton
 		 * @return the only instance of Library in all the execution.
-    	 */
+		 */
 		static Library* getLibrary();
 		
 		void addClass(int cid, string name, SDK::SuperClass* c);
