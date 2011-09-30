@@ -18,21 +18,25 @@
 #include "stdio.h"
 
 #include "ASM_instructions.h"
-#include "Builtin/Stackable.h"
-#include "Builtin/Shell.h"
-#include "Builtin/String.h"
-#include "Builtin/Integer.h"
-#include "Builtin/class.h"
-#include "Builtin/Method.h"
+#include "SDK/Stackable.h"
+/*#include "BuiltIn/Shell.h"
+#include "BuiltIn/String.h"
+#include "BuiltIn/Integer.h"
+#include "SDK/SuperClass.h"
+#include "SDK/Super.h"
+*/
+#include "tools/Adapter.h"
+#include "tools/Cache.h"
 
 #include <time.h>
 #include "tools.h"
 
 
 
-using namespace objfenix;
+using namespace SDK;
 using namespace ofxbytecode;
-static Stackable* cache[10];
+using namespace ofxtools;
+//static Stackable* cache[10];
 
 /*Stackable* search_constant(int num){
 	//printf("Search constant : %d \n", num);
@@ -248,6 +252,8 @@ ASM_line* loadByteCode(string file, Library* data){
 	ASM_line* bytecode;
 	int count1, count2;
 	bytecodeFile=fopen(file.c_str(), "r");
+
+	Adapter* adaptador=new Adapter();
 	
 	fread(&header, sizeof(headerSave), 1, bytecodeFile); // A partir d'aqui tenim la capçalera carregada
 	printf("Debugging: (%d)\n", header.ByteCodeVersion);
@@ -260,22 +266,27 @@ ASM_line* loadByteCode(string file, Library* data){
 	
 	while (count1<header.n_Class){
 		int cid;
+		int fatherUID;
 		char native;
+		char constructor,isStatic;
+		int line;
 		int aux,aux2;
 		int limit2;
 		char* name;
-		Class* clase;
+		CacheClass* cache;
 		fread(&cid,		sizeof(int),	1, bytecodeFile);
+		fread(&fatherUID,	sizeof(int),	1, bytecodeFile);
 		fread(&native,	sizeof(char),	1, bytecodeFile);
 		fread(&aux,		sizeof(int),	1, bytecodeFile);
 		name=(char*) malloc(aux*sizeof(char));
 		fread(name,		sizeof(char)*(aux-1),	1,	bytecodeFile);
+
 		if (native){
-			
+			cache=new NativeCacheClass(cid,name);
 		} else {
-			clase=new OFXClass(cid);
+			cache=new OfxCacheClass(cid, name, fatherUID);
 		}
-		data->addClass(cid, name, clase);
+
 		free(name);
 		
 		fread(&aux2, sizeof(int), 1, bytecodeFile);
@@ -287,7 +298,34 @@ ASM_line* loadByteCode(string file, Library* data){
 			name=(char*) malloc(sizeof(char)*(aux+1));
 			fread(name, sizeof(char), aux, bytecodeFile);
 			
-			count1++;
+			cache->addProperty(uid, name);
+
+			count2++;
+		}
+
+		fread(&aux2, sizeof(int), 1, bytecodeFile);
+		count2=0;
+		while (count2<aux2){
+			int uid;
+			fread(&uid,		sizeof(int),	1, bytecodeFile);
+			fread(&line,	sizeof(int),	1, bytecodeFile);
+			fread(&constructor,	sizeof(char),	1, bytecodeFile);
+			fread(&isStatic,	sizeof(char),	1, bytecodeFile);
+			fread(&aux,	sizeof(int),	1, bytecodeFile);
+			name=(char*) malloc(sizeof(char)*(aux+1));
+			fread(name, sizeof(char), aux, bytecodeFile);
+			if (native){
+				((NativeCacheClass*)cache)->addMethod(uid, name);
+			} else {
+				OfxCacheMethod* method=new OfxCacheMethod(uid,name,line);
+				((OfxCacheClass*) cache)->addMethod(method);
+				if (constructor)
+					method->setConstructor(true);
+				if (isStatic)
+					method->setIsStatic(true);
+			}
+
+			count2++;
 		}
 		
 		count1++;
