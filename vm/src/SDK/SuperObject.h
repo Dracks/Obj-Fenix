@@ -11,6 +11,7 @@
 
 namespace SDK{
 	class SuperObject;
+	template <class T>
 	class Primitive;
 }
 

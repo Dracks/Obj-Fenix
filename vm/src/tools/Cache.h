@@ -56,8 +56,8 @@ namespace ofxtools {
 	public:
 		
 		OfxCacheMethod(int, string, int);
-		setConstructor(bool v);
-		setIsStatic(bool v);
+		void setConstructor(bool v);
+		void setIsStatic(bool v);
 		virtual ~OfxCacheMethod();
 	};
 	

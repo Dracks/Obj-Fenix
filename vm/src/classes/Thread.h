@@ -14,15 +14,16 @@ namespace ofxbytecode {
 	class Thread;
 }
 
+
 #include "../ASM_instructions.h"
 #include "../SDK/Stackable.h"
 #include "Stack.h"
 #include "Library.h"
 #include <utility>
 using namespace std;
-
+/*
 typedef struct{
-	objfenix::Stackable** pila;
+	SDK::Stackable** pila;
 	int numTop;
 	//objfenix::Object* top;
 	int top;
@@ -34,7 +35,7 @@ namespace ofxbytecode{
 	class Thread {
 	private:
 		ASM_line* code;
-		Stack<objfenix::Stackable*>* dataStack;
+		Stack<SDK::Stackable*>* dataStack;
 		Stack<pair<int,ASM_line*> >*	callStack;
 		void* jmp_asm[SIZE_INSTRUCTIONS];
 		Library* data;

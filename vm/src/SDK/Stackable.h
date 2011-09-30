@@ -11,7 +11,7 @@ namespace SDK {
 	class Stackable;
 }
 
-#include "../ASM_instructions.h"
+//#include "../ASM_instructions.h"
 #include "../classes/Thread.h"
 #include "../classes/Stack.h"
 //#include "Method.h"

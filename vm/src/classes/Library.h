@@ -13,6 +13,7 @@ namespace ofxbytecode{
 
 #include "../SDK/SuperClass.h"
 #include "../SDK/SuperObject.h"
+#include <vector>
 
 #ifndef LIBRARY_H
 #define LIBRARY_H
@@ -25,10 +26,10 @@ namespace ofxbytecode{
 	 */
 	class Library{
 	private:
-		vector<SDK::SuperClass*> classList;
-		vector<SDK::SuperObject*> constantList;
-		map<string,int> classID;
-		map<string,int> constantID;
+		std::vector<SDK::SuperClass*> classList;
+		std::vector<SDK::SuperObject*> constantList;
+		std::map<std::string,int> classID;
+		std::map<std::string,int> constantID;
 		Library();
 		~Library(){data=NULL;};
 		
@@ -41,9 +42,9 @@ namespace ofxbytecode{
 		 */
 		static Library* getLibrary();
 		
-		void addClass(int cid, string name, SDK::SuperClass* c);
+		void addClass(int cid, std::string name, SDK::SuperClass* c);
 		inline SDK::SuperClass* getClass(int cid);
-		inline SDK::SuperClass* getClass(string name);
+		inline SDK::SuperClass* getClass(std::string name);
 		
 		void addConstant(int cid, SDK::SuperObject* c); // Class => BuiltInClass
 		inline SDK::SuperObject* getConstant(int cid);

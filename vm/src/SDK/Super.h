@@ -15,6 +15,7 @@ namespace SDK{
 }
 
 #include "Stackable.h"
+#include "../classes/Stack.h"
 
 namespace SDK{
 	/**
@@ -29,7 +30,7 @@ namespace SDK{
 		 * @fn Method(string name)
 		 * @param name the name of the method that it represents
 		 */
-		Method(string name): Stackable(name){};
+		Method(string name): Stackable(name,0){};
 		~Method();
 		
 		/**
@@ -42,7 +43,7 @@ namespace SDK{
 		 * @fn virtual int call(Stack<Stackable>*)=0;
 		 * @brief The abstract method that defines the name of the method for call it.
 		 */
-		virtual int call(Stack<Stackable>*)=0;
+		virtual int call(ofxbytecode::Stack<Stackable>*)=0;
 	};
 	
 	
@@ -63,7 +64,7 @@ namespace SDK{
 		 * @fn Super(string name)
 		 * @brief constructor
 		 */
-		Super(string name): Stackable(name){};
+		Super(string name): Stackable(name,0){};
 		~Super();
 		
 		virtual vector<Method*> getMethodList(){};

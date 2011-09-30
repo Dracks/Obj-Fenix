@@ -18,7 +18,7 @@ typedef enum ASMBytecode{
 	GOTO, GOTO_TRUE, GOTO_FALSE, 
 	STORE_ATTR, STORE_PRIVATE, 
 	SIZE_INSTRUCTIONS
-};
+} ASMByteCode2;
 
 typedef struct {
 	ASMBytecode instruction;

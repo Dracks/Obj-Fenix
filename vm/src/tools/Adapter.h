@@ -17,6 +17,7 @@ namespace ofxtools{
 #include <vector>
 #include "../classes/Library.h"
 #include "../SDK/SuperClass.h"
+#include "Cache.h"
 
 
 namespace ofxtools {
@@ -27,7 +28,7 @@ namespace ofxtools {
 	class Adapter {
 	private:
 		map<string, SDK::SuperClass*> ofxDataCache;
-		vector<CacheClass*> biDataCache;
+		std::vector<CacheClass*> biDataCache;
 		
 	public:
 		//static Library* getData();

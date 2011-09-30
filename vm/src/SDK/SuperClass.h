@@ -38,7 +38,7 @@ namespace SDK {
 		 * @return return the instance of the cache.
     	 */
 		SuperObject* getCache();
-		
+	public:
 		
 		/**
 		 * @brief get a list of methods with this name, is used in the BIClass, for register their methods
