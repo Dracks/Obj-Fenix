@@ -11,7 +11,7 @@
 
 namespace SDK{
 	class SuperClass;
-}
+};
 
 #include "SuperObject.h"
 
@@ -28,17 +28,20 @@ namespace SDK {
 		 */
 		SuperObject* DataCache;
 	protected:
+		
+		
 		/**
 		 * @brief Constructor
     	 */
 		SuperClass();
 		~SuperClass();
+	public:
+		
 		/**
 		 * @brief get the Cache instance
 		 * @return return the instance of the cache.
     	 */
 		SuperObject* getCache();
-	public:
 		
 		/**
 		 * @brief get a list of methods with this name, is used in the BIClass, for register their methods
@@ -64,7 +67,7 @@ namespace SDK {
     	 */
 		inline void addInstanceProperty(string name, int uid);
 	};
-}
+};
 
 
 #endif

@@ -8,8 +8,11 @@
 
 #include <iostream>
 
+#include "Shell.h"
+#include "String.h"
+
 namespace ofxBI{
-	
+	using namespace SDK;
 	
 //	class ShellClass: public SDK::Superclass {
 	ShellClass::ShellClass(){}
@@ -21,28 +24,28 @@ namespace ofxBI{
 	}
 	
 	void ShellClass::addInstanceProperty(string name, int id){
-		this->addProperty(name, id)
+		this->addProperty(name, id);
 	}
 		
-	void ShellClass::ofxShell(BuiltInCall* call){
+	void ShellClass::ofxShell(BICall* call){
 		call->clearAndSetReturn(this);
 		
 	}
 	
-	void ShellClass::ofxStdOut(BuiltInCall* call){
+	void ShellClass::ofxStdOut(BICall* call){
 		std::cout << call->get<StringObject>(1)->getValue() << std::endl;
 		call->clear();
 		
 	}
 	
-	void ShellClass::ofxStdErr(BuiltInCall* call){
+	void ShellClass::ofxStdErr(BICall* call){
 		std::cerr << call->get<StringObject>(1)->getValue()<< std::endl;
 		call->clear();
 	}
 	
-	void ShellClass::ofxStdIn(BuiltInCall* call){
+	void ShellClass::ofxStdIn(BICall* call){
 		string input;
 		cin >> input;
-		call->clearAndReturn(checkAndCast<StringClass>(ofxbytecode::Library::getData()->getClass("String"))->getNewInstance(input));
+		call->clearAndSetReturn(checkAndCast<StringClass>(ofxbytecode::Library::getLibrary()->getClass("String"))->getNewInstance(input));
 	}
 }

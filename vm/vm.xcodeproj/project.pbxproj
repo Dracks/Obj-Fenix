@@ -41,7 +41,6 @@
 		A4CC59301352193200F6FB7D /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/classes/CMakeLists.txt; sourceTree = "<group>"; };
 		A4D6DCDB1350410C002E4890 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = "<group>"; };
 		A4D6DCDC13504119002E4890 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
-		A4D6DCDD13504126002E4890 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/Builtin.old/CMakeLists.txt; sourceTree = "<group>"; };
 		A4E9409914240498007D702F /* BIMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BIMethod.cpp; sourceTree = "<group>"; };
 		A4E9409A14240498007D702F /* BIMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIMethod.h; sourceTree = "<group>"; };
 		A4E9409B14240498007D702F /* OfxClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OfxClass.cpp; sourceTree = "<group>"; };
@@ -158,7 +157,6 @@
 			children = (
 				A4D6DCDC13504119002E4890 /* CMakeLists.txt */,
 				A4D6DCDB1350410C002E4890 /* CMakeLists.txt */,
-				A4D6DCDD13504126002E4890 /* CMakeLists.txt */,
 				A4CC59301352193200F6FB7D /* CMakeLists.txt */,
 			);
 			name = CMake;
@@ -196,7 +194,7 @@
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = "/Users/dracks/Documents/Programacio/Obj-Fenix/Obj-Fenix/vm/build";
+			buildWorkingDirectory = /Users/dracks/Documents/Programacio/ofx/build/vm;
 			dependencies = (
 			);
 			name = vm;
@@ -210,6 +208,7 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB919308733D9F0010E9CD /* Build configuration list for PBXProject "vm" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,

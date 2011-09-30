@@ -19,91 +19,73 @@ namespace ofxbytecode{
 	
 	template <class T>
 	class Stack{
-	public:
-		Stack(int = 512) ; 
-		~Stack(); 
-		inline int push(const T); 
-		inline T pop() ;
-		inline int set(int, T);
-		inline T get();
-		inline T get(int);
-		inline int getTop();
-		inline int reseTop(int);
-		//int isEmpty()const { return top == -1 ; } 
-		//int isFull() const { return top == size - 1 ; } 
 	private:
 		int size ;  // number of elements on Stack.
 		int top ;  
 		T* stackPtr ;
 		T* p_top;
+	public:
+		Stack(int s= 512){
+			size = s;  
+			top = 0 ;  // initialize stack
+			stackPtr = new T[size] ; 
+			//stackPtr=(T*) malloc(sizeof(void*)*s);
+			p_top=stackPtr;
+		};
+		
+		~Stack(){
+			delete [] stackPtr;
+			//free(stackPtr);
+		};
+		
+		inline int push(const T item){
+			top++;
+			p_top++;
+			*p_top=item;
+			if (top==size){
+				//realloc
+			}
+			//stackPtr[top] = item ;
+			return 1 ;  // push successful
+		}
+ 
+		inline T pop() {
+			T aux;
+			aux=*p_top;
+			--top;
+			--p_top;
+			return aux ;
+			//	return 1 ;  // pop successful
+		};
+		
+		inline int set(int n, T obj){
+			stackPtr[n]=obj;
+			return 1;
+		};
+		
+		inline T get(){
+			return *p_top;
+		};
+		
+		//template <class Z>
+		inline T get(int n){
+			T ret;
+			ret=stackPtr[n];
+			return ret;
+		};
+		inline int getTop() {
+			return top;
+		};
+		
+		inline int reseTop(int p) {
+			top=p;
+			p_top=&(stackPtr[top]);
+			return 1;
+		};
+		//int isEmpty()const { return top == -1 ; } 
+		//int isFull() const { return top == size - 1 ; } 
 	} ;
 	
-	//constructor with the default size 10
-	template <class T>
-	Stack<T>::Stack(int s){
-		size = s;  
-		top = 0 ;  // initialize stack
-		stackPtr = new T[size] ; 
-		//stackPtr=(T*) malloc(sizeof(void*)*s);
-		p_top=stackPtr;
-	}
-	
-	template <class T>
-	Stack<T>::~Stack(){
-		delete [] stackPtr;
-		//free(stackPtr);
-	}
-	// push an element onto the Stack 
-	template <class T>
-	int Stack<T>::push(const T item){
-		top++;
-		p_top++;
-		*p_top=item;
-		if (top==size){
-			//realloc
-		}
-		//stackPtr[top] = item ;
-		return 1 ;  // push successful
-	}
-	
-	// pop an element off the Stack
-	template <class T> 
-	T Stack<T>::pop() {
-		T aux;
-		aux=*p_top;
-		--top;
-		--p_top;
-		return aux ;
-		//	return 1 ;  // pop successful
-	}
-	
-	template <class T>
-	int Stack<T>::set(int n, T obj){
-		stackPtr[n]=obj;
-		return 1;
-	}
-	
-	template <class T>
-	T Stack<T>::get(int n){
-		return stackPtr[n];
-	}
-	
-	template <class T> 
-	T Stack<T>::get() {
-		return *p_top;
-	}
-	
-	template <class T> 
-	int Stack<T>::getTop() {
-		return top;
-	}
-	
-	template <class T> 
-	int Stack<T>::reseTop(int p) {
-		top=p;
-		p_top=&(stackPtr[top]);
-		return 1;
-	}
 }
 
 #endif

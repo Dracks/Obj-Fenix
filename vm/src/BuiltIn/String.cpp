@@ -7,33 +7,37 @@
 //
 
 #include <iostream>
+#include "String.h"
 
 namespace ofxBI {
-	
+	using namespace SDK;
 //	class StringClass: public SDK::SuperClass {
 	StringClass::StringClass(){}
 	StringClass::~StringClass(){}
 	StringObject* StringClass::getNewInstance(string v){
-		return new StringObject(v, DataCache);
+		return new StringObject(v, this->getCache());
 	}
 		
-	void StringClass::ofxString(BuiltInCall* call){
+	void StringClass::ofxString(BICall* call){
 		call->clearAndSetReturn(call->get<StringObject>(1));
 	}
 	
 //	class StringObject: public SDK::Primitive<string> {
-	StringClass::StringObject(int v, SuperObject* base): Primitive(v,base){}
-	StringClass::~StringObject(){}
-	void StringClass::ofxAdd(BICall* call){
+	StringObject::StringObject(string v, SuperObject* base): Primitive<string>(v,base){}
+	
+	StringObject::~StringObject(){}
+	
+	void StringObject::ofxAdd(BICall* call){
 		string tmp=this->value;
-		tmp+=call->get<StringClass>(1)->value;
-		call->clearAndSetReturn( checkAndCast<StringClass>(ofxbytecode::Library::getData()->getClass("String"))->getNewInstance(tmp));
+		tmp+=call->get<StringObject>(1)->value;
+		call->clearAndSetReturn( 
+								checkAndCast<StringClass>(ofxbytecode::Library::getLibrary()->getClass("String"))->getNewInstance(tmp));
 	}
 	
-	/*void StringClass::ofxSub(BICall* call){
+	/*void StringObject::ofxSub(BICall* call){
 		
 	}
-	void StringClass::ofxEqual(BICall* call){
+	void StringObject::ofxEqual(BICall* call){
 		
 	}//*/
-//}
+}

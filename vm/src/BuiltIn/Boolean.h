@@ -12,12 +12,13 @@
 namespace ofxBI{
 	class BooleanClass;
 	class BooleanObject;	
-}
+};
 
 
 #include "../tools/Register.h"
 #include "../SDK/SuperClass.h"
 #include "../SDK/SuperObject.h"
+#include "../SDK/BIMethod.h"
 
 namespace ofxBI {
 	
@@ -27,8 +28,8 @@ namespace ofxBI {
 	public:
 		BooleanClass();
 		~BooleanClass();
-		void ofxBoolean(BuiltInCall* call);
-		BooleanClass* getNewInstance(int v);
+		void ofxBoolean(SDK::BICall* call);
+		BooleanObject* getNewInstance(bool v);
 	};
 	
 	class BooleanObject: public SDK::Primitive<bool> {
@@ -37,10 +38,10 @@ namespace ofxBI {
 		BooleanObject(bool v, SuperObject* base);
 	public:
 		~BooleanObject();
-		void ofxAnd(BICall* call);
-		void ofxOr(BICall* call);
+		void ofxAnd(SDK::BICall* call);
+		void ofxOr(SDK::BICall* call);
 	};
-}
+};
 
 
 #endif

@@ -11,7 +11,7 @@
 
 namespace ofxtools{
 	class Adapter;
-}
+};
 
 #include <map>
 #include <vector>
@@ -58,7 +58,7 @@ namespace ofxtools {
                  * @brief Register a BuiltIn class in the adapter for a posterior load of this.
                  * @param C the class to register
                  */
-		void registerClass(SDK::SuperClass* C);
+		void addClass(SDK::SuperClass* C);
 
                 /**
                  * @brief Assign a new cacheClass descriptor from bytecode.
@@ -72,7 +72,7 @@ namespace ofxtools {
 		void apply();
 		
 	};
-}
+};
 
 
 #endif

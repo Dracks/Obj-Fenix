@@ -9,9 +9,13 @@
 #include <iostream>
 #include "Adapter.h"
 
+#include "../SDK/OfxClass.h"
+#include "../SDK/OfxMethod.h"
+
 namespace ofxtools{
 	using namespace SDK;
 	using namespace ofxbytecode;
+	using namespace std;
 	
 	//class Adapter {
 	Adapter::Adapter(){};
@@ -25,22 +29,23 @@ namespace ofxtools{
 	}
 	
 	void Adapter::applyNative(NativeCacheClass* cache){
-		Library* lib=Library::getData()
+		Library* lib=Library::getLibrary();
 		
-		map<string, SuperClass*>::iterator found=ofxDataCache.find(cache->getName());
-		if (found==biDataCache.end()){
+		map<string, SuperClass*>::iterator found;
+		found=ofxDataCache.find(cache->getName());
+		if (found==ofxDataCache.end()){
 			/// @TODO L'em ben liat-> Fer algun tipus d'excepció amb warnings i aquestes historietes
 		}
 		SuperClass* obj=found->second;
 		map<string, Method*> biMethodList=obj->getRegisteredMethods();
 		vector<pair<int, string> > ofxMethodList=cache->getListMethod();
 		for (unsigned int i=0; i<ofxMethodList.size(); i++){
-			map<string, SuperClass*>::iterator found=biMethodList.find(ofxMethodList[i].second);
-			if (found==biDataCache.end()){
+			map<string, Method*>::iterator found=biMethodList.find(ofxMethodList[i].second);
+			if (found==biMethodList.end()){
 				/// @TODO L'em ben liat2-> Fer algun tipus d'excepció amb warnings i aquestes historietes
 			}
 			/// @TODO Make a new class for know when is static and isn't static, and others things. 
-			obj->addInstanceMethod(ofxMethodList[i].second, ofxMethodList[i].first, *found);
+			obj->addInstanceMethod(ofxMethodList[i].second, ofxMethodList[i].first, found->second);
 		}
 		
 		this->applyProperties(obj, cache);
@@ -49,17 +54,17 @@ namespace ofxtools{
 	}
 	
 	void Adapter::applyOfx(OfxCacheClass* cache){
-		Library* lib=Library::getData()
+		Library* lib=Library::getLibrary();
 		OfxClass* obj=new OfxClass(cache->getName(), lib->getClass(cache->getParent()));
-		vector<OfxCacheMethod*> listMethods=cache->getMethodList();
+		vector<OfxCacheMethod*> listMethods=cache->getMethods();
 		for (unsigned int i=0; i<listMethods.size(); i++){
 			OfxCacheMethod* cacheMethod=listMethods[i];
 			if (cacheMethod->isStatic){
-				obj->addMethod(cacheMethod->getName(), cacheMethod->getUID(), new OfxMethod(cacheMethod->getName(), cacheMethod->getLine()));
-			} else if (cacheMethod->isConstructor) {
-				obj->addMethod(cacheMethod->getName(), cacheMethod->getUID(), new OfxConstructor(cacheMethod->getName(), cacheMethod->getLine()));
+				obj->addMethod(cacheMethod->name, cacheMethod->ID, new OfxMethod(cacheMethod->name, cacheMethod->line));
+			} else if (cacheMethod->constructor) {
+				obj->addMethod(cacheMethod->name, cacheMethod->ID, new OfxConstructor(cacheMethod->name, cacheMethod->line));
 			} else {
-				obj->addInstanceMethod(cacheMethod->getName(), cacheMethod->getUID(), new OfxMethod(cacheMethod->getName(), cacheMethod->getLine()));
+				obj->addInstanceMethod(cacheMethod->name, cacheMethod->ID, new OfxMethod(cacheMethod->name, cacheMethod->line));
 			}
 			//delete cacheMethod;
 		}
@@ -69,7 +74,7 @@ namespace ofxtools{
 		lib->addClass(cache->getUID(), cache->getName(), obj);
 	}
 	
-	void Adapter::registerClass(SuperClass* c){
+	void Adapter::addClass(SuperClass* c){
 		ofxDataCache[c->getName()]=c;
 	}
 	
@@ -80,7 +85,7 @@ namespace ofxtools{
 	void Adapter::apply(){
 		unsigned int i;
 		for (i=0; i<biDataCache.size(); i++){
-			biDataCache[i]->apply();
+			biDataCache[i]->apply(this);
 			delete biDataCache[i];
 		}
 		biDataCache.clear();

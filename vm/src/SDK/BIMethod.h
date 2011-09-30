@@ -11,11 +11,13 @@
 
 namespace SDK{
 
+	template<class Template>
 	class BIMethod;
 	class BICall;
 }
 
 #include "Super.h"
+#include "../classes/Stack.h"
 
 
 namespace SDK{
@@ -48,8 +50,10 @@ namespace SDK{
 		 * @param stack Stack of call, to obtain the parameters
 		 * @return 0, as it is a BICall
     	 */
-		virtual int call(Stack<Stackable>* stack){
-			(checkAndCast<Template>(stack->get(stack->getTop()-nArguments))->*method)(new BICall(this->getName, stack, nArguments));
+		virtual int call(ofxbytecode::Stack<Stackable*>* stack){
+			int x=stack->getTop()-nArguments;
+			Template obj=checkAndCast<Template>(stack->get(x));
+			(obj->*method)(new BICall(this->getName(), stack, nArguments));
 			return 0;
 		}
 	};
@@ -61,7 +65,7 @@ namespace SDK{
 	class BICall{
 		int nArguments;
 		int baseStack;
-		Stack<Stackable>* stack;
+		ofxbytecode::Stack<Stackable*>* stack;
 		string name;
 	public:
 		/**
@@ -70,7 +74,7 @@ namespace SDK{
 		 * @param stack The stack from the Virtual Machine
 		 * @param arguments Number of arguments of the methods,.
     	 */
-		BICall(string name, Stack<Stackable>* stack, int arguments){
+		BICall(string name, ofxbytecode::Stack<Stackable*>* stack, int arguments){
 			this->name=name;
 			this->stack=stack;
 			this->nArguments=arguments;
@@ -84,10 +88,10 @@ namespace SDK{
 		 * @param arg Argument number.
 		 * @return argument or null.
     	 */
-		template<T>
+		template<class T>
 		T* get(int arg ){
 			if (nArguments>=arg && arg>0){
-				return checkAndCast(stack->get(baseStack+arg))
+				return checkAndCast<T>(stack->get(baseStack+arg));
 			} else {
 				return NULL;
 			}

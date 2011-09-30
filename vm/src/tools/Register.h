@@ -10,13 +10,16 @@
 #define vm_Register_h
 
 
-#define registerClass(C) namespace RegistradorDe##C { R::RegisterClass<C> startup; }
+#define registerClass(C) namespace RegistradorDe##C { ofxtools::RegisterClass<C> startup; }
 
 namespace ofxtools{
 	class OnStartUp;
+	
+	template<class T>
 	class RegisterClass;
-	class RegisterMethodCollection;
-}
+	
+//	class RegisterMethodCollection;
+};
 
 // #include "../SDK/BIMethod.h"
 #include "Adapter.h"
@@ -39,7 +42,8 @@ namespace ofxtools{
 		T* obj;
 	public:
 		virtual void execute(Adapter* adaptador){
-			adaptador->registerClass(new T());
+			T* obj=new T();
+			adaptador->addClass(obj);
 		}
 	};
 	/*
@@ -52,7 +56,7 @@ namespace ofxtools{
 			llista.push_back(new pair<string, void (Template::*)(SDK::BICall*)>(name, method));
 		}
 	}*/
-}
+};
 
 
 #endif

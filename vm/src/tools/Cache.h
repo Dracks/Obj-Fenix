@@ -13,7 +13,7 @@ namespace ofxtools{
 	class NativeCacheClass;
 	class OfxCacheMethod;
 	class OfxCacheClass;
-}
+};
 
 #include "Adapter.h"
 
@@ -72,5 +72,5 @@ namespace ofxtools {
 		int getParent();
 		vector<OfxCacheMethod*> getMethods();
 	};
-}
+};
 #endif

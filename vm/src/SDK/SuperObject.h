@@ -13,7 +13,7 @@ namespace SDK{
 	class SuperObject;
 	template <class T>
 	class Primitive;
-}
+};
 
 #include "Super.h"
 
@@ -46,7 +46,7 @@ namespace SDK{
 		 * @param v the value primitive of the object
 		 * @param base the Base for call and construct SuperObject
     	 */
-		Primitive(Template v, SuperObject* base): SuperObject(base->getName()){
+		Primitive(Template v, SuperObject* base): SuperObject(base->getName(), base){
 			value=v;
 		}
 	public:
@@ -54,10 +54,10 @@ namespace SDK{
 		 * @brief get the primitive value that it save
 		 * @return the value
     	 */
-		Template getValue(){
+		inline Template getValue(){
 			return value;
 		}
 	};
-}
+};
 
 #endif

@@ -27,7 +27,7 @@ namespace ofxBI {
 	public:
 		IntegerClass();
 		~IntegerClass();
-		void ofxInteger(BuiltInCall* call);
+		void ofxInteger(SDK::BICall* call);
 		IntegerObject* getNewInstance(int v);
 	};
 	
@@ -37,9 +37,9 @@ namespace ofxBI {
 		IntegerObject(int v, SuperObject* base);
 	public:
 		~IntegerObject();
-		void ofxAdd(BICall* call);
-		void ofxSub(BICall* call);
-		void ofxEqual(BICall* call);
+		void ofxAdd(SDK::BICall* call);
+		void ofxSub(SDK::BICall* call);
+		void ofxEqual(SDK::BICall* call);
 	};
 }
 

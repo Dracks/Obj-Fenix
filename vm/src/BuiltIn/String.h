@@ -22,7 +22,7 @@ namespace ofxBI{
 
 namespace ofxBI {
 	
-	RegisterClass(IntegerClass)
+	registerClass(StringClass)
 	
 	class StringClass: public SDK::SuperClass {
 	public:
@@ -30,16 +30,16 @@ namespace ofxBI {
 		~StringClass();
 		StringObject* getNewInstance(string v);
 
-		void ofxString(BuiltInCall* call);
+		void ofxString(SDK::BICall* call);
 	};
 	
 	class StringObject: public SDK::Primitive<string> {
-		friend class IntegerClass;
+		friend class StringClass;
 	protected:
-		StringObject(int v, SuperObject* base);
+		StringObject(string v, SuperObject* base);
 	public:
 		~StringObject();
-		void ofxAdd(BICall* call);
+		void ofxAdd(SDK::BICall* call);
 		//void ofxSub(BICall* call);
 		//void ofxEqual(BICall* call);
 	};

@@ -16,6 +16,7 @@ namespace SDK{
 
 #include "Stackable.h"
 #include "../classes/Stack.h"
+#include "../tools/Adapter.h"
 
 namespace SDK{
 	/**
@@ -40,10 +41,10 @@ namespace SDK{
 		inline string getName();
 		
 		/**
-		 * @fn virtual int call(Stack<Stackable>*)=0;
+		 * @fn virtual int call(Stack<Stackable*>*)=0;
 		 * @brief The abstract method that defines the name of the method for call it.
 		 */
-		virtual int call(ofxbytecode::Stack<Stackable>*)=0;
+		virtual int call(ofxbytecode::Stack<Stackable*>*)=0;
 	};
 	
 	
@@ -53,6 +54,7 @@ namespace SDK{
 	 * Implements the method for register and acces to all Methods and propierties
 	 */
 	class Super: public Stackable{
+		friend class ofxtools::Adapter;
 	private:
 		map<int, Method*> methodList; // Donat un UID hem de retornar un metode
 		map<int, SuperObject*> propertyList;

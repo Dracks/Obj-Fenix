@@ -21,21 +21,21 @@ namespace ofxBI{
 
 namespace ofxBI{
 	
-	RegisterClass(ShellClass)
+	registerClass(ShellClass)
 	
-	class ShellClass: public SDK::Superclass {
+	class ShellClass: public SDK::SuperClass {
 	public:
 		ShellClass();
 		~ShellClass();
 		//StringObject* getNewInstance();
 		
-		inline void addInstanceMethod(string, int, Method*);
+		inline void addInstanceMethod(string, int, SDK::Method*);
 		inline void addInstanceProperty(string, int);
 		
-		inline void ofxShell(BuiltInCall* call);
-		inline void ofxStdOut(BuiltInCall* call);
-		inline void ofxStdErr(BuiltInCall* call);
-		inline void ofxStdIn(BuiltInCall* call);
+		inline void ofxShell(SDK::BICall* call);
+		inline void ofxStdOut(SDK::BICall* call);
+		inline void ofxStdErr(SDK::BICall* call);
+		inline void ofxStdIn(SDK::BICall* call);
 	};
 }
 

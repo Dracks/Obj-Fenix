@@ -29,7 +29,7 @@ namespace ofxtools {
         }
 		
         void CacheClass::addProperty(int uid, string name){
-            this->properties.push_back(new pair<int, string>(uid, name));
+            this->properties.push_back(make_pair(uid, name));
         }
 
         vector<pair<int, string> > CacheClass::getProperties(){
@@ -41,7 +41,7 @@ namespace ofxtools {
             return this->methods;
 	}
 	void NativeCacheClass::addMethod(int id, string name){
-            this->methods.push_back(new pair(id, name));
+            this->methods.push_back(make_pair(id, name));
         }
 		
 	void NativeCacheClass::apply(Adapter* obj){
@@ -73,7 +73,7 @@ namespace ofxtools {
 	}
 	
 	void OfxCacheClass::apply(Adapter* obj){
-		obj->applyOfx();
+		obj->applyOfx(this);
 	}
 	
 	void OfxCacheClass::addMethod(OfxCacheMethod* method){

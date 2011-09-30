@@ -9,7 +9,7 @@
 
 namespace ofxbytecode{
 	class Library;
-}
+};
 
 #include "../SDK/SuperClass.h"
 #include "../SDK/SuperObject.h"
@@ -49,6 +49,6 @@ namespace ofxbytecode{
 		void addConstant(int cid, SDK::SuperObject* c); // Class => BuiltInClass
 		inline SDK::SuperObject* getConstant(int cid);
 	};
-}
+};
 
 #endif

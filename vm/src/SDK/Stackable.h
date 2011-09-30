@@ -9,7 +9,7 @@
 
 namespace SDK {
 	class Stackable;
-}
+};
 
 //#include "../ASM_instructions.h"
 #include "../classes/Thread.h"
@@ -76,6 +76,6 @@ namespace SDK{
 		//virtual void call(Pila* p, ASM_line* code, int params)=0;
 		virtual int call(ofxbytecode::Stack<Stackable*>*, ASM_line*, int)=0;*/
 	};
-}
+};
 
 #endif
