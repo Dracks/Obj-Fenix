@@ -47,7 +47,12 @@ namespace ofxbytecode{
 		 * @brief obtain Library as a singleton
 		 * @return the only instance of Library in all the execution.
 		 */
-		static Library* getLibrary();
+		static Library* getLibrary(){
+			if (data==NULL){
+				data=new Library();
+			}
+			return data;
+		};
 		
 		void addClass(int cid, std::string name, SDK::SuperClass* c);
 		SDK::SuperClass* getClass(int cid);

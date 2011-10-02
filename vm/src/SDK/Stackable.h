@@ -44,6 +44,7 @@ namespace SDK{
 	 */
 	class Stackable{
 	private:
+		std::string ofxName;
 		std::string name;
 		int type;
 	protected:

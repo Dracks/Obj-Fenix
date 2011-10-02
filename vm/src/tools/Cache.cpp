@@ -12,52 +12,58 @@
 
 
 namespace ofxtools {
-//	class CacheClass {
+	//	class CacheClass {
 	using namespace std;
 	CacheClass::CacheClass(int id, string name){
-            this->ID=id;
-            this->name=name;
-        }
-
-	CacheClass::~CacheClass(){}
-
-        string CacheClass::getName(){
-            return this->name;
-
-        }
-        int CacheClass::getUID(){
-            return this->ID;
-        }
-		
-        void CacheClass::addProperty(int uid, string name){
-            this->properties.push_back(make_pair(uid, name));
-        }
-
-        vector<pair<int, string> > CacheClass::getProperties(){
-            return this->properties;
-        }
+		this->ID=id;
+		this->name=name;
+	}
 	
-//	class NativeCacheClass: public CacheClass {
+	CacheClass::~CacheClass(){}
+	
+	//void CacheClass::apply(Adapter*){};
+	
+	string CacheClass::getName(){
+		return this->name;
+		
+	}
+	int CacheClass::getUID(){
+		return this->ID;
+	}
+	
+	void CacheClass::addProperty(int uid, string name){
+		this->properties.push_back(make_pair(uid, name));
+	}
+	
+	vector<pair<int, string> > CacheClass::getProperties(){
+		return this->properties;
+	}
+	
+	//	class NativeCacheClass: public CacheClass {
+	NativeCacheClass::NativeCacheClass(int id, std::string name): CacheClass(id, name){}
+	
+	NativeCacheClass::~NativeCacheClass(){};
+	
 	vector<pair<int, string> > NativeCacheClass::getListMethod(){
-            return this->methods;
+		return this->methods;
 	}
 	void NativeCacheClass::addMethod(int id, string name){
-            this->methods.push_back(make_pair(id, name));
-        }
-		
-	void NativeCacheClass::apply(Adapter* obj){
-            obj->applyNative(this);
-        }
+		this->methods.push_back(make_pair(id, name));
+	}
 	
-//	class OfxCacheMethod {
-		
+	void NativeCacheClass::apply(Adapter* obj){
+		obj->applyNative(this);
+	}
+	
+	//	class OfxCacheMethod {
+	
 	OfxCacheMethod::OfxCacheMethod(int id, string name, int line) {
 		this->ID=id;
 		this->name=name;
 		this->line=line;
 		this->constructor=false;
-        }
-
+	}
+	
 	OfxCacheMethod::~OfxCacheMethod(){}
 	
 	void OfxCacheMethod::setConstructor(bool v){
@@ -68,10 +74,12 @@ namespace ofxtools {
 		this->isStatic=v;
 	}
 	
-//	class OfxCacheClass: public CacheClass {
+	//	class OfxCacheClass: public CacheClass {
 	OfxCacheClass::OfxCacheClass(int id, string name, int parent): CacheClass(id, name){
 		this->parent=parent;
 	}
+	
+	OfxCacheClass::~OfxCacheClass(){};
 	
 	void OfxCacheClass::apply(Adapter* obj){
 		obj->applyOfx(this);

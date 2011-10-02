@@ -13,7 +13,8 @@ namespace SDK{
 	using namespace std;
 	//class SuperClass: public Super{
 	SuperClass::SuperClass(string name):Super(name+" Class"){
-		
+		this->ofxName=name;
+		this->DataCache=new SuperObject(name);
 	};
 	SuperClass::~SuperClass(){
 		
@@ -23,17 +24,23 @@ namespace SDK{
 		return this->DataCache;
 	};
 		
-	std::map<std::string, Method*> getRegisteredMethods(){
+	std::map<std::string, Method*> SuperClass::getRegisteredMethods(){
 		std::map<std::string, Method*> ret;
 		return ret;
 	};
 		
-	inline void SuperClass::addInstanceMethod(string name, int uid, Method* method){
+	//inline 
+	void SuperClass::addInstanceMethod(string name, int uid, Method* method){
 		this->DataCache->addMethod(name, uid, method);
 	};
 	
-	inline void SuperClass::addInstanceProperty(string name, int uid){
+	//inline 
+	void SuperClass::addInstanceProperty(string name, int uid){
 		this->DataCache->addProperty(name, uid);
+	};
+	
+	string SuperClass::getOfxName(){
+		return ofxName;
 	};
 	
 }

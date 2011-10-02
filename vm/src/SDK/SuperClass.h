@@ -28,6 +28,7 @@ namespace SDK {
 		 * @brief The object that use as a cache for the methods of an instance. 
 		 */
 		SuperObject* DataCache;
+		std::string ofxName;
 	protected:
 		
 		
@@ -64,6 +65,8 @@ namespace SDK {
 		 * @param uid the UID for identify the property
     	 */
 		void addInstanceProperty(std::string name, int uid);
+		
+		std::string getOfxName();
 	};
 };
 

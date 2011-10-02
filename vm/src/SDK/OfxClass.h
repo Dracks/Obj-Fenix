@@ -10,8 +10,8 @@
 #define vm_ofxClass_h
 
 namespace SDK{
-	class ofxClass;
-	class ofxObject;
+	class OfxClass;
+	class OfxObject;
 }
 
 #include "SuperClass.h"
@@ -27,14 +27,14 @@ namespace SDK{
 	private:
 		SuperClass* parent;
 	public:
-		OfxClass(string, SuperClass*);
+		OfxClass(std::string, SuperClass*);
 		~OfxClass();
 		
 		/**
 		 * @brief get a New instance of this objective Fenix class
 		 * @return an instance of OfxObject that represents an instance of the Obj-Fenix class
     	 */
-		ofxObject* getNewInstance();
+		OfxObject* getNewInstance();
 	};
 	
 	/**
@@ -46,7 +46,7 @@ namespace SDK{
 	private:
 		SuperObject* parent;
 	public:
-		OfxObject(Super*);
+		OfxObject(std::string, Super*);
 		~OfxObject();
 	};
 }

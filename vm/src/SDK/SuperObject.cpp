@@ -13,10 +13,16 @@
 namespace SDK{
 	//class SuperObject: public Super{
 	
-	SuperObject::SuperObject(std::string name, Super* obj):Super(name+" Instance"){
+	using namespace std;
+	
+	SuperObject::SuperObject(string name): Super(name+" Cache"){
+	}
+	
+	SuperObject::SuperObject(string name, Super* obj):Super(name+" Instance"){
 			this->copyContents(obj);
 			
 		};
+	
 	SuperObject::~SuperObject(){};
 
 };

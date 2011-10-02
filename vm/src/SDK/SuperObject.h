@@ -19,11 +19,19 @@ namespace SDK{
 #include "Super.h"
 
 namespace SDK{
+	class SuperClass;
 	/**
 	 * @class SuperObject
 	 * @brief The class base of all Instances in the objective Fenix.
      */
 	class SuperObject: public Super{
+		friend class SuperClass;
+	private:
+		/**
+		 * @brief Constructor for the DataCache property in the class
+		 * @param the name of this object
+    	 */
+		SuperObject(std::string name);
 	public:
 		/**
 		 * @brief Constructor

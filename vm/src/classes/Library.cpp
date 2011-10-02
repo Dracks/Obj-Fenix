@@ -20,31 +20,36 @@ namespace ofxbytecode{
 	
 	Library* Library::data;
 	
-	inline Library* Library::getLibrary(){
+	/*static Library* Library::getLibrary(){
 		if (data==NULL){
 			data=new Library();
 		}
 		return data;
-	}
+	}*/
 	
-	inline void Library::addClass(int cid, string name, SuperClass* c){
+	//inline 
+	void Library::addClass(int cid, string name, SuperClass* c){
 		classList[cid]=c;
 		classID[name]=cid;
 	}
 	
-	inline SuperClass* Library::getClass(int cid){
+	//inline
+	SuperClass* Library::getClass(int cid){
 		return classList[cid];
 	}
 	
-	inline SuperClass* Library::getClass(string name){
+	//inline
+	SuperClass* Library::getClass(string name){
 		return classList[classID[name]];
 	}
 		
-	inline void Library::addConstant(int cid, SuperObject* c){
+	//inline
+	void Library::addConstant(int cid, SuperObject* c){
 		constantList[cid]=c;
 	}
 	
-	inline SuperObject* Library::getConstant(int cid){
+	//inline
+	SuperObject* Library::getConstant(int cid){
 		return constantList[cid];
 	}
 }

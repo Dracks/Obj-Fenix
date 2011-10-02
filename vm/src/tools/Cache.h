@@ -28,11 +28,11 @@ namespace ofxtools {
 		CacheClass(int, std::string);
 		virtual ~CacheClass();
 		virtual void apply(Adapter*)=0;
-		std::string getName();
-		int getUID();
+		virtual std::string getName();
+		virtual int getUID();
 		
-		void addProperty(int uid, std::string name);
-		std::vector<std::pair<int, std::string> > getProperties();
+		virtual void addProperty(int uid, std::string name);
+		virtual std::vector<std::pair<int, std::string> > getProperties();
 	};
 	
 	class NativeCacheClass: public CacheClass {
@@ -44,7 +44,7 @@ namespace ofxtools {
 		std::vector<std::pair<int, std::string> > getListMethod();
 		void addMethod(int, std::string);
 		
-		void apply(Adapter*);
+		virtual void apply(Adapter*);
 	};
 	
 	class OfxCacheMethod {
@@ -70,7 +70,7 @@ namespace ofxtools {
 	public:
 		OfxCacheClass(int, std::string, int);
 		~OfxCacheClass();
-		void apply(Adapter*);
+		virtual void apply(Adapter*);
 		void addMethod(OfxCacheMethod*);
 		int getParent();
 		std::vector<OfxCacheMethod*> getMethods();

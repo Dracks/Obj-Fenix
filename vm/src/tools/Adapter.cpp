@@ -75,7 +75,7 @@ namespace ofxtools{
 	}
 	
 	void Adapter::addClass(SuperClass* c){
-		ofxDataCache[c->getName()]=c;
+		ofxDataCache[c->getOfxName()]=c;
 	}
 	
 	void Adapter::assignClass(CacheClass* c){

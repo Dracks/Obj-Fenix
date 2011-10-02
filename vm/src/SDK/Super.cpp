@@ -27,40 +27,48 @@ namespace SDK{
 		
 	std::vector<Method*> Super::getMethodList(){};
 	
-	inline void Super::addMethod(std::string name, int uid, Method* method){
+	//inline 
+	void Super::addMethod(std::string name, int uid, Method* method){
 		this->methodList[uid]=method;
 		this->methodTranslate[name]=uid;
 	};
 		
-	inline void Super::addProperty(std::string name, int uid){
+	//inline 
+	void Super::addProperty(std::string name, int uid){
 		this->propertyList[uid]=NULL;
 		this->propertyTranslate[name]=uid;
 	}
 	
-	inline void Super::copyContents(Super* instance){
+	//inline 
+	void Super::copyContents(Super* instance){
 		this->methodList=instance->methodList;
 		this->propertyList=instance->propertyList;
 		this->methodTranslate=instance->methodTranslate;
 		this->propertyTranslate=instance->propertyTranslate;
 	}
 		
-	inline Method* Super::getMethod(int uid){
+	//inline 
+	Method* Super::getMethod(int uid){
 		return this->methodList[uid];
 	}
 		
-	inline Method* Super::getMethod(std::string name){
+	//inline 
+	Method* Super::getMethod(std::string name){
 		return this->methodList[this->methodTranslate[name]];
 	}
 		
-	inline SuperObject* Super::getProperty(int uid){
+	//inline 
+	SuperObject* Super::getProperty(int uid){
 		return this->propertyList[uid];
 	}
 		
-	inline SuperObject* Super::getProperty(std::string name){
+	//inline 
+	SuperObject* Super::getProperty(std::string name){
 		return this->propertyList[this->propertyTranslate[name]];
 	}
 		
-	inline void Super::storePropiety(int uid, SuperObject* obj){
+	//inline 
+	void Super::storePropiety(int uid, SuperObject* obj){
 		this->propertyList[uid]=obj;
 	}
 		
