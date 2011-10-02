@@ -55,6 +55,7 @@ namespace SDK{
 	class Super: public Stackable{
 		friend class ofxtools::Adapter;
 		friend class ofxbytecode::Thread;
+		friend class SDK::SuperClass;
 	private:
 		std::map<int, Method*> methodList; // Donat un UID hem de retornar un metode
 		std::map<int, SuperObject*> propertyList;
@@ -72,56 +73,60 @@ namespace SDK{
 		virtual std::vector<Method*> getMethodList();
 		
 		/**
-		 * @fn inline void addMethod(string, int, Method*)
 		 * @param name the name of the method to be added
 		 * @param uid the UID of the method inside the object
 		 * @param method The pointer to the Method class
 		 * @brief Add a new method to the class, 
 		 */
-		inline void addMethod(std::string name, int uid, Method* method);
+		void addMethod(std::string name, int uid, Method* method);
 		
 		/**
-		 * @fn inline void addProperty(string, int);
 		 * @param name the name of the property to be added
 		 * @param uid the UID of the property inside the object
 		 * @brief Add a new method to the class, 
 		 */
-		inline void addProperty(std::string name, int uid);
+		void addProperty(std::string name, int uid);
 		
+		/**
+		 * @brief copy the contents of another instance of this, for know the methods and properties of the object
+		 * @param instance the object to obtain methodList and PropertyList
+    	 */
+		void copyContents(Super* instance);
+	public:
 		/**
 		 * @brief get Method from an UID
 		 * @param uid UID from method
 		 * @return Method you wish or null if not found
 		 */
-		inline Method* getMethod(int uid);
+		Method* getMethod(int uid);
 		
 		/**
 		 * @brief Get a method from this name
 		 * @param name the name of the Method that you wish
 		 * @return Method you wish or null if don't found
 		 */
-		inline Method* getMethod(std::string name);
+		Method* getMethod(std::string name);
 		
 		/**
 		 * @brief Get a propety identified by UID
 		 * @param uid UID of the property that you wish
 		 * @return SuperObject that is an instance of the object that you wish
     	 */
-		inline SuperObject* getProperty(int uid);
+		SuperObject* getProperty(int uid);
 		
 		/**
 		 * @brief Get a propety identified by the name of this in the bytecode
 		 * @param name the name of the property that you need.
 		 * @return Superobject that is the instance that contains the property
     	 */
-		inline SuperObject* getProperty(std::string name);
+		SuperObject* getProperty(std::string name);
 		
 		/**
 		 * @brief Save a new instance of a property in an specified UID
 		 * @param uid the uid in where need to store the object
 		 * @param obj the object that is an instance of you need.
     	 */
-		inline void storePropiety(int uid, SuperObject* obj);
+		void storePropiety(int uid, SuperObject* obj);
 		
 		/**
 		 * @brief get an object from the name, it need the type of object you need, and it returns the object casted

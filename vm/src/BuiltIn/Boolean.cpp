@@ -13,7 +13,7 @@
 namespace ofxBI{
 	using namespace SDK;
 	//class BooleanClass: public SDK::SuperClass {
-	BooleanClass::BooleanClass(){}
+	BooleanClass::BooleanClass():SuperClass("Boolean"){}
 	
 	BooleanClass::~BooleanClass(){}
 	

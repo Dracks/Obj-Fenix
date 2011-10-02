@@ -15,34 +15,36 @@ namespace ofxbytecode{
 	//class Library{
 	using namespace SDK;
 	
+	Library::Library(){};
+	Library::~Library(){data=NULL;};
 	
 	Library* Library::data;
 	
-	Library* Library::getLibrary(){
+	inline Library* Library::getLibrary(){
 		if (data==NULL){
 			data=new Library();
 		}
 		return data;
 	}
 	
-	void Library::addClass(int cid, string name, SuperClass* c){
+	inline void Library::addClass(int cid, string name, SuperClass* c){
 		classList[cid]=c;
 		classID[name]=cid;
 	}
 	
-	SuperClass* Library::getClass(int cid){
+	inline SuperClass* Library::getClass(int cid){
 		return classList[cid];
 	}
 	
-	SuperClass* Library::getClass(string name){
+	inline SuperClass* Library::getClass(string name){
 		return classList[classID[name]];
 	}
 		
-	void Library::addConstant(int cid, SuperObject* c){
+	inline void Library::addConstant(int cid, SuperObject* c){
 		constantList[cid]=c;
 	}
 	
-	SuperObject* Library::getConstant(int cid){
+	inline SuperObject* Library::getConstant(int cid){
 		return constantList[cid];
 	}
 }

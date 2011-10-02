@@ -13,7 +13,7 @@ namespace ofxBI{
 	using namespace SDK;
 	
 	//class IntegerClass: public SDK::SuperClass {
-	IntegerClass::IntegerClass(){}
+	IntegerClass::IntegerClass():SuperClass("Integer"){}
 	IntegerClass::~IntegerClass(){}
 	
 	void IntegerClass::ofxInteger(BICall* call){

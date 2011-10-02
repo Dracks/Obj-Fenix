@@ -48,7 +48,6 @@ namespace SDK{
 		int type;
 	protected:
 		/**
-		 * @fn Stackable(std::string p_name, int type)
 		 * @param p_name the name of the object (Integer, Boolean, String...)
 		 * @param type the type of the object (The UID, identified in the bytecode)
 		 */
@@ -58,18 +57,16 @@ namespace SDK{
 	public:
 		//virtual bool getNative()=0;
 		/**
-		 * @fn inline int getType();
 		 * @return integer
 		 * @brief get the integuer type of the stackable object
 		 */
-		inline int getType();
+		int getType();
 		
 		/**
-		 * @fn getName
 		 * @return string
 		 * @brief get the name of the stackable object
 		 */
-		inline std::string getName();
+		std::string getName();
 /*		virtual Class* getAtr(int i)=0;
 		virtual void setAtr(int i, Class* atr)=0;
 		virtual Method* getMethod(int i)=0;

@@ -12,7 +12,7 @@
 namespace ofxBI {
 	using namespace SDK;
 //	class StringClass: public SDK::SuperClass {
-	StringClass::StringClass(){}
+	StringClass::StringClass(): SuperClass("String"){}
 	StringClass::~StringClass(){}
 	StringObject* StringClass::getNewInstance(string v){
 		return new StringObject(v, this->getCache());

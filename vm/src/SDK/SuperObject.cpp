@@ -11,5 +11,12 @@
 #include "SuperObject.h"
 
 namespace SDK{
+	//class SuperObject: public Super{
 	
-}
+	SuperObject::SuperObject(std::string name, Super* obj):Super(name+" Instance"){
+			this->copyContents(obj);
+			
+		};
+	SuperObject::~SuperObject(){};
+
+};

@@ -15,7 +15,7 @@ namespace ofxBI{
 	using namespace SDK;
 	
 //	class ShellClass: public SDK::Superclass {
-	ShellClass::ShellClass(){}
+	ShellClass::ShellClass():SuperClass("Shell") {}
 	
 	ShellClass::~ShellClass(){}
 	

@@ -30,8 +30,8 @@ namespace SDK{
 		 * @param name the Name of the object
 		 * @param obj the base for build the new instance
     	 */
-		SuperObject(std::string name, Super* obj):Super(name){};
-		~SuperObject(){};
+		SuperObject(std::string name, Super* obj);
+		~SuperObject();
 	};
 	
 	/**

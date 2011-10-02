@@ -10,5 +10,30 @@
 #include "SuperClass.h"
 
 namespace SDK{
+	using namespace std;
+	//class SuperClass: public Super{
+	SuperClass::SuperClass(string name):Super(name+" Class"){
+		
+	};
+	SuperClass::~SuperClass(){
+		
+	};
+		
+	SuperObject* SuperClass::getCache(){
+		return this->DataCache;
+	};
+		
+	std::map<std::string, Method*> getRegisteredMethods(){
+		std::map<std::string, Method*> ret;
+		return ret;
+	};
+		
+	inline void SuperClass::addInstanceMethod(string name, int uid, Method* method){
+		this->DataCache->addMethod(name, uid, method);
+	};
+	
+	inline void SuperClass::addInstanceProperty(string name, int uid){
+		this->DataCache->addProperty(name, uid);
+	};
 	
 }

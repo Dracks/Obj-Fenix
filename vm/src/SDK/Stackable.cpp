@@ -21,7 +21,7 @@ namespace SDK{
 	Stackable::~Stackable(){};
 		//virtual bool getNative()=0;
 	
-	int Stackable::getType(){return type;};
+	inline int Stackable::getType(){return type;};
 	
 	inline std::string Stackable::getName(){return name;};
 };

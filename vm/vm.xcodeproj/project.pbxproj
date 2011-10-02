@@ -22,6 +22,9 @@
 		A41986E714226FCE00C0C961 /* Integer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Integer.cpp; sourceTree = "<group>"; };
 		A4292323142734A600AA2514 /* Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Adapter.h; sourceTree = "<group>"; };
 		A429232414279C5D00AA2514 /* Adapter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Adapter.cpp; sourceTree = "<group>"; };
+		A43BE9D51438A45600D2C37F /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/BuiltIn/CMakeLists.txt; sourceTree = "<group>"; };
+		A43BE9D61438A46100D2C37F /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/tools/CMakeLists.txt; sourceTree = "<group>"; };
+		A43BE9D71438A46B00D2C37F /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/SDK/CMakeLists.txt; sourceTree = "<group>"; };
 		A43E6AF8133F68970028E993 /* ByteCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByteCode.h; path = src/classes/ByteCode.h; sourceTree = "<group>"; };
 		A43E6AF9133F68970028E993 /* ByteCode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ByteCode.cpp; path = src/classes/ByteCode.cpp; sourceTree = "<group>"; };
 		A44063CA132025C7007A19E2 /* ObjectTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectTest.cpp; sourceTree = "<group>"; };
@@ -155,6 +158,9 @@
 		A4D6DCDA135040FB002E4890 /* CMake */ = {
 			isa = PBXGroup;
 			children = (
+				A43BE9D71438A46B00D2C37F /* CMakeLists.txt */,
+				A43BE9D61438A46100D2C37F /* CMakeLists.txt */,
+				A43BE9D51438A45600D2C37F /* CMakeLists.txt */,
 				A4D6DCDC13504119002E4890 /* CMakeLists.txt */,
 				A4D6DCDB1350410C002E4890 /* CMakeLists.txt */,
 				A4CC59301352193200F6FB7D /* CMakeLists.txt */,
