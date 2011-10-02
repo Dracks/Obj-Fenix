@@ -14,10 +14,10 @@ namespace ofxBI{
 	class BooleanObject;	
 };
 
-
-#include "../tools/Register.h"
 #include "../SDK/SuperClass.h"
 #include "../SDK/SuperObject.h"
+
+#include "../tools/Register.h"
 #include "../SDK/BIMethod.h"
 
 namespace ofxBI {

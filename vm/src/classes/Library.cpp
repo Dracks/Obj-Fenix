@@ -9,6 +9,8 @@
 
 #include "Library.h"
 
+#include "../SDK/SuperClass.h"
+
 namespace ofxbytecode{
 	//class Library{
 	using namespace SDK;

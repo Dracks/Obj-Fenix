@@ -28,7 +28,7 @@ namespace ofxtools{
 	
 	class OnStartUp{
 	private:
-		static vector<OnStartUp*> registerList;
+		static std::vector<OnStartUp*> registerList;
 	public:
 		OnStartUp();
 		virtual	void execute(Adapter*)=0;

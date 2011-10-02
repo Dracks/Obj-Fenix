@@ -22,25 +22,27 @@ namespace ofxtools {
 		//friend class Adapter;
 	private:
 		int ID;
-		string name;
-		vector<pair<int, string> > properties;
+		std::string name;
+		std::vector<std::pair<int, std::string> > properties;
 	public:
-		CacheClass(int, string);
+		CacheClass(int, std::string);
 		virtual ~CacheClass();
 		virtual void apply(Adapter*)=0;
-		string getName();
+		std::string getName();
 		int getUID();
 		
-		void addProperty(int uid, string name);
-		vector<pair<int, string> > getProperties();
+		void addProperty(int uid, std::string name);
+		std::vector<std::pair<int, std::string> > getProperties();
 	};
 	
 	class NativeCacheClass: public CacheClass {
 	private:
-		vector<pair<int, string> > methods;
+		std::vector<std::pair<int, std::string> > methods;
 	public:
-		vector<pair<int, string> > getListMethod();
-		void addMethod(int, string);
+		NativeCacheClass(int, std::string);
+		~NativeCacheClass();
+		std::vector<std::pair<int, std::string> > getListMethod();
+		void addMethod(int, std::string);
 		
 		void apply(Adapter*);
 	};
@@ -49,13 +51,13 @@ namespace ofxtools {
 		friend class Adapter;
 	private:
 		int ID;
-		string name;
+		std::string name;
 		int line;
 		bool constructor;
 		bool isStatic;
 	public:
 		
-		OfxCacheMethod(int, string, int);
+		OfxCacheMethod(int, std::string, int);
 		void setConstructor(bool v);
 		void setIsStatic(bool v);
 		virtual ~OfxCacheMethod();
@@ -64,13 +66,14 @@ namespace ofxtools {
 	class OfxCacheClass: public CacheClass {
 	private:
 		int parent;
-		vector<OfxCacheMethod*> methods;
+		std::vector<OfxCacheMethod*> methods;
 	public:
-		OfxCacheClass(int, string, int);
+		OfxCacheClass(int, std::string, int);
+		~OfxCacheClass();
 		void apply(Adapter*);
 		void addMethod(OfxCacheMethod*);
 		int getParent();
-		vector<OfxCacheMethod*> getMethods();
+		std::vector<OfxCacheMethod*> getMethods();
 	};
 };
 #endif

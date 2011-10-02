@@ -42,7 +42,7 @@ namespace SDK{
 			//this->name=name;
 			this->nArguments=arguments;
 			this->method=method;
-		}
+		};
 		~BIMethod(){};
 		
 		/**
@@ -55,8 +55,9 @@ namespace SDK{
 			Template obj=checkAndCast<Template>(stack->get(x));
 			(obj->*method)(new BICall(this->getName(), stack, nArguments));
 			return 0;
-		}
+		};
 	};
+	
 	
 	/**
 	 * @class BICall
@@ -74,14 +75,9 @@ namespace SDK{
 		 * @param stack The stack from the Virtual Machine
 		 * @param arguments Number of arguments of the methods,.
     	 */
-		BICall(string name, ofxbytecode::Stack<Stackable*>* stack, int arguments){
-			this->name=name;
-			this->stack=stack;
-			this->nArguments=arguments;
-			this->baseStack=stack->getTop()-arguments;
-		}
+		BICall(string name, ofxbytecode::Stack<Stackable*>* stack, int arguments);
 		
-		~BICall(){};
+		~BICall();
 		
 		/**
 		 * @brief get an argument from the call, it checkAndCast argument as the type you specify
@@ -100,18 +96,13 @@ namespace SDK{
 		/**
 		 * @brief clear the stack from arguments.
     	 */
-		void clear(){
-			this->stack->reseTop(baseStack-1);
-		}
+		void clear();
 		
 		/**
 		 * @brief clear the arguments from stack, and set the return value of the method
 		 * @param retValue the value that you wish return to Virtual Machine
     	 */
-		void clearAndSetReturn(Super* retValue){
-			this->clear();
-			this->stack->set(stack->getTop(), retValue);
-		}
+		void clearAndSetReturn(Super* retValue);
 	};
 }
 

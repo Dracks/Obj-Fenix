@@ -10,7 +10,7 @@
 #include "Register.h"
 
 namespace ofxtools{
-
+	using namespace std;
 	vector<OnStartUp*> OnStartUp::registerList;
 
 	//class Register{

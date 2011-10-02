@@ -13,6 +13,7 @@ namespace SDK{
 	class SuperClass;
 };
 
+#include "Super.h"
 #include "SuperObject.h"
 
 
@@ -47,10 +48,10 @@ namespace SDK {
 		 * @brief get a list of methods with this name, is used in the BIClass, for register their methods
 		 * @return return the instance of the cache.
     	 */
-		virtual map<string, Method*> getRegisteredMethods(){
-			map<string, Method*> ret;
+		virtual std::map<std::string, Method*> getRegisteredMethods(){
+			std::map<std::string, Method*> ret;
 			return ret;
-		}
+		};
 		
 		/**
 		 * @brief add a Method to the datacache property
@@ -58,14 +59,14 @@ namespace SDK {
 		 * @param uid the Identifier of the method
 		 * @param method the instance of the method you need to call.
     	 */
-		inline void addInstanceMethod(string name, int uid, Method* method);
+		inline void addInstanceMethod(std::string name, int uid, Method* method);
 		
 		/**
 		 * @brief add a property to the datacache
 		 * @param name the name for identify the property
 		 * @param uid the UID for identify the property
     	 */
-		inline void addInstanceProperty(string name, int uid);
+		inline void addInstanceProperty(std::string name, int uid);
 	};
 };
 

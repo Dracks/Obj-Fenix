@@ -11,14 +11,20 @@ namespace ofxbytecode{
 	class Library;
 };
 
-#include "../SDK/SuperClass.h"
+/*#include "../SDK/SuperClass.h"
 #include "../SDK/SuperObject.h"
+ */
 #include <vector>
+#include <map>
 
 #ifndef LIBRARY_H
 #define LIBRARY_H
 //using namespace objfenix;
 
+namespace SDK{
+	class SuperClass;
+	class SuperObject;
+}
 namespace ofxbytecode{
 	/**
 	 * @class Library

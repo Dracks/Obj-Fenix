@@ -13,6 +13,7 @@
 
 namespace ofxtools {
 //	class CacheClass {
+	using namespace std;
 	CacheClass::CacheClass(int id, string name){
             this->ID=id;
             this->name=name;

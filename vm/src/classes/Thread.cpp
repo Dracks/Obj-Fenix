@@ -11,9 +11,11 @@
 //#include "../Builtin/Integer.h"
 #include "../SDK/Super.h"
 #include "stdio.h"
+#include "../BuiltIn/Boolean.h"
 //#include "../Builtin/Stackable.h"
 
 using namespace SDK;
+using namespace ofxBI;
 
 namespace ofxbytecode{
 	
@@ -69,7 +71,7 @@ namespace ofxbytecode{
 		line++;
 		kjmp(line);
 	l_attr:
-		dataStack->push(checkAndCast<Super*>(dataStack->pop())->getProperty(line->param));
+		dataStack->push(checkAndCast<Super>(dataStack->pop())->getProperty(line->param));
 		line++;
 		kjmp(line);
 	l_class:
@@ -79,7 +81,7 @@ namespace ofxbytecode{
 	l_method:
 		elem_aux=dataStack->pop();
 		//printf("debug: l_method %s %d\n", elem_aux->getName());
-		dataStack->push(elem_aux->getMethod(line->param));
+		dataStack->push(checkAndCast<Super>(elem_aux)->getMethod(line->param));
 		dataStack->push(elem_aux);
 		line++;
 		kjmp(line);
@@ -92,7 +94,7 @@ namespace ofxbytecode{
 	i_call:
 		//elem_aux=0;
 		//printf("debug: i_call%s\n", elem_aux->getName());
-		int newLine=dataStack->get(dataStack->getTop()-line->param-1)->call(dataStack);
+		int newLine=checkAndCast<Method>(dataStack->get(dataStack->getTop()-line->param-1))->call(dataStack);
 		line++;
 		// If the implementation of call is native or is with C call, it was 0, another case, we need to change context
 		if (newLine!=0){
@@ -130,20 +132,20 @@ namespace ofxbytecode{
 		line++;
 		kjmp(line);
 	i_g_true:
-		if (((Integer* )dataStack->pop())->getValue()!=0){
+		if (checkAndCast<BooleanObject>(dataStack->pop())->getValue()!=0){
 			line=&this->code[line->param];
 		} else
 			line++;
 		kjmp(line);
 	i_g_false:
-		if (((Integer* )dataStack->pop())->getValue()==0){
+		if (checkAndCast<BooleanObject>(dataStack->pop())->getValue()==0){
 			line=&this->code[line->param];
 		} else
 			line++;
 		kjmp(line);
 	i_s_attr:
 		elem_aux=dataStack->get(ini_params);
-		checkAndCast<Super*>(elem_aux)->storePropiety(line->param, checkAndCast<Super*>(dataStack->pop()));
+		checkAndCast<Super>(elem_aux)->storePropiety(line->param, checkAndCast<SuperObject>(dataStack->pop()));
 		line++;
 		kjmp(line);
 	i_s_private:

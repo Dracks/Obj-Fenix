@@ -10,13 +10,20 @@
 #define vm_Super_h
 
 namespace SDK{
-	class Super;
 	class Method;
+	class Super;
+
 }
 
 #include "Stackable.h"
+
+#include <map>
+#include <vector>
 #include "../classes/Stack.h"
+#include "../classes/Thread.h"
 #include "../tools/Adapter.h"
+
+//class ofxtools::Adapter;
 
 namespace SDK{
 	/**
@@ -24,21 +31,13 @@ namespace SDK{
 	 * @brief An abstract class of a Method, it only has name of the method and define the method for call it. His childs has the really contents
 	 */
 	class Method: public Stackable{
-	private:
-		string name;
 	public:
 		/**
 		 * @fn Method(string name)
 		 * @param name the name of the method that it represents
 		 */
-		Method(string name): Stackable(name,0){};
+		Method(std::string name);
 		~Method();
-		
-		/**
-		 * @fn inline string getName()
-		 * @return the name of the Method
-		 */
-		inline string getName();
 		
 		/**
 		 * @fn virtual int call(Stack<Stackable*>*)=0;
@@ -55,21 +54,22 @@ namespace SDK{
 	 */
 	class Super: public Stackable{
 		friend class ofxtools::Adapter;
+		friend class ofxbytecode::Thread;
 	private:
-		map<int, Method*> methodList; // Donat un UID hem de retornar un metode
-		map<int, SuperObject*> propertyList;
+		std::map<int, Method*> methodList; // Donat un UID hem de retornar un metode
+		std::map<int, SuperObject*> propertyList;
 		
-		map<string, int> methodTranslation;
-		map<string, int> propertyTranslation;
+		std::map<std::string, int> methodTranslate;
+		std::map<std::string, int> propertyTranslate;
 	protected:
 		/**
 		 * @fn Super(string name)
 		 * @brief constructor
 		 */
-		Super(string name): Stackable(name,0){};
+		Super(std::string name);
 		~Super();
 		
-		virtual vector<Method*> getMethodList(){};
+		virtual std::vector<Method*> getMethodList();
 		
 		/**
 		 * @fn inline void addMethod(string, int, Method*)
@@ -78,7 +78,7 @@ namespace SDK{
 		 * @param method The pointer to the Method class
 		 * @brief Add a new method to the class, 
 		 */
-		inline void addMethod(string name, int uid, Method* method);
+		inline void addMethod(std::string name, int uid, Method* method);
 		
 		/**
 		 * @fn inline void addProperty(string, int);
@@ -86,7 +86,7 @@ namespace SDK{
 		 * @param uid the UID of the property inside the object
 		 * @brief Add a new method to the class, 
 		 */
-		inline void addProperty(string name, int uid);
+		inline void addProperty(std::string name, int uid);
 		
 		/**
 		 * @brief get Method from an UID
@@ -100,7 +100,7 @@ namespace SDK{
 		 * @param name the name of the Method that you wish
 		 * @return Method you wish or null if don't found
 		 */
-		inline Method* getMethod(string name);
+		inline Method* getMethod(std::string name);
 		
 		/**
 		 * @brief Get a propety identified by UID
@@ -114,7 +114,7 @@ namespace SDK{
 		 * @param name the name of the property that you need.
 		 * @return Superobject that is the instance that contains the property
     	 */
-		inline SuperObject* getProperty(string name);
+		inline SuperObject* getProperty(std::string name);
 		
 		/**
 		 * @brief Save a new instance of a property in an specified UID
@@ -129,8 +129,8 @@ namespace SDK{
 		 * @return Instance of the property you need
     	 */
 		template <class T>
-		inline T* get(string pName){
-			return checkAndCast<T>(propertyList[propertyTranslation[pName]]);
+		inline T* get(std::string pName){
+			return checkAndCast<T>(propertyList[propertyTranslate[pName]]);
 		};
 		/**
 		 * @brief set an object by the name in the property list
@@ -138,8 +138,8 @@ namespace SDK{
 		 * @param obj the object you wish store
     	 */
 		template <class T>
-		inline void set(string pName, T* obj){
-			propertyList[propertyTranslation[pName]]=obj;
+		inline void set(std::string pName, T* obj){
+			propertyList[propertyTranslate[pName]]=obj;
 		}
 	};
 	

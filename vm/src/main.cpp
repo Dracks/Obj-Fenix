@@ -349,8 +349,8 @@ int main(int argc,char* args[]){
 		printf("Usage: %s file.ofb\n", args[0]);
 		exit(-1);
 	}
-	Library* data=new Library();
-	ASM_line* bytecode=loadByteCode(args[1], data);
+	//Library* data=new Library();
+	ASM_line* bytecode=loadByteCode(args[1], Library::getLibrary());
 	/*Thread cpu(bytecode, data);
 	//Pila p;
 	//p.pila=(Stackable**) malloc(sizeof(Stackable*)*1024);

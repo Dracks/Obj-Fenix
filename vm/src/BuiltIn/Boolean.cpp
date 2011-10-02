@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "Boolean.h"
+#include "../SDK/BIMethod.h"
 
 namespace ofxBI{
 	using namespace SDK;

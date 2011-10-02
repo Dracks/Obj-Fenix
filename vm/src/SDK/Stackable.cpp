@@ -10,12 +10,18 @@
 #include "Stackable.h"
 
 namespace SDK{
+	using namespace std;
 	
 	//class Stackable{
 	
-	Stackable::Stackable(string p_name, int type){name=p_name, int type};
+	Stackable::Stackable(string p_name, int type){
+		name=p_name;this->type=type;
+	};
+	
 	Stackable::~Stackable(){};
 		//virtual bool getNative()=0;
+	
 	int Stackable::getType(){return type;};
-	std::string Stackable::getName(){return name;};
+	
+	inline std::string Stackable::getName(){return name;};
 };

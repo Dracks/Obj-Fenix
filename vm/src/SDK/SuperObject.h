@@ -9,6 +9,7 @@
 #ifndef vm_SuperObject_h
 #define vm_SuperObject_h
 
+
 namespace SDK{
 	class SuperObject;
 	template <class T>
@@ -29,7 +30,7 @@ namespace SDK{
 		 * @param name the Name of the object
 		 * @param obj the base for build the new instance
     	 */
-		SuperObject(string name, Super* obj):Super(name){};
+		SuperObject(std::string name, Super* obj):Super(name){};
 		~SuperObject(){};
 	};
 	
