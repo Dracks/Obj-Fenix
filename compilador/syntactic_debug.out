@@ -161,270 +161,37 @@ syntactic_debug(BaseLibs/Base.ofx):84	Applying rule class_definition <-- class o
 syntactic_debug(BaseLibs/Base.ofx):84	Applying rule class_interface_definition <-- class_definition
 syntactic_debug(BaseLibs/Base.ofx):84	Applying rule list_class_definition <-- list_class_definition class_interface_definition
 syntactic_debug(BaseLibs/Base.ofx):85	Applying rule program <-- Option_defining_program list_modules_import option_package_Definition list_class_definition
-syntactic_debug(test/proves.ofx):1	Applying rule option_defining_program <-- Program Identifier :
-syntactic_debug(test/proves.ofx):1	Applying rule list_modules_import <-- nothing
-syntactic_debug(test/proves.ofx):3	Applying rule option_package_definition <-- nothing
-syntactic_debug(test/proves.ofx):3	Applying rule program <-- option_package_definition
-syntactic_debug(test/proves.ofx):3	Applying rule option_native <-- nothing
-syntactic_debug(test/proves.ofx):4	Applying rule level_definition_token <-- public
-syntactic_debug(test/proves.ofx):5	Applying rule implementation_option <-- ;
-syntactic_debug(test/proves.ofx):5	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(test/proves.ofx):5	Applying rule definition <-- method_definition
-syntactic_debug(test/proves.ofx):6	Applying rule implementation_option <-- ;
-syntactic_debug(test/proves.ofx):6	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(test/proves.ofx):6	Applying rule definition <-- method_definition
-syntactic_debug(test/proves.ofx):7	Applying rule list_definitions <-- definition
-syntactic_debug(test/proves.ofx):7	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(test/proves.ofx):8	Applying rule list_acces_level_block <-- nothing
-syntactic_debug(test/proves.ofx):8	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
-syntactic_debug(test/proves.ofx):8	Applying rule class_definition <-- class option_native identifier(Figura): list_acces_level_block end
-syntactic_debug(test/proves.ofx):8	Applying rule class_interface_definition <-- class_definition
-syntactic_debug(test/proves.ofx):8	Applying rule list_class_definition <-- class_interface_definition
-syntactic_debug(test/proves.ofx):10	Applying rule option_native <-- nothing
-syntactic_debug(test/proves.ofx):11	Applying rule level_definition_token <-- private
-syntactic_debug(test/proves.ofx):12	Applying rule list_propiety_concat <-- nothing 
-syntactic_debug(test/proves.ofx):12	Applying rule list_propiety <-- IDENTIFIER list_propiety_concat 
-syntactic_debug(test/proves.ofx):12	Applying rule propiety_definition <-- list_propiety : IDENTIFIER ;
-syntactic_debug(test/proves.ofx):12	Applying rule definition <-- propiety_definition
-syntactic_debug(test/proves.ofx):13	Applying rule list_definitions <-- definition
-syntactic_debug(test/proves.ofx):14	Applying rule level_definition_token <-- public
-syntactic_debug(test/proves.ofx):16	Applying rule list_propiety_concat <-- nothing 
-syntactic_debug(test/proves.ofx):16	Applying rule list_propiety <-- IDENTIFIER list_propiety_concat 
-syntactic_debug(test/proves.ofx):19	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):19	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):19	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):19	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):19	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):19	Applying rule assign_sentence <-- expression := expression ;
-syntactic_debug(test/proves.ofx):20	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):20	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):20	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):20	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):20	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):20	Applying rule assign_sentence <-- expression := expression ;
-syntactic_debug(test/proves.ofx):21	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):21	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):21	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):21	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):21	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):21	Applying rule assign_sentence <-- expression := expression ;
-syntactic_debug(test/proves.ofx):22	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
-syntactic_debug(test/proves.ofx):22	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(test/proves.ofx):22	Applying rule definition <-- method_definition
-syntactic_debug(test/proves.ofx):25	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):25	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):26	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
-syntactic_debug(test/proves.ofx):26	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(test/proves.ofx):26	Applying rule definition <-- method_definition
-syntactic_debug(test/proves.ofx):29	Applying rule Constant Value L'area del cercle es: 297
-syntactic_debug(test/proves.ofx):29	Applying rule Constant Value 3 297
-syntactic_debug(test/proves.ofx):29	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):29	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):29	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):29	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):29	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):29	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):29	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):29	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):29	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):29	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):29	Applying rule Constant Value 
- 297
-syntactic_debug(test/proves.ofx):29	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):29	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):29	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):29	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):29	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):29	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):29	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):29	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):29	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):29	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):29	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):29	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):30	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
-syntactic_debug(test/proves.ofx):30	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(test/proves.ofx):30	Applying rule definition <-- method_definition
-syntactic_debug(test/proves.ofx):33	Applying rule Constant Value El perimetre del cercle es: 297
-syntactic_debug(test/proves.ofx):33	Applying rule Constant Value 3 297
-syntactic_debug(test/proves.ofx):33	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):33	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):33	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):33	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):33	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):33	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):33	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):33	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):33	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):33	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):33	Applying rule Constant Value 
- 297
-syntactic_debug(test/proves.ofx):33	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):33	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):33	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):33	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):33	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):33	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):33	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):33	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):33	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):33	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):33	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):33	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):34	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
-syntactic_debug(test/proves.ofx):34	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(test/proves.ofx):34	Applying rule definition <-- method_definition
-syntactic_debug(test/proves.ofx):35	Applying rule list_definitions <-- definition
-syntactic_debug(test/proves.ofx):35	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(test/proves.ofx):35	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(test/proves.ofx):35	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(test/proves.ofx):36	Applying rule list_acces_level_block <-- nothing
-syntactic_debug(test/proves.ofx):36	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
-syntactic_debug(test/proves.ofx):36	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
-syntactic_debug(test/proves.ofx):36	Applying rule class_definition <-- class option_native identifier(Cercle): list_acces_level_block end
-syntactic_debug(test/proves.ofx):36	Applying rule class_interface_definition <-- class_definition
-syntactic_debug(test/proves.ofx):36	Applying rule list_class_definition <-- list_class_definition class_interface_definition
-syntactic_debug(test/proves.ofx):39	Applying rule option_native <-- nothing
-syntactic_debug(test/proves.ofx):40	Applying rule level_definition_token <-- private
-syntactic_debug(test/proves.ofx):41	Applying rule list_propiety_concat <-- nothing 
-syntactic_debug(test/proves.ofx):41	Applying rule list_propiety <-- IDENTIFIER list_propiety_concat 
-syntactic_debug(test/proves.ofx):41	Applying rule propiety_definition <-- list_propiety : IDENTIFIER ;
-syntactic_debug(test/proves.ofx):41	Applying rule definition <-- propiety_definition
-syntactic_debug(test/proves.ofx):42	Applying rule list_definitions <-- definition
-syntactic_debug(test/proves.ofx):43	Applying rule level_definition_token <-- public
-syntactic_debug(test/proves.ofx):47	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):47	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):47	Applying rule Constant Value 3 297
-syntactic_debug(test/proves.ofx):47	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):47	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):47	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):47	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):47	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):47	Applying rule assign_sentence <-- expression := expression ;
-syntactic_debug(test/proves.ofx):48	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
-syntactic_debug(test/proves.ofx):48	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(test/proves.ofx):48	Applying rule definition <-- method_definition
-syntactic_debug(test/proves.ofx):50	Applying rule list_propiety_concat <-- nothing 
-syntactic_debug(test/proves.ofx):50	Applying rule list_propiety <-- IDENTIFIER list_propiety_concat 
-syntactic_debug(test/proves.ofx):52	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):52	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):52	Applying rule Constant Value 1 297
-syntactic_debug(test/proves.ofx):52	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):52	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):52	Applying rule assign_sentence <-- expression := expression ;
-syntactic_debug(test/proves.ofx):53	Applying rule Constant Value 0 297
-syntactic_debug(test/proves.ofx):53	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):53	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):53	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):53	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):53	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):54	Applying rule Constant Value Escriu una de les següents opcións:
- 297
-syntactic_debug(test/proves.ofx):54	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):54	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):54	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):54	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):54	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):55	Applying rule Constant Value t0=> sortir
- 297
-syntactic_debug(test/proves.ofx):55	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):55	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):55	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):55	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):55	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):56	Applying rule Constant Value t1=> Calcular area cercle
- 297
-syntactic_debug(test/proves.ofx):57	Applying rule Constant Value t2=> Calcular perimetre cercle
- 297
-syntactic_debug(test/proves.ofx):58	Applying rule Constant Value t3=> Canviar cercle (Actualment té radi) 297
-syntactic_debug(test/proves.ofx):58	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):58	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):58	Applying rule Constant Value 
- 297
-syntactic_debug(test/proves.ofx):58	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):58	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):58	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):58	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):58	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):58	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):58	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):58	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):58	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):58	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):58	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):58	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):58	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):58	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):58	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):58	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):58	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):58	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):58	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):58	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):59	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):59	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):59	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):59	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):59	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):59	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):59	Applying rule assign_sentence <-- expression := expression ;
-syntactic_debug(test/proves.ofx):60	Applying rule Constant Value 1 297
-syntactic_debug(test/proves.ofx):60	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):60	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):60	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):60	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):60	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):61	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):61	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):61	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):62	Applying rule Constant Value 2 297
-syntactic_debug(test/proves.ofx):62	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):62	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):62	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):62	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):62	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):63	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):63	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):63	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):64	Applying rule Constant Value 3 297
-syntactic_debug(test/proves.ofx):64	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):64	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):64	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/proves.ofx):64	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):64	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):65	Applying rule Constant Value Escriu el radi de la nova circonverencia: 297
-syntactic_debug(test/proves.ofx):65	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):65	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):65	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):65	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):65	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):66	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):66	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):66	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/proves.ofx):66	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):66	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):66	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):66	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):66	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):66	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):66	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):66	Applying rule assign_sentence <-- expression := expression ;
-syntactic_debug(test/proves.ofx):68	Applying rule Constant Value Revisa el que escrius
- 297
-syntactic_debug(test/proves.ofx):68	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):68	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):68	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/proves.ofx):68	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/proves.ofx):68	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/proves.ofx):71	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
-syntactic_debug(test/proves.ofx):71	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(test/proves.ofx):71	Applying rule definition <-- method_definition
-syntactic_debug(test/proves.ofx):72	Applying rule list_definitions <-- definition
-syntactic_debug(test/proves.ofx):72	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(test/proves.ofx):73	Applying rule list_acces_level_block <-- nothing
-syntactic_debug(test/proves.ofx):73	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
-syntactic_debug(test/proves.ofx):73	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
-syntactic_debug(test/proves.ofx):73	Applying rule class_definition <-- class option_native identifier(prova): list_acces_level_block end
-syntactic_debug(test/proves.ofx):73	Applying rule class_interface_definition <-- class_definition
-syntactic_debug(test/proves.ofx):73	Applying rule list_class_definition <-- list_class_definition class_interface_definition
-syntactic_debug(test/proves.ofx):75	Applying rule program <-- Option_defining_program list_modules_import option_package_Definition list_class_definition
+syntactic_debug(test/hello_world.ofx):1	Applying rule option_defining_program <-- Program Identifier :
+syntactic_debug(test/hello_world.ofx):1	Applying rule list_modules_import <-- nothing
+syntactic_debug(test/hello_world.ofx):3	Applying rule option_package_definition <-- nothing
+syntactic_debug(test/hello_world.ofx):3	Applying rule program <-- option_package_definition
+syntactic_debug(test/hello_world.ofx):3	Applying rule option_native <-- nothing
+syntactic_debug(test/hello_world.ofx):4	Applying rule level_definition_token <-- public
+syntactic_debug(test/hello_world.ofx):7	Applying rule Constant Value Constructor Hola Mon! 297
+syntactic_debug(test/hello_world.ofx):7	Applying rule option_extension_expression <-- nothing
+syntactic_debug(test/hello_world.ofx):7	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(test/hello_world.ofx):7	Applying rule option_extension_expression <-- nothing
+syntactic_debug(test/hello_world.ofx):7	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
+syntactic_debug(test/hello_world.ofx):7	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(test/hello_world.ofx):8	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
+syntactic_debug(test/hello_world.ofx):8	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(test/hello_world.ofx):8	Applying rule definition <-- method_definition
+syntactic_debug(test/hello_world.ofx):10	Applying rule list_propiety_concat <-- nothing 
+syntactic_debug(test/hello_world.ofx):10	Applying rule list_propiety <-- IDENTIFIER list_propiety_concat 
+syntactic_debug(test/hello_world.ofx):12	Applying rule Constant Value Main del Hola Mon! 297
+syntactic_debug(test/hello_world.ofx):12	Applying rule option_extension_expression <-- nothing
+syntactic_debug(test/hello_world.ofx):12	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(test/hello_world.ofx):12	Applying rule option_extension_expression <-- nothing
+syntactic_debug(test/hello_world.ofx):12	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
+syntactic_debug(test/hello_world.ofx):12	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(test/hello_world.ofx):13	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
+syntactic_debug(test/hello_world.ofx):13	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(test/hello_world.ofx):13	Applying rule definition <-- method_definition
+syntactic_debug(test/hello_world.ofx):14	Applying rule list_definitions <-- definition
+syntactic_debug(test/hello_world.ofx):14	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(test/hello_world.ofx):15	Applying rule list_acces_level_block <-- nothing
+syntactic_debug(test/hello_world.ofx):15	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
+syntactic_debug(test/hello_world.ofx):15	Applying rule class_definition <-- class option_native identifier(helloWorld): list_acces_level_block end
+syntactic_debug(test/hello_world.ofx):15	Applying rule class_interface_definition <-- class_definition
+syntactic_debug(test/hello_world.ofx):15	Applying rule list_class_definition <-- class_interface_definition
+syntactic_debug(test/hello_world.ofx):16	Applying rule program <-- Option_defining_program list_modules_import option_package_Definition list_class_definition

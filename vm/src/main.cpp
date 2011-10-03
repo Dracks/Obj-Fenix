@@ -251,12 +251,17 @@ typedef struct headerSave{
 } t_HeaderSave;
 
 
-ASM_line* loadByteCode(string file, Library* data){
+pair<ASM_line*, int> loadByteCode(string file, Library* data){
 	t_HeaderSave header;
 	FILE*	bytecodeFile;
 	ASM_line* bytecode;
 	int count1, count2;
 	bytecodeFile=fopen(file.c_str(), "r");
+	
+	if (!bytecodeFile){
+		cout << "ERROR file not found" << endl;
+		exit(-1);
+	}
 
 	Adapter* adaptador=new Adapter();
 	
@@ -294,12 +299,12 @@ ASM_line* loadByteCode(string file, Library* data){
 		} else {
 			cache=new OfxCacheClass(cid, name, fatherUID);
 		}
-		cout << "Parsejant la clase: " << name << endl;
+		//cout << "Parsejant la clase: " << name << endl;
 		//free(name);
 		delete name;
 		
 		fread(&aux2, sizeof(int), 1, bytecodeFile);
-		cout << "Propietats: " << aux2 << endl;
+		//cout << "Propietats: " << aux2 << endl;
 		count2=0;
 		while (count2<aux2){
 			int uid;
@@ -308,7 +313,7 @@ ASM_line* loadByteCode(string file, Library* data){
 			//name=(char*) malloc(sizeof(char)*(aux+1));
 			name=new char[aux];
 			fread(name, sizeof(char), aux, bytecodeFile);
-			cout << "\tPropietat: " << name << endl;
+			//cout << "\tPropietat: " << name << endl;
 			cache->addProperty(uid, name);
 			
 			delete name;
@@ -319,7 +324,7 @@ ASM_line* loadByteCode(string file, Library* data){
 
 		fread(&aux2, sizeof(int), 1, bytecodeFile);
 		count2=0;
-		cout << "Metodes: " << aux2 << endl;
+		//cout << "Metodes: " << aux2 << endl;
 		while (count2<aux2){
 			int uid;
 			fread(&uid,		sizeof(int),	1, bytecodeFile);
@@ -331,7 +336,7 @@ ASM_line* loadByteCode(string file, Library* data){
 			name=new char[aux];
 			fread(name, sizeof(char), aux, bytecodeFile);
 			
-			cout << "\tMetode: " << name << endl;
+			//cout << "\tMetode: " << name << endl;
 			
 			if (native){
 				((NativeCacheClass*)cache)->addMethod(uid, name);
@@ -374,30 +379,30 @@ ASM_line* loadByteCode(string file, Library* data){
 		fread(&type, 	sizeof(char), 	1, 	bytecodeFile);
 		fread(&cid, 	sizeof(int),	1,	bytecodeFile);
 		itype=type;
-		cout << "Constant " << cid << " de tipus: " << itype << " ->";
+		//cout << "Constant " << cid << " de tipus: " << itype << " ->";
 		switch (itype) {
 			case 1: // Boolean
 				fread(&characterValue, sizeof(char), 1, bytecodeFile);
 				booleanValue=characterValue;
 				data->addConstant(cid, 
 								  checkAndCast<BooleanClass>(data->getClass("Boolean"))->getNewInstance(booleanValue));
-				cout << booleanValue << endl;
+				//cout << booleanValue << endl;
 				break;
 			case 2: // Character -- Undefined
 				fread(&characterValue, sizeof(char), 1, bytecodeFile);
 				cerr << "Warning: Char not defined" << endl;
-				cout << characterValue << endl;
+				//cout << characterValue << endl;
 				break;
 			case 3: // Integer
 				fread(&integerValue, sizeof(int), 1, bytecodeFile);
 				data->addConstant(cid, 
 								  checkAndCast<IntegerClass>(data->getClass("Integer"))->getNewInstance(integerValue));
-				cout << integerValue << endl;
+				//cout << integerValue << endl;
 				break;
 			case 4: // Float
 				cerr << "Warning: Float not defined" << endl;
 				fread(&floatValue, sizeof(float), 1, bytecodeFile);
-				cout << floatValue << endl;
+				//cout << floatValue << endl;
 				break;
 			case 5: // String
 				fread(&stringSize, sizeof(int), 1, bytecodeFile);
@@ -406,7 +411,7 @@ ASM_line* loadByteCode(string file, Library* data){
 				//stringValue[stringSize]='\0';
 				data->addConstant(cid, 
 								  checkAndCast<StringClass>(data->getClass("String"))->getNewInstance(stringValue));
-				cout << stringValue << endl;
+				//cout << stringValue << endl;
 				delete stringValue;
 				break;
 			default:
@@ -415,10 +420,28 @@ ASM_line* loadByteCode(string file, Library* data){
 		count1++;
 	}
 	
+	bytecode=new ASM_line[header.n_ByteCode+6];
 	
+	fseek(bytecodeFile, header.p_ByteCode, SEEK_SET);
+	fread(bytecode, sizeof(ASM_line), header.n_ByteCode, bytecodeFile);
 	
 	fclose(bytecodeFile);
-	return bytecode;
+	
+	SuperClass* programObject=data->getClass(header.uid_programClass);
+	bytecode[header.n_ByteCode].instruction=LOAD_CLASS;
+	bytecode[header.n_ByteCode].param=header.uid_programClass;
+	bytecode[header.n_ByteCode+1].instruction=LOAD_METHOD;
+	bytecode[header.n_ByteCode+1].param=programObject->getMethodUid(programObject->getOfxName());
+	bytecode[header.n_ByteCode+2].instruction=CALL;
+	bytecode[header.n_ByteCode+2].param=0;
+	bytecode[header.n_ByteCode+3].instruction=LOAD_METHOD;
+	bytecode[header.n_ByteCode+3].param=programObject->getMethodUid("main");;
+	bytecode[header.n_ByteCode+4].instruction=CALL;
+	bytecode[header.n_ByteCode+4].param=0;
+	bytecode[header.n_ByteCode+5].instruction=RET;
+	bytecode[header.n_ByteCode+5].param-1;
+	
+	return pair<ASM_line*, int>(bytecode, header.n_ByteCode);
 }
 
 int main(int argc,char* args[]){
@@ -435,7 +458,12 @@ int main(int argc,char* args[]){
 		exit(-1);
 	}
 	//Library* data=new Library();
-	ASM_line* bytecode=loadByteCode(args[1], Library::getLibrary());
+	pair<ASM_line*, int> program=loadByteCode(args[1], Library::getLibrary());
+	
+	Thread cpu(program.first, Library::getLibrary());
+	
+	cpu.run(program.second);
+
 	/*Thread cpu(bytecode, data);
 	//Pila p;
 	//p.pila=(Stackable**) malloc(sizeof(Stackable*)*1024);

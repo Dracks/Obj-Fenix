@@ -52,7 +52,7 @@ namespace ofxbytecode{
 			if (data==NULL){
 				data=new Library();
 			}
-			std::cout << data << std::endl;
+			//std::cout << data << std::endl;
 			return data;
 		};
 		

@@ -14,7 +14,8 @@
 namespace ofxBI{
 	using namespace SDK;
 	
-	registerClass(ShellClass)
+	//registerClass(ShellClass);
+	ofxtools::RegisterClass<ShellClass> startupShell();
 	
 //	class ShellClass: public SDK::Superclass {
 	ShellClass::ShellClass():SuperClass("Shell") {}

@@ -41,248 +41,28 @@ Afegint Clase: Shell
 	Afegim metode:stdout(String)
 	Afegim metode:stdin
 	Afegim metode:stderr(String)
-Afegint Clase: Figura
-	Afegim metode:Figura(Object)
+Afegint Clase: helloWorld
+	Afegim metode:helloWorld(Object)
 ByteCode:0	RET	-1
 ByteCode:1	SIZE_INSTRUCTIONS	7
-	Afegim metode:calcularArea
-ByteCode:2	RET	-1
-ByteCode:3	SIZE_INSTRUCTIONS	8
-	Afegim metode:calcularPerimetre
-ByteCode:4	RET	-1
-ByteCode:5	SIZE_INSTRUCTIONS	9
-Afegint Clase: Cercle
-	Afegim metode:Cercle(Object)
-ByteCode:6	RET	-1
-ByteCode:7	SIZE_INSTRUCTIONS	10
-	Afegim metode:Cercle(Integer)
-ByteCode:8	PUSH_TOP	0
-ByteCode:9	LOAD_PRIVATE	0
-ByteCode:10	LOAD_PRIVATE	1
-ByteCode:11	STORE_ATTR	6
+	Afegim metode:helloWorld
+ByteCode:2	LOAD_CLASS	7
+ByteCode:3	LOAD_METHOD	7
+Afegint constant: Constructor Hola Mon!
+ByteCode:4	LOAD_CONSTANT	1
+ByteCode:5	CALL	1
+ByteCode:6	POP_TOP	0
 Parsejant instruccions
-ByteCode:12	LOAD_PRIVATE	0
-ByteCode:13	LOAD_ATTR	6
-ByteCode:14	STORE_PRIVATE	2
+ByteCode:7	RET	-1
+ByteCode:8	SIZE_INSTRUCTIONS	8
+	Afegim metode:main
+ByteCode:9	PUSH_TOP	0
+ByteCode:10	LOAD_CLASS	7
+ByteCode:11	LOAD_METHOD	7
+Afegint constant: Main del Hola Mon!
+ByteCode:12	LOAD_CONSTANT	2
+ByteCode:13	CALL	1
+ByteCode:14	POP_TOP	0
 Parsejant instruccions
-ByteCode:15	LOAD_PRIVATE	0
-ByteCode:16	LOAD_PRIVATE	2
-ByteCode:17	STORE_ATTR	6
-Parsejant instruccions
-ByteCode:18	RET	-1
-ByteCode:19	SIZE_INSTRUCTIONS	11
-	Afegim metode:getRadi
-ByteCode:20	LOAD_PRIVATE	0
-ByteCode:21	LOAD_ATTR	6
-ByteCode:22	RET	0
-Parsejant instruccions
-ByteCode:23	RET	-1
-ByteCode:24	SIZE_INSTRUCTIONS	12
-	Afegim metode:calcularArea
-ByteCode:25	LOAD_CLASS	7
-ByteCode:26	LOAD_METHOD	7
-Afegint constant: L'area del cercle es:
-ByteCode:27	LOAD_CONSTANT	1
-ByteCode:28	LOAD_METHOD	4
-ByteCode:29	LOAD_PRIVATE	0
-ByteCode:30	LOAD_ATTR	6
-ByteCode:31	LOAD_METHOD	6
-ByteCode:32	LOAD_PRIVATE	0
-ByteCode:33	LOAD_ATTR	6
-ByteCode:34	LOAD_METHOD	6
-Afegint constant: 3
-ByteCode:35	LOAD_CONSTANT	2
-ByteCode:36	CALL	1
-ByteCode:37	CALL	1
-ByteCode:38	LOAD_METHOD	12
-ByteCode:39	CALL	0
-ByteCode:40	LOAD_METHOD	4
-Afegint constant: 
-
-ByteCode:41	LOAD_CONSTANT	3
-ByteCode:42	CALL	1
-ByteCode:43	CALL	1
-ByteCode:44	CALL	1
-ByteCode:45	POP_TOP	0
-Parsejant instruccions
-ByteCode:46	RET	-1
-ByteCode:47	SIZE_INSTRUCTIONS	8
-	Afegim metode:calcularPerimetre
-ByteCode:48	LOAD_CLASS	7
-ByteCode:49	LOAD_METHOD	7
-Afegint constant: El perimetre del cercle es:
-ByteCode:50	LOAD_CONSTANT	4
-ByteCode:51	LOAD_METHOD	4
-ByteCode:52	LOAD_PRIVATE	0
-ByteCode:53	LOAD_ATTR	6
-ByteCode:54	LOAD_METHOD	6
-ByteCode:55	LOAD_PRIVATE	0
-ByteCode:56	LOAD_ATTR	6
-ByteCode:57	LOAD_METHOD	6
-Afegint constant: 3
-ByteCode:58	LOAD_CONSTANT	5
-ByteCode:59	CALL	1
-ByteCode:60	CALL	1
-ByteCode:61	LOAD_METHOD	12
-ByteCode:62	CALL	0
-ByteCode:63	LOAD_METHOD	4
-Afegint constant: 
-
-ByteCode:64	LOAD_CONSTANT	6
-ByteCode:65	CALL	1
-ByteCode:66	CALL	1
-ByteCode:67	CALL	1
-ByteCode:68	POP_TOP	0
-Parsejant instruccions
-ByteCode:69	RET	-1
-ByteCode:70	SIZE_INSTRUCTIONS	9
-Afegint Clase: prova
-	Afegim metode:prova(Object)
-ByteCode:71	RET	-1
-ByteCode:72	SIZE_INSTRUCTIONS	8
-	Afegim metode:prova
-ByteCode:73	LOAD_CLASS	9
-ByteCode:74	LOAD_METHOD	11
-Afegint constant: 3
-ByteCode:75	LOAD_CONSTANT	7
-ByteCode:76	CALL	1
-ByteCode:77	STORE_ATTR	7
-Parsejant instruccions
-ByteCode:78	RET	-1
-ByteCode:79	SIZE_INSTRUCTIONS	9
-	Afegim metode:main(list)
-ByteCode:80	PUSH_TOP	0
-Afegint constant: 1
-ByteCode:81	LOAD_CONSTANT	8
-ByteCode:82	STORE_PRIVATE	2
-Parsejant instruccions
-ByteCode:83	LOAD_PRIVATE	2
-ByteCode:84	LOAD_METHOD	8
-Afegint constant: 0
-ByteCode:85	LOAD_CONSTANT	9
-ByteCode:86	CALL	1
-ByteCode:87	GOTO_FALSE	87
-Parsejant instruccions
-ByteCode:88	LOAD_CLASS	7
-ByteCode:89	LOAD_METHOD	7
-Afegint constant: Escriu una de les següents opcións:
-
-ByteCode:90	LOAD_CONSTANT	10
-ByteCode:91	CALL	1
-ByteCode:92	POP_TOP	0
-Parsejant instruccions
-ByteCode:93	LOAD_CLASS	7
-ByteCode:94	LOAD_METHOD	7
-Afegint constant: t0=> sortir
-
-ByteCode:95	LOAD_CONSTANT	11
-ByteCode:96	CALL	1
-ByteCode:97	POP_TOP	0
-Parsejant instruccions
-ByteCode:98	LOAD_CLASS	7
-ByteCode:99	LOAD_METHOD	7
-Afegint constant: t1=> Calcular area cercle
-
-ByteCode:100	LOAD_CONSTANT	12
-ByteCode:101	LOAD_METHOD	4
-Afegint constant: t2=> Calcular perimetre cercle
-
-ByteCode:102	LOAD_CONSTANT	13
-ByteCode:103	LOAD_METHOD	4
-Afegint constant: t3=> Canviar cercle (Actualment té radi)
-ByteCode:104	LOAD_CONSTANT	14
-ByteCode:105	LOAD_METHOD	4
-ByteCode:106	LOAD_CLASS	9
-ByteCode:107	LOAD_METHOD	10
-ByteCode:108	LOAD_PRIVATE	0
-ByteCode:109	LOAD_ATTR	7
-ByteCode:110	CALL	1
-ByteCode:111	LOAD_METHOD	12
-ByteCode:112	CALL	0
-ByteCode:113	LOAD_METHOD	12
-ByteCode:114	CALL	0
-ByteCode:115	LOAD_METHOD	4
-Afegint constant: 
-
-ByteCode:116	LOAD_CONSTANT	15
-ByteCode:117	CALL	1
-ByteCode:118	CALL	1
-ByteCode:119	CALL	1
-ByteCode:120	CALL	1
-ByteCode:121	CALL	1
-ByteCode:122	POP_TOP	0
-Parsejant instruccions
-ByteCode:123	LOAD_CLASS	7
-ByteCode:124	LOAD_METHOD	8
-ByteCode:125	CALL	0
-ByteCode:126	LOAD_METHOD	5
-ByteCode:127	CALL	0
-ByteCode:128	STORE_PRIVATE	2
-Parsejant instruccions
-ByteCode:129	LOAD_PRIVATE	2
-ByteCode:130	LOAD_METHOD	9
-Afegint constant: 1
-ByteCode:131	LOAD_CONSTANT	16
-ByteCode:132	CALL	1
-ByteCode:133	GOTO_FALSE	133
-Parsejant instruccions
-ByteCode:134	LOAD_PRIVATE	0
-ByteCode:135	LOAD_ATTR	7
-ByteCode:136	LOAD_METHOD	8
-ByteCode:137	CALL	0
-ByteCode:138	POP_TOP	0
-ByteCode:139	GOTO	139
-Parsejant instruccions
-ByteCode:140	LOAD_PRIVATE	2
-ByteCode:141	LOAD_METHOD	9
-Afegint constant: 2
-ByteCode:142	LOAD_CONSTANT	17
-ByteCode:143	CALL	1
-ByteCode:144	GOTO_FALSE	144
-Parsejant instruccions
-ByteCode:145	LOAD_PRIVATE	0
-ByteCode:146	LOAD_ATTR	7
-ByteCode:147	LOAD_METHOD	9
-ByteCode:148	CALL	0
-ByteCode:149	POP_TOP	0
-ByteCode:150	GOTO	150
-Parsejant instruccions
-ByteCode:151	LOAD_PRIVATE	2
-ByteCode:152	LOAD_METHOD	9
-Afegint constant: 3
-ByteCode:153	LOAD_CONSTANT	18
-ByteCode:154	CALL	1
-ByteCode:155	GOTO_FALSE	155
-Parsejant instruccions
-ByteCode:156	LOAD_CLASS	7
-ByteCode:157	LOAD_METHOD	7
-Afegint constant: Escriu el radi de la nova circonverencia:
-ByteCode:158	LOAD_CONSTANT	19
-ByteCode:159	CALL	1
-ByteCode:160	POP_TOP	0
-Parsejant instruccions
-ByteCode:161	LOAD_CLASS	9
-ByteCode:162	LOAD_METHOD	11
-ByteCode:163	LOAD_CLASS	7
-ByteCode:164	LOAD_METHOD	8
-ByteCode:165	CALL	0
-ByteCode:166	LOAD_METHOD	5
-ByteCode:167	CALL	0
-ByteCode:168	CALL	1
-ByteCode:169	STORE_ATTR	7
-ByteCode:170	GOTO	170
-Parsejant instruccions
-Parsejant instruccions
-ByteCode:171	LOAD_CLASS	7
-ByteCode:172	LOAD_METHOD	7
-Afegint constant: Revisa el que escrius
-
-ByteCode:173	LOAD_CONSTANT	20
-ByteCode:174	CALL	1
-ByteCode:175	POP_TOP	0
-ByteCode:176	GOTO	176
-Parsejant instruccions
-ByteCode:177	GOTO	83
-Parsejant instruccions
-ByteCode:178	RET	-1
-ByteCode:179	SIZE_INSTRUCTIONS	10
+ByteCode:15	RET	-1
+ByteCode:16	SIZE_INSTRUCTIONS	9

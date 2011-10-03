@@ -108,6 +108,13 @@ namespace SDK{
 		Method* getMethod(std::string name);
 		
 		/**
+		 * @brief Get uid method from this name
+		 * @param name the name of the Method that you wish
+		 * @return uid from this method or null if don't found
+		 */
+		int getMethodUid(std::string name);
+		
+		/**
 		 * @brief Get a propety identified by UID
 		 * @param uid UID of the property that you wish
 		 * @return SuperObject that is an instance of the object that you wish

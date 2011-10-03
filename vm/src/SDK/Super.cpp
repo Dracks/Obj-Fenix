@@ -56,6 +56,10 @@ namespace SDK{
 	Method* Super::getMethod(std::string name){
 		return this->methodList[this->methodTranslate[name]];
 	}
+	
+	int Super::getMethodUid(std::string name){
+		return this->methodTranslate[name];
+	}
 		
 	//inline 
 	SuperObject* Super::getProperty(int uid){

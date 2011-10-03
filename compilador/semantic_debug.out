@@ -44,29 +44,7 @@ semantic_debug:	 -1 with: List of methods with Name: Shell
 semantic_debug:	 -1 with: List of methods with Name: stdout
 semantic_debug:	 -1 with: List of methods with Name: stdin
 semantic_debug:	 -1 with: List of methods with Name: stderr
-semantic_debug:	 0 with: Object Figura is not validated
-semantic_debug:	 -1 with: Validating object: Figura with native flag: 0
-semantic_debug:	 -1 with: List of methods with Name: Figura
-semantic_debug:	 -1 with: List of methods with Name: calcularArea
-semantic_debug:	 -1 with: List of methods with Name: calcularPerimetre
-semantic_debug:	 0 with: Object Cercle is not validated
-semantic_debug:	 -1 with: Validating object: Cercle with native flag: 0
-semantic_debug:	 -1 with: List of methods with Name: Cercle
-semantic_debug:	 -1 with: List of methods with Name: getRadi
-semantic_debug:	 -1 with: List of methods with Name: calcularArea
-semantic_debug:	 29 with: Finding the propiety or method mul in class Integer UID: 3
-semantic_debug:	 29 with: Finding the propiety or method mul in class Integer UID: 3
-semantic_debug:	 29 with: Finding the propiety or method toString in class Integer UID: 3
-semantic_debug:	 -1 with: List of methods with Name: calcularPerimetre
-semantic_debug:	 33 with: Finding the propiety or method mul in class Integer UID: 3
-semantic_debug:	 33 with: Finding the propiety or method mul in class Integer UID: 3
-semantic_debug:	 33 with: Finding the propiety or method toString in class Integer UID: 3
-semantic_debug:	 0 with: Object prova is not validated
-semantic_debug:	 -1 with: Validating object: prova with native flag: 0
-semantic_debug:	 -1 with: List of methods with Name: prova
+semantic_debug:	 0 with: Object helloWorld is not validated
+semantic_debug:	 -1 with: Validating object: helloWorld with native flag: 0
+semantic_debug:	 -1 with: List of methods with Name: helloWorld
 semantic_debug:	 -1 with: List of methods with Name: main
-semantic_debug:	 58 with: Finding the propiety or method getRadi in class Cercle UID: 9
-semantic_debug:	 58 with: Finding the propiety or method toString in class Integer UID: 3
-semantic_debug:	 58 with: Finding the propiety or method add in class String UID: 4
-semantic_debug:	 59 with: Finding the propiety or method toInteger in class String UID: 4
-semantic_debug:	 59 with: Finding the propiety or method toInteger in class String UID: 4

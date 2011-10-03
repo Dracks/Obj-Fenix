@@ -75,12 +75,14 @@ namespace ofxbytecode{
 		line++;
 		kjmp(line);
 	l_class:
+		cout << "l_class: " << dataStack->getTop() << ":=" << data->getClass(line->param) << "(" << line->param <<")" << endl;
 		dataStack->push(data->getClass(line->param));
 		line++;
 		kjmp(line);
 	l_method:
 		elem_aux=dataStack->pop();
 		//printf("debug: l_method %s %d\n", elem_aux->getName());
+		cout << "l_method: " << checkAndCast<Super>(elem_aux)->getName() << " -> (" << line->param << ")"<< checkAndCast<Super>(elem_aux)->getMethod(line->param)->getName() << endl;
 		dataStack->push(checkAndCast<Super>(elem_aux)->getMethod(line->param));
 		dataStack->push(elem_aux);
 		line++;
@@ -93,11 +95,16 @@ namespace ofxbytecode{
 		kjmp(line);
 	i_call:
 		//elem_aux=0;
-		//printf("debug: i_call%s\n", elem_aux->getName());
-		int newLine=checkAndCast<Method>(dataStack->get(dataStack->getTop()-line->param-1))->call(dataStack);
+		//printf("debug: i_call%s\n", dataStack->get(dataStack->getTop()-line->param-1)->getName().c_str());
+		//cout << "debug: i_call" << dataStack->get(dataStack->getTop()-line->param-1) << endl;
+		cout << "debug: i_call" << dataStack->getTop() << "-" << line->param << "-" << 1 << endl;
+		Method* m=checkAndCast<Method>(dataStack->get(dataStack->getTop()-line->param-1));
+		//cout << m->getName() << endl;
+		int newLine=m->call(dataStack);
 		line++;
 		// If the implementation of call is native or is with C call, it was 0, another case, we need to change context
 		if (newLine!=0){
+			cout << "debug: i_call ->" << newLine << endl;
 			callStack->push(pair<int, ASM_line*>(ini_params, line));
 			line=&(this->code[newLine]);
 			//line=newLine;

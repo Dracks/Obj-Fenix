@@ -32,6 +32,7 @@ namespace ofxtools{
 		static std::vector<OnStartUp*> registerList;
 	public:
 		OnStartUp();
+		virtual ~OnStartUp(){};
 		virtual	void execute(Adapter*)=0;
 		static void registerAll(Adapter*);
 	};
@@ -42,6 +43,10 @@ namespace ofxtools{
 	private:
 		T* obj;
 	public:
+		RegisterClass():OnStartUp(){
+			//std::cout << "registrant" << std::endl;
+		};
+		~RegisterClass(){};
 		virtual void execute(Adapter* adaptador){
 			T* obj=new T();
 			std::cout << obj->getName() << std::endl;
