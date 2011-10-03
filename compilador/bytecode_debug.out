@@ -2,8 +2,8 @@ Generant bytecode
 Afegint Clase: Object
 Afegint Clase: Boolean
 	Afegim metode:Boolean(Object)
-	Afegim metode:and
-	Afegim metode:or
+	Afegim metode:and(Boolean)
+	Afegim metode:or(Boolean)
 Afegint Clase: Integer
 	Afegim metode:Integer(Object)
 	Afegim metode:Integer(String)

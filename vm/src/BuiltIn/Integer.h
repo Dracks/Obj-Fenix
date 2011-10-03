@@ -21,7 +21,7 @@ namespace ofxBI{
 
 namespace ofxBI {
 	
-	registerClass(IntegerClass);
+	
 	
 	class IntegerClass: public SDK::SuperClass {
 	public:
@@ -29,6 +29,8 @@ namespace ofxBI {
 		~IntegerClass();
 		void ofxInteger(SDK::BICall* call);
 		IntegerObject* getNewInstance(int v);
+		
+		std::map< std::string, SDK::Method * > getRegisteredMethods();
 	};
 	
 	class IntegerObject: public SDK::Primitive<int> {

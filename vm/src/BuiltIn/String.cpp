@@ -11,6 +11,9 @@
 
 namespace ofxBI {
 	using namespace SDK;
+	
+	registerClass(StringClass)
+	
 //	class StringClass: public SDK::SuperClass {
 	StringClass::StringClass(): SuperClass("String"){}
 	StringClass::~StringClass(){}
@@ -21,6 +24,15 @@ namespace ofxBI {
 	void StringClass::ofxString(BICall* call){
 		call->clearAndSetReturn(call->get<StringObject>(1));
 	}
+	
+	std::map< std::string, SDK::Method * > StringClass::getRegisteredMethods(){
+		map< string, Method*> ret=SuperClass::getRegisteredMethods();
+		//ret[""]=new BIMethod<IntegerObject>("",,);
+		ret["String(Object)"]=new BIMethod<StringClass>("String(Object)",1,&StringClass::ofxString);
+		ret["add(String)"]=new BIMethod<StringObject>("add(String)",1,&StringObject::ofxAdd);
+		
+		return ret;
+	};
 	
 //	class StringObject: public SDK::Primitive<string> {
 	StringObject::StringObject(string v, SuperObject* base): Primitive<string>(v,base){}

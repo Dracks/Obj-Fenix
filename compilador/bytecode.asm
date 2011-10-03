@@ -74,7 +74,7 @@ Constants:
 
 Class:
 	UID:	1
-	FatherUID:	-1
+	FatherUID:	0
 	native?:	1
 	name:	(7)Object
 	Propieties (0):
@@ -88,15 +88,18 @@ Class:
 		UID:	1
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	1
 		Name:	(15)Boolean(Object)
 		UID:	2
 		ByteCodeLine:	0
 		Constructor:	0
-		Name:	(3)and
+		static?:	0
+		Name:	(12)and(Boolean)
 		UID:	3
 		ByteCodeLine:	0
 		Constructor:	0
-		Name:	(2)or
+		static?:	0
+		Name:	(11)or(Boolean)
 	UID:	3
 	FatherUID:	1
 	native?:	1
@@ -106,46 +109,57 @@ Class:
 		UID:	2
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	1
 		Name:	(15)Integer(Object)
 		UID:	3
 		ByteCodeLine:	0
 		Constructor:	1
+		static?:	0
 		Name:	(15)Integer(String)
 		UID:	4
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(12)add(Integer)
 		UID:	5
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(12)sub(Integer)
 		UID:	6
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(12)mul(Integer)
 		UID:	7
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(12)div(Integer)
 		UID:	8
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(12)dif(Integer)
 		UID:	9
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(14)equal(Integer)
 		UID:	10
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(14)lower(Integer)
 		UID:	11
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(16)greater(Integer)
 		UID:	12
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(8)toString
 	UID:	4
 	FatherUID:	1
@@ -156,14 +170,17 @@ Class:
 		UID:	3
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	1
 		Name:	(14)String(Object)
 		UID:	4
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(11)add(String)
 		UID:	5
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(9)toInteger
 	UID:	5
 	FatherUID:	1
@@ -174,42 +191,52 @@ Class:
 		UID:	4
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	1
 		Name:	(12)list(Object)
 		UID:	5
 		ByteCodeLine:	0
 		Constructor:	1
+		static?:	0
 		Name:	(4)list
 		UID:	6
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(12)get(Integer)
 		UID:	7
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(6)length
 		UID:	8
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(11)add(Object)
 		UID:	9
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(16)addFirst(Object)
 		UID:	10
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(5)first
 		UID:	11
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(11)removeFirst
 		UID:	12
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(4)last
 		UID:	13
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(3)pop
 	UID:	6
 	FatherUID:	1
@@ -220,18 +247,22 @@ Class:
 		UID:	5
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	1
 		Name:	(12)File(Object)
 		UID:	6
 		ByteCodeLine:	0
 		Constructor:	1
+		static?:	0
 		Name:	(20)File(String, String)
 		UID:	7
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(13)write(String)
 		UID:	8
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(4)read
 	UID:	7
 	FatherUID:	1
@@ -242,18 +273,22 @@ Class:
 		UID:	6
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	1
 		Name:	(13)Shell(Object)
 		UID:	7
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(14)stdout(String)
 		UID:	8
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(5)stdin
 		UID:	9
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	0
 		Name:	(14)stderr(String)
 	UID:	8
 	FatherUID:	1
@@ -264,14 +299,17 @@ Class:
 		UID:	7
 		ByteCodeLine:	0
 		Constructor:	0
+		static?:	1
 		Name:	(14)Figura(Object)
 		UID:	8
 		ByteCodeLine:	2
 		Constructor:	0
+		static?:	0
 		Name:	(12)calcularArea
 		UID:	9
 		ByteCodeLine:	4
 		Constructor:	0
+		static?:	0
 		Name:	(17)calcularPerimetre
 	UID:	9
 	FatherUID:	8
@@ -284,22 +322,27 @@ Class:
 		UID:	10
 		ByteCodeLine:	6
 		Constructor:	0
+		static?:	1
 		Name:	(14)Cercle(Object)
 		UID:	11
 		ByteCodeLine:	8
 		Constructor:	1
+		static?:	0
 		Name:	(15)Cercle(Integer)
 		UID:	12
 		ByteCodeLine:	20
 		Constructor:	0
+		static?:	0
 		Name:	(7)getRadi
 		UID:	8
 		ByteCodeLine:	25
 		Constructor:	0
+		static?:	0
 		Name:	(12)calcularArea
 		UID:	9
 		ByteCodeLine:	48
 		Constructor:	0
+		static?:	0
 		Name:	(17)calcularPerimetre
 	UID:	10
 	FatherUID:	1
@@ -312,14 +355,17 @@ Class:
 		UID:	8
 		ByteCodeLine:	71
 		Constructor:	0
+		static?:	1
 		Name:	(13)prova(Object)
 		UID:	9
 		ByteCodeLine:	73
 		Constructor:	1
+		static?:	0
 		Name:	(5)prova
 		UID:	10
 		ByteCodeLine:	80
 		Constructor:	0
+		static?:	0
 		Name:	(10)main(list)
 ByteCode:
 	0:RET	-1	

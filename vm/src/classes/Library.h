@@ -16,6 +16,7 @@ namespace ofxbytecode{
  */
 #include <vector>
 #include <map>
+#include <iostream>
 
 #ifndef LIBRARY_H
 #define LIBRARY_H
@@ -32,8 +33,8 @@ namespace ofxbytecode{
 	 */
 	class Library{
 	private:
-		std::vector<SDK::SuperClass*> classList;
-		std::vector<SDK::SuperObject*> constantList;
+		std::map<int, SDK::SuperClass*> classList;
+		std::map<int, SDK::SuperObject*> constantList;
 		std::map<std::string,int> classID;
 		std::map<std::string,int> constantID;
 		
@@ -51,6 +52,7 @@ namespace ofxbytecode{
 			if (data==NULL){
 				data=new Library();
 			}
+			std::cout << data << std::endl;
 			return data;
 		};
 		

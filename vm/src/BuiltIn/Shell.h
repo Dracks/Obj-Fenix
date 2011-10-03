@@ -21,7 +21,7 @@ namespace ofxBI{
 
 namespace ofxBI{
 	
-	registerClass(ShellClass)
+	
 	
 	class ShellClass: public SDK::SuperClass {
 	public:
@@ -29,13 +29,15 @@ namespace ofxBI{
 		~ShellClass();
 		//StringObject* getNewInstance();
 		
-		inline void addInstanceMethod(string, int, SDK::Method*);
-		inline void addInstanceProperty(string, int);
+		void addInstanceMethod(string, int, SDK::Method*);
+		void addInstanceProperty(string, int);
 		
-		inline void ofxShell(SDK::BICall* call);
-		inline void ofxStdOut(SDK::BICall* call);
-		inline void ofxStdErr(SDK::BICall* call);
-		inline void ofxStdIn(SDK::BICall* call);
+		void ofxShell(SDK::BICall* call);
+		void ofxStdOut(SDK::BICall* call);
+		void ofxStdErr(SDK::BICall* call);
+		void ofxStdIn(SDK::BICall* call);
+		
+		std::map< std::string, SDK::Method * > getRegisteredMethods();
 	};
 }
 

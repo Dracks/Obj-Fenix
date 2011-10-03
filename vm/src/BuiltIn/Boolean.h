@@ -22,14 +22,14 @@ namespace ofxBI{
 
 namespace ofxBI {
 	
-	registerClass(BooleanClass);
-	
 	class BooleanClass: public SDK::SuperClass {
 	public:
 		BooleanClass();
 		~BooleanClass();
 		void ofxBoolean(SDK::BICall* call);
 		BooleanObject* getNewInstance(bool v);
+		
+		std::map< std::string, SDK::Method * > getRegisteredMethods();
 	};
 	
 	class BooleanObject: public SDK::Primitive<bool> {

@@ -22,6 +22,7 @@ namespace ofxtools{
 };
 
 // #include "../SDK/BIMethod.h"
+#include <iostream>
 #include "Adapter.h"
 
 namespace ofxtools{
@@ -43,6 +44,7 @@ namespace ofxtools{
 	public:
 		virtual void execute(Adapter* adaptador){
 			T* obj=new T();
+			std::cout << obj->getName() << std::endl;
 			adaptador->addClass(obj);
 		}
 	};

@@ -13,8 +13,8 @@ end*/
 
 class native Boolean:
 	public:
-		def and return Boolean;
-		def or return Boolean;
+		def and(a:Boolean) return Boolean;
+		def or(a:Boolean) return Boolean;
 		/* no tengo ni idea de que deberia implementar este objeto */
 	end
 end

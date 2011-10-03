@@ -45,7 +45,7 @@ namespace OFXByteCode {
 	
 	class OFX_Class{
 	private:
-		bool native;
+		char native;
 		int UID;
 		int fatherUID;
 		string name;

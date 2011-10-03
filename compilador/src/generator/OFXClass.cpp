@@ -39,7 +39,7 @@ namespace OFXByteCode {
 		fwrite(&this->isStatic, sizeof(char),1,obj);
 		int size=this->name.length()+1;
 		fwrite(&size,sizeof(int),1,obj);
-		fwrite(&this->name,sizeof(char),size,obj);
+		fwrite(this->name.c_str(),sizeof(char),size,obj);
 	}
 	
 	//class OFX_ClassPropiety{
@@ -59,7 +59,7 @@ namespace OFXByteCode {
 		fwrite(&this->UID,sizeof(int),1,obj);
 		int size=this->name.length()+1;
 		fwrite(&size,sizeof(int),1,obj);
-		fwrite(&this->name,sizeof(char),size,obj);
+		fwrite(this->name.c_str(),sizeof(char),size,obj);
 	}
 	
 	//class OFX_Class{
@@ -78,7 +78,7 @@ namespace OFXByteCode {
 		
 		fwrite(&this->UID, sizeof(int), 1, obj);
 		fwrite(&this->fatherUID, sizeof(int), 1, obj);
-		fwrite(&this->native, sizeof(bool),1,obj);
+		fwrite(&this->native, sizeof(char),1,obj);
 		int size=this->name.length()+1;
 		fwrite(&size, sizeof(int), 1, obj);
 		fwrite(this->name.c_str(), sizeof(char), size, obj);
@@ -88,17 +88,16 @@ namespace OFXByteCode {
 		//Save the number of propieties and methods in the class.
 		int count=lPropieties.size();
 		fwrite(&count, sizeof(int), 1, obj);
-		count=lMethods.size();
-		fwrite(&count, sizeof(int), 1, obj);
-		for (int i=0; i<lPropieties.size(); i++){
+		for (int i=0; i<count; i++){
 			lPropieties[i]->write(obj);
 		}
-
+		count=lMethods.size();
+		fwrite(&count, sizeof(int), 1, obj);
 		str="\tMethods (";str+=convert<int>(lMethods.size());str+="):";
 		asm_bytecode_debug(str);
-		for (int i=0; i<lMethods.size(); i++){
+		for (int i=0; i<count; i++){
 			lMethods[i]->write(obj);
-		}
+		}//*/
 	}
 	
 	int OFX_Class::getUID(){

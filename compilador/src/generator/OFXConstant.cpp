@@ -44,9 +44,9 @@ namespace OFXByteCode{
 		this->value=v;
 	}
 	void OFX_Constant_Char::write(FILE* object){
+		OFX_Constant::write(object);
 		string str="\t\tchar:\t";str+=this->value;
 		asm_bytecode_debug(str);
-		OFX_Constant::write(object);
 		fwrite(&value, sizeof(char), 1, object);
 	}
 	
@@ -82,9 +82,9 @@ namespace OFXByteCode{
 		asm_bytecode_debug(str);
 		//printf("\tconstant string: %s\n", value.c_str());
 		//We need to save the size of the string.
-		int size=value.length();
+		int size=value.length()+1;
 		fwrite(&size, sizeof(int), 1, object);
-		fwrite(value.c_str(), sizeof(char), size+1, object);
+		fwrite(value.c_str(), sizeof(char), size, object);
 	}
 	
 }

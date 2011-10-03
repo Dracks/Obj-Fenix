@@ -11,7 +11,11 @@
 #include "../SDK/BIMethod.h"
 
 namespace ofxBI{
+	
+	registerClass(BooleanClass);
+	
 	using namespace SDK;
+	using namespace std;
 	//class BooleanClass: public SDK::SuperClass {
 	BooleanClass::BooleanClass():SuperClass("Boolean"){}
 	
@@ -24,6 +28,14 @@ namespace ofxBI{
 		return new BooleanObject(v, this->getCache());
 	}
 	
+	map< std::string, Method * > BooleanClass::getRegisteredMethods(){
+		map< string, Method*> ret=SuperClass::getRegisteredMethods();
+		ret["Boolean(Object)"]=new BIMethod<BooleanClass>("Boolean(Object)",1,&BooleanClass::ofxBoolean);
+		ret["and(Boolean)"]=new BIMethod<BooleanObject>("and(Boolean)",1,&BooleanObject::ofxAnd);
+		ret["or(Boolean)"]=new BIMethod<BooleanObject>("or(Boolean)",1,&BooleanObject::ofxOr);
+		
+		return ret;
+	}
 	
 	//class BooleanObject: public SDK::Primitive<bool> {
 	BooleanObject::BooleanObject(bool v, SuperObject* base): Primitive<bool>(v, base){

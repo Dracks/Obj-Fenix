@@ -23,5 +23,8 @@ namespace SDK{
 	
 	inline int Stackable::getType(){return type;};
 	
-	inline std::string Stackable::getName(){return name;};
+	//inline 
+	std::string Stackable::getName(){
+		return name;
+	};
 };

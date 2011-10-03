@@ -10,6 +10,7 @@
 #include "Library.h"
 
 #include "../SDK/SuperClass.h"
+#include <iostream>
 
 namespace ofxbytecode{
 	//class Library{
@@ -29,6 +30,8 @@ namespace ofxbytecode{
 	
 	//inline 
 	void Library::addClass(int cid, string name, SuperClass* c){
+		std::cout << "Library::addClass " << cid << "," << name << "," << c->getName() << std::endl;
+		std::cout << "Library:" << this << endl;
 		classList[cid]=c;
 		classID[name]=cid;
 	}

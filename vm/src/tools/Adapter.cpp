@@ -34,23 +34,26 @@ namespace ofxtools{
 		map<string, SuperClass*>::iterator found;
 		found=ofxDataCache.find(cache->getName());
 		if (found==ofxDataCache.end()){
+			cerr << "Warning: Clase no disponible " << cache->getName() << endl;
 			/// @TODO L'em ben liat-> Fer algun tipus d'excepció amb warnings i aquestes historietes
-		}
-		SuperClass* obj=found->second;
-		map<string, Method*> biMethodList=obj->getRegisteredMethods();
-		vector<pair<int, string> > ofxMethodList=cache->getListMethod();
-		for (unsigned int i=0; i<ofxMethodList.size(); i++){
-			map<string, Method*>::iterator found=biMethodList.find(ofxMethodList[i].second);
-			if (found==biMethodList.end()){
-				/// @TODO L'em ben liat2-> Fer algun tipus d'excepció amb warnings i aquestes historietes
+		}else {
+			SuperClass* obj=found->second;
+			map<string, Method*> biMethodList=obj->getRegisteredMethods();
+			vector<pair<int, string> > ofxMethodList=cache->getListMethod();
+			for (unsigned int i=0; i<ofxMethodList.size(); i++){
+				map<string, Method*>::iterator found=biMethodList.find(ofxMethodList[i].second);
+				if (found==biMethodList.end()){
+					cerr << "Warning: Metode no disponible "<< ofxMethodList[i].second <<"en" << cache->getName() << endl;
+					/// @TODO L'em ben liat2-> Fer algun tipus d'excepció amb warnings i aquestes historietes
+				} else {
+					/// @TODO Make a new class for know when is static and isn't static, and others things. 
+					obj->addInstanceMethod(ofxMethodList[i].second, ofxMethodList[i].first, found->second);
+				}
 			}
-			/// @TODO Make a new class for know when is static and isn't static, and others things. 
-			obj->addInstanceMethod(ofxMethodList[i].second, ofxMethodList[i].first, found->second);
+			this->applyProperties(obj, cache);
+			
+			lib->addClass(cache->getUID(), cache->getName(), obj);
 		}
-		
-		this->applyProperties(obj, cache);
-		
-		lib->addClass(cache->getUID(), cache->getName(), obj);	
 	}
 	
 	void Adapter::applyOfx(OfxCacheClass* cache){

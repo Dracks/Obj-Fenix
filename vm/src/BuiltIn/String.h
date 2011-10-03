@@ -22,7 +22,7 @@ namespace ofxBI{
 
 namespace ofxBI {
 	
-	registerClass(StringClass)
+	
 	
 	class StringClass: public SDK::SuperClass {
 	public:
@@ -31,6 +31,7 @@ namespace ofxBI {
 		StringObject* getNewInstance(string v);
 
 		void ofxString(SDK::BICall* call);
+		std::map< std::string, SDK::Method * > getRegisteredMethods();
 	};
 	
 	class StringObject: public SDK::Primitive<string> {

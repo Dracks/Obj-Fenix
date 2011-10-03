@@ -32,8 +32,13 @@
 #include "tools.h"
 
 
+#include "BuiltIn/Boolean.h"
+#include "BuiltIn/Integer.h"
+#include "BuiltIn/String.h"
+
 
 using namespace SDK;
+using namespace ofxBI;
 using namespace ofxbytecode;
 using namespace ofxtools;
 //static Stackable* cache[10];
@@ -261,6 +266,8 @@ ASM_line* loadByteCode(string file, Library* data){
 	printf("Class:		%d despl: %ld\n",header.n_Class, header.p_Class);
 	printf("ByteCode:	%d despl: %ld\n",header.n_ByteCode, header.p_ByteCode);
 	
+	
+	// We read the Classes from bytecode
 	count1=0;
 	fseek(bytecodeFile, header.p_Class, SEEK_SET);
 	
@@ -278,33 +285,41 @@ ASM_line* loadByteCode(string file, Library* data){
 		fread(&fatherUID,	sizeof(int),	1, bytecodeFile);
 		fread(&native,	sizeof(char),	1, bytecodeFile);
 		fread(&aux,		sizeof(int),	1, bytecodeFile);
-		name=(char*) malloc(aux*sizeof(char));
-		fread(name,		sizeof(char)*(aux-1),	1,	bytecodeFile);
+		//name=(char*) malloc(aux*sizeof(char));
+		name=new char[aux];
+		fread(name,		sizeof(char),	aux,	bytecodeFile);
 
 		if (native){
 			cache=new NativeCacheClass(cid,name);
 		} else {
 			cache=new OfxCacheClass(cid, name, fatherUID);
 		}
-
-		free(name);
+		cout << "Parsejant la clase: " << name << endl;
+		//free(name);
+		delete name;
 		
 		fread(&aux2, sizeof(int), 1, bytecodeFile);
+		cout << "Propietats: " << aux2 << endl;
 		count2=0;
 		while (count2<aux2){
 			int uid;
 			fread(&uid,		sizeof(int),	1, bytecodeFile);
 			fread(&aux,	sizeof(int),	1, bytecodeFile);
-			name=(char*) malloc(sizeof(char)*(aux+1));
+			//name=(char*) malloc(sizeof(char)*(aux+1));
+			name=new char[aux];
 			fread(name, sizeof(char), aux, bytecodeFile);
-			
+			cout << "\tPropietat: " << name << endl;
 			cache->addProperty(uid, name);
+			
+			delete name;
+			//free(name);
 
 			count2++;
 		}
 
 		fread(&aux2, sizeof(int), 1, bytecodeFile);
 		count2=0;
+		cout << "Metodes: " << aux2 << endl;
 		while (count2<aux2){
 			int uid;
 			fread(&uid,		sizeof(int),	1, bytecodeFile);
@@ -312,8 +327,12 @@ ASM_line* loadByteCode(string file, Library* data){
 			fread(&constructor,	sizeof(char),	1, bytecodeFile);
 			fread(&isStatic,	sizeof(char),	1, bytecodeFile);
 			fread(&aux,	sizeof(int),	1, bytecodeFile);
-			name=(char*) malloc(sizeof(char)*(aux+1));
+			//name=(char*) malloc(sizeof(char)*(aux+1));
+			name=new char[aux];
 			fread(name, sizeof(char), aux, bytecodeFile);
+			
+			cout << "\tMetode: " << name << endl;
+			
 			if (native){
 				((NativeCacheClass*)cache)->addMethod(uid, name);
 			} else {
@@ -324,12 +343,78 @@ ASM_line* loadByteCode(string file, Library* data){
 				if (isStatic)
 					method->setIsStatic(true);
 			}
+			//free(name);
+			delete name;
 
 			count2++;
-		}
-		
+		}//*/
+		if (strcmp(cache->getName().c_str(),"Object")!=0)
+			adaptador->assignClass(cache);
 		count1++;
 	}
+	
+	OnStartUp::registerAll(adaptador);
+	adaptador->apply();
+	
+	// Reading the constants. 
+	count1=0;
+	fseek(bytecodeFile, header.p_Constants, SEEK_SET);
+	while(count1<header.n_Constants){
+		int cid;
+		char type;
+		int itype;
+		bool booleanValue;
+		char characterValue;
+		int integerValue;
+		float floatValue;
+		int stringSize;
+		char* stringValue;
+		
+		
+		fread(&type, 	sizeof(char), 	1, 	bytecodeFile);
+		fread(&cid, 	sizeof(int),	1,	bytecodeFile);
+		itype=type;
+		cout << "Constant " << cid << " de tipus: " << itype << " ->";
+		switch (itype) {
+			case 1: // Boolean
+				fread(&characterValue, sizeof(char), 1, bytecodeFile);
+				booleanValue=characterValue;
+				data->addConstant(cid, 
+								  checkAndCast<BooleanClass>(data->getClass("Boolean"))->getNewInstance(booleanValue));
+				cout << booleanValue << endl;
+				break;
+			case 2: // Character -- Undefined
+				fread(&characterValue, sizeof(char), 1, bytecodeFile);
+				cerr << "Warning: Char not defined" << endl;
+				cout << characterValue << endl;
+				break;
+			case 3: // Integer
+				fread(&integerValue, sizeof(int), 1, bytecodeFile);
+				data->addConstant(cid, 
+								  checkAndCast<IntegerClass>(data->getClass("Integer"))->getNewInstance(integerValue));
+				cout << integerValue << endl;
+				break;
+			case 4: // Float
+				cerr << "Warning: Float not defined" << endl;
+				fread(&floatValue, sizeof(float), 1, bytecodeFile);
+				cout << floatValue << endl;
+				break;
+			case 5: // String
+				fread(&stringSize, sizeof(int), 1, bytecodeFile);
+				stringValue=new char[stringSize];
+				fread(stringValue, sizeof(char), stringSize, bytecodeFile);
+				//stringValue[stringSize]='\0';
+				data->addConstant(cid, 
+								  checkAndCast<StringClass>(data->getClass("String"))->getNewInstance(stringValue));
+				cout << stringValue << endl;
+				delete stringValue;
+				break;
+			default:
+				break;
+		}
+		count1++;
+	}
+	
 	
 	
 	fclose(bytecodeFile);
