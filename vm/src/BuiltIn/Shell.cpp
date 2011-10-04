@@ -11,13 +11,17 @@
 #include "Shell.h"
 #include "String.h"
 
+ofxtools::RegisterClass<ofxBI::ShellClass> startupShell();
+
 namespace ofxBI{
 	using namespace SDK;
 	
 	//registerClass(ShellClass);
-	ofxtools::RegisterClass<ShellClass> startupShell();
+	/*namespace RegistradorDeShellClass { 
+		ofxtools::RegisterClass<ShellClass> startup; 
+	}*/
 	
-//	class ShellClass: public SDK::Superclass {
+	//class ShellClass: public SDK::Superclass {
 	ShellClass::ShellClass():SuperClass("Shell") {}
 	
 	ShellClass::~ShellClass(){}
@@ -28,7 +32,7 @@ namespace ofxBI{
 	
 	void ShellClass::addInstanceProperty(string name, int id){
 		this->addProperty(name, id);
-	}
+	}//*/
 		
 	void ShellClass::ofxShell(BICall* call){
 		call->clearAndSetReturn(this);
@@ -59,6 +63,6 @@ namespace ofxBI{
 		ret["stderr(String)"]=new BIMethod<ShellClass>("stderr(String)",1,&ShellClass::ofxStdErr);
 		ret["stdin"]=new BIMethod<ShellClass>("stdin",0,&ShellClass::ofxStdIn);
 		//ret[""]=new BIMethod<>("",,);
-		
+		return ret;
 	}
 }

@@ -145,9 +145,9 @@ OFXByteCode::OFXJmpQueue* Return::ofxGenerate(OFXByteCode::OFXByteCode* obj){
 	OFXByteCode::OFXJmpQueue* retV=Base::ofxGenerate(obj);
 	if (ret!=NULL){
 		ret->ofxGenerateLoad(obj);
-		obj->addInstruction(RET, 0, ""); 
+		obj->addInstruction(RET, -1, ""); 
 	} else {
-		obj->addInstruction(RET,-1, "");
+		obj->addInstruction(RET,-2, "");
 	}
 	return retV;
 	

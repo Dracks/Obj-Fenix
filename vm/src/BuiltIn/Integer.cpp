@@ -8,6 +8,8 @@
 
 #include <iostream>
 #include "Integer.h"
+#include "String.h"
+#include "../tools.h"
 
 namespace ofxBI{
 	using namespace SDK;
@@ -33,6 +35,8 @@ namespace ofxBI{
 		ret["add(Integer)"]=new BIMethod<IntegerObject>("add(Integer)",1,&IntegerObject::ofxAdd);
 		ret["sub(Integer)"]=new BIMethod<IntegerObject>("sub(Integer)",1,&IntegerObject::ofxSub);
 		ret["equal(Integer)"]=new BIMethod<IntegerObject>("equal(Integer)",1,&IntegerObject::ofxEqual);
+		ret["lower(Integer)"]=new BIMethod<IntegerObject>("lower(Integer)",1,&IntegerObject::ofxLower);
+		ret["toString"]=new BIMethod<IntegerObject>("toString",0,&IntegerObject::ofxToString);
 		//ret[""]=new BIMethod<IntegerObject>("",,);
 		
 		return ret;
@@ -57,4 +61,16 @@ namespace ofxBI{
 		int tmp=call->get<IntegerObject>(1)->value;
 		call->clearAndSetReturn(checkAndCast<BooleanClass>(ofxbytecode::Library::getLibrary()->getClass("Boolean"))->getNewInstance(this->value==tmp));
 	}
+	
+	void IntegerObject::ofxLower(SDK::BICall* call){
+		int tmp=call->get<IntegerObject>(1)->value;
+		BooleanObject* test=checkAndCast<BooleanClass>(ofxbytecode::Library::getLibrary()->getClass("Boolean"))->getNewInstance(this->value<tmp);
+		//std::cout << "Debug: " <<  test->getValue() << endl;
+		call->clearAndSetReturn(test);
+	};
+	
+	void IntegerObject::ofxToString(SDK::BICall* call){
+		//int tmp=call->get<IntegerObject>(1)->value;
+		call->clearAndSetReturn(checkAndCast<StringClass>(ofxbytecode::Library::getLibrary()->getClass("String"))->getNewInstance(convert<int>(this->value)));
+	};
 }

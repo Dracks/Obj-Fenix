@@ -75,14 +75,15 @@ namespace ofxbytecode{
 		line++;
 		kjmp(line);
 	l_class:
-		cout << "l_class: " << dataStack->getTop() << ":=" << data->getClass(line->param) << "(" << line->param <<")" << endl;
+		//cout << "l_class: " << dataStack->getTop() << ":=" << data->getClass(line->param) << "(" << line->param <<")" << endl;
 		dataStack->push(data->getClass(line->param));
 		line++;
 		kjmp(line);
 	l_method:
 		elem_aux=dataStack->pop();
 		//printf("debug: l_method %s %d\n", elem_aux->getName());
-		cout << "l_method: " << checkAndCast<Super>(elem_aux)->getName() << " -> (" << line->param << ")"<< checkAndCast<Super>(elem_aux)->getMethod(line->param)->getName() << endl;
+		//cout << "l_method: " << checkAndCast<Super>(elem_aux)->getName() << " -> (" << line->param << ")" << endl;
+		//cout << "l_method: " << checkAndCast<Super>(elem_aux)->getName() << " -> (" << line->param << ")"<< checkAndCast<Super>(elem_aux)->getMethod(line->param)->getName() << endl;
 		dataStack->push(checkAndCast<Super>(elem_aux)->getMethod(line->param));
 		dataStack->push(elem_aux);
 		line++;
@@ -96,28 +97,33 @@ namespace ofxbytecode{
 	i_call:
 		//elem_aux=0;
 		//printf("debug: i_call%s\n", dataStack->get(dataStack->getTop()-line->param-1)->getName().c_str());
-		//cout << "debug: i_call" << dataStack->get(dataStack->getTop()-line->param-1) << endl;
-		cout << "debug: i_call" << dataStack->getTop() << "-" << line->param << "-" << 1 << endl;
+		//cout << "debug: i_call " << dataStack->get(dataStack->getTop()-line->param-1)->getName() << endl;
+		//cout << "debug: i_call" << dataStack->getTop() << "-" << line->param << "-" << 1 << endl;
 		Method* m=checkAndCast<Method>(dataStack->get(dataStack->getTop()-line->param-1));
 		//cout << m->getName() << endl;
 		int newLine=m->call(dataStack);
+		int arguments=line->param;
 		line++;
 		// If the implementation of call is native or is with C call, it was 0, another case, we need to change context
 		if (newLine!=0){
-			cout << "debug: i_call ->" << newLine << endl;
+			//cout << "debug: i_call ->" << newLine << endl;
 			callStack->push(pair<int, ASM_line*>(ini_params, line));
 			line=&(this->code[newLine]);
 			//line=newLine;
-			ini_params=dataStack->getTop()-line->param;
+			ini_params=dataStack->getTop()-arguments;
 		}
 		kjmp(line);
 	i_ret:
-		printf("debug: i_ret %d\n", dataStack->getTop());
+		//printf("debug: i_ret %d\n", dataStack->getTop());
+		elem_aux=NULL;
 		if (line->param>-1){
-			dataStack->set(ini_params-1, dataStack->get(ini_params+line->param));
+			elem_aux=dataStack->get(ini_params+line->param);
 		} else if (line->param==-1){
-			dataStack->set(ini_params-1, dataStack->pop());
+			elem_aux=dataStack->pop();
 		}
+		//cout << elem_aux->getName() << endl;
+		dataStack->set(ini_params-1, elem_aux);
+		
 		dataStack->reseTop(ini_params);
 		if (callStack->getTop()==0)
 			return 0;
@@ -136,16 +142,18 @@ namespace ofxbytecode{
 		line++;
 		kjmp(line);
 	i_goto:
-		line++;
+		line=&this->code[line->param];
 		kjmp(line);
 	i_g_true:
-		if (checkAndCast<BooleanObject>(dataStack->pop())->getValue()!=0){
+		//cout << "i_g_true:" << checkAndCast<BooleanObject>(dataStack->get())->getValue() << endl;
+		if (checkAndCast<BooleanObject>(dataStack->pop())->getValue()){
 			line=&this->code[line->param];
 		} else
 			line++;
 		kjmp(line);
 	i_g_false:
-		if (checkAndCast<BooleanObject>(dataStack->pop())->getValue()==0){
+		//cout << "i_g_false:" << checkAndCast<BooleanObject>(dataStack->get())->getValue() << endl;
+		if (!checkAndCast<BooleanObject>(dataStack->pop())->getValue()){
 			line=&this->code[line->param];
 		} else
 			line++;

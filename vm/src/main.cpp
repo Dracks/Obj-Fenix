@@ -36,6 +36,8 @@
 #include "BuiltIn/Integer.h"
 #include "BuiltIn/String.h"
 
+#include "BuiltIn/Shell.h"
+
 
 using namespace SDK;
 using namespace ofxBI;
@@ -336,7 +338,7 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 			name=new char[aux];
 			fread(name, sizeof(char), aux, bytecodeFile);
 			
-			//cout << "\tMetode: " << name << endl;
+			//cout << "\tMetode: $" << name << "$" << endl;
 			
 			if (native){
 				((NativeCacheClass*)cache)->addMethod(uid, name);
@@ -428,6 +430,10 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 	fclose(bytecodeFile);
 	
 	SuperClass* programObject=data->getClass(header.uid_programClass);
+	
+	//cout << "Debug:" << programObject->getName() << programObject->getMethod("main") << endl;
+	//cout << "Debug:" << programObject->getOfxName() << programObject->getCache()->getMethodUid("main") << endl;
+	
 	bytecode[header.n_ByteCode].instruction=LOAD_CLASS;
 	bytecode[header.n_ByteCode].param=header.uid_programClass;
 	bytecode[header.n_ByteCode+1].instruction=LOAD_METHOD;
@@ -435,7 +441,7 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 	bytecode[header.n_ByteCode+2].instruction=CALL;
 	bytecode[header.n_ByteCode+2].param=0;
 	bytecode[header.n_ByteCode+3].instruction=LOAD_METHOD;
-	bytecode[header.n_ByteCode+3].param=programObject->getMethodUid("main");;
+	bytecode[header.n_ByteCode+3].param=programObject->getCache()->getMethodUid("main");
 	bytecode[header.n_ByteCode+4].instruction=CALL;
 	bytecode[header.n_ByteCode+4].param=0;
 	bytecode[header.n_ByteCode+5].instruction=RET;
@@ -447,10 +453,8 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 int main(int argc,char* args[]){
 	clock_t start, finish;
 	
-	//cache[1]= new String("Hola Mon!\n");
-	/*cache[2]= new Integer(0);
-	cache[3]= new Integer(1);
-	cache[4]= new Integer(1000000);*/
+	RegisterClass<ShellClass> registrador;
+
 	printf("Objective-Fenix VM\nAuthor:\n\tJaume Singla Valls\nCollaborator:\n\tFernando Arroba\n");
 	//printf("%d\n", argc);
 	if (argc !=2){
@@ -462,17 +466,14 @@ int main(int argc,char* args[]){
 	
 	Thread cpu(program.first, Library::getLibrary());
 	
+	start=clock();
 	cpu.run(program.second);
 
-	/*Thread cpu(bytecode, data);
-	//Pila p;
-	//p.pila=(Stackable**) malloc(sizeof(Stackable*)*1024);
-	start=clock();
-	//run(&p, sample1, 0, 0);
-	cpu.run(0);
 	finish=clock();
 	//printf("Debug:\nStack Quantity: %d\n", p.top);
-	printf("Time: %f\n", ((float)(finish - start)/(float)CLOCKS_PER_SEC ));*/
+	printf("Time: %f\n", ((float)(finish - start)/(float)CLOCKS_PER_SEC ));
+	//*/
+	
 	
 	return 0;
 }

@@ -41,9 +41,10 @@ namespace ofxtools{
 			map<string, Method*> biMethodList=obj->getRegisteredMethods();
 			vector<pair<int, string> > ofxMethodList=cache->getListMethod();
 			for (unsigned int i=0; i<ofxMethodList.size(); i++){
+				//cout << ofxMethodList[i].second << endl;
 				map<string, Method*>::iterator found=biMethodList.find(ofxMethodList[i].second);
 				if (found==biMethodList.end()){
-					cerr << "Warning: Metode no disponible "<< ofxMethodList[i].second <<"en" << cache->getName() << endl;
+					cerr << "Warning: Metode no disponible "<< ofxMethodList[i].second << " en " << cache->getName() << endl;
 					/// @TODO L'em ben liat2-> Fer algun tipus d'excepció amb warnings i aquestes historietes
 				} else {
 					/// @TODO Make a new class for know when is static and isn't static, and others things. 
@@ -65,11 +66,10 @@ namespace ofxtools{
 			if (cacheMethod->isStatic){
 				obj->addMethod(cacheMethod->name, cacheMethod->ID, new OfxMethod(cacheMethod->name, cacheMethod->line));
 			} else if (cacheMethod->constructor) {
-				obj->addMethod(cacheMethod->name, cacheMethod->ID, new OfxConstructor(cacheMethod->name, cacheMethod->line));
+				obj->addMethod(cacheMethod->name, cacheMethod->ID, new OfxConstructor(cacheMethod->name, cacheMethod->line, obj));
 			} else {
 				obj->addInstanceMethod(cacheMethod->name, cacheMethod->ID, new OfxMethod(cacheMethod->name, cacheMethod->line));
 			}
-			//delete cacheMethod;
 		}
 		
 		this->applyProperties(obj, cache);

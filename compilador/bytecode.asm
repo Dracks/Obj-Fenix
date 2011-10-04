@@ -1,15 +1,24 @@
 Header:
 	Main Program:	8
-	List Constants size:	2
+	List Constants size:	5
 	List class size:	8
-	Size bytecode:	17
+	Size bytecode:	35
 Constants:
 		type:	5
 		UID:1
 		String:	(21)Constructor Hola Mon!
-		type:	5
+		type:	3
 		UID:2
-		String:	(18)Main del Hola Mon!
+		Integer:	0
+		type:	3
+		UID:3
+		Integer:	100000
+		type:	3
+		UID:4
+		Integer:	1
+		type:	5
+		UID:5
+		String:	(19)Main del Hola Mon! 
 Class:
 	UID:	1
 	FatherUID:	0
@@ -250,20 +259,38 @@ Class:
 		static?:	0
 		Name:	(4)main
 ByteCode:
-	0:RET	-1	
+	0:RET	-2	
 	1:SIZE_INSTRUCTIONS	7	
 	2:LOAD_CLASS	7	(Shell)
 	3:LOAD_METHOD	7	(stdout(String))
 	4:LOAD_CONSTANT	1	(Constructor Hola Mon!)
 	5:CALL	1	(stdout(String))
 	6:POP_TOP	0	
-	7:RET	-1	
+	7:RET	0	
 	8:SIZE_INSTRUCTIONS	8	
 	9:PUSH_TOP	0	(reservant:i)
-	10:LOAD_CLASS	7	(Shell)
-	11:LOAD_METHOD	7	(stdout(String))
-	12:LOAD_CONSTANT	2	(Main del Hola Mon!)
-	13:CALL	1	(stdout(String))
-	14:POP_TOP	0	
-	15:RET	-1	
-	16:SIZE_INSTRUCTIONS	9	
+	10:LOAD_CONSTANT	2	(0)
+	11:STORE_PRIVATE	1	
+	12:LOAD_PRIVATE	1	(i)
+	13:LOAD_METHOD	10	(lower(Integer))
+	14:LOAD_CONSTANT	3	(100000)
+	15:CALL	1	(lower(Integer))
+	16:GOTO_FALSE	23	
+	17:LOAD_PRIVATE	1	(i)
+	18:LOAD_METHOD	4	(add(Integer))
+	19:LOAD_CONSTANT	4	(1)
+	20:CALL	1	(add(Integer))
+	21:STORE_PRIVATE	1	
+	22:GOTO	12	
+	23:LOAD_CLASS	7	(Shell)
+	24:LOAD_METHOD	7	(stdout(String))
+	25:LOAD_CONSTANT	5	(Main del Hola Mon! )
+	26:LOAD_METHOD	4	(add(String))
+	27:LOAD_PRIVATE	1	(i)
+	28:LOAD_METHOD	12	(toString)
+	29:CALL	0	(toString)
+	30:CALL	1	(add(String))
+	31:CALL	1	(stdout(String))
+	32:POP_TOP	0	
+	33:RET	-2	
+	34:SIZE_INSTRUCTIONS	9	

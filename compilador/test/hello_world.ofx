@@ -9,7 +9,11 @@ class HelloWorld:
 		def main:
 			i: integer;
 		begin
-			shell.stdout("Main del Hola Mon!");
+			i:=0;
+			while i<100000:
+				i:=i+1;
+			end
+			shell.stdout("Main del Hola Mon! " + i.toString);
 		end
 	end
 end

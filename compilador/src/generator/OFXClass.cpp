@@ -154,7 +154,10 @@ namespace OFXByteCode {
 				bytecode->parseQueue(next->getNext());
 				aux=aux->getNext();
 			}
-			bytecode->addInstruction(RET,-1, ""); // we ever need a return
+			if (elem->isConstructor())
+				bytecode->addInstruction(RET,0, ""); // We need to return this
+			else
+				bytecode->addInstruction(RET,-2, ""); // we ever need a return
 			bytecode->addInstruction(SIZE_INSTRUCTIONS, elem->getUID(), "");
 		}
 	}

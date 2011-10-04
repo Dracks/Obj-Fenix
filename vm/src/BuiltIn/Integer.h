@@ -42,6 +42,8 @@ namespace ofxBI {
 		void ofxAdd(SDK::BICall* call);
 		void ofxSub(SDK::BICall* call);
 		void ofxEqual(SDK::BICall* call);
+		void ofxLower(SDK::BICall* call);
+		void ofxToString(SDK::BICall* call);
 	};
 }
 

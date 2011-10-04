@@ -15,6 +15,7 @@ namespace SDK{
 }
 
 #include "Super.h"
+#include "OfxClass.h"
 
 namespace SDK{
 	/**
@@ -44,15 +45,19 @@ namespace SDK{
 	};
 	
 	class OfxConstructor: public OfxMethod{
+	private:
+		OfxClass* base;
 	public:
-		OfxConstructor(string name, int line): OfxMethod(name, line){}
+		OfxConstructor(string name, int line, OfxClass* base): OfxMethod(name, line){this->base=base;}
 		~OfxConstructor(){}
 		/**
 		 * @brief build a new instance, set as the object to call, and call to the object you need
 		 * @return line to jump in the VM call
     	 */
-		virtual int call(ofxbytecode::Stack<Stackable*>*){
+		virtual int call(ofxbytecode::Stack<Stackable*>* stack){
 			//Accedir a la clase OfxClass i generar nova instancia
+			stack->pop();
+			stack->push(base->getNewInstance());
 			return lineToCall;
 		}
 	};

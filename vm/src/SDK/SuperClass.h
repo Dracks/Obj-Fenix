@@ -57,14 +57,14 @@ namespace SDK {
 		 * @param uid the Identifier of the method
 		 * @param method the instance of the method you need to call.
     	 */
-		void addInstanceMethod(std::string name, int uid, Method* method);
+		virtual void addInstanceMethod(std::string name, int uid, Method* method);
 		
 		/**
 		 * @brief add a property to the datacache
 		 * @param name the name for identify the property
 		 * @param uid the UID for identify the property
     	 */
-		void addInstanceProperty(std::string name, int uid);
+		virtual void addInstanceProperty(std::string name, int uid);
 		
 		std::string getOfxName();
 	};
