@@ -53,7 +53,9 @@ namespace SDK{
 		virtual int call(ofxbytecode::Stack<Stackable*>* stack){
 			int x=stack->getTop()-nArguments;
 			Template* obj=checkAndCast<Template>(stack->get(x));
-			(obj->*method)(new BICall(this->getName(), stack, nArguments));
+			BICall* c=new BICall(this->getName(), stack, nArguments);
+			(obj->*method)(c);
+			delete c;
 			return 0;
 		};
 	};

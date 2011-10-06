@@ -303,7 +303,7 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 		}
 		//cout << "Parsejant la clase: " << name << endl;
 		//free(name);
-		delete name;
+		delete[] name;
 		
 		fread(&aux2, sizeof(int), 1, bytecodeFile);
 		//cout << "Propietats: " << aux2 << endl;
@@ -318,7 +318,7 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 			//cout << "\tPropietat: " << name << endl;
 			cache->addProperty(uid, name);
 			
-			delete name;
+			delete[] name;
 			//free(name);
 
 			count2++;
@@ -351,7 +351,7 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 					method->setIsStatic(true);
 			}
 			//free(name);
-			delete name;
+			delete[] name;
 
 			count2++;
 		}//*/
@@ -414,7 +414,7 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 				data->addConstant(cid, 
 								  checkAndCast<StringClass>(data->getClass("String"))->getNewInstance(stringValue));
 				//cout << stringValue << endl;
-				delete stringValue;
+				delete[] stringValue;
 				break;
 			default:
 				break;

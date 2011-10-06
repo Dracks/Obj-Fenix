@@ -32,6 +32,10 @@ namespace ofxBI{
 		map< string, Method*> ret=SuperClass::getRegisteredMethods();
 		
 		ret["Integer(Object)"]=new BIMethod<IntegerClass>("Integer(Object)",1,&IntegerClass::ofxInteger);
+		ret["inc"]=new BIMethod<IntegerObject>("inc",0,&IntegerObject::ofxInc);
+		
+		ret["dec"]=new BIMethod<IntegerObject>("dec",0,&IntegerObject::ofxDec);
+		
 		ret["add(Integer)"]=new BIMethod<IntegerObject>("add(Integer)",1,&IntegerObject::ofxAdd);
 		ret["sub(Integer)"]=new BIMethod<IntegerObject>("sub(Integer)",1,&IntegerObject::ofxSub);
 		ret["equal(Integer)"]=new BIMethod<IntegerObject>("equal(Integer)",1,&IntegerObject::ofxEqual);
@@ -47,6 +51,15 @@ namespace ofxBI{
 	IntegerObject::IntegerObject(int v, SuperObject* base): Primitive<int>(v,base){}
 	
 	IntegerObject::~IntegerObject(){}
+	
+	void IntegerObject::ofxInc(SDK::BICall* call){
+		this->value++;
+		call->clearAndSetReturn(this);
+	};
+	void IntegerObject::ofxDec(SDK::BICall* call){
+		this->value--;
+		call->clearAndSetReturn(this);
+	};
 	
 	void IntegerObject::ofxAdd(BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;

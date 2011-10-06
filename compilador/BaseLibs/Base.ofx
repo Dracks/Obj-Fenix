@@ -23,7 +23,8 @@ class native Integer:
 	public:
 		//def Integer(other:Float);
 		def Integer(other:String); 
-		
+		def inc return Integer;
+		def dec return Integer;
 		def add (other:Integer) return Integer; 
 		def sub (other:Integer) return Integer;
 		def mul (other:Integer) return Integer;

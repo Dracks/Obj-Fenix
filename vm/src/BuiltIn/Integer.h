@@ -39,6 +39,8 @@ namespace ofxBI {
 		IntegerObject(int v, SuperObject* base);
 	public:
 		~IntegerObject();
+		void ofxInc(SDK::BICall* call);
+		void ofxDec(SDK::BICall* call);
 		void ofxAdd(SDK::BICall* call);
 		void ofxSub(SDK::BICall* call);
 		void ofxEqual(SDK::BICall* call);

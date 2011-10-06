@@ -8,6 +8,8 @@ semantic_debug:	 -1 with: List of methods with Name: or
 semantic_debug:	 0 with: Object Integer is not validated
 semantic_debug:	 -1 with: Validating object: Integer with native flag: 1
 semantic_debug:	 -1 with: List of methods with Name: Integer
+semantic_debug:	 -1 with: List of methods with Name: inc
+semantic_debug:	 -1 with: List of methods with Name: dec
 semantic_debug:	 -1 with: List of methods with Name: add
 semantic_debug:	 -1 with: List of methods with Name: sub
 semantic_debug:	 -1 with: List of methods with Name: mul

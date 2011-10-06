@@ -35,6 +35,7 @@ namespace SDK{
 	inline T* checkAndCast(Stackable* obj) {
 		//T* obj=dynamic_cast<T*>(obj);
 		return dynamic_cast<T*>(obj);
+		//return (T*) obj;
 	};
 	
 	
