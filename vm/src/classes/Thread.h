@@ -39,11 +39,14 @@ namespace ofxbytecode{
 		Stack<pair<int,ASM_line*> >*	callStack;
 		void* jmp_asm[SIZE_INSTRUCTIONS];
 		Library* data;
+		
+		vector<pair<int, int> > stadistics;
 	public:
 		
 //		static void charge_instructions();
 		Thread(ASM_line* code, Library* data);
 		int run(int line);
+		vvector<pair<int, int> > getStadistics();
 	};
 }
 
