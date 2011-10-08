@@ -58,7 +58,10 @@ namespace SDK{
 		friend class SDK::SuperClass;
 	private:
 		std::map<int, Method*> methodList; // Donat un UID hem de retornar un metode
-		std::map<int, SuperObject*> propertyList;
+		std::map<int, SuperObject*> propertyList;//*/
+		
+		/*std::vector<Method*> methodList; // Donat un UID hem de retornar un metode
+		std::vector<SuperObject*> propertyList;//*/
 		
 		std::map<std::string, int> methodTranslate;
 		std::map<std::string, int> propertyTranslate;

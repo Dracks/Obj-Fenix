@@ -472,6 +472,13 @@ int main(int argc,char* args[]){
 	finish=clock();
 	//printf("Debug:\nStack Quantity: %d\n", p.top);
 	printf("Time: %f\n", ((float)(finish - start)/(float)CLOCKS_PER_SEC ));
+	
+	/*printf("Desglose:");
+	vector<pair<int, int> > llista=cpu.getStadistics();
+	int i=0;
+	for (i=0; i<llista.size(); i++){
+		printf("%i=>%d times, %f seconds, %f \n", i, llista[i].first,((float)(llista[i].second)/(float)CLOCKS_PER_SEC ), ((float)(llista[i].second)/((float)CLOCKS_PER_SEC*(float)llista[i].first) ));
+	}
 	//*/
 	
 	

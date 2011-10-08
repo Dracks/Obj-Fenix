@@ -29,12 +29,16 @@ namespace SDK{
 	
 	//inline 
 	void Super::addMethod(std::string name, int uid, Method* method){
+		/*while (methodList.size()<=uid)
+			methodList.push_back(NULL);*/
 		this->methodList[uid]=method;
 		this->methodTranslate[name]=uid;
 	};
 		
 	//inline 
 	void Super::addProperty(std::string name, int uid){
+		/*while (methodList.size()<=uid+1)
+			methodList.push_back(NULL);*/
 		this->propertyList[uid]=NULL;
 		this->propertyTranslate[name]=uid;
 	}

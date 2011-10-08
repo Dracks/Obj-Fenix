@@ -23,14 +23,14 @@ namespace ofxbytecode{
 		int size ;  // number of elements on Stack.
 		int top ;  
 		T* stackPtr ;
-		T* p_top;
+		//T* p_top;
 	public:
 		Stack(int s= 512){
 			size = s;  
 			top = 0 ;  // initialize stack
 			stackPtr = new T[size] ; 
 			//stackPtr=(T*) malloc(sizeof(void*)*s);
-			p_top=stackPtr;
+			//p_top=stackPtr;
 		};
 		
 		~Stack(){
@@ -38,49 +38,52 @@ namespace ofxbytecode{
 			//free(stackPtr);
 		};
 		
-		inline int push(const T item){
+		inline void push(const T item){
 			top++;
-			p_top++;
-			*p_top=item;
+			//p_top++;
+			//*p_top=item;
 			if (top==size){
 				//realloc
 			}
-			//stackPtr[top] = item ;
-			return 1 ;  // push successful
+			stackPtr[top] = item ;
+			//return 1 ;  // push successful
 		}
  
 		inline T pop() {
 			T aux;
-			aux=*p_top;
+			//aux=*p_top;
+			aux=stackPtr[top];
 			--top;
-			--p_top;
-			return aux ;
+			//--p_top;
+			return aux;//stackPtr[top] ;
 			//	return 1 ;  // pop successful
 		};
 		
-		inline int set(int n, T obj){
+		inline void set(int n, T obj){
 			stackPtr[n]=obj;
-			return 1;
+			//return 1;
 		};
 		
 		inline T get(){
-			return *p_top;
+			//return *p_top;
+			return stackPtr[top];
 		};
 		
 		//template <class Z>
 		inline T get(int n){
-			T ret;
+			/*T ret;
 			ret=stackPtr[n];
 			return ret;
+			*/
+			return stackPtr[n];
 		};
 		inline int getTop() {
 			return top;
 		};
 		
-		inline int reseTop(int p) {
+		inline void reseTop(int p) {
 			top=p;
-			p_top=&(stackPtr[top]);
-			return 1;
+			//p_top=&(stackPtr[top]);
 		};
 		//int isEmpty()const { return top == -1 ; } 
 		//int isFull() const { return top == size - 1 ; } 

@@ -62,12 +62,14 @@ namespace ofxbytecode{
 		ASM_line* line=&(this->code[num_line]);
 		int ini_params=dataStack->getTop();
 		Stackable* elem_aux;
-/*
+
 #define startClock 
 #define stopClock(p)
 //*/
+/*
 #define startClock start=clock();
-#define stopClock(p) stadistics[p].first++; stadistics[p].second+=clock()-start;
+#define stopClock(p) stadistics[p].second+=clock()-start; stadistics[p].first++;
+//*/
 #define kjmp(p) goto *(jmp_asm[p->instruction]);
 		kjmp(line);
 	l_global:
@@ -97,12 +99,13 @@ namespace ofxbytecode{
 		kjmp(line);
 	l_method:
 		startClock
-		elem_aux=dataStack->pop();
+		elem_aux=dataStack->get();
 		//printf("debug: l_method %s %d\n", elem_aux->getName());
 		//cout << "l_method: " << checkAndCast<Super>(elem_aux)->getName() << " -> (" << line->param << ")" << endl;
 		//cout << "l_method: " << checkAndCast<Super>(elem_aux)->getName() << " -> (" << line->param << ")"<< checkAndCast<Super>(elem_aux)->getMethod(line->param)->getName() << endl;
-		dataStack->push(checkAndCast<Super>(elem_aux)->getMethod(line->param));
-		dataStack->push(elem_aux);
+		//dataStack->push();
+		//dataStack->push(elem_aux);
+		cacheCall.push_back(checkAndCast<Super>(elem_aux)->getMethod(line->param));
 		stopClock(4)
 		line++;
 		kjmp(line);
@@ -120,9 +123,10 @@ namespace ofxbytecode{
 		//printf("debug: i_call%s\n", dataStack->get(dataStack->getTop()-line->param-1)->getName().c_str());
 		//cout << "debug: i_call " << dataStack->get(dataStack->getTop()-line->param-1)->getName() << endl;
 		//cout << "debug: i_call" << dataStack->getTop() << "-" << line->param << "-" << 1 << endl;
-		Method* m=checkAndCast<Method>(dataStack->get(dataStack->getTop()-line->param-1));
+		//Method* m=checkAndCast<Method>(dataStack->get(dataStack->getTop()-line->param-1));
 		//cout << m->getName() << endl;
-		int newLine=m->call(dataStack);
+		int newLine=cacheCall.back()->call(dataStack);
+		cacheCall.pop_back();
 		int arguments=line->param;
 		line++;
 		// If the implementation of call is native or is with C call, it was 0, another case, we need to change context
@@ -145,7 +149,7 @@ namespace ofxbytecode{
 			elem_aux=dataStack->pop();
 		}
 		//cout << elem_aux->getName() << endl;
-		dataStack->set(ini_params-1, elem_aux);
+		dataStack->set(ini_params, elem_aux);
 		
 		dataStack->reseTop(ini_params);
 		if (callStack->getTop()==0)
@@ -177,7 +181,8 @@ namespace ofxbytecode{
 	i_g_true:
 		startClock
 		//cout << "i_g_true:" << checkAndCast<BooleanObject>(dataStack->get())->getValue() << endl;
-		if (checkAndCast<BooleanObject>(dataStack->pop())->getValue()){
+		//if (checkAndCast<BooleanObject>(dataStack->pop())->getValue()){
+		if (((BooleanObject*) dataStack->pop())->getValue()){
 			line=&this->code[line->param];
 		} else
 			line++;
@@ -186,10 +191,11 @@ namespace ofxbytecode{
 	i_g_false:
 		startClock
 		//cout << "i_g_false:" << checkAndCast<BooleanObject>(dataStack->get())->getValue() << endl;
-		if (!checkAndCast<BooleanObject>(dataStack->pop())->getValue()){
-			line=&this->code[line->param];
-		} else
+		if (((BooleanObject*)dataStack->pop())->getValue()){
+		//if (!checkAndCast<BooleanObject>(dataStack->pop())->getValue()){
 			line++;
+		} else
+			line=&this->code[line->param];
 		stopClock(12)
 		kjmp(line);
 	i_s_attr:
@@ -211,7 +217,7 @@ namespace ofxbytecode{
 		kjmp(line);
 	}
 	
-	vector<pair<int, int> > getStadistics(){
+	vector<pair<int, int> > Thread::getStadistics(){
 		return this->stadistics;
 	}
 }

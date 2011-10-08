@@ -24,7 +24,7 @@ namespace SDK{
 	
 	
 	void BICall::clear(){
-		this->stack->reseTop(baseStack-1);
+		this->stack->reseTop(baseStack);
 	}
 	
 	void BICall::clearAndSetReturn(Super* retValue){

@@ -10,6 +10,7 @@ class HelloWorld:
 			i: integer;
 		begin
 			i:=0;
+			//while i<10000000:
 			while i<100000:
 				i.inc;
 			end

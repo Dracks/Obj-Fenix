@@ -23,6 +23,9 @@ namespace ofxBI{
 namespace ofxBI {
 	
 	class BooleanClass: public SDK::SuperClass {
+	private:
+		BooleanObject* bTrue;
+		BooleanObject* bFalse;
 	public:
 		BooleanClass();
 		~BooleanClass();

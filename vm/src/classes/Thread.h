@@ -19,6 +19,7 @@ namespace ofxbytecode {
 #include "../SDK/Stackable.h"
 #include "Stack.h"
 #include "Library.h"
+#include "../SDK/Super.h"
 #include <utility>
 using namespace std;
 /*
@@ -36,6 +37,7 @@ namespace ofxbytecode{
 	private:
 		ASM_line* code;
 		Stack<SDK::Stackable*>* dataStack;
+		vector<SDK::Method*> cacheCall;
 		Stack<pair<int,ASM_line*> >*	callStack;
 		void* jmp_asm[SIZE_INSTRUCTIONS];
 		Library* data;
@@ -46,7 +48,7 @@ namespace ofxbytecode{
 //		static void charge_instructions();
 		Thread(ASM_line* code, Library* data);
 		int run(int line);
-		vvector<pair<int, int> > getStadistics();
+		vector<pair<int, int> > getStadistics();
 	};
 }
 

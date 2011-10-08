@@ -17,7 +17,10 @@ namespace ofxBI{
 	using namespace SDK;
 	using namespace std;
 	//class BooleanClass: public SDK::SuperClass {
-	BooleanClass::BooleanClass():SuperClass("Boolean"){}
+	BooleanClass::BooleanClass():SuperClass("Boolean"){
+		bTrue=NULL;
+		bFalse=NULL;
+	}
 	
 	BooleanClass::~BooleanClass(){}
 	
@@ -25,7 +28,16 @@ namespace ofxBI{
 		call->clearAndSetReturn(call->get<BooleanObject>(1));
 	}
 	BooleanObject* BooleanClass::getNewInstance(bool v){
-		return new BooleanObject(v, this->getCache());
+		if (bTrue==NULL){
+			bTrue=new BooleanObject(true, this->getCache());
+			bFalse=new BooleanObject(false, this->getCache());
+		} 
+		if (v){
+			return bTrue;
+		} else {
+			return bFalse;
+		}
+		//return new BooleanObject(v, this->getCache());
 	}
 	
 	map< std::string, Method * > BooleanClass::getRegisteredMethods(){
