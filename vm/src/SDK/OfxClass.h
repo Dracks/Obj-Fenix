@@ -27,7 +27,7 @@ namespace SDK{
 	private:
 		SuperClass* parent;
 	public:
-		OfxClass(std::string, SuperClass*);
+		OfxClass(std::string name, SuperClass*);
 		~OfxClass();
 		
 		/**
@@ -46,7 +46,7 @@ namespace SDK{
 	private:
 		SuperObject* parent;
 	public:
-		OfxObject(std::string, Super*);
+		OfxObject(string name, Super*);
 		~OfxObject();
 	};
 }

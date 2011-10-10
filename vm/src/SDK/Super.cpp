@@ -12,7 +12,7 @@
 namespace SDK{
 	//class Method: public Stackable{
 	
-	Method::Method(std::string name): Stackable(name,0){};
+	Method::Method(int type): Stackable(type){};
 	Method::~Method(){}
 		
 		
@@ -22,7 +22,7 @@ namespace SDK{
 	
 	//class Super: public Stackable{
 	
-	Super::Super(std::string name): Stackable(name,0){};
+	Super::Super(int type): Stackable(type){};
 	Super::~Super(){};
 		
 	std::vector<Method*> Super::getMethodList(){};

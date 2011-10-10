@@ -14,17 +14,30 @@ namespace SDK{
 	
 	//class Stackable{
 	
-	Stackable::Stackable(string p_name, int type){
-		name=p_name;this->type=type;
-	};
+	/*Stackable::Stackable(string p_name, int type){
+		name=p_name;
+		this->type=type;
+	};*/
+	
+	Stackable::Stackable(int type){
+		this->type=type;
+	}
+	
+	void Stackable::setName(string name){
+		this->name=name;
+	}
 	
 	Stackable::~Stackable(){};
 		//virtual bool getNative()=0;
 	
-	inline int Stackable::getType(){return type;};
+	//inline 
+	int Stackable::getType(){
+		return type;
+	};
 	
 	//inline 
 	std::string Stackable::getName(){
 		return name;
 	};
+	
 };

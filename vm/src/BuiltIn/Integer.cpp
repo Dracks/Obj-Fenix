@@ -17,7 +17,9 @@ namespace ofxBI{
 	registerClass(IntegerClass);
 	
 	//class IntegerClass: public SDK::SuperClass {
-	IntegerClass::IntegerClass():SuperClass("Integer"){}
+	IntegerClass::IntegerClass():SuperClass(3){
+		this->setName("Integer");
+	}
 	IntegerClass::~IntegerClass(){}
 	
 	void IntegerClass::ofxInteger(BICall* call){

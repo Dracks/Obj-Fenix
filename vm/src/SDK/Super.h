@@ -36,7 +36,7 @@ namespace SDK{
 		 * @fn Method(string name)
 		 * @param name the name of the method that it represents
 		 */
-		Method(std::string name);
+		Method(int type);
 		~Method();
 		
 		/**
@@ -70,7 +70,7 @@ namespace SDK{
 		 * @fn Super(string name)
 		 * @brief constructor
 		 */
-		Super(std::string name);
+		Super(int type);
 		~Super();
 		
 		virtual std::vector<Method*> getMethodList();

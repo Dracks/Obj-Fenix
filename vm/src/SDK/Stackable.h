@@ -53,9 +53,12 @@ namespace SDK{
 		 * @param p_name the name of the object (Integer, Boolean, String...)
 		 * @param type the type of the object (The UID, identified in the bytecode)
 		 */
-		Stackable(std::string p_name, int type);
+		//Stackable(std::string p_name, int type);
+		Stackable(int type);
 		
 		virtual ~Stackable();
+		
+		virtual void setName(std::string name);
 	public:
 		//virtual bool getNative()=0;
 		/**

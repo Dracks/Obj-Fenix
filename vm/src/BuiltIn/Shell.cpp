@@ -22,7 +22,9 @@ namespace ofxBI{
 	}*/
 	
 	//class ShellClass: public SDK::Superclass {
-	ShellClass::ShellClass():SuperClass("Shell") {}
+	ShellClass::ShellClass():SuperClass(7) {
+		this->setName("Shell");
+	}
 	
 	ShellClass::~ShellClass(){}
 	

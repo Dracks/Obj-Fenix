@@ -192,15 +192,15 @@ syntactic_debug(test/hello_world.ofx):12	Applying rule Constant Value 0 297
 syntactic_debug(test/hello_world.ofx):12	Applying rule option_extension_expression <-- nothing
 syntactic_debug(test/hello_world.ofx):12	Applying rule expression <-- IDENTIFIER option_extension_expression
 syntactic_debug(test/hello_world.ofx):12	Applying rule assign_sentence <-- expression := expression ;
-syntactic_debug(test/hello_world.ofx):14	Applying rule Constant Value 100000 297
+syntactic_debug(test/hello_world.ofx):13	Applying rule Constant Value 100000 297
+syntactic_debug(test/hello_world.ofx):13	Applying rule option_extension_expression <-- nothing
+syntactic_debug(test/hello_world.ofx):13	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(test/hello_world.ofx):13	Applying rule option_call_parameters <-- 2/2
+syntactic_debug(test/hello_world.ofx):13	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
+syntactic_debug(test/hello_world.ofx):13	Applying rule expression <-- IDENTIFIER option_extension_expression
 syntactic_debug(test/hello_world.ofx):14	Applying rule option_extension_expression <-- nothing
+syntactic_debug(test/hello_world.ofx):14	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
 syntactic_debug(test/hello_world.ofx):14	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):14	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/hello_world.ofx):14	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/hello_world.ofx):14	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):15	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/hello_world.ofx):15	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/hello_world.ofx):15	Applying rule expression <-- IDENTIFIER option_extension_expression
 syntactic_debug(test/hello_world.ofx):17	Applying rule Constant Value Main del Hola Mon!  297
 syntactic_debug(test/hello_world.ofx):17	Applying rule option_extension_expression <-- nothing
 syntactic_debug(test/hello_world.ofx):17	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression

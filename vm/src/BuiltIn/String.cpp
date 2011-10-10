@@ -15,8 +15,12 @@ namespace ofxBI {
 	registerClass(StringClass)
 	
 //	class StringClass: public SDK::SuperClass {
-	StringClass::StringClass(): SuperClass("String"){}
+	StringClass::StringClass(): SuperClass(5){
+		this->setName("String");
+	}
+	
 	StringClass::~StringClass(){}
+	
 	StringObject* StringClass::getNewInstance(string v){
 		return new StringObject(v, this->getCache());
 	}

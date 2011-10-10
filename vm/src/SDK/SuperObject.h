@@ -31,14 +31,14 @@ namespace SDK{
 		 * @brief Constructor for the DataCache property in the class
 		 * @param the name of this object
     	 */
-		SuperObject(std::string name);
+		SuperObject(int type );
 	public:
 		/**
 		 * @brief Constructor
 		 * @param name the Name of the object
 		 * @param obj the base for build the new instance
     	 */
-		SuperObject(std::string name, Super* obj);
+		SuperObject(int type, Super* obj);
 		~SuperObject();
 	};
 	
@@ -55,8 +55,9 @@ namespace SDK{
 		 * @param v the value primitive of the object
 		 * @param base the Base for call and construct SuperObject
     	 */
-		Primitive(Template v, SuperObject* base): SuperObject(base->getName(), base){
+		Primitive(Template v, SuperObject* base): SuperObject(base->getType(), base){
 			value=v;
+			//this->setName(base->getName());
 		}
 	public:
 		/**

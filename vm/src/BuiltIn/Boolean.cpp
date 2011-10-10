@@ -17,9 +17,10 @@ namespace ofxBI{
 	using namespace SDK;
 	using namespace std;
 	//class BooleanClass: public SDK::SuperClass {
-	BooleanClass::BooleanClass():SuperClass("Boolean"){
+	BooleanClass::BooleanClass():SuperClass(1){
 		bTrue=NULL;
 		bFalse=NULL;
+		this->setName("Boolean");
 	}
 	
 	BooleanClass::~BooleanClass(){}
@@ -37,6 +38,7 @@ namespace ofxBI{
 		} else {
 			return bFalse;
 		}
+		 
 		//return new BooleanObject(v, this->getCache());
 	}
 	

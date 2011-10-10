@@ -10,8 +10,9 @@
 #include "OfxClass.h"
 namespace SDK{
 	//class OfxClass: public SuperClass{
-	OfxClass::OfxClass(string name, SuperClass* parent):SuperClass(name){
+	OfxClass::OfxClass(string name, SuperClass* parent):SuperClass(101){
 		this->parent=parent;
+		this->setName(name);
 	}
 	OfxClass::~OfxClass(){};
 		
@@ -21,8 +22,8 @@ namespace SDK{
 
 	
 //	class OfxObject: public SuperObject{
-	OfxObject::OfxObject(string name, Super* obj):SuperObject(name, obj){
-		
+	OfxObject::OfxObject(string name, Super* obj):SuperObject(102, obj){
+		this->setName(name);
 	}
 	OfxObject::~OfxObject(){
 	}

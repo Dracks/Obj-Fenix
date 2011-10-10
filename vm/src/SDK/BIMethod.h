@@ -38,8 +38,9 @@ namespace SDK{
 		 * @param arguments number of arguments in this method call
 		 * @param method function to call in the buildIn
     	 */
-		BIMethod(string name, int arguments, void (Template::*method)(BICall*)): Method(name){
+		BIMethod(string name, int arguments, void (Template::*method)(BICall*)): Method(104){
 			//this->name=name;
+			this->setName(name);
 			this->nArguments=arguments;
 			this->method=method;
 		};
@@ -53,7 +54,7 @@ namespace SDK{
 		virtual int call(ofxbytecode::Stack<Stackable*>* stack){
 			int x=stack->getTop()-nArguments;
 			Template* obj=checkAndCast<Template>(stack->get(x));
-			BICall* c=new BICall(this->getName(), stack, nArguments);
+			BICall* c=new BICall(this->getName().c_str(), stack, nArguments);
 			(obj->*method)(c);
 			delete c;
 			return 0;
@@ -69,7 +70,8 @@ namespace SDK{
 		int nArguments;
 		int baseStack;
 		ofxbytecode::Stack<Stackable*>* stack;
-		string name;
+		const char* name;
+		
 	public:
 		/**
 		 * @brief Constructor
@@ -77,7 +79,7 @@ namespace SDK{
 		 * @param stack The stack from the Virtual Machine
 		 * @param arguments Number of arguments of the methods,.
     	 */
-		BICall(string name, ofxbytecode::Stack<Stackable*>* stack, int arguments);
+		BICall(const char* name, ofxbytecode::Stack<Stackable*>* stack, int arguments);
 		
 		~BICall();
 		

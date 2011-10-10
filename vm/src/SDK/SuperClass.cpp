@@ -12,10 +12,16 @@
 namespace SDK{
 	using namespace std;
 	//class SuperClass: public Super{
-	SuperClass::SuperClass(string name):Super(name+" Class"){
-		this->ofxName=name;
-		this->DataCache=new SuperObject(name);
+	SuperClass::SuperClass(int type):Super(type){
+		//this->ofxName=name;
+		this->DataCache=new SuperObject(type);
 	};
+	
+	void SuperClass::setName(string name){
+		this->ofxName=name;
+		Stackable::setName(name+" Class");
+	};
+	
 	SuperClass::~SuperClass(){
 		
 	};

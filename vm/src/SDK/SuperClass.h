@@ -35,8 +35,10 @@ namespace SDK {
 		/**
 		 * @brief Constructor
     	 */
-		SuperClass(std::string name);
+		SuperClass(int type);
 		~SuperClass();
+		
+		void setName(std::string name);
 	public:
 		
 		/**

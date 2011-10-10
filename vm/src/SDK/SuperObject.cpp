@@ -15,13 +15,15 @@ namespace SDK{
 	
 	using namespace std;
 	
-	SuperObject::SuperObject(string name): Super(name+" Cache"){
+	SuperObject::SuperObject(int type): Super(type){
+		
 	}
 	
-	SuperObject::SuperObject(string name, Super* obj):Super(name+" Instance"){
-			this->copyContents(obj);
+	SuperObject::SuperObject(int type, Super* obj):Super(type){
+		this->copyContents(obj);
+		//this->setName(name);
 			
-		};
+	};
 	
 	SuperObject::~SuperObject(){};
 
