@@ -67,6 +67,14 @@ namespace SDK{
 		inline Template getValue(){
 			return value;
 		}
+		
+		/**
+		 * @brief set the primitive value that it save
+		 * @param value the value you wish save
+    	 */
+		inline  void setValue(Template value){
+			this->value=value;
+		}
 	};
 };
 

@@ -19,6 +19,7 @@ namespace ofxBI{
 	//class IntegerClass: public SDK::SuperClass {
 	IntegerClass::IntegerClass():SuperClass(3){
 		this->setName("Integer");
+		cache=NULL;
 	}
 	IntegerClass::~IntegerClass(){}
 	
@@ -27,7 +28,13 @@ namespace ofxBI{
 	}
 	
 	IntegerObject* IntegerClass::getNewInstance(int v){
-		return new IntegerObject(v, this->getCache());
+		if (cache==NULL){
+			cache=new IntegerObject(v, this->getCache());
+		}
+		IntegerObject* ret=new IntegerObject(*cache);
+		ret->setValue(v);
+		return ret;
+		//return new IntegerObject(v, this->getCache());
 	}
 	
 	std::map< std::string, SDK::Method * > IntegerClass::getRegisteredMethods(){

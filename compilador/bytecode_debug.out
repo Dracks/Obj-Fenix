@@ -71,23 +71,25 @@ ByteCode:15	CALL	1
 ByteCode:16	GOTO_FALSE	16
 Parsejant instruccions
 ByteCode:17	LOAD_PRIVATE	1
-ByteCode:18	LOAD_METHOD	4
-ByteCode:19	CALL	0
-ByteCode:20	POP_TOP	0
+ByteCode:18	LOAD_METHOD	6
+Afegint constant: 1
+ByteCode:19	LOAD_CONSTANT	4
+ByteCode:20	CALL	1
+ByteCode:21	STORE_PRIVATE	1
 Parsejant instruccions
-ByteCode:21	GOTO	12
+ByteCode:22	GOTO	12
 Parsejant instruccions
-ByteCode:22	LOAD_CLASS	7
-ByteCode:23	LOAD_METHOD	7
+ByteCode:23	LOAD_CLASS	7
+ByteCode:24	LOAD_METHOD	7
 Afegint constant: Main del Hola Mon! 
-ByteCode:24	LOAD_CONSTANT	4
-ByteCode:25	LOAD_METHOD	4
-ByteCode:26	LOAD_PRIVATE	1
-ByteCode:27	LOAD_METHOD	14
-ByteCode:28	CALL	0
-ByteCode:29	CALL	1
+ByteCode:25	LOAD_CONSTANT	5
+ByteCode:26	LOAD_METHOD	4
+ByteCode:27	LOAD_PRIVATE	1
+ByteCode:28	LOAD_METHOD	14
+ByteCode:29	CALL	0
 ByteCode:30	CALL	1
-ByteCode:31	POP_TOP	0
+ByteCode:31	CALL	1
+ByteCode:32	POP_TOP	0
 Parsejant instruccions
-ByteCode:32	RET	-2
-ByteCode:33	SIZE_INSTRUCTIONS	9
+ByteCode:33	RET	-2
+ByteCode:34	SIZE_INSTRUCTIONS	9

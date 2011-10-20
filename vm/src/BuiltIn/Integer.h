@@ -24,6 +24,7 @@ namespace ofxBI {
 	
 	
 	class IntegerClass: public SDK::SuperClass {
+		IntegerObject* cache;
 	public:
 		IntegerClass();
 		~IntegerClass();

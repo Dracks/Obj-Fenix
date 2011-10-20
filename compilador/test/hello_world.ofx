@@ -11,8 +11,8 @@ class HelloWorld:
 		begin
 			i:=0;
 			while i<100000:
-				i.inc;
-			//	i:=i+1;
+			//	i.inc;
+				i:=i+1;
 			end
 			shell.stdout("Main del Hola Mon! " + i.toString);
 		end
