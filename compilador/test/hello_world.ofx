@@ -4,15 +4,15 @@ class HelloWorld:
 	public:
 		def helloWorld:
 		begin
-			shell.stdout("Constructor Hola Mon!");
+			shell.stdout("i ++");
 		end
 		def main:
 			i: integer;
 		begin
 			i:=0;
 			while i<100000:
-			//	i.inc;
-				i:=i+1;
+				i.inc;
+			//	i:=i+1;
 			end
 			shell.stdout("Main del Hola Mon! " + i.toString);
 		end

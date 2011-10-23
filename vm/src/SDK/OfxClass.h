@@ -46,7 +46,7 @@ namespace SDK{
 	private:
 		SuperObject* parent;
 	public:
-		OfxObject(string name, Super*);
+		OfxObject(string name, ofxMap*);
 		~OfxObject();
 	};
 }

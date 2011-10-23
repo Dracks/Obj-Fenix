@@ -22,17 +22,19 @@ namespace SDK{
 	
 	//class Super: public Stackable{
 	
-	Super::Super(int type): Stackable(type){};
+	Super::Super(int type): Stackable(type){
+		this->info=new ofxMap(type);
+	};
 	Super::~Super(){};
 		
-	std::vector<Method*> Super::getMethodList(){};
+	//std::vector<Method*> Super::getMethodList(){};
 	
 	//inline 
 	void Super::addMethod(std::string name, int uid, Method* method){
 		/*while (methodList.size()<=uid)
 			methodList.push_back(NULL);*/
-		this->methodList[uid]=method;
-		this->methodTranslate[name]=uid;
+		this->info->addMethod(name, uid, method);
+		
 	};
 		
 	//inline 
@@ -40,29 +42,31 @@ namespace SDK{
 		/*while (methodList.size()<=uid+1)
 			methodList.push_back(NULL);*/
 		this->propertyList[uid]=NULL;
-		this->propertyTranslate[name]=uid;
+		this->info->addProperty(name, uid);
+		
 	}
 	
 	//inline 
-	void Super::copyContents(Super* instance){
-		this->methodList=instance->methodList;
+	void Super::copyContents(ofxMap* instance){
+		/*this->methodList=instance->methodList;
 		this->propertyList=instance->propertyList;
 		this->methodTranslate=instance->methodTranslate;
-		this->propertyTranslate=instance->propertyTranslate;
+		this->propertyTranslate=instance->propertyTranslate;*/
+		this->info=instance;
 	}
 		
 	//inline 
 	Method* Super::getMethod(int uid){
-		return this->methodList[uid];
+		return this->info->getMethod(uid);
 	}
 		
 	//inline 
 	Method* Super::getMethod(std::string name){
-		return this->methodList[this->methodTranslate[name]];
+		return this->info->getMethod(this->info->getMethod(name));
 	}
 	
 	int Super::getMethodUid(std::string name){
-		return this->methodTranslate[name];
+		return this->info->getMethod(name);
 	}
 		
 	//inline 
@@ -72,7 +76,7 @@ namespace SDK{
 		
 	//inline 
 	SuperObject* Super::getProperty(std::string name){
-		return this->propertyList[this->propertyTranslate[name]];
+		return this->propertyList[this->info->getProperty(name)];
 	}
 		
 	//inline 

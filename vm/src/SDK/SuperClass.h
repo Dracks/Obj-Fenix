@@ -27,7 +27,7 @@ namespace SDK {
 		/**
 		 * @brief The object that use as a cache for the methods of an instance. 
 		 */
-		SuperObject* DataCache;
+		ofxMap* instanceInfo;
 		std::string ofxName;
 	protected:
 		
@@ -45,7 +45,7 @@ namespace SDK {
 		 * @brief get the Cache instance
 		 * @return return the instance of the cache.
     	 */
-		SuperObject* getCache();
+		ofxMap* getCache();
 		
 		/**
 		 * @brief get a list of methods with this name, is used in the BIClass, for register their methods

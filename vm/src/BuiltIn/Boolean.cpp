@@ -37,9 +37,9 @@ namespace ofxBI{
 			return bTrue;
 		} else {
 			return bFalse;
-		}
+		}//*/
 		 
-		//return new BooleanObject(v, this->getCache());
+		return new BooleanObject(v, this->getCache());
 	}
 	
 	map< std::string, Method * > BooleanClass::getRegisteredMethods(){
@@ -52,7 +52,7 @@ namespace ofxBI{
 	}
 	
 	//class BooleanObject: public SDK::Primitive<bool> {
-	BooleanObject::BooleanObject(bool v, SuperObject* base): Primitive<bool>(v, base){
+	BooleanObject::BooleanObject(bool v, ofxMap* base): Primitive<bool>(v, base){
 		
 	}
 

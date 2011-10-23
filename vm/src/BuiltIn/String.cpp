@@ -39,7 +39,7 @@ namespace ofxBI {
 	};
 	
 //	class StringObject: public SDK::Primitive<string> {
-	StringObject::StringObject(string v, SuperObject* base): Primitive<string>(v,base){}
+	StringObject::StringObject(string v, ofxMap* base): Primitive<string>(v,base){}
 	
 	StringObject::~StringObject(){}
 	

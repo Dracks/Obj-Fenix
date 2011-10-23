@@ -38,7 +38,7 @@ namespace ofxBI {
 	class BooleanObject: public SDK::Primitive<bool> {
 		friend class BooleanClass;
 	protected:
-		BooleanObject(bool v, SuperObject* base);
+		BooleanObject(bool v, SDK::ofxMap* base);
 	public:
 		~BooleanObject();
 		void ofxAnd(SDK::BICall* call);

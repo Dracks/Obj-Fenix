@@ -57,7 +57,7 @@ namespace ofxBI{
 	
 	
 	//	class IntegerObject: public SDK::Primitive<int> {
-	IntegerObject::IntegerObject(int v, SuperObject* base): Primitive<int>(v,base){}
+	IntegerObject::IntegerObject(int v, ofxMap* base): Primitive<int>(v,base){}
 	
 	IntegerObject::~IntegerObject(){}
 	

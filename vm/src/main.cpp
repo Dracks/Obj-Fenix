@@ -441,7 +441,7 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 	bytecode[header.n_ByteCode+2].instruction=CALL;
 	bytecode[header.n_ByteCode+2].param=0;
 	bytecode[header.n_ByteCode+3].instruction=LOAD_METHOD;
-	bytecode[header.n_ByteCode+3].param=programObject->getCache()->getMethodUid("main");
+	bytecode[header.n_ByteCode+3].param=programObject->getCache()->getMethod("main");
 	bytecode[header.n_ByteCode+4].instruction=CALL;
 	bytecode[header.n_ByteCode+4].param=0;
 	bytecode[header.n_ByteCode+5].instruction=RET;

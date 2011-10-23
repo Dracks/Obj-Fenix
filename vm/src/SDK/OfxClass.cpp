@@ -22,7 +22,7 @@ namespace SDK{
 
 	
 //	class OfxObject: public SuperObject{
-	OfxObject::OfxObject(string name, Super* obj):SuperObject(102, obj){
+	OfxObject::OfxObject(string name, ofxMap* obj):SuperObject(102, obj){
 		this->setName(name);
 	}
 	OfxObject::~OfxObject(){

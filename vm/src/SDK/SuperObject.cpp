@@ -19,7 +19,7 @@ namespace SDK{
 		
 	}
 	
-	SuperObject::SuperObject(int type, Super* obj):Super(type){
+	SuperObject::SuperObject(int type, ofxMap* obj):Super(type){
 		this->copyContents(obj);
 		//this->setName(name);
 			

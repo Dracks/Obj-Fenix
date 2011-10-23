@@ -14,7 +14,7 @@ namespace SDK{
 	//class SuperClass: public Super{
 	SuperClass::SuperClass(int type):Super(type){
 		//this->ofxName=name;
-		this->DataCache=new SuperObject(type);
+		this->instanceInfo=new ofxMap(type);
 	};
 	
 	void SuperClass::setName(string name){
@@ -23,11 +23,12 @@ namespace SDK{
 	};
 	
 	SuperClass::~SuperClass(){
+		delete this->instanceInfo;
 		
 	};
 		
-	SuperObject* SuperClass::getCache(){
-		return this->DataCache;
+	ofxMap* SuperClass::getCache(){
+		return this->instanceInfo;
 	};
 		
 	std::map<std::string, Method*> SuperClass::getRegisteredMethods(){
@@ -37,12 +38,12 @@ namespace SDK{
 		
 	//inline 
 	void SuperClass::addInstanceMethod(string name, int uid, Method* method){
-		this->DataCache->addMethod(name, uid, method);
+		this->instanceInfo->addMethod(name, uid, method);
 	};
 	
 	//inline 
 	void SuperClass::addInstanceProperty(string name, int uid){
-		this->DataCache->addProperty(name, uid);
+		this->instanceInfo->addProperty(name, uid);
 	};
 	
 	string SuperClass::getOfxName(){

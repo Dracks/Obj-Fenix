@@ -37,7 +37,7 @@ namespace ofxBI {
 	class StringObject: public SDK::Primitive<string> {
 		friend class StringClass;
 	protected:
-		StringObject(string v, SuperObject* base);
+		StringObject(string v, SDK::ofxMap* base);
 	public:
 		~StringObject();
 		void ofxAdd(SDK::BICall* call);

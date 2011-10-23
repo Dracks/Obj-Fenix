@@ -175,7 +175,7 @@ syntactic_debug(test/hello_world.ofx):3	Applying rule option_package_definition 
 syntactic_debug(test/hello_world.ofx):3	Applying rule program <-- option_package_definition
 syntactic_debug(test/hello_world.ofx):3	Applying rule option_native <-- nothing
 syntactic_debug(test/hello_world.ofx):4	Applying rule level_definition_token <-- public
-syntactic_debug(test/hello_world.ofx):7	Applying rule Constant Value Constructor Hola Mon! 297
+syntactic_debug(test/hello_world.ofx):7	Applying rule Constant Value i ++ 297
 syntactic_debug(test/hello_world.ofx):7	Applying rule option_extension_expression <-- nothing
 syntactic_debug(test/hello_world.ofx):7	Applying rule expression <-- IDENTIFIER option_extension_expression
 syntactic_debug(test/hello_world.ofx):7	Applying rule option_extension_expression <-- nothing
@@ -198,15 +198,9 @@ syntactic_debug(test/hello_world.ofx):13	Applying rule expression <-- IDENTIFIER
 syntactic_debug(test/hello_world.ofx):13	Applying rule option_call_parameters <-- 2/2
 syntactic_debug(test/hello_world.ofx):13	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
 syntactic_debug(test/hello_world.ofx):13	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):15	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/hello_world.ofx):15	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):15	Applying rule Constant Value 1 297
-syntactic_debug(test/hello_world.ofx):15	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/hello_world.ofx):15	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):15	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/hello_world.ofx):15	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/hello_world.ofx):15	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):15	Applying rule assign_sentence <-- expression := expression ;
+syntactic_debug(test/hello_world.ofx):14	Applying rule option_extension_expression <-- nothing
+syntactic_debug(test/hello_world.ofx):14	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
+syntactic_debug(test/hello_world.ofx):14	Applying rule expression <-- IDENTIFIER option_extension_expression
 syntactic_debug(test/hello_world.ofx):17	Applying rule Constant Value Main del Hola Mon!  297
 syntactic_debug(test/hello_world.ofx):17	Applying rule option_extension_expression <-- nothing
 syntactic_debug(test/hello_world.ofx):17	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression

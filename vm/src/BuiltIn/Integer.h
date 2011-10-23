@@ -37,7 +37,7 @@ namespace ofxBI {
 	class IntegerObject: public SDK::Primitive<int> {
 		friend class IntegerClass;
 	protected:
-		IntegerObject(int v, SuperObject* base);
+		IntegerObject(int v, SDK::ofxMap* base);
 	public:
 		~IntegerObject();
 		void ofxInc(SDK::BICall* call);

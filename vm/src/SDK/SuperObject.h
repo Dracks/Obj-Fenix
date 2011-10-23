@@ -38,7 +38,7 @@ namespace SDK{
 		 * @param name the Name of the object
 		 * @param obj the base for build the new instance
     	 */
-		SuperObject(int type, Super* obj);
+		SuperObject(int type, ofxMap* obj);
 		~SuperObject();
 	};
 	
@@ -55,7 +55,7 @@ namespace SDK{
 		 * @param v the value primitive of the object
 		 * @param base the Base for call and construct SuperObject
     	 */
-		Primitive(Template v, SuperObject* base): SuperObject(base->getType(), base){
+		Primitive(Template v, ofxMap* base): SuperObject(base->getType(), base){
 			value=v;
 			//this->setName(base->getName());
 		}
