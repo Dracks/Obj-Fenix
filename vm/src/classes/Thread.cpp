@@ -79,26 +79,26 @@ namespace ofxbytecode{
 	l_private:
 		//elem_aux=dataStack->get(ini_params+line->param);
 		//printf("debug: l_private (%s)\n", elem_aux->getName());
-		startClock
+		//startClock
 		dataStack->push(dataStack->get(ini_params+line->param));
-		stopClock(1)
+		//stopClock(1)
 		line++;
 		kjmp(line);
 	l_attr:
-		startClock
+		//startClock
 		dataStack->push(checkAndCast<Super>(dataStack->pop())->getProperty(line->param));
-		stopClock(2)
+		//stopClock(2)
 		line++;
 		kjmp(line);
 	l_class:
 		//cout << "l_class: " << dataStack->getTop() << ":=" << data->getClass(line->param) << "(" << line->param <<")" << endl;
-		startClock
+		//startClock
 		dataStack->push(data->getClass(line->param));
-		stopClock(3)
+		//stopClock(3)
 		line++;
 		kjmp(line);
 	l_method:
-		startClock
+		//startClock
 		elem_aux=dataStack->get();
 		//printf("debug: l_method %s %d\n", elem_aux->getName());
 		//cout << "l_method: " << checkAndCast<Super>(elem_aux)->getName() << " -> (" << line->param << ")" << endl;
@@ -106,19 +106,19 @@ namespace ofxbytecode{
 		//dataStack->push();
 		//dataStack->push(elem_aux);
 		cacheCall.push_back(checkAndCast<Super>(elem_aux)->getMethod(line->param));
-		stopClock(4)
+		//stopClock(4)
 		line++;
 		kjmp(line);
 	l_constant:
-		startClock
+		//startClock
 		//	elem_aux=search_constant(line->param);
 		//printf("debug: l_constant %s\n", elem_aux->getName());
 		dataStack->push(data->getConstant(line->param));
-		stopClock(5)
+		//stopClock(5)
 		line++;
 		kjmp(line);
 	i_call:
-		startClock
+		//startClock
 		//elem_aux=0;
 		//printf("debug: i_call%s\n", dataStack->get(dataStack->getTop()-line->param-1)->getName().c_str());
 		//cout << "debug: i_call " << dataStack->get(dataStack->getTop()-line->param-1)->getName() << endl;
@@ -137,11 +137,11 @@ namespace ofxbytecode{
 			//line=newLine;
 			ini_params=dataStack->getTop()-arguments;
 		}
-		stopClock(6)
+		//stopClock(6)
 		kjmp(line);
 	i_ret:
 		//printf("debug: i_ret %d\n", dataStack->getTop());
-		startClock
+		//startClock
 		elem_aux=NULL;
 		if (line->param>-1){
 			elem_aux=dataStack->get(ini_params+line->param);
@@ -159,60 +159,60 @@ namespace ofxbytecode{
 		line=retPair.second;
 		ini_params=retPair.first;
 		//line=callStack->pop();
-		stopClock(7)
+		//stopClock(7)
 		kjmp(line);
 	i_pop:
-		startClock
+		//startClock
 		dataStack->pop();
-		stopClock(8)
+		//stopClock(8)
 		line++;
 		kjmp(line);
 	i_push:
-		startClock
+		//startClock
 		dataStack->push(0);
-		stopClock(9)
+		//stopClock(9)
 		line++;
 		kjmp(line);
 	i_goto:
-		startClock
+		//startClock
 		line=&this->code[line->param];
-		stopClock(10)
+		//stopClock(10)
 		kjmp(line);
 	i_g_true:
-		startClock
+		//startClock
 		//cout << "i_g_true:" << checkAndCast<BooleanObject>(dataStack->get())->getValue() << endl;
 		//if (checkAndCast<BooleanObject>(dataStack->pop())->getValue()){
 		if (((BooleanObject*) dataStack->pop())->getValue()){
 			line=&this->code[line->param];
 		} else
 			line++;
-		stopClock(11)
+		//stopClock(11)
 		kjmp(line);
 	i_g_false:
-		startClock
+		//startClock
 		//cout << "i_g_false:" << checkAndCast<BooleanObject>(dataStack->get())->getValue() << endl;
 		if (((BooleanObject*)dataStack->pop())->getValue()){
 		//if (!checkAndCast<BooleanObject>(dataStack->pop())->getValue()){
 			line++;
 		} else
 			line=&this->code[line->param];
-		stopClock(12)
+		//stopClock(12)
 		kjmp(line);
 	i_s_attr:
-		startClock
+		//startClock
 		elem_aux=dataStack->get(ini_params);
 		checkAndCast<Super>(elem_aux)->storePropiety(line->param, checkAndCast<SuperObject>(dataStack->pop()));
-		stopClock(13)
+		//stopClock(13)
 		line++;
 		kjmp(line);
 	i_s_private:
-		startClock
+		//startClock
 		//elem_aux=0;
 		//printf("%s\n",elem_aux->getName());
 		//elem_aux=dataStack->pop();
 		//printf("debug: i_s_private (%s)\n", elem_aux->getName());
 		dataStack->set(ini_params+line->param, dataStack->pop());
-		stopClock(14)
+		//stopClock(14)
 		line++;
 		kjmp(line);
 	}
