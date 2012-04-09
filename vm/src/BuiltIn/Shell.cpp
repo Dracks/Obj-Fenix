@@ -11,10 +11,13 @@
 #include "Shell.h"
 #include "String.h"
 
-ofxtools::RegisterClass<ofxBI::ShellClass> startupShell();
+//ofxtools::RegisterClass<ofxBI::ShellClass> startupShell();
+
 
 namespace ofxBI{
 	using namespace SDK;
+	
+	registerClass(ShellClass);
 	
 	//registerClass(ShellClass);
 	/*namespace RegistradorDeShellClass { 

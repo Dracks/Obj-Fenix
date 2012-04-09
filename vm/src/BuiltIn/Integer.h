@@ -8,6 +8,7 @@
 
 #ifndef vm_Integer_h
 #define vm_Integer_h
+
 namespace ofxBI{
 	class IntegerClass;
 	class IntegerObject;	
@@ -20,8 +21,6 @@ namespace ofxBI{
 #include "Boolean.h"
 
 namespace ofxBI {
-	
-	
 	
 	class IntegerClass: public SDK::SuperClass {
 		IntegerObject* cache;

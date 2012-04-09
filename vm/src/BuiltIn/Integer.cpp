@@ -11,10 +11,13 @@
 #include "String.h"
 #include "../tools.h"
 
+using namespace SDK;
+
 namespace ofxBI{
-	using namespace SDK;
+	
 	
 	registerClass(IntegerClass);
+	//ofxtools::RegisterClass<ofxBI::IntegerClass> startupInteger();
 	
 	//class IntegerClass: public SDK::SuperClass {
 	IntegerClass::IntegerClass():SuperClass(3){
