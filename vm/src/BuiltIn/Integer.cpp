@@ -30,7 +30,7 @@ namespace ofxBI{
 		call->clearAndSetReturn(call->get<IntegerObject>(1));
 	}
 	
-	void IntegerClass::ofxInteger(BICall* call){
+	void IntegerClass::ofxIntegerFromString(BICall* call){
 		StringObject* str=call->get<StringObject>(1);
 		call->clearAndSetReturn(this->getNewInstance(atoi(str->getValue().c_str())));
 	}
