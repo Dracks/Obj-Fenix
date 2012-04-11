@@ -98,6 +98,11 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 	printf("Class:		%d despl: %ld\n",header.n_Class, header.p_Class);
 	printf("ByteCode:	%d despl: %ld\n",header.n_ByteCode, header.p_ByteCode);
 	
+	if (header.ByteCodeVersion!=1){
+		cerr << "ByteCode Version is incompatible, please, compile the code with the correct version of Compiler" << endl;
+		exit(-1);
+	}
+	
 	void *hndl = dlopen(kLibraryExtension("./build/lib/libBuiltIn"), RTLD_NOW);
 	if(hndl == NULL){
 		cerr << dlerror() << endl;
