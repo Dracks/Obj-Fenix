@@ -30,6 +30,11 @@ namespace ofxBI{
 		call->clearAndSetReturn(call->get<IntegerObject>(1));
 	}
 	
+	void IntegerClass::ofxInteger(BICall* call){
+		StringObject* str=call->get<StringObject>(1);
+		call->clearAndSetReturn(this->getNewInstance(atoi(str->getValue().c_str())));
+	}
+	
 	IntegerObject* IntegerClass::getNewInstance(int v){
 		if (cache==NULL){
 			cache=new IntegerObject(v, this->getCache());
@@ -44,6 +49,7 @@ namespace ofxBI{
 		map< string, Method*> ret=SuperClass::getRegisteredMethods();
 		
 		ret["Integer(Object)"]=new BIMethod<IntegerClass>("Integer(Object)",1,&IntegerClass::ofxInteger);
+		ret["Integer(String)"]=new BIMethod<IntegerClass>("Integer(String)",1,&IntegerClass::ofxIntegerFromString);
 		ret["inc"]=new BIMethod<IntegerObject>("inc",0,&IntegerObject::ofxInc);
 		
 		ret["dec"]=new BIMethod<IntegerObject>("dec",0,&IntegerObject::ofxDec);
