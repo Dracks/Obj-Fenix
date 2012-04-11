@@ -50,11 +50,11 @@ class native String:
 	public:
 		//def String(e:Object) return String;
 		def add (e:String) return String;
-		def toInteger return Integer;
+		def split(e:String) return List;
 	end
 end
 
-class native list:
+class native List:
 	public:
 		def list; /* Anda esto es un constructor*/
 		def get (index:Integer) return Object;
@@ -73,6 +73,10 @@ class native File:
 		def File(name: String, mode: String);
 		def write(data: String);
 		def read return String;
+		def isOk return Boolean;
+		def eof return Boolean;
+		def errorCode return Integer;
+		def error return String;
 	end
 end
 

@@ -28,6 +28,7 @@ namespace ofxBI {
 		IntegerClass();
 		~IntegerClass();
 		void ofxInteger(SDK::BICall* call);
+		void ofxIntegerFromString(SDK::BICall* call);
 		IntegerObject* getNewInstance(int v);
 		
 		std::map< std::string, SDK::Method * > getRegisteredMethods();

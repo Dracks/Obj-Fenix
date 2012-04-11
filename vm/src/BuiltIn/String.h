@@ -23,7 +23,9 @@ namespace ofxBI{
 namespace ofxBI {
 	
 	
-	
+	/**
+	 * @brief The implementation of String class
+     */
 	class StringClass: public SDK::SuperClass {
 	public:
 		StringClass();
@@ -34,6 +36,9 @@ namespace ofxBI {
 		std::map< std::string, SDK::Method * > getRegisteredMethods();
 	};
 	
+	/**
+	 * @brief The implementation of String Object
+	 */
 	class StringObject: public SDK::Primitive<string> {
 		friend class StringClass;
 	protected:
