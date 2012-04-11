@@ -1,0 +1,27 @@
+\documentclass[a4paper,10pt,twoside]{report}
+
+% He agrupado todo el c\'odigo de definiciones y dem\'as en "estilos.sty"
+\usepackage{estilos}
+
+\title{\huge \textbf{Objective-Fenix}}
+\author{Jaume Singla\\y\\Fernando Arroba}
+
+\begin{document}
+
+\input{titulo.tex} %P\'agina de portada
+
+\tableofcontents
+\listoftables
+%\listoffigures
+\listofalgorithms
+
+\input{introduccion.tex}
+\input{descripcion.tex}
+\input{declaracionvariables}
+\input{reglas.tex}
+\input{compilador.tex}
+\input{vmbytecode.tex}
+\input{problemas.tex}
+\input{libbase.tex}
+
+\end{document}

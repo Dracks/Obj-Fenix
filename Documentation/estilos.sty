@@ -1,0 +1,114 @@
+\ProvidesPackage{estilos}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\addto\captionsspanish{\renewcommand{\chaptername}{}}
+\addto\captionsspanish{\renewcommand{\lstlistingname}{Listado}}
+
+\usepackage[dvips, colorlinks=true,
+	pdfborder={0 0 0},
+	linkcolor=blue,
+	pdftitle={Definición de Obj-Fenix},
+	pdfauthor={Jaume Singla y Fernando Arroba},
+	pdfsubject={Definición de Obj-Fenix},
+	pdfkeywords={Fenix, OOP, Obj-Fenix}]{hyperref}
+
+\usepackage{color}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\codigo}[1]{\textbf{\textsf{#1}}}
+\newcommand{\comillas}[1]{\textrm{\guillemotleft{#1}\guillemotright}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{algorithmic}
+\usepackage{algorithm}
+
+% customizar el paquete de algoritmos
+\renewcommand{\algorithmicrequire}{\textbf{Necesita:}}
+\renewcommand{\algorithmicensure}{\textbf{Devuelve:}}
+\renewcommand{\algorithmicend}{\textbf{fin}}
+\renewcommand{\algorithmicif}{\textbf{si}}
+\renewcommand{\algorithmicthen}{\textbf{entonces}}
+\renewcommand{\algorithmicelse}{\textbf{otro}}
+\renewcommand{\algorithmicelsif}{\algorithmicelse\ \algorithmicif}
+\renewcommand{\algorithmicendif}{\algorithmicend\ \algorithmicif}
+\renewcommand{\algorithmicfor}{\textbf{para}}
+\renewcommand{\algorithmicforall}{\textbf{para todos}}
+\renewcommand{\algorithmicdo}{\textbf{hacer}}
+\renewcommand{\algorithmicendfor}{\algorithmicend\ \algorithmicfor}
+\renewcommand{\algorithmicwhile}{\textbf{mientras}}
+\renewcommand{\algorithmicendwhile}{\algorithmicend\ \algorithmicwhile}
+\renewcommand{\algorithmicloop}{\textbf{bucle}}
+\renewcommand{\algorithmicendloop}{\algorithmicend\ \algorithmicloop}
+\renewcommand{\algorithmicrepeat}{\textbf{repetir}}
+\renewcommand{\algorithmicuntil}{\textbf{hasta}}
+\renewcommand{\algorithmicprint}{\textbf{print}}
+\renewcommand{\algorithmicreturn}{\textbf{return}}
+\renewcommand{\algorithmictrue}{\textbf{true}}
+\renewcommand{\algorithmicfalse}{\textbf{false}}
+\renewcommand{\listalgorithmname}{Lista de Algoritmos}
+\floatname{algorithm}{Algoritmo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Config del lenguaje
+\usepackage{listings}
+\lstdefinelanguage{fenix}
+	{morekeywords={begin, class, def, do, end, for, hash, if, in, include,
+		inherited, integer, implements, list, private, program, protected, public,
+		return, self, string, super, var, while},
+	sensitive=true,
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]',
+	morestring=[b]",
+}
+
+%\lstset{language=fenix, tabsize=2, columns=fullflexible}
+
+\lstdefinestyle{C}
+   {language=C,
+   }
+
+\lstset{ frame=Ltb,
+  framerule=0pt,
+  aboveskip=0.5cm,
+  framextopmargin=3pt,
+  framexbottommargin=3pt,
+  framexleftmargin=0.4cm,
+  framesep=0pt,
+  rulesep=.4pt,
+  backgroundcolor=\color{gray97},
+  rulesepcolor=\color{black},
+  %
+  stringstyle=\ttfamily,
+  showstringspaces = false,
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{gray45},
+  keywordstyle=\bfseries,
+  %
+  numbers=left,
+  numbersep=15pt,
+  numberstyle=\tiny,
+  numberfirstline = false,
+  breaklines=true,
+	tabsize=2,
+	columns=fullflexible,
+}
+ 
+% minimizar fragmentado de listados
+\lstnewenvironment{listing}[1][]
+   {\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+ 
+\lstdefinestyle{consola}
+   {basicstyle=\scriptsize\bf\ttfamily,
+    backgroundcolor=\color{gray75},
+   }
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}

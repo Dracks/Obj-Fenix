@@ -1,0 +1,48 @@
+\chapter {Compilador}
+\section {Funcionamiento}
+La primera intencion del compilador es que se haga mediante flex, bison y symtab 
+en C, aunque seria interesante que mirasemos de hacerlo en C++, por eso de la orientacion a objetos.
+
+Para facilitar el trabajo al usuario para compilar un programa con multiples archivos
+nuestro compilador debera ser listo y compilar tambien los archivos que necesite que
+requieran compilacion.
+
+Analizando el problema de no tener cabeceras, hemos llegado a la conclusion que el
+analisis sintactico (bison) y el analisis semantico (symtab, c, tipos de elementos,
+bla bla bla...), se debera realizar de forma separada, permitiendo asi al bison, 
+empezar a cargar la semantica base en la tabla de simbolos, y despues hacer el
+analisis semantico y generar el codigo intermedio en otro punto.
+
+Esto implica que debermos tener una lista de clases a analizar semanticamente.
+
+\subsection {Analisis sintactico, bison}
+Este analisis a parte de comprovar que sintacticamente el codigo es correcto, se
+encargara de generar una lista de clases, con todas sus variables, sus metodos y sus implementaciones.
+
+Utilizando un doble identificador de los elementos, permitiremos analizar sintacticamente,
+y despues passarlo al analisis semantico.
+
+En este es donde deberemos identificar que tenemos un import, y cargar el bytecode de este,
+o añadirlo a una cola de compilacion de debera tener el compilador, para passar por todos los archivos.
+Este punto es el que debemos tener claro si queremos que nos compile paquete a paquete
+y una los bytecodes, o nos genere un solo bytecode por defecto.
+
+
+\subsection {Analisis semantico}
+Este recorrera la lista de classes que nos habra generado en analisis sintactico,
+de todo el codigo, y a medida que trate, nos ira generando un codigo intermedio
+(aqui es donde entran en juego los objetos, si utilizamos objetos, podemos cambiar
+el objeto de generar codigo intermedio para cambiar el codigo intermedio resultante).
+
+\subsection {Compilacion}
+
+Esto sera un objeto el cual nos ira generando el archivo de codigo resultante,
+pudiendo ser este un bytecode propio, un bytecode externo o llvm. 
+
+\section {Parametros}
+Por defecto el compilador utilizara un listado de módulos por defecto, que estos
+mediante parametros se podrian reemplazar para utilizar otras librerías. Por
+Ejemplo, por defecto utilizaremos las SDL, con gráficos 2D, pero si alguien
+implementa la correspondiente interfaz sobre OpenGL, que le pudieras indicar que
+utilizara la interfaz OGL.
+

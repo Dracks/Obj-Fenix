@@ -1,0 +1,171 @@
+\chapter {Máquina virtual}
+\section {Funcionamiento}
+
+No se mucho como funcionan las maquinas virtuales, pero creo que lo correcto, 
+seria poder montar algún sistema de acceso directo a métodos por array.
+
+Lo único que le veo, es que deberemos saber cuando tenemos que llamar a código nativo, 
+o a código virtualidad.
+
+poder acceder por array, es para poder coger el binario, y parsear-lo rapido con el array
+ a la instruccion que se deba facere. De forma que sea totalmente modular.
+
+el parseo del código quedaría algo como esto:
+
+\begin{lstlisting}[language=C]
+struct metodo {
+	boolean nativo;
+	llamada*;
+}
+metodo[] lista_metodos;
+
+function parse(codigo*linea){
+	llamada=lista_metodos[linea->codigo];
+	if(llamada->native) CALL llamada->llamada;
+	else vm_call llamada->llamada;
+	linea++;
+}
+\end{lstlisting}
+
+Otra opción, que esta es la que a mi me gustaría implementar, es la compilación 
+del código fuente a nativo y ejecutar el nativo. Para ir bien, debería permitir 
+algún tipo de archivo de cache. De hecho, yo hace mucho tiempo, lo que quería es 
+que la instalación en realidad passara el bytecode a nativo, y el programa 
+instalado fuera uno nativo. Pero fue microsoft i me copio la idea con el .net.
+
+
+\section {ByteCode}
+Tenemos que intentar diseñar el bytecode, pensando en permitir una
+retrocompatibilidad decente, como mínimo a niveles de subversiones.
+Empezaremos teniendo una cabecera con la infraci\'on de librerías necesaria, y
+alguna que otra cosa.
+
+El bytecode de la m\'aquina virtual, tendra una cabezera, una seccion de
+declaraciones p\'ublicas (y seguramente tambien privadas), los datos de
+inicializacion y el ejecutable
+
+\subsection {cabezera}
+Ni idea de que deberemos poner, supongo que los enlazes a los distintos
+apartados.
+
+El problema de los bytecodes es cómo están organizados. Dentro hay código
+ejecutable --normalmente estructurados con el sistema de pila que suele ser más
+eficiente-- pero debe contener otra información.
+
+Java define cada clase dentro de un fichero de bytecode dentro de un fichero
+.class. Sin embargo, al no limitar el número de clases que podemos guardar en
+un fichero de bytecode, debemos estructurarlo de manera que podamos establecer
+qué código pertenece a cada clase. Mi propuesta es estructurar los bytecodes de
+la siguiente manera:
+
+\begin{enumerate}
+\item {\textbf{Cabecera del fichero}.
+	\begin{enumerate}
+		\item {Cadena mágica. Los primeros 64 bits contienen los cuatro caracteres
+		\comillas{ObjF} en UTF-16. Ésto sirve para identificar el fichero como
+		bytecode 		para el intérprete.}
+		\item {Declaración de tamaño. Los siguientes 64 bits contienen un entero de
+		32 bits que muestra cuántas clases --y por tanto, tablas de ejecución hay--
+		y otros 32 bits con el tamaño en bytes del código una vez compilado, para
+		que el intérprete no pierda tiempo en calcular la memoria que necesita
+		reservar.}
+		\item{\textbf{64 bits}. Posición del código que debe ejecutar el intérprete
+		para iniciar el programa. Si no contiene el \comillas{main} será 0.}
+	\end{enumerate}
+}
+\item{\textbf{Tabla de clases}.
+	\begin{enumerate}
+	\item{\textbf{Nombre de la clase} en UTF-16.}
+	\item{\textbf{64 bits}. Desplazamiento a la cabecera de la clase dentro del
+	fichero. Esa cabecera contiene las tablas de variables y de funciones miembro.}
+	\end{enumerate}}
+\item{\textbf{Cabecera de clase}.
+	\begin{enumerate}
+	\item{\textbf{64 bits}. UID de la clase.}
+	\item{\textbf{64 bits}. UID de la clase base.}
+	\item{\textbf{32 bits}. Número de variables en la tabla de la clase.}
+	\item{\textbf{32 bits}. Número de funciones miembro en la tabla de la clase.}
+	\item{\textbf{Lista de variables}. Aquí se encuentra la lista de variables de
+	clase o variables estáticas que comparten todos las instancias de la misma.}
+	\item{\textbf{Lista de funciones}. Se encuentra una lista de funciones
+	declaradas como estáticas y aquellas que se anticipe que pueden funcionar como
+	operadores.}
+	\end{enumerate}
+}
+\item{\textbf{Tabla de variables}. La variables de clase (o estáticas) además
+contienen el espacio de almacenamiento para la misma y están contenidas en la
+misma cabecera de la clase. Sin embargo, ésta tabla de variables es una
+plantilla para crear una instancia reservando el espacio necesario.
+
+	\begin{enumerate}
+	\item{\textbf{Nombre de la variable} en UTF-16.}
+	\item{UID del tipo.}
+	\end{enumerate}
+}
+\item{\textbf{Tabla de funciones}. Cada clase tiene su tabla de funciones igual
+que su tabla de variables. Así se evitan choques de nombres.
+
+	\begin{enumerate}
+	\item{\textbf{Nombre de la función} en UTF-16.}
+	\item{\textbf{64 bits}. Tipo de retorno de la función.}
+	\item{\textbf{64 bits}. Número de parámetros. Seguida de una lista de tipos.}
+	\item{\textbf{64 bits}. Desplazamiento al bytecode ejecutable de la función}
+	\end{enumerate}
+}
+\item{\textbf{Código ejecutable}. A continuación de las cabeceras de las clases
+se encuentra el código en bytecode de todas las funciones definidas en cada
+clase.
+
+Dentro del código ejecutable se encontrarán objetos, variables necesarias para
+la \comillas{ejecución} y que son instancias de una clase. El problema se
+plantea ante aquellos que pertenezcan a subclases, pues será necesario iniciar
+todas las variables (incluídas aquellas que pertenecen a clases de nivel
+superior). También es posible que un objeto ejecute código de clases superiores
+en la jerarquía en modo herencia. El código ejecutado busca la estructura de sus
+datos en la clase de jerarquía superior. Una forma de mantener esa estructura
+puede ser crear instancia de objetos imitando la jerarquía de las clases. Por
+eso podríamos establecer una estructura de datos donde se encontrarán
+almacenados del siguiente modo:
+	\begin{enumerate}
+	\item{\textbf{64 bits}. Número de referencias al objeto.}
+	\item{\textbf{64 bits}. Tamaño.}
+	\item{\textbf{64 bits}. Apunta al objeto padre.}
+	\item{\textbf{64 bits}. Apunta a su clase.}
+	\item{Lista de variables características.}
+	\end{enumerate}
+}
+\end{enumerate}
+
+\begin{lstlisting}[style=C]
+class objeto_struct {
+	long long ref_count;
+	long long size;
+	clase_struct *clase;
+	objeto_struct *super_objeto;
+	clist variables;
+}
+\end{lstlisting}
+
+Habría que pensar cómo marcar las funciones y variables estáticas dentro del
+bytecode, que es la parte que no había pensado
+
+\subsection {declaraciones}
+
+Para poder enlazar un codigo fuente a un objeto compilado, necesitamos tener en
+el compilado una declaracion o descripci\'on de los metodos que implementa,
+para poderlos enlazar.
+
+Seria interesante, permitir al compilador sacar esta informacion a texto plano
+para el programador.
+
+Esta parte, seria la necesaria para enlazar el codigo fuente obj-Fenix a C++
+
+\subsection {inicializacion}
+Strings, y todo lo que sean \comillas{constantes} del codigo deberia ir aqui, de
+forma que fuesse facilmente localizable, y que no ensucie el bytecode
+
+\subsection {ejecutable}
+
+Aqui tendremos el codigo binario ejecutable. 
+
+

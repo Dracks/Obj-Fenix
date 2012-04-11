@@ -1,0 +1,32 @@
+\chapter{Librerias}
+
+Aqu\'i definiremos las librerias base que debera tener el compilador, y las extras que podemos añadir al compilador mediante parametros.
+
+\section{Libreria Base}
+Esta libreria es la que se cargara con el mismo compilador y optendremos los datos base.
+
+Para empezar tendremos:
+\begin{enumerate}
+\item{Integer: objeto entero (para definir)}
+\item{Boolean: objeto Booleano (para definir)}
+\item{Float: objeto real (para definir)}
+\\
+\item{Punto2DE: Punto para las 2 Dimensiones entero}
+\item{Punto2DF: Punto para las 2 Dimensiones real}
+\item{Punto3DE: Punto para las 3 Dimensiones entero}
+\item{Punto3DF: Punto para las 3 Dimensiones real}
+\\
+\item{List: Clase nativa de implementación de las listas.} 
+\\
+\item{File: Acceso a archivos para guardar o leer datos, siendo estos configuraciones o lo que sea.}
+\\
+\item{Shell: Clase para acceder a la consola, siendo lectura o escriptura de datos (creo que deberia heredar de file o a lo mejor tener clientela con el)}
+\end{enumerate}
+
+\section{Librerias Extras}
+Podriamos empezar por algo simple, como seria esto:
+\begin{enumerate}
+\item{Game (o Game2D): Libreria Input-output por interficie grafica (defecto).}
+\item{Sound: Libreria... OpenAL? por ejemplo, para sonidos.}
+\item{Game3D o OpenGL: Implementacion de la openGL para obj-Fenix, (no lo haremos en principio) (excluye a Game);}
+\end{enumerate}

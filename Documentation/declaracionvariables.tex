@@ -1,0 +1,298 @@
+\chapter[Expresiones]{Declaración de variables y expresiones}
+
+\section{Variables}
+
+\begin{eqnarray}
+	variable & ::= & \comillas{\textbf{var}}~identificador~\comillas{\textbf{:}}~tipo~[\comillas{\textbf{;}}]\\
+	variables & ::= & \comillas{\textbf{var}}~identificador\{, identificador\}~tipo~[\comillas{\textbf{;}}]\nonumber
+\end{eqnarray}
+
+\subsection{Identificadores}
+Definición de nombre de variables. Los identificadores constan de letras,
+dígitos y caracteres de subrayado, pero nunca debe comenzar con un dígito. Como
+definición más formal:
+
+\begin{eqnarray}
+	identificador & ::= & (letra | \comillas{\_} ) (letra | digito | \comillas{\_} )* \\
+	letra    & ::= & minuscula | mayuscula \nonumber \\
+	minuscula & ::= & \comillas{a} \ldots \comillas{z} \nonumber\\
+	mayuscula & ::= & \comillas{A} \ldots \comillas{Z} \nonumber\\
+	digito   & ::= & \comillas{0} \ldots \comillas{9} \nonumber
+\end{eqnarray}
+
+\subsection{Cadenas}
+Los literales de cadena comienzan y terminan con el mismo carácter, sea éste una
+comilla simple o unas comillas dobles. Dentro de la cadena podemos escribir el
+caracter que utilizamos de delimitador si lo precedemos de una contrabarra o
+utilizar libremente el otro. Así si definimos una comilla simple como
+delimitador podemos utilizar en ella el caracter \comillas{''}.
+
+\begin{eqnarray}
+	cadena & ::= & \comillas{`} caracter* \comillas{'} | \comillas{``} caracter* \comillas{''} \\
+	caracter  & ::= & \textrm{$<$cualquier carácter UTF$>$} | escape \nonumber \\
+	escape & ::= & \comillas{$\backslash$} \textrm{$<$carácter ASCII$>$} \nonumber
+\end{eqnarray}
+
+Los caracteres de escape comienzan con una contrabarra ($\backslash$). Podemos
+verlos en la tabla \ref{tbl:escape}. Son los escapes habituales definidos en la
+tabla de caracteres \textsf{ascii}, otros para \comillas{escapar} los caracteres
+de comillas y otras para definir caracteres por su valor octal o hexadecimal.
+También podemos especificar su valor \textsc{utf} mediante éste método.
+
+El tipo en la declaración de la variable es \codigo{String}.
+
+\begin{table}
+\centering
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{escape} & \textbf{significado} \\
+\hline \hline
+$\backslash$$\backslash$ & Escape para incluir una contrabarra. \\
+$\backslash${'} & Escape para escribir una comilla simple. \\
+$\backslash${''} & Escape para escribir unas comillas dobles. \\
+$\backslash${a} & Caracter ASCII de campana (bell). \\
+$\backslash${b} & Caracter ASCII de retroceso (backspace). \\
+$\backslash${f} & Caracter ASCII de salto de página (formfeed -- FF). \\
+$\backslash${n} & Caracter ASCII de salto de línea (linefeed -- LF). \\
+$\backslash${r} & Caracter ASCII de retorno de carro (Carriage Return -- CR). \\
+$\backslash${t} & Caracter ASCII de tabulador (TAB). \\
+$\backslash${b} & Caracter ASCII de retroceso (backspace). \\
+$\backslash${uxxxx} & Caracter con el valor \textsc{utf} con el valor hhhh. \\
+$\backslash${ooo} & Caracter con el valor octal ooo. \\
+$\backslash${xhh} & Caracter con el valor exadecimal hh. \\
+\hline
+\end{tabular}
+\caption{Secuencias de escape.} \label{tbl:escape}
+\end{table}
+
+\subsection{Enteros}
+Definición de números enteros que pueden expresarse en cuatro bases distintas:
+decimal, octal, hexadecimal y binaria.
+
+\begin{eqnarray}
+	entero 			& ::= & decimal | octal | hexadecimal | binario \\
+	decimal			& ::= & nocero~digito* | \comillas{0} \nonumber \\
+	nocero 			& ::= & \comillas{1} \ldots \comillas{9} \nonumber\\
+	octal 			& ::= & \comillas{0} (\comillas{o}|\comillas{O}) digitoctal+ \nonumber\\
+	hexadecimal & ::= & \comillas{0} (\comillas{x}|\comillas{X}) digithexa+ \nonumber\\
+	binario 		& ::= & \comillas{0} (\comillas{b}|\comillas{B}) digitobin+ \nonumber\\
+	digitoctal 	& ::= & \comillas{0} \ldots \comillas{7} \nonumber\\
+	digitohexa 	& ::= & digito | \comillas{a} \ldots \comillas{f} | \comillas{A} \ldots \comillas{F} \nonumber\\
+	digitobin 	& ::= & \comillas{0} | \comillas{1} \nonumber
+\end{eqnarray}
+
+Para especificar el tipo en la declaración de variables o en las asignaciones se
+utiliza la palabra \codigo{Integer}.
+
+\subsection{Números no enteros}
+Los números no enteros o de coma flotante se pueden presentar de dos maneras: la
+primera consiste en separar con un punto la parte entera de la fracción; la
+segunda consiste en la notación exponencial en la que se añade a esa notación un
+exponente en la forma \codigo{e$\pm$X}, que viene a significar $10^{\pm{X}}$.
+
+\begin{eqnarray}
+	float 						& ::= & notacionpunto | notacionexponente \\
+	notacionpunto 		& ::= & [parteentera] fraccion | parteentera \comillas{.} \nonumber\\
+	notacionexponente & ::= & (parteentera|notacionpunto) exponente \nonumber \\
+	parteentera 			& ::= & digito+ \nonumber \\
+	fraccion 					& ::= & \comillas{.}digito+ \nonumber \\
+	exponente 				& ::= & (\comillas{e}|\comillas{E})[\comillas{+}|\comillas{-}]digito+	\nonumber
+\end{eqnarray}
+
+Se utilizará normalmente la palabra \codigo{Float} para definir el tipo.
+
+\subsection{Listas}
+Las listas se definen con la palabra \codigo{List} o con cualquier expresión
+numérica (o vacía) encerrada entre paréntesis rectos \comillas{[} y \comillas{]}.
+Por lo tanto, las siguientes expresiones son equivalentes:
+
+\begin{lstlisting}
+var naves : List;
+var naves : [];
+\end{lstlisting}
+
+Otro aspecto a tener en cuenta es la definición de porciones de lista o
+\emph{slices} y la obtención de elementos.
+
+\begin{eqnarray}
+	lista 		& ::= & \comillas{[} [elemento][,elemento] \comillas{]} \\
+	lista 		& ::= & lista\comillas{[}[slice]\comillas{]} \nonumber\\
+	slice 		& ::= & [entero]\comillas{..}[entero] \nonumber\\
+	elemento	& ::= & lista\comillas{[}entero\comillas{]} \nonumber
+\end{eqnarray}
+
+\subsection{Diccionarios}
+Los diccionarios se definen con la palabra \codigo{Hash} o con una pareja de
+corchetes \comillas{\{} y \comillas{\}}. Por lo tanto, las siguientes
+expresiones son equivalentes:
+
+\begin{lstlisting}
+var elementos : Hash;
+var elementos : {};
+\end{lstlisting}
+
+Cabe destacar las expresiones que facilitan el acceso a los elementos,
+recordando que los diccionarios almacenan pares de valores de \emph{clave} y
+\emph{valor}.
+
+\begin{eqnarray}
+	diccionario & ::= & \comillas \{ [clavevalor] \{, clavevalor \} \comillas \} \\
+	clavevalor	& ::= & clave \comillas{:} valor | vacio \nonumber\\
+	elemento 		& ::= & diccionario\comillas{[}clave\comillas{]} \nonumber\\
+	clave 			& ::= & (entero|cadena) \nonumber
+\end{eqnarray}
+
+\subsection{subClases}
+Dado que las listas y diccionarios, anteriormente definidos, trabajan solo con objetos
+y debido que en algunos casos es interesante que las listas o diccionarios nos devuelvan
+un tipo concreto de objeto, como alguna clase propia del programador podria ser interesante,
+podremos definir una subclase de tal forma que sea la clase a la que le referenciamos pero que los
+metodos que nos devolverian un objeto, ahora nos devolveran el objeto que nosotros le definamos.
+
+La subclase la definiremos como:
+\begin{eqnarray}
+        subclass & ::= & \comillas{\textbf{subclass}}~Clase\_nueva~\comillas{\textbf{is}}~Clase\_coleccion~\comillas{\textbf{of}}~Clase\_elemento~\comillas{\textbf{;}} \nonumber
+\end{eqnarray}
+
+Esto nos creara una clase nueva identica a la clase\_coleccion, pero que los objetos que maneje sean del tipo Clase\_elemento.
+Como vemos, esto nos añade una pequeña opcion mas a la definicion de la clase, para identificar en donde se deben aplicar estos cambios.
+
+\section{Expresiones}
+\subsection{Sentencias}
+Todo programa se compone de una sucesión de sentencias que se van ejecutando en
+secuencia o en paralelo.
+
+\begin{eqnarray}
+	Lista{\_}sentencias & ::= & \{ sentencia~separador{\_}sentencia \} \\ 
+	sentencia & ::= & llamada~|~asignacion~|~condicion~|~bucle~|~retorno~| \nonumber\\
+		& & |~\comillas{\textbf{continue}}~|~\comillas{\textbf{break}} \nonumber\\
+	separador{\_}sentencia & ::= & \comillas{\textbf{;}} \nonumber
+\end{eqnarray}
+
+\subsection{Condicionales}
+\begin{eqnarray}
+	declaracion{\_}condicion & ::= & \comillas{\textbf{if}}~condicion~\comillas{\textbf{:}} \\
+			& &	\qquad lista{\_}sentencias \nonumber\\
+			& & \{ \comillas{\textbf{elif}}~condicion~\comillas{\textbf{:}} \nonumber\\
+			& &	\qquad liasta{\_}sentencias \nonumber\\
+			& & \} [ \comillas{\textbf{else}} \comillas{\textbf{:}} \nonumber\\
+			& &	\qquad lista{\_}sentencias \nonumber\\
+			& & ] \nonumber\\
+			& & \comillas{\textbf{end}} \nonumber
+\end{eqnarray}
+
+\subsection{Bucles}
+Un bucle realiza las mismas operaciones recursivamente varias veces. Todos los
+bucles pueden interrumpirse por tres motivos: el primero y más importante es que
+se ha cumplido la condición esperada, el segundo es una instrucción
+\codigo{continue} y el tercero una instrucción \codigo{break}.
+
+\codigo{continue} interrumpe el bucle volviendo a la primera instrucción del
+bucle.
+
+\codigo{break} interrumpe el bucle saltando a la primera instrucción que se
+encuentra tras el \codigo{end} que lo cierra.
+
+\subsubsection{Bucles \codigo{for}}
+\begin{eqnarray}
+	declaracion{\_}for & ::= & \comillas{\textbf{for}}~elemento~\comillas{\textbf{in}}~lista~\comillas{\textbf{:}} \\
+		& & \qquad lista{\_}sentencias \nonumber\\
+		& & \comillas{\textbf{end}} \nonumber
+\end{eqnarray}
+
+\subsubsection{Bucles \codigo{while}}
+Hay dos bucles \codigo{while} el primero comienza con dicha instrucción:
+
+\begin{eqnarray}
+	declaracion{\_}while & ::= & \comillas{\textbf{while}}~condicion~\comillas{\textbf{:}} \\
+		& & \qquad lista{\_}sentencias \nonumber\\
+		& & \comillas{\textbf{end}} \nonumber
+\end{eqnarray}
+
+El otro comienza con la palabra clave \codigo{do}:
+\begin{eqnarray}
+	declaracion{\_}do{\_}while & ::= & \comillas{\textbf{do}} \comillas{\textbf{:}} \\
+		& & \qquad lista{\_}sentencias \nonumber\\
+		& & \comillas{\textbf{while}}~condicion \nonumber
+\end{eqnarray}
+
+\subsubsection{Bucles \codigo{loop}}
+Los bucles \codigo{loop} son bucles infinitos. Sólo se interrumpen al encontrar
+un \codigo{break}.
+
+\begin{eqnarray}
+	declaracion{\_}loop & ::= & \comillas{\textbf{loop}} \comillas{\textbf{:}} \\
+		& & \qquad lista{\_}sentencias \nonumber\\
+		& & \comillas{\textbf{end}} \nonumber
+\end{eqnarray}
+
+\section{Definición de funciones}
+La definición de funciones comienza con la palabra clave \codigo{def} y termina
+con la palabra clave \codigo{end}. Entre ellas dos hay cualquier otra cantidad
+de sentencias. La cabecera de la definición está separada por un signo
+``\codigo{:}'' del cuerpo de la función.
+
+\begin{eqnarray}
+	def{\_}func & ::= & \comillas{\textbf{def}}~identificador[\comillas{\textbf{(}}parametros\comillas{\textbf{)}}]~[\comillas{\textbf{return}}~tipo]~\comillas{\textbf{:}} \nonumber\\
+	& & \qquad \qquad lista{\_}sentencias \\
+	& & \comillas{\textbf{end}} \nonumber\\
+	parametros & ::= & [parametro\{,~parametro\}] \nonumber\\
+	parametro  & ::= & identificador~\comillas{\textbf{:}}~tipo \nonumber
+\end{eqnarray}
+
+En dicha cabecera encontramos un nombre que debe cumplir las mismas
+restricciones que cualquier otro \emph{identificador} del programa. Tras el
+identificador hay una lista de parámetros.
+
+\subsection{Operadores}
+Las operaciones entre variables se implementaran como métodos. Al funcionar
+sobre una VM, los objetos de tipos Base, alias Integer, Character, Float, etc.
+estarán implementados como base, pero permitiremos la creación de métodos en una
+clase que sirva para esto, por ejemplo en una clase vector2D:
+
+\begin{lstlisting}
+def +(vector2D:second) return vector2D:
+	return vector2D(x + second.x, y+second.y) /* esto es un constructor */
+end
+\end{lstlisting}
+
+Una asignación la podemos definir como una asignación del puntero de memoria. 
+
+\section{Definición de clases}
+Definir una clase puede ser algo muy sencillo, o muy complejo, pues hemos de
+tener en cuenta conceptos tales como \emph{herencia} o \emph{interface}.
+
+\begin{eqnarray}
+	dec{\_}clase & ::= & \comillas{\textbf{class}}~identificador~[\comillas{\textbf{inherit}}~nomclase][\comillas{\textbf{implements}}~lista{\_}interfaces] \nonumber\\
+	& & \qquad cuerpo{\_}clase \\
+	& & \comillas{\textbf{end}} \nonumber\\
+	cuerpo{\_}clase & ::= & \{~bloque{\_}def~\}~definiciones~ \nonumber\\
+	bloque{\_}def & ::= & tipo{\_}bloque \comillas{\textbf{:}} \nonumber\\
+	& & \qquad ~definiciones~ \nonumber\\
+	& & \comillas{\textbf{end}} \nonumber\\
+	definiciones & ::= & \{~dec{\_}variables~\}\{~dec{\_}func~\} \nonumber\\
+	tipo{\_}bloque & ::= & \comillas{\textbf{private}}~|~\comillas{\textbf{protected}}~|~\comillas{\textbf{public}} \nonumber
+\end{eqnarray}
+
+Las definiciones miembros --tanto variables, como funciones-- pueden encontrarse
+fuera o dentro de bloques de límite de acceso. Cuando se encuentran fuera, el
+acceso para las variables es \codigo{protected} mientras que las funciones son
+consideradas \codigo{public}.
+
+\section{Definición de interfaces}
+Una interfaz es un grupo de funciones que tienen un nombre. Una clase que cumpla
+con una interfaz determinado debe implementar todas las funciones que la definen.
+Si no es así, el compilador debería enviar un \emph{warning}.
+
+\begin{eqnarray}
+	dec{\_}interfaz & ::= & \comillas{\textbf{interface}}~identificador~\comillas{\textbf{:}}\\
+	& & \qquad~\{lista{\_}funciones\} \nonumber\\
+	& & \comillas{\textbf{end}} \nonumber\\
+	lista{\_}funciones & ::= & \{dec{\_}funcion\} \nonumber\\
+	dec{\_}funcion & ::= & \comillas{\textbf{def}}~identificador[\comillas{\textbf{(}}parametros\comillas{\textbf{)}}]~[\comillas{\textbf{return}}~tipo]~[\comillas{\textbf{;}}] \nonumber
+\end{eqnarray}
+
+\section{Módulos}
+Un \emph{módulo} es una agrupación de clases y módulos. Generalmente un módulo
+se encuentra empaquetado dentro del mismo directorio de disco. Si no se
+especifica nombre de módulo, éste coincidirá con el nombre del directorio.
