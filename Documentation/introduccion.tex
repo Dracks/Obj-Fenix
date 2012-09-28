@@ -1,0 +1,266 @@
+\chapter{Introducción}
+El lenguaje de programación Fénix funciona mediante processos o funciones,
+que se ejecutan en paralelo y se sincroniza cada fotograma mediante la
+instrucción \codigo{frame}, y cada proceso tiene variables predefinidas que se
+pueden añadir acesibles desde otro proceso. Esto nos lleva a pensar que la
+implementación de fenix quiere parecerse a la orientación a objetos,
+limitandola. Por lo tanto, hemos decidido formalizar un lenguaje de
+programación orientada a objetos, basado en el funcionamiento de Fénix.
+
+\section[Esquema]{Esquema de un programa--juego}
+
+Es lo que tiene escribir sin tener mucha idea de cómo hacerlo. El Fénix lo tengo
+absolutamente olvidado así que en pseudocódigo va.
+
+\begin{algorithm}
+\caption {Esquema de programa principal}
+\label{alg:Principal}
+\textbf{clase} juego
+
+	\hspace{0.3cm} [variables]
+
+	\hspace{0.3cm} \textbf{def} constructor
+	
+	\hspace{0.6cm} 	$[...]$
+		
+	\hspace{0.3cm} \textbf{def} run
+	
+	\hspace{0.6cm}	$[...]$
+
+\textbf{fin clase}
+\end{algorithm}
+
+Como se ve en el algoritmo \ref{alg:Principal} un juego típico comienza
+definiendo las variables que necesita para funcionar. La segunda declaración
+define el constructor de la clase, que como se puede apreciar en \ref{alg:Constructor}
+que configura el programa para su correcto funcionamiento, inicia las variables
+declaradas y, si todo va bien, llama al método <<run>> que debería consistir en
+un bucle.
+
+\begin{algorithm}
+\caption {Esquema de constructor de proceso}
+\label{alg:Constructor}
+\begin{algorithmic}
+	\REQUIRE variables de inicio
+	\ENSURE proceso lanzado
+	\STATE sonido $\Leftarrow$ abrir
+	\STATE graficos $\Leftarrow$ establecer
+	\STATE controladores $\Leftarrow$ configurar
+	\IF[Si ha habido errores debería salir de manera elegante] {error}
+		\STATE {avisar error} 
+	\ELSE[si no se llama explícitamente lo llama automáticamente el constructor]
+		\STATE {run}
+	\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+Diseñado así, se podría haber hecho que el constructor siguera en ejecución y el
+programa terminara cuando terminara el constructor. Pero no resulta muy elegante
+tener un constructor que no construye nada. En el algoritmo \ref{alg:Run} se
+muestra el tipo de bucle creado. Como se puede apreciar sólo se comprueba en
+cada bucle la entrada (teclado, ratón, joystick). Si se ha lanzado un comando
+salir, el juego se cierra.
+
+\begin{algorithm}
+\caption {Esquema de una función de bucle tipo}
+\label{alg:Run}
+\begin{algorithmic}
+	\LOOP
+		\STATE {Procesar entradas} \COMMENT {Comprobar teclado, ratón, etc.}
+			\IF {Comando salir}
+				\STATE {Guardar juego}
+				\RETURN 0 \COMMENT {Se sale del programa}
+			\ENDIF
+		\STATE frame \COMMENT {Envía a los procesos hijos un tic de dibujo}
+	\ENDLOOP
+\end{algorithmic}
+\end{algorithm}
+
+\section {Ejemplos de código}
+
+En realidad todas estas cosas las debería hacer el lenguaje de forma automática
+de manera que el código del listado \ref{alg:Constructor} debería tener un
+aspecto tal como:
+
+\begin{lstlisting}[caption={Programa principal}, label={lst:Principal}]
+program 'Programa de ejemplo'
+
+include Nave
+
+class NavesDeCombate inherited Object
+	/* Declaramos las variables que necesita la clase
+	   agrupadas en public, private y protected. */
+	public
+		var naveAzul, naveRoja: Nave;
+	end
+	private
+		var key : Integer;
+	end
+
+	def initialize():					//constructor
+		naveRoja := Nave new;					//Crear objeto por partes
+		naveRoja.setColor('rojo');
+		naveAzul := Nave('azul');	//Crear e iniciar objeto en un solo paso
+	end
+
+	def run:
+		while (key != ESC)
+			kbuffer(key);
+			frame;
+		end
+		guardar;
+		stop;
+	end
+	
+	def stop() return Integer:	//Parar los procesos que se han iniciado
+		naveAzul.stop()						//Se pueden obviar el punto y los parentesis
+		naveRoja stop							//pero si hay punto tambien los parentesis
+		return 0
+	end
+	
+	def guardar():
+		[...]
+	end
+
+end
+
+\end{lstlisting}
+
+Si una clase no especifica de qué otra hereda el lenguaje supondrá que desciende
+de \codigo{Object}. Una clase que atienda a un mensaje \codigo{run} implementa,
+--sea implícita o explícitamente--, la interface \codigo{runnable}. El punto y
+coma al final de cada instrucción sólo es necesario si se colocan dos en la
+misma línea, si hay un salto de línea podemos obviarlo.
+
+\begin{lstlisting}[caption={Clase Nave}, label={lst:Nave}]
+// Fichero Nave.prg
+
+class Nave inherited Object implements runnable
+	private
+		var color: String;
+		var pdv: Integer;
+	end
+
+	def initialize(color:='black'):		// Constructor con valores por defecto
+		self.color := color
+		pdv := 250
+	end
+	
+	def setColor(color):
+		self.color := color
+	end
+	
+	def getColor return String:
+		return color
+	end
+	
+	def damage(damage : Integer):
+		pdv -= damage			// lo mismo que 'pdv:=pdv-damage'
+	end
+	
+	def run:
+		[...]
+	end
+end
+\end{lstlisting}
+
+Algunas cosas nuevas en este listado \ref{lst:Nave}. Lo primero es que no
+comienza con la palabra clave \codigo{program}. Sólo el fichero principal, que
+define el programa comienza con esa palabra clave para identificarse como el
+fichero que inicia la ejecución, y debe contener al menos una clase que
+implemente la interface \codigo{runnable}. Lo segundo es que aparece la manera
+de introducir funcionalidad a través de \emph{interfaces}. Si una clase
+implenta más de una aparecerán señaladas en una lista separada por comas. El
+tercer aspecto destacable es la palabra reservada \codigo{self}, que es
+potestativa para nombrar elementos dentro de la clase, sin embargo aparece en el
+constructor para distinguir la característica de la clase del parámetro del
+método. En el último listado podemos observar también la utilización de un
+operador de resta y asignación.
+
+Se puede observar también que los paréntesis en la definición de funciones son
+opcionales si no hay ninguna lista de argumentos.
+
+En el listado \ref{lst:Principal} se han utilizado dos variables de tipo
+\codigo{Nave}, lo que está muy bien si sabemos con antelación cuántas variables
+de un tipo vamos a necesitar. Otra forma de hacerlo es definir una lista. Las
+listas en el lenguaje son otro tipo base. El listado hubiera sido algo como el
+mostrado por el listado \ref{lst:conLista}.
+
+\begin{lstlisting}[caption={Clase con lista}, label={lst:conLista}]
+class NavesDeCombate
+
+	public
+		var naves : [];
+	end
+	
+	[...]
+	
+	def initialize():
+		naves.add(Nave('rojo'))
+		naves add Nave('azul')
+	end
+	
+	[...]
+
+end
+\end{lstlisting}
+
+Organizar las variables en listas facilita una posible recursión en el programa,
+así por ejemplo si necesitamos comprobar estados en un futuro, podemos hacerlo
+de varias maneras: con un bucle (listado \ref{lst:for}), con un bloque de
+código (listado \ref{lst:bloque}).
+
+\begin{lstlisting} [caption={Recursión con un bucle \codigo{for}}, label={lst:for}]
+class NavesDeCombate
+
+	[...]
+
+	def comprobarEstado:
+		var estado : Integer
+		for nave in naves do
+			estado := nave.getEstado()
+			if estado = DEAD do
+				nave stop
+			end
+		end
+	end
+
+	[...]	
+end
+\end{lstlisting}
+
+Se puede observar que el bucle \codigo{for} no es como en el lenguaje original,
+que se parece más al que existe en C/C++, aunque por compatibilidad también se
+podría utilizar la otra notación.
+
+\begin{lstlisting} [caption={Recursión con un bloque de código}, label={lst:bloque}]
+class NavesDeCombate
+
+	[...]
+
+	def comprobarEstado:
+		naves do |nave|
+			if (nave.getEstado() = DEAD) do nave stop; end
+		end
+	end
+
+	[...]	
+end
+\end{lstlisting}
+
+A los bloques de código se pueden pasar también argumentos. Por ejemplo, si le
+aplicamos un bloque a una lista, cada elemento forma un argumento. Para dar
+nombre a cada una de las variables que va pasando la lista, utilizamos la
+notación \codigo{|nave|}. Si hubiérmos utilizado un diccionario cuyos elementos
+están formados por una pareja de \codigo{clave:valor}, tendríamos que haber
+utilizado una expresión del tipo \codigo{|key, value|}. El nombre de esas
+variables es lo de menos, podríamos haber utilizado perfectamente
+\codigo{|id, nave|} sin ningún tipo de problemas. Vemos que en los bloques no
+necesitamos definir el tipo de variable que es.
+
+Dentro del bloque de código se trata la variable \codigo{nave} como si estuviera
+definida como del tipo \codigo{Nave}. Puesto que en las listas podemos almacenar
+variables de distinto tipo: ¿Qué pasa si en la lista hemos guardado variables
+que no son del tipo \codigo{Nave}? Si eso ocurre no debería suceder nada: si una
+clase recibe una llamada a un método que no tiene implementado, simplemente lo
+ignora como si no se hubiera producido la llamada.
