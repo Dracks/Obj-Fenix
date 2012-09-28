@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "String.h"
+#include "Integer.h"
 
 namespace ofxBI {
 	using namespace SDK;
@@ -22,7 +23,7 @@ namespace ofxBI {
 	StringClass::~StringClass(){}
 	
 	StringObject* StringClass::getNewInstance(string v){
-		return new StringObject(v, this->getCache());
+		return new StringObject(this, v);
 	}
 		
 	void StringClass::ofxString(BICall* call){
@@ -34,12 +35,18 @@ namespace ofxBI {
 		//ret[""]=new BIMethod<IntegerObject>("",,);
 		ret["String(Object)"]=new BIMethod<StringClass>("String(Object)",1,&StringClass::ofxString);
 		ret["add(String)"]=new BIMethod<StringObject>("add(String)",1,&StringObject::ofxAdd);
+		ret["prefix(Integer)"]=new BIMethod<StringObject>("prefix(Integer)",1,&StringObject::ofxPrefix);
+		ret["sufix(Integer)"]=new BIMethod<StringObject>("sufix(Integer)",1,&StringObject::ofxSufix);
+		ret["substring(Integer, Integer)"]=new BIMethod<StringObject>("substring(Integer, Integer)",2,&StringObject::ofxSubstring);
+		ret["length"]=new BIMethod<StringObject>("length",0,&StringObject::ofxLength);
 		
 		return ret;
 	};
 	
 //	class StringObject: public SDK::Primitive<string> {
-	StringObject::StringObject(string v, ofxMap* base): Primitive<string>(v,base){}
+	StringObject::StringObject(StringClass* ci, string v): Primitive<string>(v,ci->getCache()){
+		this->classInstance=ci;
+	}
 	
 	StringObject::~StringObject(){}
 	
@@ -47,7 +54,27 @@ namespace ofxBI {
 		string tmp=this->value;
 		tmp+=call->get<StringObject>(1)->value;
 		call->clearAndSetReturn( 
-								checkAndCast<StringClass>(ofxbytecode::Library::getLibrary()->getClass("String"))->getNewInstance(tmp));
+								classInstance->getNewInstance(tmp));
+	}
+	
+	void StringObject::ofxPrefix(BICall* call){
+		int tmp=call->get<IntegerObject>(1)->getValue();
+		call->clearAndSetReturn(classInstance->getNewInstance(this->value.substr(0,tmp)));
+	}
+	
+	void StringObject::ofxSufix(BICall* call){
+		int tmp=call->get<IntegerObject>(1)->getValue();
+		call->clearAndSetReturn(classInstance->getNewInstance(this->value.substr(tmp,0)));
+	}
+	
+	void StringObject::ofxSubstring(BICall* call){
+		int ini=call->get<IntegerObject>(1)->getValue();
+		int size=call->get<IntegerObject>(2)->getValue();
+		call->clearAndSetReturn(classInstance->getNewInstance(this->value.substr(ini,size)));
+	}
+	
+	void StringObject::ofxLength(BICall* call){
+		call->clearAndSetReturn(checkAndCast<IntegerClass>(ofxbytecode::Library::getLibrary()->getClass("Integer"))->getNewInstance(this->value.size()));
 	}
 	
 	/*void StringObject::ofxSub(BICall* call){

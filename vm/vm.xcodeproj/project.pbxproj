@@ -44,6 +44,8 @@
 		A4CC59301352193200F6FB7D /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/classes/CMakeLists.txt; sourceTree = "<group>"; };
 		A4D6DCDB1350410C002E4890 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = "<group>"; };
 		A4D6DCDC13504119002E4890 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		A4E7B9271615B7660045F040 /* List.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = List.cpp; sourceTree = "<group>"; };
+		A4E7B9281615B7670045F040 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		A4E9409914240498007D702F /* BIMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BIMethod.cpp; sourceTree = "<group>"; };
 		A4E9409A14240498007D702F /* BIMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIMethod.h; sourceTree = "<group>"; };
 		A4E9409B14240498007D702F /* OfxClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OfxClass.cpp; sourceTree = "<group>"; };
@@ -148,6 +150,8 @@
 				A41986E714226FCE00C0C961 /* Integer.cpp */,
 				A408247C142F711E005245AD /* String.h */,
 				A408247F142F7145005245AD /* String.cpp */,
+				A4E7B9271615B7660045F040 /* List.cpp */,
+				A4E7B9281615B7670045F040 /* List.h */,
 				A408247D142F712D005245AD /* Shell.h */,
 				A408247E142F713A005245AD /* Shell.cpp */,
 			);

@@ -50,6 +50,10 @@ class native String:
 	public:
 		//def String(e:Object) return String;
 		def add (e:String) return String;
+		def sufix (p:Integer) return String;
+		def prefix (p:Integer) return String;
+		def substring (ini:Integer, end:Integer) return String;
+		def length return Integer;
 		def split(e:String) return List;
 	end
 end

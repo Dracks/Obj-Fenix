@@ -31,7 +31,7 @@ namespace SDK{
 		 * @brief Constructor for the DataCache property in the class
 		 * @param the name of this object
     	 */
-		SuperObject(int type );
+		SuperObject(int type);
 	public:
 		/**
 		 * @brief Constructor

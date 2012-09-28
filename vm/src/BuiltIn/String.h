@@ -26,6 +26,15 @@ namespace ofxBI {
 	/**
 	 * @brief The implementation of String class
      */
+	/*
+	 def add (e:String) return String;
+	 def sufix (p:Integer) return String;
+	 def prefix (p:Integer) return String;
+	 def substring (ini:Integer, end:Integer) return String;
+	 def length return Integer;
+	 def split(e:String) return List;
+	 */
+	
 	class StringClass: public SDK::SuperClass {
 	public:
 		StringClass();
@@ -41,11 +50,18 @@ namespace ofxBI {
 	 */
 	class StringObject: public SDK::Primitive<string> {
 		friend class StringClass;
+	private:
+		StringClass* classInstance;
 	protected:
-		StringObject(string v, SDK::ofxMap* base);
+		StringObject(StringClass* ci, string v);
 	public:
 		~StringObject();
 		void ofxAdd(SDK::BICall* call);
+		void ofxPrefix(SDK::BICall* call);
+		void ofxSufix(SDK::BICall* call);
+		void ofxSubstring(SDK::BICall* call);
+		void ofxLength(SDK::BICall* call);
+
 		//void ofxSub(BICall* call);
 		//void ofxEqual(BICall* call);
 	};
