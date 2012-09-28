@@ -38,6 +38,7 @@ namespace SDK{
 		
 	//inline 
 	void SuperClass::addInstanceMethod(string name, int uid, Method* method){
+		//cout << "addInstanceMethod: " << name << endl;
 		this->instanceInfo->addMethod(name, uid, method);
 	};
 	

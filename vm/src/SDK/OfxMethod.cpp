@@ -17,6 +17,7 @@ namespace SDK{
 		}
 	
 	OfxMethod::OfxMethod(string name, int line): Method(103){
+		//cout << "ofxMethod " << name << " ( " << line << " ) " << endl;
 		lineToCall=line;
 		this->setName(name);
 	}
@@ -24,6 +25,7 @@ namespace SDK{
 	OfxMethod::~OfxMethod(){}
 
 	int OfxMethod::call(ofxbytecode::Stack<Stackable*>*){
+		//cout << "ofxCall" << endl;
 		return lineToCall;
 	}
 	//};
@@ -39,6 +41,7 @@ namespace SDK{
 	
 	int OfxConstructor::call(ofxbytecode::Stack<Stackable*>* stack){
 		//Accedir a la clase OfxClass i generar nova instancia
+		//cout << "calling constructor " << endl;
 		stack->pop();
 		stack->push(base->getNewInstance());
 		return lineToCall;

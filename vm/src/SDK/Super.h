@@ -72,8 +72,10 @@ namespace SDK{
 		 */
 		inline
 		void addMethod(std::string name, int uid, Method* method){
+			//std::cout << "addMethod" <<  method << "uid:" << uid << std::endl;
 			this->methodList[uid]=method;
 			this->methodTranslate[name]=uid;
+			std::cout << this->methodList[uid] << std::endl;
 		}
 		
 		/**
@@ -92,6 +94,7 @@ namespace SDK{
 		 */
 		inline
 		Method* getMethod(int uid){
+			//std::cout << "Mola Mola que te cagas uid:" << uid << " " << this->methodList[uid] << std::endl;
 			return this->methodList[uid];
 		};
 		

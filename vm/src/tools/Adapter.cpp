@@ -63,10 +63,12 @@ namespace ofxtools{
 		vector<OfxCacheMethod*> listMethods=cache->getMethods();
 		for (unsigned int i=0; i<listMethods.size(); i++){
 			OfxCacheMethod* cacheMethod=listMethods[i];
-			if (cacheMethod->isStatic){
-				obj->addMethod(cacheMethod->name, cacheMethod->ID, new OfxMethod(cacheMethod->name, cacheMethod->line));
-			} else if (cacheMethod->constructor) {
+			//cout << "cacheMethod: " << cacheMethod->name << " " << cacheMethod->constructor << " " << cacheMethod->isStatic<< endl;
+			if (cacheMethod->constructor) {
+				//cout << "cacheMethod: (constructor) " << cacheMethod->name << endl;
 				obj->addMethod(cacheMethod->name, cacheMethod->ID, new OfxConstructor(cacheMethod->name, cacheMethod->line, obj));
+			} else if (cacheMethod->isStatic){
+				obj->addMethod(cacheMethod->name, cacheMethod->ID, new OfxMethod(cacheMethod->name, cacheMethod->line));
 			} else {
 				obj->addInstanceMethod(cacheMethod->name, cacheMethod->ID, new OfxMethod(cacheMethod->name, cacheMethod->line));
 			}
@@ -78,6 +80,7 @@ namespace ofxtools{
 	}
 	
 	void Adapter::addClass(SuperClass* c){
+		//cout << "addClass " << c->getName() << endl;
 		ofxDataCache[c->getOfxName()]=c;
 	}
 	

@@ -74,9 +74,11 @@ namespace ofxbytecode{
 		kjmp(line);
 	l_global:
 		//printf("debug: l_global\n");
+		//cout << "l_global" << endl;
 		line++;
 		kjmp(line);
 	l_private:
+		//cout << "l_private" << endl;
 		//elem_aux=dataStack->get(ini_params+line->param);
 		//printf("debug: l_private (%s)\n", elem_aux->getName());
 		//startClock
@@ -85,12 +87,14 @@ namespace ofxbytecode{
 		line++;
 		kjmp(line);
 	l_attr:
+		//cout << "l_attr" << endl;
 		//startClock
 		dataStack->push(checkAndCast<Super>(dataStack->pop())->getProperty(line->param));
 		//stopClock(2)
 		line++;
 		kjmp(line);
 	l_class:
+		//cout << "l_class" << endl;
 		//cout << "l_class: " << dataStack->getTop() << ":=" << data->getClass(line->param) << "(" << line->param <<")" << endl;
 		//startClock
 		dataStack->push(data->getClass(line->param));
@@ -98,18 +102,22 @@ namespace ofxbytecode{
 		line++;
 		kjmp(line);
 	l_method:
+		//cout << "l_method" << endl;
 		//startClock
 		elem_aux=dataStack->get();
 		//printf("debug: l_method %s %d\n", elem_aux->getName());
 		//cout << "l_method: " << checkAndCast<Super>(elem_aux)->getName() << " -> (" << line->param << ")" << endl;
+		//cout << "l_method: " << checkAndCast<Super>(elem_aux)->getMethod(line->param) << endl;
 		//cout << "l_method: " << checkAndCast<Super>(elem_aux)->getName() << " -> (" << line->param << ")"<< checkAndCast<Super>(elem_aux)->getMethod(line->param)->getName() << endl;
 		//dataStack->push();
 		//dataStack->push(elem_aux);
 		cacheCall.push_back(checkAndCast<Super>(elem_aux)->getMethod(line->param));
+		//cout << "cacheCall:" << cacheCall.back() << endl;
 		//stopClock(4)
 		line++;
 		kjmp(line);
 	l_constant:
+		//cout << "l_constant" << endl;
 		//startClock
 		//	elem_aux=search_constant(line->param);
 		//printf("debug: l_constant %s\n", elem_aux->getName());
@@ -118,6 +126,7 @@ namespace ofxbytecode{
 		line++;
 		kjmp(line);
 	i_call:
+		//cout << "i_call" << endl;
 		//startClock
 		//elem_aux=0;
 		//printf("debug: i_call%s\n", dataStack->get(dataStack->getTop()-line->param-1)->getName().c_str());
@@ -125,7 +134,9 @@ namespace ofxbytecode{
 		//cout << "debug: i_call" << dataStack->getTop() << "-" << line->param << "-" << 1 << endl;
 		//Method* m=checkAndCast<Method>(dataStack->get(dataStack->getTop()-line->param-1));
 		//cout << m->getName() << endl;
+		//cout << "back" << cacheCall.back() << endl;
 		int newLine=cacheCall.back()->call(dataStack);
+		//cout << "out" << endl;
 		cacheCall.pop_back();
 		int arguments=line->param;
 		line++;
@@ -140,6 +151,7 @@ namespace ofxbytecode{
 		//stopClock(6)
 		kjmp(line);
 	i_ret:
+		//cout << "i_ret" << endl;
 		//printf("debug: i_ret %d\n", dataStack->getTop());
 		//startClock
 		elem_aux=NULL;
@@ -162,23 +174,27 @@ namespace ofxbytecode{
 		//stopClock(7)
 		kjmp(line);
 	i_pop:
+		//cout << "i_pop" << endl;
 		//startClock
 		dataStack->pop();
 		//stopClock(8)
 		line++;
 		kjmp(line);
 	i_push:
+		//cout << "i_push" << endl;
 		//startClock
 		dataStack->push(0);
 		//stopClock(9)
 		line++;
 		kjmp(line);
 	i_goto:
+		//cout << "i_goto" << endl;
 		//startClock
 		line=&this->code[line->param];
 		//stopClock(10)
 		kjmp(line);
 	i_g_true:
+		//cout << "i_g_true" << endl;
 		//startClock
 		//cout << "i_g_true:" << checkAndCast<BooleanObject>(dataStack->get())->getValue() << endl;
 		//if (checkAndCast<BooleanObject>(dataStack->pop())->getValue()){
@@ -189,6 +205,7 @@ namespace ofxbytecode{
 		//stopClock(11)
 		kjmp(line);
 	i_g_false:
+		//cout << "i_g_false" << endl;
 		//startClock
 		//cout << "i_g_false:" << checkAndCast<BooleanObject>(dataStack->get())->getValue() << endl;
 		if (((BooleanObject*)dataStack->pop())->getValue()){
@@ -199,6 +216,7 @@ namespace ofxbytecode{
 		//stopClock(12)
 		kjmp(line);
 	i_s_attr:
+		//cout << "i_s_attr" << endl;
 		//startClock
 		elem_aux=dataStack->get(ini_params);
 		checkAndCast<Super>(elem_aux)->storePropiety(line->param, checkAndCast<SuperObject>(dataStack->pop()));
@@ -206,6 +224,7 @@ namespace ofxbytecode{
 		line++;
 		kjmp(line);
 	i_s_private:
+		//cout << "i_s_private" << endl;
 		//startClock
 		//elem_aux=0;
 		//printf("%s\n",elem_aux->getName());

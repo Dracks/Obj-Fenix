@@ -45,6 +45,7 @@ namespace ofxBI{
 		ListObject* getNewInstance();
 		
 		void ofxList(SDK::BICall* call);
+		void ofxListObject(SDK::BICall* call);
 		std::map< std::string, SDK::Method * > getRegisteredMethods();
 	};
 

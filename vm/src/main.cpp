@@ -73,8 +73,11 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 	
 	void *hndl = dlopen("./build/lib/libBuiltIn.dylib", RTLD_NOW);
 	if(hndl == NULL){
-		cerr << dlerror() << endl;
-		exit(-1);
+		void *hndl = dlopen("./lib/libBuiltIn.dylib", RTLD_NOW);
+		if(hndl == NULL){
+			cerr << dlerror() << endl;
+			exit(-1);
+		}
 	}
 	//void *mkr = dlsym(hndl, "maker");*/
 	

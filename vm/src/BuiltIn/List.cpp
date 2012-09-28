@@ -26,12 +26,18 @@ namespace ofxBI {
 	}
 		
 	void ListClass::ofxList(SDK::BICall* call){
+		call->clearAndSetReturn(this->getNewInstance());
+	}
+	
+	void ListClass::ofxListObject(SDK::BICall* call){
 		call->clearAndSetReturn(call->get<ListObject>(1));
 	}
+	
 	std::map< std::string, SDK::Method * > ListClass::getRegisteredMethods(){
 		map< string, Method*> ret=SuperClass::getRegisteredMethods();
-		
-		ret["List(Object)"]=new BIMethod<ListClass>("List(Object)",1,&ListClass::ofxList);
+
+		ret["List"]=new BIMethod<ListClass>("List",0,&ListClass::ofxList);
+		ret["List(Object)"]=new BIMethod<ListClass>("List(Object)",1,&ListClass::ofxListObject);
 //ret["add(String)"]=new BIMethod<StringObject>("add(String)",1,&StringObject::ofxAdd);
 		ret["get(Integer)"]=new BIMethod<ListObject>("get(Integer)", 1, &ListObject::ofxGet);
 		ret["add(Object)"]=new BIMethod<ListObject>("add(Object)", 1, &ListObject::ofxAdd);
@@ -42,6 +48,7 @@ namespace ofxBI {
 		ret["last"]=new BIMethod<ListObject>("last", 0, &ListObject::ofxLast);
 		ret["pop"]=new BIMethod<ListObject>("pop", 0, &ListObject::ofxPop);
 		
+		return ret;
 	}
 
 	

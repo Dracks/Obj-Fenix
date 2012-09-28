@@ -52,7 +52,7 @@ class native String:
 		def add (e:String) return String;
 		def sufix (p:Integer) return String;
 		def prefix (p:Integer) return String;
-		def substring (ini:Integer, end:Integer) return String;
+		def substring (ini:Integer, e:Integer) return String;
 		def length return Integer;
 		def split(e:String) return List;
 	end
@@ -60,7 +60,7 @@ end
 
 class native List:
 	public:
-		def list; /* Anda esto es un constructor*/
+		def List; /* Anda esto es un constructor*/
 		def get (index:Integer) return Object;
 		def length return Integer;
 		def add (elem:Object);
