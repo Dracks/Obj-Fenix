@@ -37,7 +37,7 @@ namespace ofxBI{
 	
 	IntegerObject* IntegerClass::getNewInstance(int v){
 		if (cache==NULL){
-			cache=new IntegerObject(v, this->getCache());
+			cache=new IntegerObject(this, v);
 		}
 		IntegerObject* ret=new IntegerObject(*cache);
 		ret->setValue(v);
@@ -70,7 +70,11 @@ namespace ofxBI{
 	
 	
 	//	class IntegerObject: public SDK::Primitive<int> {
-	IntegerObject::IntegerObject(int v, ofxMap* base): Primitive<int>(v,base){}
+	IntegerObject::IntegerObject(IntegerClass* ci, int v): Primitive<int>(v,ci->getCache()){
+		classInstance=ci;
+		booleanClassInstance=checkAndCast<BooleanClass>(ofxbytecode::Library::getLibrary()->getClass("Boolean"));
+		
+	}
 	
 	IntegerObject::~IntegerObject(){}
 	
@@ -86,47 +90,47 @@ namespace ofxBI{
 	
 	void IntegerObject::ofxAdd(BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;
-		call->clearAndSetReturn(checkAndCast<IntegerClass>(ofxbytecode::Library::getLibrary()->getClass("Integer"))->getNewInstance(this->value+tmp));
+		call->clearAndSetReturn(classInstance->getNewInstance(this->value+tmp));
 	}
 	
 	
 	void IntegerObject::ofxSub(BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;
-		call->clearAndSetReturn(checkAndCast<IntegerClass>(ofxbytecode::Library::getLibrary()->getClass("Integer"))->getNewInstance(this->value+tmp));
+		call->clearAndSetReturn(classInstance->getNewInstance(this->value+tmp));
 		
 	}
 	
 	void IntegerObject::ofxMul(BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;
-		call->clearAndSetReturn(checkAndCast<IntegerClass>(ofxbytecode::Library::getLibrary()->getClass("Integer"))->getNewInstance(this->value*tmp));
+		call->clearAndSetReturn(classInstance->getNewInstance(this->value*tmp));
 	}
 	
 	void IntegerObject::ofxDiv(BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;
-		call->clearAndSetReturn(checkAndCast<IntegerClass>(ofxbytecode::Library::getLibrary()->getClass("Integer"))->getNewInstance(this->value+tmp));
+		call->clearAndSetReturn(classInstance->getNewInstance(this->value+tmp));
 		
 	}
 	
 	void IntegerObject::ofxDif(BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;
-		call->clearAndSetReturn(checkAndCast<BooleanClass>(ofxbytecode::Library::getLibrary()->getClass("Boolean"))->getNewInstance(this->value!=tmp));
+		call->clearAndSetReturn(booleanClassInstance->getNewInstance(this->value!=tmp));
 	}
 	
 	void IntegerObject::ofxEqual(BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;
-		call->clearAndSetReturn(checkAndCast<BooleanClass>(ofxbytecode::Library::getLibrary()->getClass("Boolean"))->getNewInstance(this->value==tmp));
+		call->clearAndSetReturn(booleanClassInstance->getNewInstance(this->value==tmp));
 	}
 	
 	void IntegerObject::ofxLower(SDK::BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;
-		BooleanObject* test=checkAndCast<BooleanClass>(ofxbytecode::Library::getLibrary()->getClass("Boolean"))->getNewInstance(this->value<tmp);
+		BooleanObject* test=booleanClassInstance->getNewInstance(this->value<tmp);
 		//std::cout << "Debug: " <<  test->getValue() << endl;
 		call->clearAndSetReturn(test);
 	};
 	
 	void IntegerObject::ofxGreater(SDK::BICall* call){
 		int tmp=call->get<IntegerObject>(1)->value;
-		BooleanObject* test=checkAndCast<BooleanClass>(ofxbytecode::Library::getLibrary()->getClass("Boolean"))->getNewInstance(this->value>tmp);
+		BooleanObject* test=booleanClassInstance->getNewInstance(this->value>tmp);
 		//std::cout << "Debug: " <<  test->getValue() << endl;
 		call->clearAndSetReturn(test);
 	};

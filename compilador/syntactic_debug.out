@@ -80,27 +80,31 @@ syntactic_debug(BaseLibs/Base.ofx):52	Applying rule definition <-- method_defini
 syntactic_debug(BaseLibs/Base.ofx):53	Applying rule implementation_option <-- ;
 syntactic_debug(BaseLibs/Base.ofx):53	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
 syntactic_debug(BaseLibs/Base.ofx):53	Applying rule definition <-- method_definition
-syntactic_debug(BaseLibs/Base.ofx):54	Applying rule list_definitions <-- definition
-syntactic_debug(BaseLibs/Base.ofx):54	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(BaseLibs/Base.ofx):55	Applying rule list_acces_level_block <-- nothing
-syntactic_debug(BaseLibs/Base.ofx):55	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
-syntactic_debug(BaseLibs/Base.ofx):55	Applying rule class_definition <-- class option_native identifier(String): list_acces_level_block end
-syntactic_debug(BaseLibs/Base.ofx):55	Applying rule class_interface_definition <-- class_definition
-syntactic_debug(BaseLibs/Base.ofx):55	Applying rule list_class_definition <-- list_class_definition class_interface_definition
-syntactic_debug(BaseLibs/Base.ofx):57	Applying rule option_native <-- native
-syntactic_debug(BaseLibs/Base.ofx):58	Applying rule level_definition_token <-- public
-syntactic_debug(BaseLibs/Base.ofx):59	Applying rule implementation_option <-- ;
-syntactic_debug(BaseLibs/Base.ofx):59	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(BaseLibs/Base.ofx):59	Applying rule definition <-- method_definition
-syntactic_debug(BaseLibs/Base.ofx):60	Applying rule implementation_option <-- ;
-syntactic_debug(BaseLibs/Base.ofx):60	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(BaseLibs/Base.ofx):60	Applying rule definition <-- method_definition
-syntactic_debug(BaseLibs/Base.ofx):61	Applying rule implementation_option <-- ;
-syntactic_debug(BaseLibs/Base.ofx):61	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(BaseLibs/Base.ofx):61	Applying rule definition <-- method_definition
-syntactic_debug(BaseLibs/Base.ofx):62	Applying rule implementation_option <-- ;
-syntactic_debug(BaseLibs/Base.ofx):62	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(BaseLibs/Base.ofx):62	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):54	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):54	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):54	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):55	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):55	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):55	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):56	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):56	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):56	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):57	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):57	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):57	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):58	Applying rule list_definitions <-- definition
+syntactic_debug(BaseLibs/Base.ofx):58	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):58	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):58	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):58	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):58	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):59	Applying rule list_acces_level_block <-- nothing
+syntactic_debug(BaseLibs/Base.ofx):59	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
+syntactic_debug(BaseLibs/Base.ofx):59	Applying rule class_definition <-- class option_native identifier(String): list_acces_level_block end
+syntactic_debug(BaseLibs/Base.ofx):59	Applying rule class_interface_definition <-- class_definition
+syntactic_debug(BaseLibs/Base.ofx):59	Applying rule list_class_definition <-- list_class_definition class_interface_definition
+syntactic_debug(BaseLibs/Base.ofx):61	Applying rule option_native <-- native
+syntactic_debug(BaseLibs/Base.ofx):62	Applying rule level_definition_token <-- public
 syntactic_debug(BaseLibs/Base.ofx):63	Applying rule implementation_option <-- ;
 syntactic_debug(BaseLibs/Base.ofx):63	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
 syntactic_debug(BaseLibs/Base.ofx):63	Applying rule definition <-- method_definition
@@ -116,41 +120,46 @@ syntactic_debug(BaseLibs/Base.ofx):66	Applying rule definition <-- method_defini
 syntactic_debug(BaseLibs/Base.ofx):67	Applying rule implementation_option <-- ;
 syntactic_debug(BaseLibs/Base.ofx):67	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
 syntactic_debug(BaseLibs/Base.ofx):67	Applying rule definition <-- method_definition
-syntactic_debug(BaseLibs/Base.ofx):68	Applying rule list_definitions <-- definition
-syntactic_debug(BaseLibs/Base.ofx):68	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(BaseLibs/Base.ofx):68	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(BaseLibs/Base.ofx):68	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(BaseLibs/Base.ofx):68	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(BaseLibs/Base.ofx):68	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(BaseLibs/Base.ofx):68	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(BaseLibs/Base.ofx):68	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(BaseLibs/Base.ofx):68	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(BaseLibs/Base.ofx):69	Applying rule list_acces_level_block <-- nothing
-syntactic_debug(BaseLibs/Base.ofx):69	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
-syntactic_debug(BaseLibs/Base.ofx):69	Applying rule class_definition <-- class option_native identifier(list): list_acces_level_block end
-syntactic_debug(BaseLibs/Base.ofx):69	Applying rule class_interface_definition <-- class_definition
-syntactic_debug(BaseLibs/Base.ofx):69	Applying rule list_class_definition <-- list_class_definition class_interface_definition
-syntactic_debug(BaseLibs/Base.ofx):71	Applying rule option_native <-- native
-syntactic_debug(BaseLibs/Base.ofx):72	Applying rule level_definition_token <-- public
-syntactic_debug(BaseLibs/Base.ofx):73	Applying rule implementation_option <-- ;
-syntactic_debug(BaseLibs/Base.ofx):73	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(BaseLibs/Base.ofx):73	Applying rule definition <-- method_definition
-syntactic_debug(BaseLibs/Base.ofx):74	Applying rule implementation_option <-- ;
-syntactic_debug(BaseLibs/Base.ofx):74	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(BaseLibs/Base.ofx):74	Applying rule definition <-- method_definition
-syntactic_debug(BaseLibs/Base.ofx):75	Applying rule implementation_option <-- ;
-syntactic_debug(BaseLibs/Base.ofx):75	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(BaseLibs/Base.ofx):75	Applying rule definition <-- method_definition
-syntactic_debug(BaseLibs/Base.ofx):76	Applying rule list_definitions <-- definition
-syntactic_debug(BaseLibs/Base.ofx):76	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(BaseLibs/Base.ofx):76	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(BaseLibs/Base.ofx):77	Applying rule list_acces_level_block <-- nothing
-syntactic_debug(BaseLibs/Base.ofx):77	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
-syntactic_debug(BaseLibs/Base.ofx):77	Applying rule class_definition <-- class option_native identifier(File): list_acces_level_block end
-syntactic_debug(BaseLibs/Base.ofx):77	Applying rule class_interface_definition <-- class_definition
-syntactic_debug(BaseLibs/Base.ofx):77	Applying rule list_class_definition <-- list_class_definition class_interface_definition
-syntactic_debug(BaseLibs/Base.ofx):79	Applying rule option_native <-- native
-syntactic_debug(BaseLibs/Base.ofx):80	Applying rule level_definition_token <-- public
+syntactic_debug(BaseLibs/Base.ofx):68	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):68	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):68	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):69	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):69	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):69	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):70	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):70	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):70	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):71	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):71	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):71	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):72	Applying rule list_definitions <-- definition
+syntactic_debug(BaseLibs/Base.ofx):72	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):72	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):72	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):72	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):72	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):72	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):72	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):72	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):73	Applying rule list_acces_level_block <-- nothing
+syntactic_debug(BaseLibs/Base.ofx):73	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
+syntactic_debug(BaseLibs/Base.ofx):73	Applying rule class_definition <-- class option_native identifier(List): list_acces_level_block end
+syntactic_debug(BaseLibs/Base.ofx):73	Applying rule class_interface_definition <-- class_definition
+syntactic_debug(BaseLibs/Base.ofx):73	Applying rule list_class_definition <-- list_class_definition class_interface_definition
+syntactic_debug(BaseLibs/Base.ofx):75	Applying rule option_native <-- native
+syntactic_debug(BaseLibs/Base.ofx):76	Applying rule level_definition_token <-- public
+syntactic_debug(BaseLibs/Base.ofx):77	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):77	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):77	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):78	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):78	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):78	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):79	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):79	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):79	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):80	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):80	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):80	Applying rule definition <-- method_definition
 syntactic_debug(BaseLibs/Base.ofx):81	Applying rule implementation_option <-- ;
 syntactic_debug(BaseLibs/Base.ofx):81	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
 syntactic_debug(BaseLibs/Base.ofx):81	Applying rule definition <-- method_definition
@@ -163,62 +172,103 @@ syntactic_debug(BaseLibs/Base.ofx):83	Applying rule definition <-- method_defini
 syntactic_debug(BaseLibs/Base.ofx):84	Applying rule list_definitions <-- definition
 syntactic_debug(BaseLibs/Base.ofx):84	Applying rule list_definitions <-- definition list_definitions
 syntactic_debug(BaseLibs/Base.ofx):84	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):84	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):84	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):84	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):84	Applying rule list_definitions <-- definition list_definitions
 syntactic_debug(BaseLibs/Base.ofx):85	Applying rule list_acces_level_block <-- nothing
 syntactic_debug(BaseLibs/Base.ofx):85	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
-syntactic_debug(BaseLibs/Base.ofx):85	Applying rule class_definition <-- class option_native identifier(Shell): list_acces_level_block end
+syntactic_debug(BaseLibs/Base.ofx):85	Applying rule class_definition <-- class option_native identifier(File): list_acces_level_block end
 syntactic_debug(BaseLibs/Base.ofx):85	Applying rule class_interface_definition <-- class_definition
 syntactic_debug(BaseLibs/Base.ofx):85	Applying rule list_class_definition <-- list_class_definition class_interface_definition
-syntactic_debug(BaseLibs/Base.ofx):86	Applying rule program <-- Option_defining_program list_modules_import option_package_Definition list_class_definition
-syntactic_debug(test/hello_world.ofx):1	Applying rule option_defining_program <-- Program Identifier :
-syntactic_debug(test/hello_world.ofx):1	Applying rule list_modules_import <-- nothing
-syntactic_debug(test/hello_world.ofx):3	Applying rule option_package_definition <-- nothing
-syntactic_debug(test/hello_world.ofx):3	Applying rule program <-- option_package_definition
-syntactic_debug(test/hello_world.ofx):3	Applying rule option_native <-- nothing
-syntactic_debug(test/hello_world.ofx):4	Applying rule level_definition_token <-- public
-syntactic_debug(test/hello_world.ofx):7	Applying rule Constant Value i ++ 297
-syntactic_debug(test/hello_world.ofx):7	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/hello_world.ofx):7	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):7	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/hello_world.ofx):7	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/hello_world.ofx):7	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):8	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
-syntactic_debug(test/hello_world.ofx):8	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(test/hello_world.ofx):8	Applying rule definition <-- method_definition
-syntactic_debug(test/hello_world.ofx):10	Applying rule list_propiety_concat <-- nothing 
-syntactic_debug(test/hello_world.ofx):10	Applying rule list_propiety <-- IDENTIFIER list_propiety_concat 
-syntactic_debug(test/hello_world.ofx):12	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/hello_world.ofx):12	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):12	Applying rule Constant Value 0 297
-syntactic_debug(test/hello_world.ofx):12	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/hello_world.ofx):12	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):12	Applying rule assign_sentence <-- expression := expression ;
-syntactic_debug(test/hello_world.ofx):13	Applying rule Constant Value 100000 297
-syntactic_debug(test/hello_world.ofx):13	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/hello_world.ofx):13	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):13	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/hello_world.ofx):13	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/hello_world.ofx):13	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):14	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/hello_world.ofx):14	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/hello_world.ofx):14	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):17	Applying rule Constant Value Main del Hola Mon!  297
-syntactic_debug(test/hello_world.ofx):17	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/hello_world.ofx):17	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/hello_world.ofx):17	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):17	Applying rule option_call_parameters <-- 2/2
-syntactic_debug(test/hello_world.ofx):17	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
-syntactic_debug(test/hello_world.ofx):17	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):17	Applying rule option_extension_expression <-- nothing
-syntactic_debug(test/hello_world.ofx):17	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
-syntactic_debug(test/hello_world.ofx):17	Applying rule expression <-- IDENTIFIER option_extension_expression
-syntactic_debug(test/hello_world.ofx):18	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
-syntactic_debug(test/hello_world.ofx):18	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
-syntactic_debug(test/hello_world.ofx):18	Applying rule definition <-- method_definition
-syntactic_debug(test/hello_world.ofx):19	Applying rule list_definitions <-- definition
-syntactic_debug(test/hello_world.ofx):19	Applying rule list_definitions <-- definition list_definitions
-syntactic_debug(test/hello_world.ofx):20	Applying rule list_acces_level_block <-- nothing
-syntactic_debug(test/hello_world.ofx):20	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
-syntactic_debug(test/hello_world.ofx):20	Applying rule class_definition <-- class option_native identifier(helloWorld): list_acces_level_block end
-syntactic_debug(test/hello_world.ofx):20	Applying rule class_interface_definition <-- class_definition
-syntactic_debug(test/hello_world.ofx):20	Applying rule list_class_definition <-- class_interface_definition
-syntactic_debug(test/hello_world.ofx):21	Applying rule program <-- Option_defining_program list_modules_import option_package_Definition list_class_definition
+syntactic_debug(BaseLibs/Base.ofx):87	Applying rule option_native <-- native
+syntactic_debug(BaseLibs/Base.ofx):88	Applying rule level_definition_token <-- public
+syntactic_debug(BaseLibs/Base.ofx):89	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):89	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):89	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):90	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):90	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):90	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):91	Applying rule implementation_option <-- ;
+syntactic_debug(BaseLibs/Base.ofx):91	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(BaseLibs/Base.ofx):91	Applying rule definition <-- method_definition
+syntactic_debug(BaseLibs/Base.ofx):92	Applying rule list_definitions <-- definition
+syntactic_debug(BaseLibs/Base.ofx):92	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):92	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(BaseLibs/Base.ofx):93	Applying rule list_acces_level_block <-- nothing
+syntactic_debug(BaseLibs/Base.ofx):93	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
+syntactic_debug(BaseLibs/Base.ofx):93	Applying rule class_definition <-- class option_native identifier(Shell): list_acces_level_block end
+syntactic_debug(BaseLibs/Base.ofx):93	Applying rule class_interface_definition <-- class_definition
+syntactic_debug(BaseLibs/Base.ofx):93	Applying rule list_class_definition <-- list_class_definition class_interface_definition
+syntactic_debug(BaseLibs/Base.ofx):94	Applying rule program <-- Option_defining_program list_modules_import option_package_Definition list_class_definition
+syntactic_debug(../Tests/hello_world.ofx):1	Applying rule option_defining_program <-- Program Identifier :
+syntactic_debug(../Tests/hello_world.ofx):1	Applying rule list_modules_import <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):3	Applying rule option_package_definition <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):3	Applying rule program <-- option_package_definition
+syntactic_debug(../Tests/hello_world.ofx):3	Applying rule option_native <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):4	Applying rule level_definition_token <-- public
+syntactic_debug(../Tests/hello_world.ofx):7	Applying rule Constant Value i + 297
+syntactic_debug(../Tests/hello_world.ofx):7	Applying rule option_extension_expression <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):7	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):7	Applying rule option_extension_expression <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):7	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
+syntactic_debug(../Tests/hello_world.ofx):7	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):8	Applying rule Constant Value Merda? 297
+syntactic_debug(../Tests/hello_world.ofx):8	Applying rule option_extension_expression <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):8	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):8	Applying rule option_call_parameters <-- 2/2
+syntactic_debug(../Tests/hello_world.ofx):8	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
+syntactic_debug(../Tests/hello_world.ofx):8	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):9	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
+syntactic_debug(../Tests/hello_world.ofx):9	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(../Tests/hello_world.ofx):9	Applying rule definition <-- method_definition
+syntactic_debug(../Tests/hello_world.ofx):11	Applying rule list_propiety_concat <-- nothing 
+syntactic_debug(../Tests/hello_world.ofx):11	Applying rule list_propiety <-- IDENTIFIER list_propiety_concat 
+syntactic_debug(../Tests/hello_world.ofx):13	Applying rule Constant Value hola 297
+syntactic_debug(../Tests/hello_world.ofx):13	Applying rule option_extension_expression <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):13	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):13	Applying rule option_call_parameters <-- 2/2
+syntactic_debug(../Tests/hello_world.ofx):13	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
+syntactic_debug(../Tests/hello_world.ofx):13	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):14	Applying rule option_extension_expression <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):14	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):14	Applying rule Constant Value 0 297
+syntactic_debug(../Tests/hello_world.ofx):14	Applying rule option_extension_expression <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):14	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):14	Applying rule assign_sentence <-- expression := expression ;
+syntactic_debug(../Tests/hello_world.ofx):15	Applying rule option_extension_expression <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):15	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
+syntactic_debug(../Tests/hello_world.ofx):15	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):15	Applying rule option_call_parameters <-- 2/2
+syntactic_debug(../Tests/hello_world.ofx):15	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
+syntactic_debug(../Tests/hello_world.ofx):15	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):16	Applying rule Constant Value 100000 297
+syntactic_debug(../Tests/hello_world.ofx):16	Applying rule option_extension_expression <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):16	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):16	Applying rule option_call_parameters <-- 2/2
+syntactic_debug(../Tests/hello_world.ofx):16	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
+syntactic_debug(../Tests/hello_world.ofx):16	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):17	Applying rule option_extension_expression <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):17	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
+syntactic_debug(../Tests/hello_world.ofx):17	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):20	Applying rule Constant Value Main del Hola Mon!  297
+syntactic_debug(../Tests/hello_world.ofx):20	Applying rule option_extension_expression <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):20	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
+syntactic_debug(../Tests/hello_world.ofx):20	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):20	Applying rule option_call_parameters <-- 2/2
+syntactic_debug(../Tests/hello_world.ofx):20	Applying rule option_extension_expression <-- IDENTIFIER option_call_parameters
+syntactic_debug(../Tests/hello_world.ofx):20	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):20	Applying rule option_extension_expression <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):20	Applying rule option_extension_expression <-- . IDENTIFIER option_call_parameters_parent option_expression_expression
+syntactic_debug(../Tests/hello_world.ofx):20	Applying rule expression <-- IDENTIFIER option_extension_expression
+syntactic_debug(../Tests/hello_world.ofx):21	Applying rule implementation_option <-- : var_declaration_list BEGIN list_sentences END
+syntactic_debug(../Tests/hello_world.ofx):21	Applying rule method_definition <-- def IDENTIFIER option_definition_parameters option_return implementation_option
+syntactic_debug(../Tests/hello_world.ofx):21	Applying rule definition <-- method_definition
+syntactic_debug(../Tests/hello_world.ofx):22	Applying rule list_definitions <-- definition
+syntactic_debug(../Tests/hello_world.ofx):22	Applying rule list_definitions <-- definition list_definitions
+syntactic_debug(../Tests/hello_world.ofx):23	Applying rule list_acces_level_block <-- nothing
+syntactic_debug(../Tests/hello_world.ofx):23	Applying rule list_acces_level_block <-- level_definition_token : list_definitions end list_acces_level_block
+syntactic_debug(../Tests/hello_world.ofx):23	Applying rule class_definition <-- class option_native identifier(helloWorld): list_acces_level_block end
+syntactic_debug(../Tests/hello_world.ofx):23	Applying rule class_interface_definition <-- class_definition
+syntactic_debug(../Tests/hello_world.ofx):23	Applying rule list_class_definition <-- class_interface_definition
+syntactic_debug(../Tests/hello_world.ofx):24	Applying rule program <-- Option_defining_program list_modules_import option_package_Definition list_class_definition

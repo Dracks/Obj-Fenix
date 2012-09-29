@@ -75,7 +75,7 @@ namespace SDK{
 			//std::cout << "addMethod" <<  method << "uid:" << uid << std::endl;
 			this->methodList[uid]=method;
 			this->methodTranslate[name]=uid;
-			std::cout << this->methodList[uid] << std::endl;
+			//std::cout << this->methodList[uid] << std::endl;
 		}
 		
 		/**
