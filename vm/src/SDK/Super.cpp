@@ -81,6 +81,11 @@ namespace SDK{
 		
 	//inline 
 	void Super::storePropiety(int uid, SuperObject* obj){
+		SuperObject* old=this->propertyList[uid];
+		/*if (old!=NULL){
+			old->release();
+		}
+		obj->retain();*/
 		this->propertyList[uid]=obj;
 	}
 		

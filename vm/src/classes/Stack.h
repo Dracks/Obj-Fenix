@@ -82,6 +82,9 @@ namespace ofxbytecode{
 		};
 		
 		inline void reseTop(int p) {
+			/*for (int i=p; i<top; i++){
+				
+			}*/
 			top=p;
 			//p_top=&(stackPtr[top]);
 		};

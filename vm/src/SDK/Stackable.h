@@ -48,6 +48,7 @@ namespace SDK{
 		std::string ofxName;
 		std::string name;
 		int type;
+		int refCount;
 	protected:
 		/**
 		 * @param p_name the name of the object (Integer, Boolean, String...)
@@ -72,6 +73,20 @@ namespace SDK{
 		 * @brief get the name of the stackable object
 		 */
 		std::string getName();
+		
+		inline
+		void release(){
+			if (refCount==1){
+				delete this;
+			} else
+				refCount--;
+		}
+		
+		inline
+		void retain(){
+			refCount++;
+		}
+		
 /*		virtual Class* getAtr(int i)=0;
 		virtual void setAtr(int i, Class* atr)=0;
 		virtual Method* getMethod(int i)=0;

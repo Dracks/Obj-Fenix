@@ -21,6 +21,7 @@ namespace SDK{
 	
 	Stackable::Stackable(int type){
 		this->type=type;
+		refCount=0;
 	}
 	
 	void Stackable::setName(string name){
