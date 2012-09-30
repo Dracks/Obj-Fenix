@@ -7,7 +7,6 @@
  *
  */
 
-
 /**
  * @mainpage Objective Fenix - Virtual Machine
  * @author Jaume Singla Valls
@@ -41,6 +40,23 @@
 #include <dlfcn.h>
 
 
+#ifdef _WIN32 // note the underscore: without it, it's not msdn official!
+#define kLibraryExtension(name) name ".dll"
+// Windows (x64 and x86)
+#elif __unix__ // all unices
+// Unix
+#elif __posix__
+// POSIX
+#elif __linux__
+// linux
+#define kLibraryExtension(name)  name ".so" 
+//"
+#elif __APPLE__
+#define kLibraryExtension(name)  name ".dylib" 
+//"
+// Mac OS, not sure if this is covered by __posix__ and/or __unix__ though...
+#endif
+
 using namespace SDK;
 using namespace ofxBI;
 using namespace ofxbytecode;
@@ -58,7 +74,12 @@ typedef struct headerSave{
 	int		 n_ByteCode;
 } t_HeaderSave;
 
-
+/**
+ * @brief load the bytecodefile, and charge all libraries
+ * @param file Name of the file .ofb to load
+ * @param data pointer to the library of the code
+ * @return The bytecode loaded
+ */
 pair<ASM_line*, int> loadByteCode(string file, Library* data){
 	t_HeaderSave header;
 	FILE*	bytecodeFile;
@@ -71,7 +92,18 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 		exit(-1);
 	}
 	
-	void *hndl = dlopen("./build/lib/libBuiltIn.dylib", RTLD_NOW);
+	fread(&header, sizeof(headerSave), 1, bytecodeFile); // A partir d'aqui tenim la capçalera carregada
+	printf("Debugging: (%d)\n", header.ByteCodeVersion);
+	printf("Constants:	%d despl: %ld\n",header.n_Constants, header.p_Constants);
+	printf("Class:		%d despl: %ld\n",header.n_Class, header.p_Class);
+	printf("ByteCode:	%d despl: %ld\n",header.n_ByteCode, header.p_ByteCode);
+	
+	if (header.ByteCodeVersion!=1){
+		cerr << "ByteCode Version is incompatible, please, compile the code with the correct version of Compiler" << endl;
+		exit(-1);
+	}
+	
+	void *hndl = dlopen(kLibraryExtension("./build/lib/libBuiltIn"), RTLD_NOW);
 	if(hndl == NULL){
 		void *hndl = dlopen("./lib/libBuiltIn.dylib", RTLD_NOW);
 		if(hndl == NULL){
@@ -83,12 +115,6 @@ pair<ASM_line*, int> loadByteCode(string file, Library* data){
 	
 
 	Adapter* adaptador=new Adapter();
-	
-	fread(&header, sizeof(headerSave), 1, bytecodeFile); // A partir d'aqui tenim la capçalera carregada
-	printf("Debugging: (%d)\n", header.ByteCodeVersion);
-	printf("Constants:	%d despl: %ld\n",header.n_Constants, header.p_Constants);
-	printf("Class:		%d despl: %ld\n",header.n_Class, header.p_Class);
-	printf("ByteCode:	%d despl: %ld\n",header.n_ByteCode, header.p_ByteCode);
 	
 	
 	// We read the Classes from bytecode

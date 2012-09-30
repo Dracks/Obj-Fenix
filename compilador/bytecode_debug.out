@@ -21,10 +21,14 @@ Afegint Clase: Integer
 Afegint Clase: String
 	Afegim metode:String(Object)
 	Afegim metode:add(String)
-	Afegim metode:toInteger
-Afegint Clase: list
-	Afegim metode:list(Object)
-	Afegim metode:list
+	Afegim metode:sufix(Integer)
+	Afegim metode:prefix(Integer)
+	Afegim metode:substring(Integer, Integer)
+	Afegim metode:length
+	Afegim metode:split(String)
+Afegint Clase: List
+	Afegim metode:List(Object)
+	Afegim metode:List
 	Afegim metode:get(Integer)
 	Afegim metode:length
 	Afegim metode:add(Object)
@@ -38,6 +42,10 @@ Afegint Clase: File
 	Afegim metode:File(String, String)
 	Afegim metode:write(String)
 	Afegim metode:read
+	Afegim metode:isOk
+	Afegim metode:eof
+	Afegim metode:errorCode
+	Afegim metode:error
 Afegint Clase: Shell
 	Afegim metode:Shell(Object)
 	Afegim metode:stdout(String)
@@ -50,44 +58,66 @@ ByteCode:1	SIZE_INSTRUCTIONS	7
 	Afegim metode:helloWorld
 ByteCode:2	LOAD_CLASS	7
 ByteCode:3	LOAD_METHOD	7
-Afegint constant: i ++
+Afegint constant: i +
 ByteCode:4	LOAD_CONSTANT	1
 ByteCode:5	CALL	1
 ByteCode:6	POP_TOP	0
 Parsejant instruccions
-ByteCode:7	RET	0
-ByteCode:8	SIZE_INSTRUCTIONS	8
+ByteCode:7	LOAD_CLASS	7
+ByteCode:8	LOAD_METHOD	7
+Afegint constant: Merda?
+ByteCode:9	LOAD_CONSTANT	2
+ByteCode:10	CALL	1
+ByteCode:11	POP_TOP	0
+Parsejant instruccions
+ByteCode:12	RET	0
+ByteCode:13	SIZE_INSTRUCTIONS	8
 	Afegim metode:main
-ByteCode:9	PUSH_TOP	0
+ByteCode:14	PUSH_TOP	0
+ByteCode:15	LOAD_CLASS	7
+ByteCode:16	LOAD_METHOD	7
+Afegint constant: hola
+ByteCode:17	LOAD_CONSTANT	3
+ByteCode:18	CALL	1
+ByteCode:19	POP_TOP	0
+Parsejant instruccions
 Afegint constant: 0
-ByteCode:10	LOAD_CONSTANT	2
-ByteCode:11	STORE_PRIVATE	1
-Parsejant instruccions
-ByteCode:12	LOAD_PRIVATE	1
-ByteCode:13	LOAD_METHOD	12
-Afegint constant: 100000
-ByteCode:14	LOAD_CONSTANT	3
-ByteCode:15	CALL	1
-ByteCode:16	GOTO_FALSE	16
-Parsejant instruccions
-ByteCode:17	LOAD_PRIVATE	1
-ByteCode:18	LOAD_METHOD	4
-ByteCode:19	CALL	0
-ByteCode:20	POP_TOP	0
-Parsejant instruccions
-ByteCode:21	GOTO	12
+ByteCode:20	LOAD_CONSTANT	4
+ByteCode:21	STORE_PRIVATE	1
 Parsejant instruccions
 ByteCode:22	LOAD_CLASS	7
 ByteCode:23	LOAD_METHOD	7
-Afegint constant: Main del Hola Mon! 
-ByteCode:24	LOAD_CONSTANT	4
-ByteCode:25	LOAD_METHOD	4
-ByteCode:26	LOAD_PRIVATE	1
-ByteCode:27	LOAD_METHOD	14
-ByteCode:28	CALL	0
-ByteCode:29	CALL	1
-ByteCode:30	CALL	1
-ByteCode:31	POP_TOP	0
+ByteCode:24	LOAD_PRIVATE	1
+ByteCode:25	LOAD_METHOD	14
+ByteCode:26	CALL	0
+ByteCode:27	CALL	1
+ByteCode:28	POP_TOP	0
 Parsejant instruccions
-ByteCode:32	RET	-2
-ByteCode:33	SIZE_INSTRUCTIONS	9
+ByteCode:29	LOAD_PRIVATE	1
+ByteCode:30	LOAD_METHOD	12
+Afegint constant: 100000
+ByteCode:31	LOAD_CONSTANT	5
+ByteCode:32	CALL	1
+ByteCode:33	GOTO_FALSE	33
+Parsejant instruccions
+ByteCode:34	LOAD_PRIVATE	1
+ByteCode:35	LOAD_METHOD	4
+ByteCode:36	CALL	0
+ByteCode:37	POP_TOP	0
+Parsejant instruccions
+ByteCode:38	GOTO	29
+Parsejant instruccions
+ByteCode:39	LOAD_CLASS	7
+ByteCode:40	LOAD_METHOD	7
+Afegint constant: Main del Hola Mon! 
+ByteCode:41	LOAD_CONSTANT	6
+ByteCode:42	LOAD_METHOD	4
+ByteCode:43	LOAD_PRIVATE	1
+ByteCode:44	LOAD_METHOD	14
+ByteCode:45	CALL	0
+ByteCode:46	CALL	1
+ByteCode:47	CALL	1
+ByteCode:48	POP_TOP	0
+Parsejant instruccions
+ByteCode:49	RET	-2
+ByteCode:50	SIZE_INSTRUCTIONS	9

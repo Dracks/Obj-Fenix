@@ -23,10 +23,14 @@ semantic_debug:	 0 with: Object String is not validated
 semantic_debug:	 -1 with: Validating object: String with native flag: 1
 semantic_debug:	 -1 with: List of methods with Name: String
 semantic_debug:	 -1 with: List of methods with Name: add
-semantic_debug:	 -1 with: List of methods with Name: toInteger
-semantic_debug:	 0 with: Object list is not validated
-semantic_debug:	 -1 with: Validating object: list with native flag: 1
-semantic_debug:	 -1 with: List of methods with Name: list
+semantic_debug:	 -1 with: List of methods with Name: sufix
+semantic_debug:	 -1 with: List of methods with Name: prefix
+semantic_debug:	 -1 with: List of methods with Name: substring
+semantic_debug:	 -1 with: List of methods with Name: length
+semantic_debug:	 -1 with: List of methods with Name: split
+semantic_debug:	 0 with: Object List is not validated
+semantic_debug:	 -1 with: Validating object: List with native flag: 1
+semantic_debug:	 -1 with: List of methods with Name: List
 semantic_debug:	 -1 with: List of methods with Name: get
 semantic_debug:	 -1 with: List of methods with Name: length
 semantic_debug:	 -1 with: List of methods with Name: add
@@ -40,6 +44,10 @@ semantic_debug:	 -1 with: Validating object: File with native flag: 1
 semantic_debug:	 -1 with: List of methods with Name: File
 semantic_debug:	 -1 with: List of methods with Name: write
 semantic_debug:	 -1 with: List of methods with Name: read
+semantic_debug:	 -1 with: List of methods with Name: isOk
+semantic_debug:	 -1 with: List of methods with Name: eof
+semantic_debug:	 -1 with: List of methods with Name: errorCode
+semantic_debug:	 -1 with: List of methods with Name: error
 semantic_debug:	 0 with: Object Shell is not validated
 semantic_debug:	 -1 with: Validating object: Shell with native flag: 1
 semantic_debug:	 -1 with: List of methods with Name: Shell
